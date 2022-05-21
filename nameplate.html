@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="./favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta http-equiv="content-security-policy" content="">
+	<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-b8a49b79.css">
+	<link rel="stylesheet" href="/_app/assets/Article.svelte_svelte_type_style_lang-6949c5b7.css">
+	<link rel="modulepreload" href="/_app/start-b3ca0300.js">
+	<link rel="modulepreload" href="/_app/chunks/index-ac18434c.js">
+	<link rel="modulepreload" href="/_app/chunks/paths-396f020f.js">
+	<link rel="modulepreload" href="/_app/pages/__layout.svelte-e332817b.js">
+	<link rel="modulepreload" href="/_app/chunks/Article.svelte_svelte_type_style_lang-4914ee14.js">
+	<link rel="modulepreload" href="/_app/pages/_category_/index.svelte-e4adb4e4.js">
+	<link rel="modulepreload" href="/_app/chunks/CategoryDocs-c2c0484b.js">
+	<link rel="modulepreload" href="/_app/chunks/ItemFieldDocs-15de57d3.js">
+	<link rel="modulepreload" href="/_app/chunks/CategoryItemDocs-ee84b141.js">
+				<script>
+		if ('serviceWorker' in navigator) {
+			navigator.serviceWorker.register('/service-worker.js');
+		}
+	</script>
+	</head>
+	<body>
+		<div>
+
+
+<div class="root svelte-ytat92"><nav class="figura-background svelte-ytat92"><a class="nav-item svelte-ytat92" href="/">FIGS!!</a>
+        <a class="nav-item expander svelte-ytat92" href="javascript:;" aria-label="Expand">Expand</a></nav>
+
+    <div class="category figura-background svelte-ytat92"><div class="category-inner svelte-ytat92"><div class="category-item-root svelte-6qhb8p"><a class="category-selector svelte-6qhb8p" href="/globals">globals</a>
+
+        
+    </div><div class="category-item-root svelte-6qhb8p"><a class="category-selector svelte-6qhb8p" href="/world">world</a>
+
+        
+    </div><div class="category-item-root svelte-6qhb8p"><a class="category-selector svelte-6qhb8p" href="/keybind">keybind</a>
+
+        
+    </div><div class="category-item-root svelte-6qhb8p"><a class="category-selector svelte-6qhb8p" href="/model">model</a>
+
+        
+    </div><div class="category-item-root svelte-6qhb8p"><a class="category-selector svelte-6qhb8p" href="/math">math</a>
+
+        
+    </div><div class="category-item-root svelte-6qhb8p"><a class="category-selector svelte-6qhb8p" href="/event">event</a>
+
+        
+    </div><div class="category-item-root svelte-6qhb8p"><a class="category-selector svelte-6qhb8p" href="/nameplate">nameplate</a>
+
+        <div class="category-items svelte-6qhb8p"><a href="/nameplate/NameplateAPI" class="svelte-6qhb8p">NameplateAPI</a>
+
+                    <a href="/nameplate/NameplateCustomization" class="svelte-6qhb8p">NameplateCustomization</a>
+
+                    
+
+            </div>
+    </div><div class="category-item-root svelte-6qhb8p"><a class="category-selector svelte-6qhb8p" href="/entity">entity</a>
+
+        
+    </div><div class="category-item-root svelte-6qhb8p"><a class="category-selector svelte-6qhb8p" href="/misc">misc</a>
+
+        
+    </div>
+
+            <footer class="svelte-ytat92">Made by applejuice
+            </footer></div></div>
+
+    <div class="content figura-background svelte-ytat92"><div class="rounding-content-wrapper svelte-ytat92"><article class="indent svelte-1s0i5cm">
+    <h1>nameplate</h1>
+    <article class="indent svelte-1s0i5cm">
+    <h2>NameplateAPI</h2>
+
+    A global API which is used for customizing your player&#39;s nameplate in chat, above your head, and in the tab list.
+
+    <section aria-label="Methods"><h3>Methods
+</h3>
+
+</section>
+    <section aria-label="Fields"><h3>Fields
+</h3>
+
+<section class="indent svelte-1s0i5cm" aria-label="CHAT">
+    <code class="svelte-19lop9v">readonly CHAT: org.moon.figura.lua.api.nameplate.NameplateCustomization
+</code>
+
+    <p>A customization for your nameplate in the chat.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="ENTITY">
+    <code class="svelte-19lop9v">readonly ENTITY: org.moon.figura.lua.api.nameplate.NameplateCustomization
+</code>
+
+    <p>A customization for your nameplate above your head.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="LIST">
+    <code class="svelte-19lop9v">readonly LIST: org.moon.figura.lua.api.nameplate.NameplateCustomization
+</code>
+
+    <p>A customization for your nameplate in the tab list.</p>
+</section></section>
+</article><article class="indent svelte-1s0i5cm">
+    <h2>NameplateCustomization</h2>
+
+    A customization that can be applied to a nameplate.
+
+    <section aria-label="Methods"><h3>Methods
+</h3>
+
+<section class="indent svelte-1s0i5cm" aria-label="setScale">
+    
+
+        <code class="svelte-19lop9v">setScale(customization: NameplateCustomization, color: Vector3): nil
+        
+</code>
+
+        <p>The scale factor of the nameplate. Only usable on the ENTITY nameplate.</p>
+
+        <code class="svelte-19lop9v">setScale(customization: NameplateCustomization, x: Number, y: Number, z: Number): nil
+        
+</code>
+
+        <p>The scale factor of the nameplate. Only usable on the ENTITY nameplate.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getText">
+    
+
+        <code class="svelte-19lop9v">getText(customization: NameplateCustomization): String
+        
+</code>
+
+        <p>The text to use in this nameplate.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="setText">
+    
+
+        <code class="svelte-19lop9v">setText(customization: NameplateCustomization, text: String): nil
+        
+</code>
+
+        <p>The text to use in this nameplate.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="setPos">
+    
+
+        <code class="svelte-19lop9v">setPos(customization: NameplateCustomization, color: Vector3): nil
+        
+</code>
+
+        <p>The position offset of the nameplate, in world coordinates. Only usable on the ENTITY nameplate.</p>
+
+        <code class="svelte-19lop9v">setPos(customization: NameplateCustomization, x: Number, y: Number, z: Number): nil
+        
+</code>
+
+        <p>The position offset of the nameplate, in world coordinates. Only usable on the ENTITY nameplate.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="setVisible">
+    
+
+        <code class="svelte-19lop9v">setVisible(customization: NameplateCustomization, visible: Boolean): nil
+        
+</code>
+
+        <p>Whether or not the nameplate should be visible. Only usable on the ENTITY nameplate.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getScale">
+    
+
+        <code class="svelte-19lop9v">getScale(customization: NameplateCustomization): Vector3
+        
+</code>
+
+        <p>The scale factor of the nameplate. Only usable on the ENTITY nameplate.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getPos">
+    
+
+        <code class="svelte-19lop9v">getPos(customization: NameplateCustomization): Vector3
+        
+</code>
+
+        <p>The position offset of the nameplate, in world coordinates. Only usable on the ENTITY nameplate.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isVisible">
+    
+
+        <code class="svelte-19lop9v">isVisible(customization: NameplateCustomization): Boolean
+        
+</code>
+
+        <p>Whether or not the nameplate should be visible. Only usable on the ENTITY nameplate.</p>
+</section></section>
+    <section aria-label="Fields"><h3>Fields
+</h3>
+
+</section>
+</article>
+</article></div></div>
+</div>
+
+
+		<script type="module" data-hydrate="94tbsw">
+		import { start } from "/_app/start-b3ca0300.js";
+		start({
+			target: document.querySelector('[data-hydrate="94tbsw"]').parentNode,
+			paths: {"base":"","assets":""},
+			session: {},
+			route: true,
+			spa: false,
+			trailing_slash: "never",
+			hydrate: {
+				status: 200,
+				error: null,
+				nodes: [
+					import("/_app/pages/__layout.svelte-e332817b.js"),
+						import("/_app/pages/_category_/index.svelte-e4adb4e4.js")
+				],
+				params: {category:"nameplate"},
+				routeId: "[category]"
+			}
+		});
+	</script></div>
+	</body>
+</html>

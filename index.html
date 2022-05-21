@@ -1,0 +1,4918 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="./favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta http-equiv="content-security-policy" content="">
+	<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-b8a49b79.css">
+	<link rel="stylesheet" href="/_app/assets/Article.svelte_svelte_type_style_lang-6949c5b7.css">
+	<link rel="modulepreload" href="/_app/start-b3ca0300.js">
+	<link rel="modulepreload" href="/_app/chunks/index-ac18434c.js">
+	<link rel="modulepreload" href="/_app/chunks/paths-396f020f.js">
+	<link rel="modulepreload" href="/_app/pages/__layout.svelte-e332817b.js">
+	<link rel="modulepreload" href="/_app/chunks/Article.svelte_svelte_type_style_lang-4914ee14.js">
+	<link rel="modulepreload" href="/_app/pages/index.svelte-854174c1.js">
+	<link rel="modulepreload" href="/_app/chunks/CategoryDocs-c2c0484b.js">
+	<link rel="modulepreload" href="/_app/chunks/ItemFieldDocs-15de57d3.js">
+	<link rel="modulepreload" href="/_app/chunks/CategoryItemDocs-ee84b141.js">
+				<script>
+		if ('serviceWorker' in navigator) {
+			navigator.serviceWorker.register('/service-worker.js');
+		}
+	</script>
+	</head>
+	<body>
+		<div>
+
+
+<div class="root svelte-ytat92"><nav class="figura-background svelte-ytat92"><a class="nav-item svelte-ytat92" href="/">FIGS!!</a>
+        <a class="nav-item expander svelte-ytat92" href="javascript:;" aria-label="Expand">Expand</a></nav>
+
+    <div class="category figura-background svelte-ytat92"><div class="category-inner svelte-ytat92"><div class="category-item-root svelte-6qhb8p"><a class="category-selector svelte-6qhb8p" href="/globals">globals</a>
+
+        
+    </div><div class="category-item-root svelte-6qhb8p"><a class="category-selector svelte-6qhb8p" href="/world">world</a>
+
+        
+    </div><div class="category-item-root svelte-6qhb8p"><a class="category-selector svelte-6qhb8p" href="/keybind">keybind</a>
+
+        
+    </div><div class="category-item-root svelte-6qhb8p"><a class="category-selector svelte-6qhb8p" href="/model">model</a>
+
+        
+    </div><div class="category-item-root svelte-6qhb8p"><a class="category-selector svelte-6qhb8p" href="/math">math</a>
+
+        
+    </div><div class="category-item-root svelte-6qhb8p"><a class="category-selector svelte-6qhb8p" href="/event">event</a>
+
+        
+    </div><div class="category-item-root svelte-6qhb8p"><a class="category-selector svelte-6qhb8p" href="/nameplate">nameplate</a>
+
+        
+    </div><div class="category-item-root svelte-6qhb8p"><a class="category-selector svelte-6qhb8p" href="/entity">entity</a>
+
+        
+    </div><div class="category-item-root svelte-6qhb8p"><a class="category-selector svelte-6qhb8p" href="/misc">misc</a>
+
+        
+    </div>
+
+            <footer class="svelte-ytat92">Made by applejuice
+            </footer></div></div>
+
+    <div class="content figura-background svelte-ytat92"><div class="rounding-content-wrapper svelte-ytat92"><article class="indent svelte-1s0i5cm">
+    <h1>globals</h1>
+    <article class="indent svelte-1s0i5cm">
+    <h2>globals</h2>
+
+    Documentation for the various things Figura adds to the global lua state.
+
+    <section aria-label="Methods"><h3>Methods
+</h3>
+
+<section class="indent svelte-1s0i5cm" aria-label="log">
+    
+
+        <code class="svelte-19lop9v">log(arg: AnyType): nil
+        
+</code>
+
+        <p>An alias for print().</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="print">
+    
+
+        <code class="svelte-19lop9v">print(arg: AnyType): nil
+        
+</code>
+
+        <p>A function that writes its arguments to chat. Even though the syntax says only one argument, you can put as many as you want. All of them will print, and they&#39;ll be separated by some spaces.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="round">
+    
+
+        <code class="svelte-19lop9v">round(value: Number): Number
+        
+</code>
+
+        <p>Rounds the given number to the nearest whole integer. Not actually global, but stored inside the &quot;math&quot; library table.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="printJson">
+    
+
+        <code class="svelte-19lop9v">printJson(json: String): nil
+        
+</code>
+
+        <p>Takes a Minecraft json string as an argument, and prints it to the chat formatted.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="lerp">
+    
+
+        <code class="svelte-19lop9v">lerp(a: AnyType, b: AnyType, t: Number): AnyType
+        
+</code>
+
+        <p>Linearly interpolates from its first argument to its second argument, with the third argument as the parameter. Works on both regular numbers and vectors. Not actually global, but stored inside the &quot;math&quot; library table.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="logTable">
+    
+
+        <code class="svelte-19lop9v">logTable(table: Table): nil
+        
+</code>
+
+        <p>An alias for printTable().</p>
+
+        <code class="svelte-19lop9v">logTable(javaObject: Userdata): nil
+        
+</code>
+
+        <p>An alias for printTable().</p>
+
+        <code class="svelte-19lop9v">logTable(table: Table, maxDepth: Integer): nil
+        
+</code>
+
+        <p>An alias for printTable().</p>
+
+        <code class="svelte-19lop9v">logTable(javaObject: Userdata, maxDepth: Integer): nil
+        
+</code>
+
+        <p>An alias for printTable().</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="require">
+    
+
+        <code class="svelte-19lop9v">require(scriptName: String): AnyType
+        
+</code>
+
+        <p>The require() function takes the name of one of your scripts, without the .lua extension. If this script has not been already run before, it will run that script and return the value that script returns. If it has been run before, then it will not run the file again, but it will return the same thing as the first time. If a required script has no returns, then require() will return true. If the name you give isn&#39;t any of your scripts, it will error.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="clamp">
+    
+
+        <code class="svelte-19lop9v">clamp(value: Number, min: Number, max: Number): Number
+        
+</code>
+
+        <p>Clamps the given value between min and max. Not actually global, but stored inside the &quot;math&quot; library table.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="logJson">
+    
+
+        <code class="svelte-19lop9v">logJson(json: String): nil
+        
+</code>
+
+        <p>An alias for printJson().</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="printTable">
+    
+
+        <code class="svelte-19lop9v">printTable(table: Table): nil
+        
+</code>
+
+        <p>The first argument is either a Table, or it&#39;s a Userdata, which refers to any of the added Figura types. Prints the table out to chat, specially formatted. If userdata is passed in, it is automatically converted to a table or string, and displayed. In the case of tables inside of tables, the &quot;maxDepth&quot; parameter will be used to determine how far to go. BE CAREFUL WITH RECURSIVE TABLES! If you try to print a table too deeply, then your game may freeze while it calculates everything to print, and you may have to restart your client if you go too crazy with it. Default value for maxDepth is 1.</p>
+
+        <code class="svelte-19lop9v">printTable(javaObject: Userdata): nil
+        
+</code>
+
+        <p>The first argument is either a Table, or it&#39;s a Userdata, which refers to any of the added Figura types. Prints the table out to chat, specially formatted. If userdata is passed in, it is automatically converted to a table or string, and displayed. In the case of tables inside of tables, the &quot;maxDepth&quot; parameter will be used to determine how far to go. BE CAREFUL WITH RECURSIVE TABLES! If you try to print a table too deeply, then your game may freeze while it calculates everything to print, and you may have to restart your client if you go too crazy with it. Default value for maxDepth is 1.</p>
+
+        <code class="svelte-19lop9v">printTable(table: Table, maxDepth: Integer): nil
+        
+</code>
+
+        <p>The first argument is either a Table, or it&#39;s a Userdata, which refers to any of the added Figura types. Prints the table out to chat, specially formatted. If userdata is passed in, it is automatically converted to a table or string, and displayed. In the case of tables inside of tables, the &quot;maxDepth&quot; parameter will be used to determine how far to go. BE CAREFUL WITH RECURSIVE TABLES! If you try to print a table too deeply, then your game may freeze while it calculates everything to print, and you may have to restart your client if you go too crazy with it. Default value for maxDepth is 1.</p>
+
+        <code class="svelte-19lop9v">printTable(javaObject: Userdata, maxDepth: Integer): nil
+        
+</code>
+
+        <p>The first argument is either a Table, or it&#39;s a Userdata, which refers to any of the added Figura types. Prints the table out to chat, specially formatted. If userdata is passed in, it is automatically converted to a table or string, and displayed. In the case of tables inside of tables, the &quot;maxDepth&quot; parameter will be used to determine how far to go. BE CAREFUL WITH RECURSIVE TABLES! If you try to print a table too deeply, then your game may freeze while it calculates everything to print, and you may have to restart your client if you go too crazy with it. Default value for maxDepth is 1.</p>
+</section></section>
+    <section aria-label="Fields"><h3>Fields
+</h3>
+
+<section class="indent svelte-1s0i5cm" aria-label="vectors">
+    <code class="svelte-19lop9v">vectors: org.moon.figura.lua.api.math.VectorsAPI
+</code>
+
+    <p>The global instance of VectorsAPI.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="vec">
+    <code class="svelte-19lop9v">vec: org.terasology.jnlua.JavaFunction
+</code>
+
+    <p>An alias for &quot;vectors.vec&quot;, since it&#39;s used so often.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="matrices">
+    <code class="svelte-19lop9v">matrices: org.moon.figura.lua.api.math.MatricesAPI
+</code>
+
+    <p>The global instance of MatricesAPI.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="models">
+    <code class="svelte-19lop9v">models: org.moon.figura.avatars.model.FiguraModelPart
+</code>
+
+    <p>A global instance of ModelPart. This is the root node of all your blockbench models. Each bbmodel file is a child of this part.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="events">
+    <code class="svelte-19lop9v">events: org.moon.figura.lua.api.EventsAPI
+</code>
+
+    <p>The global instance of EventsAPI.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="vanilla_model">
+    <code class="svelte-19lop9v">vanilla_model: org.moon.figura.lua.api.model.VanillaModelAPI
+</code>
+
+    <p>The global instance of VanillaModelAPI.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="world">
+    <code class="svelte-19lop9v">world: org.moon.figura.lua.api.world.WorldAPI
+</code>
+
+    <p>The global instance of WorldAPI.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="player">
+    <code class="svelte-19lop9v">player: org.moon.figura.lua.api.entity.PlayerEntityWrapper
+</code>
+
+    <p>The global instance of Player, representing the user of the avatar.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="particle">
+    <code class="svelte-19lop9v">particle: org.moon.figura.lua.api.ParticleAPI
+</code>
+
+    <p>The global instance of ParticleAPI.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="sound">
+    <code class="svelte-19lop9v">sound: org.moon.figura.lua.api.SoundAPI
+</code>
+
+    <p>The global instance of SoundAPI.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="nameplate">
+    <code class="svelte-19lop9v">nameplate: org.moon.figura.lua.api.nameplate.NameplateAPI
+</code>
+
+    <p>The global instance of NameplateAPI.</p>
+</section></section>
+</article>
+</article><article class="indent svelte-1s0i5cm">
+    <h1>world</h1>
+    <article class="indent svelte-1s0i5cm">
+    <h2>WorldAPI</h2>
+
+    A global API dedicated to reading information from the Minecraft world. Accessed using the name &quot;world&quot;.
+
+    <section aria-label="Methods"><h3>Methods
+</h3>
+
+<section class="indent svelte-1s0i5cm" aria-label="exists">
+    
+
+        <code class="svelte-19lop9v">exists(): Boolean
+        
+</code>
+
+        <p>Checks whether or not a world currently exists. This will almost always be true, but might be false on some occasions such as while travelling between dimensions.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getTime">
+    
+
+        <code class="svelte-19lop9v">getTime(): Number
+        
+</code>
+
+        <p>Gets the current game time of the world. If delta is passed in, then it adds delta to the time. The default value of delta is zero.</p>
+
+        <code class="svelte-19lop9v">getTime(delta: Number): Number
+        
+</code>
+
+        <p>Gets the current game time of the world. If delta is passed in, then it adds delta to the time. The default value of delta is zero.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getTimeOfDay">
+    
+
+        <code class="svelte-19lop9v">getTimeOfDay(): Number
+        
+</code>
+
+        <p>Gets the current day time of the world. If delta is passed in, then it adds delta to the time. The default value of delta is zero.</p>
+
+        <code class="svelte-19lop9v">getTimeOfDay(delta: Number): Number
+        
+</code>
+
+        <p>Gets the current day time of the world. If delta is passed in, then it adds delta to the time. The default value of delta is zero.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getStrongRedstonePower">
+    
+
+        <code class="svelte-19lop9v">getStrongRedstonePower(pos: Vector3): Integer
+        
+</code>
+
+        <p>Gets the direct redstone power level of the block at the given position.</p>
+
+        <code class="svelte-19lop9v">getStrongRedstonePower(x: Number, y: Number, z: Number): Integer
+        
+</code>
+
+        <p>Gets the direct redstone power level of the block at the given position.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getBiome">
+    
+
+        <code class="svelte-19lop9v">getBiome(pos: Vector3): Biome
+        
+</code>
+
+        <p>Gets the Biome located at the given position.</p>
+
+        <code class="svelte-19lop9v">getBiome(x: Number, y: Number, z: Number): Biome
+        
+</code>
+
+        <p>Gets the Biome located at the given position.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getBlockState">
+    
+
+        <code class="svelte-19lop9v">getBlockState(pos: Vector3): BlockState
+        
+</code>
+
+        <p>Gets the BlockState of the block at the given position.</p>
+
+        <code class="svelte-19lop9v">getBlockState(x: Number, y: Number, z: Number): BlockState
+        
+</code>
+
+        <p>Gets the BlockState of the block at the given position.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getRedstonePower">
+    
+
+        <code class="svelte-19lop9v">getRedstonePower(pos: Vector3): Integer
+        
+</code>
+
+        <p>Gets the redstone power level of the block at the given position.</p>
+
+        <code class="svelte-19lop9v">getRedstonePower(x: Number, y: Number, z: Number): Integer
+        
+</code>
+
+        <p>Gets the redstone power level of the block at the given position.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getBlockLightLevel">
+    
+
+        <code class="svelte-19lop9v">getBlockLightLevel(pos: Vector3): Integer
+        
+</code>
+
+        <p>Gets the block light level of the block at the given position.</p>
+
+        <code class="svelte-19lop9v">getBlockLightLevel(x: Number, y: Number, z: Number): Integer
+        
+</code>
+
+        <p>Gets the block light level of the block at the given position.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getRainGradient">
+    
+
+        <code class="svelte-19lop9v">getRainGradient(): Number
+        
+</code>
+
+        <p>Gets the current rain gradient in the world, interpolated from the previous tick to the current one. The default value of delta is 1, which is the current tick.</p>
+
+        <code class="svelte-19lop9v">getRainGradient(delta: Number): Number
+        
+</code>
+
+        <p>Gets the current rain gradient in the world, interpolated from the previous tick to the current one. The default value of delta is 1, which is the current tick.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getLightLevel">
+    
+
+        <code class="svelte-19lop9v">getLightLevel(pos: Vector3): Integer
+        
+</code>
+
+        <p>Gets the overall light level of the block at the given position.</p>
+
+        <code class="svelte-19lop9v">getLightLevel(x: Number, y: Number, z: Number): Integer
+        
+</code>
+
+        <p>Gets the overall light level of the block at the given position.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getSkyLightLevel">
+    
+
+        <code class="svelte-19lop9v">getSkyLightLevel(pos: Vector3): Integer
+        
+</code>
+
+        <p>Gets the sky light level of the block at the given position.</p>
+
+        <code class="svelte-19lop9v">getSkyLightLevel(x: Number, y: Number, z: Number): Integer
+        
+</code>
+
+        <p>Gets the sky light level of the block at the given position.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isThundering">
+    
+
+        <code class="svelte-19lop9v">isThundering(): Boolean
+        
+</code>
+
+        <p>Gets whether or not there is currently thunder/lightning happening in the world.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getMoonPhase">
+    
+
+        <code class="svelte-19lop9v">getMoonPhase(): Integer
+        
+</code>
+
+        <p>Gets the current moon phase of the world, stored as an integer.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isOpenSky">
+    
+
+        <code class="svelte-19lop9v">isOpenSky(pos: Vector3): Boolean
+        
+</code>
+
+        <p>Gets whether or not the sky is open at the given position.</p>
+
+        <code class="svelte-19lop9v">isOpenSky(x: Number, y: Number, z: Number): Boolean
+        
+</code>
+
+        <p>Gets whether or not the sky is open at the given position.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getPlayers">
+    
+
+        <code class="svelte-19lop9v">getPlayers(): Table
+        
+</code>
+
+        <p> </p>
+</section></section>
+    <section aria-label="Fields"><h3>Fields
+</h3>
+
+</section>
+</article><article class="indent svelte-1s0i5cm">
+    <h2>BlockState</h2>
+
+    A proxy for a block state from Minecraft. Instances are obtained through the WorldAPI.
+
+    <section aria-label="Methods"><h3>Methods
+</h3>
+
+<section class="indent svelte-1s0i5cm" aria-label="isOpaque">
+    
+
+        <code class="svelte-19lop9v">isOpaque(blockState: BlockState): Boolean
+        
+</code>
+
+        <p>Gets whether or not this BlockState is opaque.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="exists">
+    
+
+        <code class="svelte-19lop9v">exists(blockState: BlockState): Boolean
+        
+</code>
+
+        <p>Checks whether or not this BlockState currently exists. I can&#39;t think of a situation where it wouldn&#39;t exist, but this function is provided for you to check just in case.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="hasEmissiveLighting">
+    
+
+        <code class="svelte-19lop9v">hasEmissiveLighting(blockState: BlockState, pos: Vector3): Boolean
+        
+</code>
+
+        <p>Gets whether or not the BlockState, at this position, uses emissive lighting.</p>
+
+        <code class="svelte-19lop9v">hasEmissiveLighting(blockState: BlockState, x: Number, y: Number, z: Number): Boolean
+        
+</code>
+
+        <p>Gets whether or not the BlockState, at this position, uses emissive lighting.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getComparatorOutput">
+    
+
+        <code class="svelte-19lop9v">getComparatorOutput(blockState: BlockState, pos: Vector3): Integer
+        
+</code>
+
+        <p>Gets the amount of signal strength a comparator would get from this BlockState.</p>
+
+        <code class="svelte-19lop9v">getComparatorOutput(blockState: BlockState, x: Number, y: Number, z: Number): Integer
+        
+</code>
+
+        <p>Gets the amount of signal strength a comparator would get from this BlockState.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getVelocityMultiplier">
+    
+
+        <code class="svelte-19lop9v">getVelocityMultiplier(blockState: BlockState): Number
+        
+</code>
+
+        <p>Gets the velocity multiplier of this BlockState. (Only Soul sand, honey blocks in vanilla)</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getJumpVelocityMultiplier">
+    
+
+        <code class="svelte-19lop9v">getJumpVelocityMultiplier(blockState: BlockState): Number
+        
+</code>
+
+        <p>Gets the jump velocity multiplier of this BlockState. (Literally just honey blocks in vanilla)</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isFullCube">
+    
+
+        <code class="svelte-19lop9v">isFullCube(blockState: BlockState, pos: Vector3): Boolean
+        
+</code>
+
+        <p>Gets whether or not the BlockState, at this position, has a full cube as its collision hitbox.</p>
+
+        <code class="svelte-19lop9v">isFullCube(blockState: BlockState, x: Number, y: Number, z: Number): Boolean
+        
+</code>
+
+        <p>Gets whether or not the BlockState, at this position, has a full cube as its collision hitbox.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getHardness">
+    
+
+        <code class="svelte-19lop9v">getHardness(blockState: BlockState, pos: Vector3): Number
+        
+</code>
+
+        <p>Gets the hardness of the BlockState, when placed at this position.</p>
+
+        <code class="svelte-19lop9v">getHardness(blockState: BlockState, x: Number, y: Number, z: Number): Number
+        
+</code>
+
+        <p>Gets the hardness of the BlockState, when placed at this position.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isTranslucent">
+    
+
+        <code class="svelte-19lop9v">isTranslucent(blockState: BlockState, pos: Vector3): Boolean
+        
+</code>
+
+        <p>Gets whether or not the BlockState, at this position, would propagate sky light downwards.</p>
+
+        <code class="svelte-19lop9v">isTranslucent(blockState: BlockState, x: Number, y: Number, z: Number): Boolean
+        
+</code>
+
+        <p>Gets whether or not the BlockState, at this position, would propagate sky light downwards.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getOpacity">
+    
+
+        <code class="svelte-19lop9v">getOpacity(blockState: BlockState, pos: Vector3): Integer
+        
+</code>
+
+        <p>Gets the opacity of the BlockState, in terms of how much it affects light levels.</p>
+
+        <code class="svelte-19lop9v">getOpacity(blockState: BlockState, x: Number, y: Number, z: Number): Integer
+        
+</code>
+
+        <p>Gets the opacity of the BlockState, in terms of how much it affects light levels.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getMapColor">
+    
+
+        <code class="svelte-19lop9v">getMapColor(blockState: BlockState, pos: Vector3): Vector3
+        
+</code>
+
+        <p>Gets the map color of this BlockState, as a Vector3 with R,G,B ranging 0 to 1.</p>
+
+        <code class="svelte-19lop9v">getMapColor(blockState: BlockState, x: Number, y: Number, z: Number): Vector3
+        
+</code>
+
+        <p>Gets the map color of this BlockState, as a Vector3 with R,G,B ranging 0 to 1.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isSolidBlock">
+    
+
+        <code class="svelte-19lop9v">isSolidBlock(blockState: BlockState, pos: Vector3): Boolean
+        
+</code>
+
+        <p>Gets whether or not the BlockState, at this position, is a solid block.</p>
+
+        <code class="svelte-19lop9v">isSolidBlock(blockState: BlockState, x: Number, y: Number, z: Number): Boolean
+        
+</code>
+
+        <p>Gets whether or not the BlockState, at this position, is a solid block.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getBlastResistance">
+    
+
+        <code class="svelte-19lop9v">getBlastResistance(blockState: BlockState): Number
+        
+</code>
+
+        <p>Gets the blast resistance of this BlockState.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getLuminance">
+    
+
+        <code class="svelte-19lop9v">getLuminance(blockState: BlockState): Integer
+        
+</code>
+
+        <p>Gets the emission light level of this BlockState.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="asItem">
+    
+
+        <code class="svelte-19lop9v">asItem(blockState: BlockState): ItemStack
+        
+</code>
+
+        <p>Returns an ItemStack representing this block in item form, whatever Minecraft deems that to be. If it cannot find an item for this block, it will return nil.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="emitsRedstonePower">
+    
+
+        <code class="svelte-19lop9v">emitsRedstonePower(blockState: BlockState): Boolean
+        
+</code>
+
+        <p>Gets whether or not this BlockState emits redstone power.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="hasBlockEntity">
+    
+
+        <code class="svelte-19lop9v">hasBlockEntity(blockState: BlockState): Boolean
+        
+</code>
+
+        <p>Gets whether or not this BlockState has an associated block entity.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getFriction">
+    
+
+        <code class="svelte-19lop9v">getFriction(blockState: BlockState): Number
+        
+</code>
+
+        <p>Gets the friction of this BlockState. (Slime blocks and ice in vanilla)</p>
+</section></section>
+    <section aria-label="Fields"><h3>Fields
+</h3>
+
+<section class="indent svelte-1s0i5cm" aria-label="id">
+    <code class="svelte-19lop9v">readonly id: java.lang.String
+</code>
+
+    <p>The identifier of the block this BlockState comes from.</p>
+</section></section>
+</article><article class="indent svelte-1s0i5cm">
+    <h2>ItemStack</h2>
+
+    A proxy for an item stack from Minecraft.
+
+    <section aria-label="Methods"><h3>Methods
+</h3>
+
+<section class="indent svelte-1s0i5cm" aria-label="exists">
+    
+
+        <code class="svelte-19lop9v">exists(itemStack: ItemStack): Boolean
+        
+</code>
+
+        <p>Checks whether or not this ItemStack currently exists. Minecraft may delete ItemStack instances on occasion. I don&#39;t think it will delete them while they&#39;re in someone&#39;s inventory or on the ground, but testing is required to know for sure. Contact devs once someone has an answer to when these stop existing!</p>
+</section></section>
+    <section aria-label="Fields"><h3>Fields
+</h3>
+
+<section class="indent svelte-1s0i5cm" aria-label="id">
+    <code class="svelte-19lop9v">readonly id: java.lang.String
+</code>
+
+    <p>Contains the id of the item this ItemStack refers to.</p>
+</section></section>
+</article><article class="indent svelte-1s0i5cm">
+    <h2>Biome</h2>
+
+    A proxy for a Minecraft biome. Instances are obtained through the WorldAPI. (Not implemented yet, currently only has a &quot;name&quot; field)
+
+    <section aria-label="Methods"><h3>Methods
+</h3>
+
+</section>
+    <section aria-label="Fields"><h3>Fields
+</h3>
+
+<section class="indent svelte-1s0i5cm" aria-label="name">
+    <code class="svelte-19lop9v">readonly name: java.lang.String
+</code>
+
+    <p>The name of the biome, according to the registry.</p>
+</section></section>
+</article>
+</article><article class="indent svelte-1s0i5cm">
+    <h1>keybind</h1>
+    <article class="indent svelte-1s0i5cm">
+    <h2>KeybindAPI</h2>
+
+    A global API containing a function to create new Keybind instances.
+
+    <section aria-label="Methods"><h3>Methods
+</h3>
+
+<section class="indent svelte-1s0i5cm" aria-label="create">
+    
+
+        <code class="svelte-19lop9v">create(api: KeybindAPI, name: String, key: String, gui: Boolean): Keybind
+        
+</code>
+
+        <p>Creates and returns a new Keybind. The name is used in the keybind menu. The key parameter is an identifier for a key, such as &quot;key.keyboard.r&quot;. The boolean gui indicates whether the keybind should always work, or if it should only work when you don&#39;t have a screen open.</p>
+</section></section>
+    <section aria-label="Fields"><h3>Fields
+</h3>
+
+</section>
+</article><article class="indent svelte-1s0i5cm">
+    <h2>Keybind</h2>
+
+    Represents a key binding for your script. Instances are obtained using the KeybindAPI&#39;s create() function.
+
+    <section aria-label="Methods"><h3>Methods
+</h3>
+
+<section class="indent svelte-1s0i5cm" aria-label="getName">
+    
+
+        <code class="svelte-19lop9v">getName(keybind: Keybind): String
+        
+</code>
+
+        <p>Gets the name of the keybind, which you set when you created the keybind.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getKey">
+    
+
+        <code class="svelte-19lop9v">getKey(keybind: Keybind): String
+        
+</code>
+
+        <p>Gets the current key for this keybind.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isDefault">
+    
+
+        <code class="svelte-19lop9v">isDefault(keybind: Keybind): Boolean
+        
+</code>
+
+        <p>Checks whether this key is currently set to its default state (not been changed using the keybind menu)</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="setKey">
+    
+
+        <code class="svelte-19lop9v">setKey(keybind: Keybind, key: String): nil
+        
+</code>
+
+        <p>Sets the key for this keybind.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getKeyName">
+    
+
+        <code class="svelte-19lop9v">getKeyName(keybind: Keybind): String
+        
+</code>
+
+        <p>Gets the name of the current key for this keybind.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isPressed">
+    
+
+        <code class="svelte-19lop9v">isPressed(keybind: Keybind): Boolean
+        
+</code>
+
+        <p>Gets whether this keybind is currently pressed down.</p>
+</section></section>
+    <section aria-label="Fields"><h3>Fields
+</h3>
+
+<section class="indent svelte-1s0i5cm" aria-label="onPress">
+    <code class="svelte-19lop9v">onPress: org.moon.figura.lua.types.LuaFunction
+</code>
+
+    <p>A function that runs when the key is pressed down.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="onRelease">
+    <code class="svelte-19lop9v">onRelease: org.moon.figura.lua.types.LuaFunction
+</code>
+
+    <p>A function that runs when the key is released.</p>
+</section></section>
+</article>
+</article><article class="indent svelte-1s0i5cm">
+    <h1>model</h1>
+    <article class="indent svelte-1s0i5cm">
+    <h2>ModelPart</h2>
+
+    Represents a node in the model tree, basically a group/cube/mesh in Blockbench. Each bbmodel file is itself a ModelPart, and all of your models are contained in a global ModelPart called &quot;models&quot;.
+
+    <section aria-label="Methods"><h3>Methods
+</h3>
+
+<section class="indent svelte-1s0i5cm" aria-label="getParent">
+    
+
+        <code class="svelte-19lop9v">getParent(modelPart: ModelPart): ModelPart
+        
+</code>
+
+        <p>Gets the parent part of this part. If this part has no parent, returns nil.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getType">
+    
+
+        <code class="svelte-19lop9v">getType(modelPart: ModelPart): String
+        
+</code>
+
+        <p>Returns whether this part is a &quot;GROUP&quot;, a &quot;CUBE&quot;, or a &quot;MESH&quot;.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getChildren">
+    
+
+        <code class="svelte-19lop9v">getChildren(modelPart: ModelPart): Table
+        
+</code>
+
+        <p>Gets the children of this part, stored in a table.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="setColor">
+    
+
+        <code class="svelte-19lop9v">setColor(modelPart: ModelPart, color: Vector3): nil
+        
+</code>
+
+        <p>Sets the color multiplier for this part. Values are RGB from 0 to 1. Default values are 1, indicating white/no color change.</p>
+
+        <code class="svelte-19lop9v">setColor(modelPart: ModelPart, r: Number, g: Number, b: Number): nil
+        
+</code>
+
+        <p>Sets the color multiplier for this part. Values are RGB from 0 to 1. Default values are 1, indicating white/no color change.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="setScale">
+    
+
+        <code class="svelte-19lop9v">setScale(modelPart: ModelPart, scale: Vector3): nil
+        
+</code>
+
+        <p>Sets the scale factor for this part. Nil values for scale are assumed to be 1.</p>
+
+        <code class="svelte-19lop9v">setScale(modelPart: ModelPart, x: Number, y: Number, z: Number): nil
+        
+</code>
+
+        <p>Sets the scale factor for this part. Nil values for scale are assumed to be 1.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getColor">
+    
+
+        <code class="svelte-19lop9v">getColor(modelPart: ModelPart): Vector3
+        
+</code>
+
+        <p>Gets the color multiplier of this part. Values are RGB from 0 to 1. Default values are 1, indicating white/no color change.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="setSecondaryRenderType">
+    
+
+        <code class="svelte-19lop9v">setSecondaryRenderType(modelPart: ModelPart, renderType: String): nil
+        
+</code>
+
+        <p>Sets the current secondary render type of this model part. Nil by default, meaning the part copies the secondary render type of its parent during rendering.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getPrimaryRenderType">
+    
+
+        <code class="svelte-19lop9v">getPrimaryRenderType(modelPart: ModelPart): String
+        
+</code>
+
+        <p>Gets the current primary render type of this model part. Nil by default, meaning the part copies the primary render type of its parent.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getPositionMatrixRaw">
+    
+
+        <code class="svelte-19lop9v">getPositionMatrixRaw(modelPart: ModelPart): Matrix4
+        
+</code>
+
+        <p>Returns the position matrix for this model part. The Raw version of the function is different in that it doesn&#39;t recalculate the matrix before getting it.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getSecondaryRenderType">
+    
+
+        <code class="svelte-19lop9v">getSecondaryRenderType(modelPart: ModelPart): String
+        
+</code>
+
+        <p>Gets the current secondary render type of this model part. Nil by default, meaning the part copies the secondary render type of its parent.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="setPrimaryRenderType">
+    
+
+        <code class="svelte-19lop9v">setPrimaryRenderType(modelPart: ModelPart, renderType: String): nil
+        
+</code>
+
+        <p>Sets the current primary render type of this model part. Nil by default, meaning the part copies the primary render type of its parent during rendering.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="setPos">
+    
+
+        <code class="svelte-19lop9v">setPos(modelPart: ModelPart, pos: Vector3): nil
+        
+</code>
+
+        <p>Sets the position offset for this part from its blockbench position. Nil values for position are assumed to be 0.</p>
+
+        <code class="svelte-19lop9v">setPos(modelPart: ModelPart, x: Number, y: Number, z: Number): nil
+        
+</code>
+
+        <p>Sets the position offset for this part from its blockbench position. Nil values for position are assumed to be 0.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="setVisible">
+    
+
+        <code class="svelte-19lop9v">setVisible(modelPart: ModelPart, visible: Boolean): nil
+        
+</code>
+
+        <p>Sets this part to be visible or invisible. The default value is nil, meaning the part copies its visibility from its parent part. If you want to set the visibility back to the default value of nil, use resetVisible() instead.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getScale">
+    
+
+        <code class="svelte-19lop9v">getScale(modelPart: ModelPart): Vector3
+        
+</code>
+
+        <p>Gets the scale of the model part, as a multiple of its blockbench size. Only changes from {1,1,1} when you call setScale().</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getPos">
+    
+
+        <code class="svelte-19lop9v">getPos(modelPart: ModelPart): Vector3
+        
+</code>
+
+        <p>Gets the position of the model part, as an offset from its position in blockbench. Only changes from {0,0,0} when you call setPos().</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getOpacity">
+    
+
+        <code class="svelte-19lop9v">getOpacity(modelPart: ModelPart): Number
+        
+</code>
+
+        <p>Gets the opacity multiplier of this part. Note that opacity settings will only take effect if the part has a suitable Render Type for them, mainly TRANSLUCENT. Check out modelPart.setPrimaryRenderType() for how to do this.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getRot">
+    
+
+        <code class="svelte-19lop9v">getRot(modelPart: ModelPart): Vector3
+        
+</code>
+
+        <p>Gets the rotation of the model part, including its rotation in blockbench. For relative rotation values, check out the &quot;bonus&quot; rot functions.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="setRot">
+    
+
+        <code class="svelte-19lop9v">setRot(modelPart: ModelPart, rot: Vector3): nil
+        
+</code>
+
+        <p>Sets the absolute rotation for this part. Nil values for rotation are assumed to be 0. Angles are given in degrees. For relative rotation values, check out the &quot;bonus&quot; rot functions.</p>
+
+        <code class="svelte-19lop9v">setRot(modelPart: ModelPart, x: Number, y: Number, z: Number): nil
+        
+</code>
+
+        <p>Sets the absolute rotation for this part. Nil values for rotation are assumed to be 0. Angles are given in degrees. For relative rotation values, check out the &quot;bonus&quot; rot functions.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="setBonusRot">
+    
+
+        <code class="svelte-19lop9v">setBonusRot(modelPart: ModelPart, bonusRot: Vector3): nil
+        
+</code>
+
+        <p>Sets the bonus rotation for this part. Nil values for rotation are assumed to be 0. Angles are given in degrees. For absolute rotation values, check out the non-bonus rot functions.</p>
+
+        <code class="svelte-19lop9v">setBonusRot(modelPart: ModelPart, x: Number, y: Number, z: Number): nil
+        
+</code>
+
+        <p>Sets the bonus rotation for this part. Nil values for rotation are assumed to be 0. Angles are given in degrees. For absolute rotation values, check out the non-bonus rot functions.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getBonusRot">
+    
+
+        <code class="svelte-19lop9v">getBonusRot(modelPart: ModelPart): Vector3
+        
+</code>
+
+        <p>Gets the bonus rotation of the model part, offset from its rotation in blockbench. For absolute rotation values, check out the non-bonus rot functions.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getPivot">
+    
+
+        <code class="svelte-19lop9v">getPivot(modelPart: ModelPart): Vector3
+        
+</code>
+
+        <p>Gets the pivot point of the model part, including its pivot in blockbench. For relative values, check out the &quot;bonus&quot; pivot functions.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="setBonusPivot">
+    
+
+        <code class="svelte-19lop9v">setBonusPivot(modelPart: ModelPart, bonusPivot: Vector3): nil
+        
+</code>
+
+        <p>Sets the bonus pivot point for this part. Nil values are assumed to be 0. For absolute pivot point values, check out the non-bonus pivot functions.</p>
+
+        <code class="svelte-19lop9v">setBonusPivot(modelPart: ModelPart, x: Number, y: Number, z: Number): nil
+        
+</code>
+
+        <p>Sets the bonus pivot point for this part. Nil values are assumed to be 0. For absolute pivot point values, check out the non-bonus pivot functions.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="setPivot">
+    
+
+        <code class="svelte-19lop9v">setPivot(modelPart: ModelPart, pivot: Vector3): nil
+        
+</code>
+
+        <p>Sets the absolute pivot for this part. Nil values are assumed to be 0. For relative pivot offsets, check out the &quot;bonus&quot; pivot functions.</p>
+
+        <code class="svelte-19lop9v">setPivot(modelPart: ModelPart, x: Number, y: Number, z: Number): nil
+        
+</code>
+
+        <p>Sets the absolute pivot for this part. Nil values are assumed to be 0. For relative pivot offsets, check out the &quot;bonus&quot; pivot functions.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getBonusPivot">
+    
+
+        <code class="svelte-19lop9v">getBonusPivot(modelPart: ModelPart): Vector3
+        
+</code>
+
+        <p>Gets the bonus pivot of the model part, offset from its pivot in blockbench. For absolute pivot point values, check out the non-bonus pivot functions.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getNormalMatrix">
+    
+
+        <code class="svelte-19lop9v">getNormalMatrix(modelPart: ModelPart): Matrix3
+        
+</code>
+
+        <p>Recalculates the normal matrix for this model part, based on its current position, rotation, scale, and pivot, then returns this matrix.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="setUV">
+    
+
+        <code class="svelte-19lop9v">setUV(modelPart: ModelPart, uv: Vector2): nil
+        
+</code>
+
+        <p>Sets the UV of this part. This function is normalized, meaning it works with values 0 to 1. If you say setUV(0.5, 0.25), for example, it will scroll by half of your texture width to the right, and one fourth of the texture width downwards.</p>
+
+        <code class="svelte-19lop9v">setUV(modelPart: ModelPart, u: Number, v: Number): nil
+        
+</code>
+
+        <p>Sets the UV of this part. This function is normalized, meaning it works with values 0 to 1. If you say setUV(0.5, 0.25), for example, it will scroll by half of your texture width to the right, and one fourth of the texture width downwards.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="setUVPixels">
+    
+
+        <code class="svelte-19lop9v">setUVPixels(modelPart: ModelPart, uv: Vector2): nil
+        
+</code>
+
+        <p>Sets the UV of this part in pixels. Automatically divides by the results of getTextureSize(), so you can just input the number of pixels you want the UV to scroll by. Errors if the part has multiple different-sized textures.</p>
+
+        <code class="svelte-19lop9v">setUVPixels(modelPart: ModelPart, u: Number, v: Number): nil
+        
+</code>
+
+        <p>Sets the UV of this part in pixels. Automatically divides by the results of getTextureSize(), so you can just input the number of pixels you want the UV to scroll by. Errors if the part has multiple different-sized textures.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getPositionMatrix">
+    
+
+        <code class="svelte-19lop9v">getPositionMatrix(modelPart: ModelPart): Matrix4
+        
+</code>
+
+        <p>Recalculates the matrix for this model part, based on its current position, rotation, scale, and pivot, then returns this matrix.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="setLight">
+    
+
+        <code class="svelte-19lop9v">setLight(modelPart: ModelPart, light: Vector2): nil
+        
+</code>
+
+        <p>Sets the light level to be used when rendering this part. Values you give are 0 to 15, indicating the block light and sky light levels you want to use.</p>
+
+        <code class="svelte-19lop9v">setLight(modelPart: ModelPart, blockLight: Integer, skyLight: Integer): nil
+        
+</code>
+
+        <p>Sets the light level to be used when rendering this part. Values you give are 0 to 15, indicating the block light and sky light levels you want to use.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="setMatrix">
+    
+
+        <code class="svelte-19lop9v">setMatrix(modelPart: ModelPart, matrix: Matrix4): nil
+        
+</code>
+
+        <p>Sets the given matrix as the position matrix for this model part. The normal matrix is automatically calculated as the inverse transpose of this matrix. Calling this DOES NOT CHANGE the values of position, rot, or scale in the model part. If you call setPos() or a similar function, the effects of setMatrix() will be overwritten.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="setUVMatrix">
+    
+
+        <code class="svelte-19lop9v">setUVMatrix(modelPart: ModelPart, matrix: Matrix3): nil
+        
+</code>
+
+        <p>Sets the UV matrix of this part. This matrix is applied to all UV points during the transform, with the UVs treated as homogeneous vectors. setUV() and setUVPixels() are actually just simpler ways of setting this matrix.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getNormalMatrixRaw">
+    
+
+        <code class="svelte-19lop9v">getNormalMatrixRaw(modelPart: ModelPart): Matrix3
+        
+</code>
+
+        <p>Returns the normal matrix for this model part. The Raw version of the function is different in that it doesn&#39;t recalculate the matrix before returning it.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="partToWorldMatrix">
+    
+
+        <code class="svelte-19lop9v">partToWorldMatrix(modelPart: ModelPart): Matrix4
+        
+</code>
+
+        <p>Gets a matrix which transforms a point from this part&#39;s position to a world location. Recommended to use this in POST_RENDER, as by then the matrix is updated. In RENDER it will be 1 frame behind the part&#39;s visual position for that frame. Also, if the model is not rendered in-world, the part&#39;s matrix will not be updated. Paperdoll rendering and other UI rendering will not affect this matrix.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getVisible">
+    
+
+        <code class="svelte-19lop9v">getVisible(modelPart: ModelPart): Boolean
+        
+</code>
+
+        <p>Gets whether or not this model part is visible. The default value is nil, meaning it copies the visibility of its parent part during rendering.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getTextureSize">
+    
+
+        <code class="svelte-19lop9v">getTextureSize(modelPart: ModelPart): Vector2
+        
+</code>
+
+        <p>Gets the width, height of this part&#39;s texture in pixels. If this part has multiple different-sized textures on it, it throws an error instead.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="setOpacity">
+    
+
+        <code class="svelte-19lop9v">setOpacity(modelPart: ModelPart, opacity: Number): nil
+        
+</code>
+
+        <p>Sets the opacity multiplier of this part. Note that opacity settings will only take effect if the part has a suitable Render Type for them, mainly TRANSLUCENT. Check out modelPart.setPrimaryRenderType() for how to do this.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="resetVisible">
+    
+
+        <code class="svelte-19lop9v">resetVisible(modelPart: ModelPart): nil
+        
+</code>
+
+        <p>Resets the visibility status of the part to default. The default value is nil, meaning the part copies the visibility from its parent part.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getParentType">
+    
+
+        <code class="svelte-19lop9v">getParentType(modelPart: ModelPart): String
+        
+</code>
+
+        <p>Returns the current parent type of the part.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getLight">
+    
+
+        <code class="svelte-19lop9v">getLight(modelPart: ModelPart): Vector2
+        
+</code>
+
+        <p>Gets the light level you set earlier to this part. Does not interact with Minecraft&#39;s lighting system, only retrieving values you set earlier with setLight().</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="setParentType">
+    
+
+        <code class="svelte-19lop9v">setParentType(modelPart: ModelPart, parentType: String): nil
+        
+</code>
+
+        <p>Sets the parent type of the part. Currently implemented parent types are None, Head, Body, LeftArm, RightArm, LeftLeg, RightLeg, LeftElytron, RightElytron, and World.</p>
+</section></section>
+    <section aria-label="Fields"><h3>Fields
+</h3>
+
+<section class="indent svelte-1s0i5cm" aria-label="name">
+    <code class="svelte-19lop9v">readonly name: java.lang.String
+</code>
+
+    <p>The name of this model part.</p>
+</section></section>
+</article><article class="indent svelte-1s0i5cm">
+    <h2>VanillaModelAPI</h2>
+
+    A global API that provides functions to interact with the vanilla player model and its parts. Accessed using the name &quot;vanilla_model&quot;.
+
+    <section aria-label="Methods"><h3>Methods
+</h3>
+
+</section>
+    <section aria-label="Fields"><h3>Fields
+</h3>
+
+<section class="indent svelte-1s0i5cm" aria-label="HEAD">
+    <code class="svelte-19lop9v">readonly HEAD: org.moon.figura.lua.api.model.VanillaModelAPI$VanillaModelPart
+</code>
+
+    <p>The head of the player, not including the hat.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="BODY">
+    <code class="svelte-19lop9v">readonly BODY: org.moon.figura.lua.api.model.VanillaModelAPI$VanillaModelPart
+</code>
+
+    <p>The body of the player, not including the outer layer.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="LEFT_ARM">
+    <code class="svelte-19lop9v">readonly LEFT_ARM: org.moon.figura.lua.api.model.VanillaModelAPI$VanillaModelPart
+</code>
+
+    <p>The left arm of the player, not including the outer layer.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="RIGHT_ARM">
+    <code class="svelte-19lop9v">readonly RIGHT_ARM: org.moon.figura.lua.api.model.VanillaModelAPI$VanillaModelPart
+</code>
+
+    <p>The right arm of the player, not including the outer layer.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="LEFT_LEG">
+    <code class="svelte-19lop9v">readonly LEFT_LEG: org.moon.figura.lua.api.model.VanillaModelAPI$VanillaModelPart
+</code>
+
+    <p>The left leg of the player, not including the outer layer.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="RIGHT_LEG">
+    <code class="svelte-19lop9v">readonly RIGHT_LEG: org.moon.figura.lua.api.model.VanillaModelAPI$VanillaModelPart
+</code>
+
+    <p>The right leg of the player, not including the outer layer.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="HAT">
+    <code class="svelte-19lop9v">readonly HAT: org.moon.figura.lua.api.model.VanillaModelAPI$VanillaModelPart
+</code>
+
+    <p>The outer layer of the player&#39;s head.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="JACKET">
+    <code class="svelte-19lop9v">readonly JACKET: org.moon.figura.lua.api.model.VanillaModelAPI$VanillaModelPart
+</code>
+
+    <p>The outer layer of the player&#39;s body.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="LEFT_SLEEVE">
+    <code class="svelte-19lop9v">readonly LEFT_SLEEVE: org.moon.figura.lua.api.model.VanillaModelAPI$VanillaModelPart
+</code>
+
+    <p>The outer layer of the player&#39;s left arm.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="RIGHT_SLEEVE">
+    <code class="svelte-19lop9v">readonly RIGHT_SLEEVE: org.moon.figura.lua.api.model.VanillaModelAPI$VanillaModelPart
+</code>
+
+    <p>The outer layer of the player&#39;s right arm.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="LEFT_PANTS">
+    <code class="svelte-19lop9v">readonly LEFT_PANTS: org.moon.figura.lua.api.model.VanillaModelAPI$VanillaModelPart
+</code>
+
+    <p>The outer layer of the player&#39;s left leg.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="RIGHT_PANTS">
+    <code class="svelte-19lop9v">readonly RIGHT_PANTS: org.moon.figura.lua.api.model.VanillaModelAPI$VanillaModelPart
+</code>
+
+    <p>The outer layer of the player&#39;s right leg.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="HELMET">
+    <code class="svelte-19lop9v">readonly HELMET: org.moon.figura.lua.api.model.VanillaModelAPI$VanillaModelPart
+</code>
+
+    <p>Multi-part: The helmet model.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="CHESTPLATE">
+    <code class="svelte-19lop9v">readonly CHESTPLATE: org.moon.figura.lua.api.model.VanillaModelAPI$VanillaModelPart
+</code>
+
+    <p>Multi-part: The chestplate model.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="CHESTPLATE_BODY">
+    <code class="svelte-19lop9v">readonly CHESTPLATE_BODY: org.moon.figura.lua.api.model.VanillaModelAPI$VanillaModelPart
+</code>
+
+    <p>The body of the chestplate model.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="CHESTPLATE_LEFT_ARM">
+    <code class="svelte-19lop9v">readonly CHESTPLATE_LEFT_ARM: org.moon.figura.lua.api.model.VanillaModelAPI$VanillaModelPart
+</code>
+
+    <p>The left arm of the chestplate model.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="CHESTPLATE_RIGHT_ARM">
+    <code class="svelte-19lop9v">readonly CHESTPLATE_RIGHT_ARM: org.moon.figura.lua.api.model.VanillaModelAPI$VanillaModelPart
+</code>
+
+    <p>The right arm of the chestplate model.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="LEGGINGS">
+    <code class="svelte-19lop9v">readonly LEGGINGS: org.moon.figura.lua.api.model.VanillaModelAPI$VanillaModelPart
+</code>
+
+    <p>Multi-part: The leggings model.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="LEGGINGS_BODY">
+    <code class="svelte-19lop9v">readonly LEGGINGS_BODY: org.moon.figura.lua.api.model.VanillaModelAPI$VanillaModelPart
+</code>
+
+    <p>The body of the leggings model.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="LEGGINGS_LEFT_LEG">
+    <code class="svelte-19lop9v">readonly LEGGINGS_LEFT_LEG: org.moon.figura.lua.api.model.VanillaModelAPI$VanillaModelPart
+</code>
+
+    <p>The left leg of the leggings model.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="LEGGINGS_RIGHT_LEG">
+    <code class="svelte-19lop9v">readonly LEGGINGS_RIGHT_LEG: org.moon.figura.lua.api.model.VanillaModelAPI$VanillaModelPart
+</code>
+
+    <p>The right leg of the leggings model.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="BOOTS">
+    <code class="svelte-19lop9v">readonly BOOTS: org.moon.figura.lua.api.model.VanillaModelAPI$VanillaModelPart
+</code>
+
+    <p>Multi-part: The boots model.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="BOOTS_LEFT_LEG">
+    <code class="svelte-19lop9v">readonly BOOTS_LEFT_LEG: org.moon.figura.lua.api.model.VanillaModelAPI$VanillaModelPart
+</code>
+
+    <p>The left boot of the boots model.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="BOOTS_RIGHT_LEG">
+    <code class="svelte-19lop9v">readonly BOOTS_RIGHT_LEG: org.moon.figura.lua.api.model.VanillaModelAPI$VanillaModelPart
+</code>
+
+    <p>The right boot of the boots model.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="ALL">
+    <code class="svelte-19lop9v">readonly ALL: org.moon.figura.lua.api.model.VanillaModelAPI$VanillaModelPart
+</code>
+
+    <p>Multi-part: The entirety of the vanilla model.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="PLAYER">
+    <code class="svelte-19lop9v">readonly PLAYER: org.moon.figura.lua.api.model.VanillaModelAPI$VanillaModelPart
+</code>
+
+    <p>Player.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="OUTER_LAYER">
+    <code class="svelte-19lop9v">readonly OUTER_LAYER: org.moon.figura.lua.api.model.VanillaModelAPI$VanillaModelPart
+</code>
+
+    <p>Multi-part: The outer layer of the player.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="INNER_LAYER">
+    <code class="svelte-19lop9v">readonly INNER_LAYER: org.moon.figura.lua.api.model.VanillaModelAPI$VanillaModelPart
+</code>
+
+    <p>Multi-part: The main body of the player, everything except the outer layer.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="ARMOR">
+    <code class="svelte-19lop9v">readonly ARMOR: org.moon.figura.lua.api.model.VanillaModelAPI$VanillaModelPart
+</code>
+
+    <p>Multi-part: All armor on the model.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="ELYTRA">
+    <code class="svelte-19lop9v">readonly ELYTRA: org.moon.figura.lua.api.model.VanillaModelAPI$VanillaModelPart
+</code>
+
+    <p>Multi-part: The elytra model.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="LEFT_ELYTRON">
+    <code class="svelte-19lop9v">readonly LEFT_ELYTRON: org.moon.figura.lua.api.model.VanillaModelAPI$VanillaModelPart
+</code>
+
+    <p>The left wing of the elytra model.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="RIGHT_ELYTRON">
+    <code class="svelte-19lop9v">readonly RIGHT_ELYTRON: org.moon.figura.lua.api.model.VanillaModelAPI$VanillaModelPart
+</code>
+
+    <p>The right wing of the elytra model.</p>
+</section></section>
+</article><article class="indent svelte-1s0i5cm">
+    <h2>VanillaModelPart</h2>
+
+    Represents a model part in a vanilla model. Can be set visible and invisible, and queried for rotation and position offsets.
+
+    <section aria-label="Methods"><h3>Methods
+</h3>
+
+<section class="indent svelte-1s0i5cm" aria-label="setVisible">
+    
+
+        <code class="svelte-19lop9v">setVisible(vanillaPart: VanillaModelPart, visible: Boolean): nil
+        
+</code>
+
+        <p>Sets this part to be visible or invisible.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getVisible">
+    
+
+        <code class="svelte-19lop9v">getVisible(vanillaPart: VanillaModelPart): Boolean
+        
+</code>
+
+        <p>Gets whether you have set this part to be visible or invisible. Only responds to your own changes in script, not anything done by Minecraft.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getOriginRot">
+    
+
+        <code class="svelte-19lop9v">getOriginRot(vanillaPart: VanillaModelPart): Vector3
+        
+</code>
+
+        <p>Gets the rotation to this vanilla model part currently applied by Minecraft.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getOriginPos">
+    
+
+        <code class="svelte-19lop9v">getOriginPos(vanillaPart: VanillaModelPart): Vector3
+        
+</code>
+
+        <p>Gets the position offset to this vanilla model part currently applied by Minecraft.</p>
+</section></section>
+    <section aria-label="Fields"><h3>Fields
+</h3>
+
+</section>
+</article>
+</article><article class="indent svelte-1s0i5cm">
+    <h1>math</h1>
+    <article class="indent svelte-1s0i5cm">
+    <h2>VectorsAPI</h2>
+
+    A global API which provides functions dedicated to creating and otherwise manipulating vectors. Accessed using the name &quot;vectors&quot;.
+
+    <section aria-label="Methods"><h3>Methods
+</h3>
+
+<section class="indent svelte-1s0i5cm" aria-label="vec">
+    
+
+        <code class="svelte-19lop9v">vec(x: Number, y: Number): Vector2
+        
+</code>
+
+        <p>Creates and returns a vector of the appropriate size to hold the arguments passed in. For example, if you call vec(3, 4, 0, 2), then the function will return a Vector4 containing those values. There is a global alias &quot;vec&quot; for this function, meaning the &quot;vectors.&quot; can be omitted.</p>
+
+        <code class="svelte-19lop9v">vec(x: Number, y: Number, z: Number): Vector3
+        
+</code>
+
+        <p>Creates and returns a vector of the appropriate size to hold the arguments passed in. For example, if you call vec(3, 4, 0, 2), then the function will return a Vector4 containing those values. There is a global alias &quot;vec&quot; for this function, meaning the &quot;vectors.&quot; can be omitted.</p>
+
+        <code class="svelte-19lop9v">vec(x: Number, y: Number, z: Number, w: Number): Vector4
+        
+</code>
+
+        <p>Creates and returns a vector of the appropriate size to hold the arguments passed in. For example, if you call vec(3, 4, 0, 2), then the function will return a Vector4 containing those values. There is a global alias &quot;vec&quot; for this function, meaning the &quot;vectors.&quot; can be omitted.</p>
+
+        <code class="svelte-19lop9v">vec(x: Number, y: Number, z: Number, w: Number, t: Number): Vector5
+        
+</code>
+
+        <p>Creates and returns a vector of the appropriate size to hold the arguments passed in. For example, if you call vec(3, 4, 0, 2), then the function will return a Vector4 containing those values. There is a global alias &quot;vec&quot; for this function, meaning the &quot;vectors.&quot; can be omitted.</p>
+
+        <code class="svelte-19lop9v">vec(x: Number, y: Number, z: Number, w: Number, t: Number, h: Number): Vector6
+        
+</code>
+
+        <p>Creates and returns a vector of the appropriate size to hold the arguments passed in. For example, if you call vec(3, 4, 0, 2), then the function will return a Vector4 containing those values. There is a global alias &quot;vec&quot; for this function, meaning the &quot;vectors.&quot; can be omitted.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="intToRGB">
+    
+
+        <code class="svelte-19lop9v">intToRGB(color: Integer): Vector3
+        
+</code>
+
+        <p>Converts the given color from integer format to RGB format.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="rgbToHSV">
+    
+
+        <code class="svelte-19lop9v">rgbToHSV(rgb: Vector3): Vector3
+        
+</code>
+
+        <p>Converts the given color from RGB format to HSV format.</p>
+
+        <code class="svelte-19lop9v">rgbToHSV(r: Number, g: Number, b: Number): Vector3
+        
+</code>
+
+        <p>Converts the given color from RGB format to HSV format.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="rainbow">
+    
+
+        <code class="svelte-19lop9v">rainbow(speed: Number): Vector3
+        
+</code>
+
+        <p></p>
+</section><section class="indent svelte-1s0i5cm" aria-label="hsvToRGB">
+    
+
+        <code class="svelte-19lop9v">hsvToRGB(hsv: Vector3): Vector3
+        
+</code>
+
+        <p>Converts the given color from HSV format to RGB format.</p>
+
+        <code class="svelte-19lop9v">hsvToRGB(h: Number, s: Number, v: Number): Vector3
+        
+</code>
+
+        <p>Converts the given color from HSV format to RGB format.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="vec2">
+    
+
+        <code class="svelte-19lop9v">vec2(x: Number, y: Number): Vector2
+        
+</code>
+
+        <p>Creates and returns a Vector2 with the given values. Nil values become zero.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="vec6">
+    
+
+        <code class="svelte-19lop9v">vec6(x: Number, y: Number, z: Number, w: Number, t: Number, h: Number): Vector6
+        
+</code>
+
+        <p>Creates and returns a Vector6 with the given values. Nil values become zero.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="vec5">
+    
+
+        <code class="svelte-19lop9v">vec5(x: Number, y: Number, z: Number, w: Number, t: Number): Vector5
+        
+</code>
+
+        <p>Creates and returns a Vector5 with the given values. Nil values become zero.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="vec4">
+    
+
+        <code class="svelte-19lop9v">vec4(x: Number, y: Number, z: Number, w: Number): Vector4
+        
+</code>
+
+        <p>Creates and returns a Vector4 with the given values. Nil values become zero.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="vec3">
+    
+
+        <code class="svelte-19lop9v">vec3(x: Number, y: Number, z: Number): Vector3
+        
+</code>
+
+        <p>Creates and returns a Vector3 with the given values. Nil values become zero.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="rgbToINT">
+    
+
+        <code class="svelte-19lop9v">rgbToINT(rgb: Vector3): Integer
+        
+</code>
+
+        <p>Converts the given color from RGB format to integer format.</p>
+
+        <code class="svelte-19lop9v">rgbToINT(r: Number, g: Number, b: Number): Integer
+        
+</code>
+
+        <p>Converts the given color from RGB format to integer format.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="hexToRGB">
+    
+
+        <code class="svelte-19lop9v">hexToRGB(hex: String): Vector3
+        
+</code>
+
+        <p>Parses a hex string color into a RGB format vector. The hex &quot;#&quot; is optional, and it can have any length, however only the first 6 hex digits are evaluated, short hex (length 3) is also supported. For example, &quot;#42&quot; is the same as &quot;420000&quot;, and &quot;F0B&quot; is the same as &quot;FF00BB&quot;</p>
+</section></section>
+    <section aria-label="Fields"><h3>Fields
+</h3>
+
+</section>
+</article><article class="indent svelte-1s0i5cm">
+    <h2>Vector2</h2>
+
+    A vector that holds 2 numbers. Can be created using functions in the &quot;vectors&quot; api.
+
+    <section aria-label="Methods"><h3>Methods
+</h3>
+
+<section class="indent svelte-1s0i5cm" aria-label="length">
+    
+
+        <code class="svelte-19lop9v">length(vec: Vector2): Number
+        
+</code>
+
+        <p>Returns the length of this vector.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="dot">
+    
+
+        <code class="svelte-19lop9v">dot(vec1: Vector2, vec2: Vector2): Number
+        
+</code>
+
+        <p>Returns the dot product of vec1 and vec2.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="set">
+    
+
+        <code class="svelte-19lop9v">set(vec: Vector2, x: Number, y: Number): nil
+        
+</code>
+
+        <p>Sets this vector to have the given values. Nil values are treated as zero.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="copy">
+    
+
+        <code class="svelte-19lop9v">copy(vec: Vector2): Vector2
+        
+</code>
+
+        <p>Creates and returns a copy of this vector.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="normalize">
+    
+
+        <code class="svelte-19lop9v">normalize(vec: Vector2): nil
+        
+</code>
+
+        <p>Modifies this vector so that its length is 1, unless its length was originally 0.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="reset">
+    
+
+        <code class="svelte-19lop9v">reset(vec: Vector2): nil
+        
+</code>
+
+        <p>Resets this vector back to being all zeroes.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="normalized">
+    
+
+        <code class="svelte-19lop9v">normalized(vec: Vector2): Vector2
+        
+</code>
+
+        <p>Returns a copy of this vector with length 1, unless its length was originally 0.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="clampLength">
+    
+
+        <code class="svelte-19lop9v">clampLength(vec: Vector2, minLength: Number, maxLength: Number): nil
+        
+</code>
+
+        <p>Modifies this vector so that its length is between minLength and maxLength. If the vector has length zero, it is unmodified.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="clamped">
+    
+
+        <code class="svelte-19lop9v">clamped(vec: Vector2, minLength: Number, maxLength: Number): Vector2
+        
+</code>
+
+        <p>Returns a modified copy of this vector, with its length clamped from minLength to maxLength. If the vector has length zero, then the copy does too.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="lengthSquared">
+    
+
+        <code class="svelte-19lop9v">lengthSquared(vec: Vector2): Number
+        
+</code>
+
+        <p>Returns the length of this vector squared. Suitable when you only care about relative lengths, because it avoids a square root.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="toRad">
+    
+
+        <code class="svelte-19lop9v">toRad(vec: Vector2): Vector2
+        
+</code>
+
+        <p>Returns a copy of the given vector, in radians.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="toDeg">
+    
+
+        <code class="svelte-19lop9v">toDeg(vec: Vector2): Vector2
+        
+</code>
+
+        <p>Returns a copy of the given vector, in degrees.</p>
+</section></section>
+    <section aria-label="Fields"><h3>Fields
+</h3>
+
+<section class="indent svelte-1s0i5cm" aria-label="x">
+    <code class="svelte-19lop9v">x: double
+</code>
+
+    <p>The first coordinate of this vector. Can also be gotten with the indices &quot;r&quot; and [1].</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="y">
+    <code class="svelte-19lop9v">y: double
+</code>
+
+    <p>The second coordinate of this vector. Can also be gotten with the indices &quot;g&quot; and [2].</p>
+</section></section>
+</article><article class="indent svelte-1s0i5cm">
+    <h2>Vector3</h2>
+
+    A vector that holds 3 numbers. Can be created using functions in the &quot;vectors&quot; api.
+
+    <section aria-label="Methods"><h3>Methods
+</h3>
+
+<section class="indent svelte-1s0i5cm" aria-label="length">
+    
+
+        <code class="svelte-19lop9v">length(vec: Vector3): Number
+        
+</code>
+
+        <p>Returns the length of this vector.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="dot">
+    
+
+        <code class="svelte-19lop9v">dot(vec1: Vector3, vec2: Vector3): Number
+        
+</code>
+
+        <p>Returns the dot product of vec1 and vec2.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="set">
+    
+
+        <code class="svelte-19lop9v">set(vec: Vector3, x: Number, y: Number, z: Number): nil
+        
+</code>
+
+        <p>Sets this vector to have the given values. Nil values are treated as zero.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="copy">
+    
+
+        <code class="svelte-19lop9v">copy(vec: Vector3): Vector3
+        
+</code>
+
+        <p>Creates and returns a copy of this vector.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="normalize">
+    
+
+        <code class="svelte-19lop9v">normalize(vec: Vector3): nil
+        
+</code>
+
+        <p>Modifies this vector so that its length is 1, unless its length was originally 0.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="reset">
+    
+
+        <code class="svelte-19lop9v">reset(vec: Vector3): nil
+        
+</code>
+
+        <p>Resets this vector back to being all zeroes.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="normalized">
+    
+
+        <code class="svelte-19lop9v">normalized(vec: Vector3): Vector3
+        
+</code>
+
+        <p>Returns a copy of this vector with length 1, unless its length was originally 0.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="clampLength">
+    
+
+        <code class="svelte-19lop9v">clampLength(vec: Vector3, minLength: Number, maxLength: Number): nil
+        
+</code>
+
+        <p>Modifies this vector so that its length is between minLength and maxLength. If the vector has length zero, it is unmodified.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="clamped">
+    
+
+        <code class="svelte-19lop9v">clamped(vec: Vector3, minLength: Number, maxLength: Number): Vector3
+        
+</code>
+
+        <p>Returns a modified copy of this vector, with its length clamped from minLength to maxLength. If the vector has length zero, then the copy does too.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="lengthSquared">
+    
+
+        <code class="svelte-19lop9v">lengthSquared(vec: Vector3): Number
+        
+</code>
+
+        <p>Returns the length of this vector squared. Suitable when you only care about relative lengths, because it avoids a square root.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="toRad">
+    
+
+        <code class="svelte-19lop9v">toRad(vec: Vector3): Vector3
+        
+</code>
+
+        <p>Returns a copy of the given vector, in radians.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="augmented">
+    
+
+        <code class="svelte-19lop9v">augmented(vec: Vector3): Vector4
+        
+</code>
+
+        <p>Returns the augmented form of this vector. The augmented form is Vector4 with a 1 in its W coordinate.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="cross">
+    
+
+        <code class="svelte-19lop9v">cross(vec1: Vector3, vec2: Vector3): Vector3
+        
+</code>
+
+        <p>Returns the cross product of vec1 and vec2.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="toDeg">
+    
+
+        <code class="svelte-19lop9v">toDeg(vec: Vector3): Vector3
+        
+</code>
+
+        <p>Returns a copy of the given vector, in degrees.</p>
+</section></section>
+    <section aria-label="Fields"><h3>Fields
+</h3>
+
+<section class="indent svelte-1s0i5cm" aria-label="x">
+    <code class="svelte-19lop9v">x: double
+</code>
+
+    <p>The first coordinate of this vector. Can also be gotten with the indices &quot;r&quot; and [1].</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="y">
+    <code class="svelte-19lop9v">y: double
+</code>
+
+    <p>The second coordinate of this vector. Can also be gotten with the indices &quot;g&quot; and [2].</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="z">
+    <code class="svelte-19lop9v">z: double
+</code>
+
+    <p>The third coordinate of this vector. Can also be gotten with the indices &quot;b&quot; and [3].</p>
+</section></section>
+</article><article class="indent svelte-1s0i5cm">
+    <h2>Vector4</h2>
+
+    A vector that holds 4 numbers. Can be created using functions in the &quot;vectors&quot; api.
+
+    <section aria-label="Methods"><h3>Methods
+</h3>
+
+<section class="indent svelte-1s0i5cm" aria-label="length">
+    
+
+        <code class="svelte-19lop9v">length(vec: Vector4): Number
+        
+</code>
+
+        <p>Returns the length of this vector.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="dot">
+    
+
+        <code class="svelte-19lop9v">dot(vec1: Vector4, vec2: Vector4): Number
+        
+</code>
+
+        <p>Returns the dot product of vec1 and vec2.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="set">
+    
+
+        <code class="svelte-19lop9v">set(vec: Vector4, x: Number, y: Number, z: Number, w: Number): nil
+        
+</code>
+
+        <p>Sets this vector to have the given values. Nil values are treated as zero.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="copy">
+    
+
+        <code class="svelte-19lop9v">copy(vec: Vector4): Vector4
+        
+</code>
+
+        <p>Creates and returns a copy of this vector.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="normalize">
+    
+
+        <code class="svelte-19lop9v">normalize(vec: Vector4): nil
+        
+</code>
+
+        <p>Returns a copy of this vector with length 1, unless its length was originally 0.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="reset">
+    
+
+        <code class="svelte-19lop9v">reset(vec: Vector4): nil
+        
+</code>
+
+        <p>Resets this vector back to being all zeroes.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="normalized">
+    
+
+        <code class="svelte-19lop9v">normalized(vec: Vector4): Vector4
+        
+</code>
+
+        <p>Returns a copy of this vector with length 1, unless its length was originally 0.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="clampLength">
+    
+
+        <code class="svelte-19lop9v">clampLength(vec: Vector4, minLength: Number, maxLength: Number): nil
+        
+</code>
+
+        <p>Modifies this vector so that its length is between minLength and maxLength. If the vector has length zero, it is unmodified.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="clamped">
+    
+
+        <code class="svelte-19lop9v">clamped(vec: Vector4, minLength: Number, maxLength: Number): Vector4
+        
+</code>
+
+        <p>Returns a modified copy of this vector, with its length clamped from minLength to maxLength. If the vector has length zero, then the copy does too.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="lengthSquared">
+    
+
+        <code class="svelte-19lop9v">lengthSquared(vec: Vector4): Number
+        
+</code>
+
+        <p>Returns the length of this vector squared. Suitable when you only care about relative lengths, because it avoids a square root.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="toRad">
+    
+
+        <code class="svelte-19lop9v">toRad(vec: Vector4): Vector4
+        
+</code>
+
+        <p>Returns a copy of the given vector, in radians.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="toDeg">
+    
+
+        <code class="svelte-19lop9v">toDeg(vec: Vector4): Vector4
+        
+</code>
+
+        <p>Returns a copy of the given vector, in degrees.</p>
+</section></section>
+    <section aria-label="Fields"><h3>Fields
+</h3>
+
+<section class="indent svelte-1s0i5cm" aria-label="x">
+    <code class="svelte-19lop9v">x: double
+</code>
+
+    <p>The first coordinate of this vector. Can also be gotten with the indices &quot;r&quot; and [1].</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="y">
+    <code class="svelte-19lop9v">y: double
+</code>
+
+    <p>The second coordinate of this vector. Can also be gotten with the indices &quot;g&quot; and [2].</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="z">
+    <code class="svelte-19lop9v">z: double
+</code>
+
+    <p>The third coordinate of this vector. Can also be gotten with the indices &quot;b&quot; and [3].</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="w">
+    <code class="svelte-19lop9v">w: double
+</code>
+
+    <p>The fourth coordinate of this vector. Can also be gotten with the indices &quot;a&quot; and [4].</p>
+</section></section>
+</article><article class="indent svelte-1s0i5cm">
+    <h2>Vector5</h2>
+
+    A vector that holds 5 numbers. Can be created using functions in the &quot;vectors&quot; api.
+
+    <section aria-label="Methods"><h3>Methods
+</h3>
+
+<section class="indent svelte-1s0i5cm" aria-label="length">
+    
+
+        <code class="svelte-19lop9v">length(vec: Vector5): Number
+        
+</code>
+
+        <p>Returns the length of this vector.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="dot">
+    
+
+        <code class="svelte-19lop9v">dot(vec1: Vector5, vec2: Vector5): Number
+        
+</code>
+
+        <p>Returns the dot product of vec1 and vec2.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="set">
+    
+
+        <code class="svelte-19lop9v">set(vec: Vector5, x: Number, y: Number, z: Number, w: Number, t: Number): nil
+        
+</code>
+
+        <p>Sets this vector to have the given values. Nil values are treated as zero.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="copy">
+    
+
+        <code class="svelte-19lop9v">copy(vec: Vector5): Vector5
+        
+</code>
+
+        <p>Creates and returns a copy of this vector.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="normalize">
+    
+
+        <code class="svelte-19lop9v">normalize(vec: Vector5): nil
+        
+</code>
+
+        <p>Modifies this vector so that its length is 1, unless its length was originally 0.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="reset">
+    
+
+        <code class="svelte-19lop9v">reset(vec: Vector5): nil
+        
+</code>
+
+        <p>Resets this vector back to being all zeroes.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="normalized">
+    
+
+        <code class="svelte-19lop9v">normalized(vec: Vector5): Vector5
+        
+</code>
+
+        <p>Returns a copy of this vector with length 1, unless its length was originally 0.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="clampLength">
+    
+
+        <code class="svelte-19lop9v">clampLength(vec: Vector5, minLength: Number, maxLength: Number): nil
+        
+</code>
+
+        <p>Modifies this vector so that its length is between minLength and maxLength. If the vector has length zero, it is unmodified.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="clamped">
+    
+
+        <code class="svelte-19lop9v">clamped(vec: Vector5, minLength: Number, maxLength: Number): Vector5
+        
+</code>
+
+        <p>Returns a modified copy of this vector, with its length clamped from minLength to maxLength. If the vector has length zero, then the copy does too.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="lengthSquared">
+    
+
+        <code class="svelte-19lop9v">lengthSquared(vec: Vector5): Number
+        
+</code>
+
+        <p>Returns the length of this vector squared. Suitable when you only care about relative lengths, because it avoids a square root.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="toRad">
+    
+
+        <code class="svelte-19lop9v">toRad(vec: Vector5): Vector5
+        
+</code>
+
+        <p>Returns a copy of the given vector, in radians.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="toDeg">
+    
+
+        <code class="svelte-19lop9v">toDeg(vec: Vector5): Vector5
+        
+</code>
+
+        <p>Returns a copy of the given vector, in degrees.</p>
+</section></section>
+    <section aria-label="Fields"><h3>Fields
+</h3>
+
+<section class="indent svelte-1s0i5cm" aria-label="x">
+    <code class="svelte-19lop9v">x: double
+</code>
+
+    <p>The first coordinate of this vector. Can also be gotten with the indices &quot;r&quot; and [1].</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="y">
+    <code class="svelte-19lop9v">y: double
+</code>
+
+    <p>The second coordinate of this vector. Can also be gotten with the indices &quot;g&quot; and [2].</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="z">
+    <code class="svelte-19lop9v">z: double
+</code>
+
+    <p>The third coordinate of this vector. Can also be gotten with the indices &quot;b&quot; and [3].</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="w">
+    <code class="svelte-19lop9v">w: double
+</code>
+
+    <p>The fourth coordinate of this vector. Can also be gotten with the indices &quot;a&quot; and [4].</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="t">
+    <code class="svelte-19lop9v">t: double
+</code>
+
+    <p>The fifth coordinate of this vector. Can also be gotten with the index [5].</p>
+</section></section>
+</article><article class="indent svelte-1s0i5cm">
+    <h2>Vector6</h2>
+
+    A vector that holds 6 numbers. Can be created using functions in the &quot;vectors&quot; api.
+
+    <section aria-label="Methods"><h3>Methods
+</h3>
+
+<section class="indent svelte-1s0i5cm" aria-label="length">
+    
+
+        <code class="svelte-19lop9v">length(vec: Vector6): Number
+        
+</code>
+
+        <p>Returns the length of this vector.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="dot">
+    
+
+        <code class="svelte-19lop9v">dot(vec1: Vector6, vec2: Vector6): Number
+        
+</code>
+
+        <p>Returns the dot product of vec1 and vec2.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="set">
+    
+
+        <code class="svelte-19lop9v">set(vec: Vector6, x: Number, y: Number, z: Number, w: Number, t: Number, h: Number): nil
+        
+</code>
+
+        <p>Sets this vector to have the given values. Nil values are treated as zero.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="copy">
+    
+
+        <code class="svelte-19lop9v">copy(vec: Vector6): Vector6
+        
+</code>
+
+        <p>Creates and returns a copy of this vector.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="normalize">
+    
+
+        <code class="svelte-19lop9v">normalize(vec: Vector6): nil
+        
+</code>
+
+        <p>Modifies this vector so that its length is 1, unless its length was originally 0.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="reset">
+    
+
+        <code class="svelte-19lop9v">reset(vec: Vector6): nil
+        
+</code>
+
+        <p>Resets this vector back to being all zeroes.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="normalized">
+    
+
+        <code class="svelte-19lop9v">normalized(vec: Vector6): Vector6
+        
+</code>
+
+        <p>Returns a copy of this vector with length 1, unless its length was originally 0.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="clampLength">
+    
+
+        <code class="svelte-19lop9v">clampLength(vec: Vector6, minLength: Number, maxLength: Number): nil
+        
+</code>
+
+        <p>Modifies this vector so that its length is between minLength and maxLength. If the vector has length zero, it is unmodified.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="clamped">
+    
+
+        <code class="svelte-19lop9v">clamped(vec: Vector6, minLength: Number, maxLength: Number): Vector6
+        
+</code>
+
+        <p>Returns a modified copy of this vector, with its length clamped from minLength to maxLength. If the vector has length zero, then the copy does too.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="lengthSquared">
+    
+
+        <code class="svelte-19lop9v">lengthSquared(vec: Vector6): Number
+        
+</code>
+
+        <p>Returns the length of this vector squared. Suitable when you only care about relative lengths, because it avoids a square root.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="toRad">
+    
+
+        <code class="svelte-19lop9v">toRad(vec: Vector6): Vector6
+        
+</code>
+
+        <p>Returns a copy of the given vector, in radians.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="toDeg">
+    
+
+        <code class="svelte-19lop9v">toDeg(vec: Vector6): Vector6
+        
+</code>
+
+        <p>Returns a copy of the given vector, in degrees.</p>
+</section></section>
+    <section aria-label="Fields"><h3>Fields
+</h3>
+
+<section class="indent svelte-1s0i5cm" aria-label="x">
+    <code class="svelte-19lop9v">x: double
+</code>
+
+    <p>The first coordinate of this vector. Can also be gotten with the indices &quot;r&quot; and [1].</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="y">
+    <code class="svelte-19lop9v">y: double
+</code>
+
+    <p>The second coordinate of this vector. Can also be gotten with the indices &quot;g&quot; and [2].</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="z">
+    <code class="svelte-19lop9v">z: double
+</code>
+
+    <p>The third coordinate of this vector. Can also be gotten with the indices &quot;b&quot; and [3].</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="w">
+    <code class="svelte-19lop9v">w: double
+</code>
+
+    <p>The fourth coordinate of this vector. Can also be gotten with the indices &quot;a&quot; and [4].</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="t">
+    <code class="svelte-19lop9v">t: double
+</code>
+
+    <p>The fifth coordinate of this vector. Can also be gotten with the index [5].</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="h">
+    <code class="svelte-19lop9v">h: double
+</code>
+
+    <p>The sixth coordinate of this vector. Can also be gotten with the index [6].</p>
+</section></section>
+</article><article class="indent svelte-1s0i5cm">
+    <h2>MatricesAPI</h2>
+
+    A global API which provides functions dedicated to creating and otherwise manipulating matrices. Accessed using the name &quot;matrices&quot;.
+
+    <section aria-label="Methods"><h3>Methods
+</h3>
+
+<section class="indent svelte-1s0i5cm" aria-label="scale2">
+    
+
+        <code class="svelte-19lop9v">scale2(vec: Vector2): Matrix2
+        
+</code>
+
+        <p>Creates a new Matrix2 that scales by the specified factors.</p>
+
+        <code class="svelte-19lop9v">scale2(x: Number, y: Number): Matrix2
+        
+</code>
+
+        <p>Creates a new Matrix2 that scales by the specified factors.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="rotation3">
+    
+
+        <code class="svelte-19lop9v">rotation3(vec: Vector3): Matrix3
+        
+</code>
+
+        <p>Creates a new Matrix3 that rotates by the specified angles. Angles are given in degrees, and the rotation order is ZYX.</p>
+
+        <code class="svelte-19lop9v">rotation3(x: Number, y: Number, z: Number): Matrix3
+        
+</code>
+
+        <p>Creates a new Matrix3 that rotates by the specified angles. Angles are given in degrees, and the rotation order is ZYX.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="mat4">
+    
+
+        <code class="svelte-19lop9v">mat4(): Matrix4
+        
+</code>
+
+        <p>Creates a Matrix4 using the given parameters as columns. If you call the function with no parameters, returns the 4x4 identity matrix.</p>
+
+        <code class="svelte-19lop9v">mat4(col1: Vector4, col2: Vector4, col3: Vector4, col4: Vector4): Matrix4
+        
+</code>
+
+        <p>Creates a Matrix4 using the given parameters as columns. If you call the function with no parameters, returns the 4x4 identity matrix.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="mat3">
+    
+
+        <code class="svelte-19lop9v">mat3(): Matrix3
+        
+</code>
+
+        <p>Creates a Matrix3 using the given parameters as columns. If you call the function with no parameters, returns the 3x3 identity matrix.</p>
+
+        <code class="svelte-19lop9v">mat3(col1: Vector3, col2: Vector3, col3: Vector3): Matrix3
+        
+</code>
+
+        <p>Creates a Matrix3 using the given parameters as columns. If you call the function with no parameters, returns the 3x3 identity matrix.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="rotation2">
+    
+
+        <code class="svelte-19lop9v">rotation2(angle: Number): Matrix2
+        
+</code>
+
+        <p>Creates a new Matrix2 that rotates by the specified angle. Angle is given in degrees.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="scale3">
+    
+
+        <code class="svelte-19lop9v">scale3(vec: Vector3): Matrix3
+        
+</code>
+
+        <p>Creates a new Matrix3 that scales by the specified factors.</p>
+
+        <code class="svelte-19lop9v">scale3(x: Number, y: Number, z: Number): Matrix3
+        
+</code>
+
+        <p>Creates a new Matrix3 that scales by the specified factors.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="mat2">
+    
+
+        <code class="svelte-19lop9v">mat2(): Matrix2
+        
+</code>
+
+        <p>Creates a Matrix2 using the given parameters as columns. If you call the function with no parameters, returns the 2x2 identity matrix.</p>
+
+        <code class="svelte-19lop9v">mat2(col1: Vector2, col2: Vector2): Matrix2
+        
+</code>
+
+        <p>Creates a Matrix2 using the given parameters as columns. If you call the function with no parameters, returns the 2x2 identity matrix.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="scale4">
+    
+
+        <code class="svelte-19lop9v">scale4(vec: Vector3): Matrix4
+        
+</code>
+
+        <p>Creates a new Matrix4 that scales by the specified factors.</p>
+
+        <code class="svelte-19lop9v">scale4(x: Number, y: Number, z: Number): Matrix4
+        
+</code>
+
+        <p>Creates a new Matrix4 that scales by the specified factors.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="xRotation3">
+    
+
+        <code class="svelte-19lop9v">xRotation3(angle: Number): Matrix3
+        
+</code>
+
+        <p>Creates a new Matrix3 that rotates by the specified angle around the X axis. Angle is given in degrees.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="translate3">
+    
+
+        <code class="svelte-19lop9v">translate3(vec: Vector2): Matrix3
+        
+</code>
+
+        <p>Creates a new Matrix3 that translates by the specified offset.</p>
+
+        <code class="svelte-19lop9v">translate3(x: Number, y: Number): Matrix3
+        
+</code>
+
+        <p>Creates a new Matrix3 that translates by the specified offset.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="yRotation3">
+    
+
+        <code class="svelte-19lop9v">yRotation3(angle: Number): Matrix3
+        
+</code>
+
+        <p>Creates a new Matrix3 that rotates by the specified angle around the Y axis. Angle is given in degrees.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="rotation4">
+    
+
+        <code class="svelte-19lop9v">rotation4(vec: Vector3): Matrix4
+        
+</code>
+
+        <p>Creates a new Matrix4 that rotates by the specified angles. Angles are given in degrees, and the rotation order is ZYX.</p>
+
+        <code class="svelte-19lop9v">rotation4(x: Number, y: Number, z: Number): Matrix4
+        
+</code>
+
+        <p>Creates a new Matrix4 that rotates by the specified angles. Angles are given in degrees, and the rotation order is ZYX.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="translate4">
+    
+
+        <code class="svelte-19lop9v">translate4(vec: Vector3): Matrix4
+        
+</code>
+
+        <p>Creates a new Matrix4 that translates by the specified offset.</p>
+
+        <code class="svelte-19lop9v">translate4(x: Number, y: Number, z: Number): Matrix4
+        
+</code>
+
+        <p>Creates a new Matrix4 that translates by the specified offset.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="zRotation4">
+    
+
+        <code class="svelte-19lop9v">zRotation4(angle: Number): Matrix4
+        
+</code>
+
+        <p>Creates a new Matrix4 that rotates by the specified angle around the Z axis. Angle is given in degrees.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="xRotation4">
+    
+
+        <code class="svelte-19lop9v">xRotation4(angle: Number): Matrix4
+        
+</code>
+
+        <p>Creates a new Matrix4 that rotates by the specified angle around the X axis. Angle is given in degrees.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="yRotation4">
+    
+
+        <code class="svelte-19lop9v">yRotation4(angle: Number): Matrix4
+        
+</code>
+
+        <p>Creates a new Matrix4 that rotates by the specified angle around the Y axis. Angle is given in degrees.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="zRotation3">
+    
+
+        <code class="svelte-19lop9v">zRotation3(angle: Number): Matrix3
+        
+</code>
+
+        <p>Creates a new Matrix3 that rotates by the specified angle around the Z axis. Angle is given in degrees.</p>
+</section></section>
+    <section aria-label="Fields"><h3>Fields
+</h3>
+
+</section>
+</article><article class="indent svelte-1s0i5cm">
+    <h2>Matrix2</h2>
+
+    A matrix with 2 rows and 2 columns.
+
+    <section aria-label="Methods"><h3>Methods
+</h3>
+
+<section class="indent svelte-1s0i5cm" aria-label="scale">
+    
+
+        <code class="svelte-19lop9v">scale(mat: Matrix2, vec: Vector2): nil
+        
+</code>
+
+        <p>Scales this matrix by the specified amount, changing the values inside.</p>
+
+        <code class="svelte-19lop9v">scale(mat: Matrix2, x: Number, y: Number): nil
+        
+</code>
+
+        <p>Scales this matrix by the specified amount, changing the values inside.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="reset">
+    
+
+        <code class="svelte-19lop9v">reset(mat: Matrix2): nil
+        
+</code>
+
+        <p>Resets this matrix back to the identity matrix.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="rotate">
+    
+
+        <code class="svelte-19lop9v">rotate(mat: Matrix2, angle: Number): nil
+        
+</code>
+
+        <p>Rotates this matrix by the specified amount, changing the values inside. Angle is given in degrees.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="invert">
+    
+
+        <code class="svelte-19lop9v">invert(mat: Matrix2): nil
+        
+</code>
+
+        <p>Inverts this matrix, changing the values inside.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="transpose">
+    
+
+        <code class="svelte-19lop9v">transpose(mat: Matrix2): nil
+        
+</code>
+
+        <p>Transposes this matrix, changing the values inside.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="det">
+    
+
+        <code class="svelte-19lop9v">det(mat: Matrix2): Number
+        
+</code>
+
+        <p>Calculates and returns the determinant of this matrix.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getInverse">
+    
+
+        <code class="svelte-19lop9v">getInverse(mat: Matrix2): Matrix2
+        
+</code>
+
+        <p>Calculates and returns the inverse of this matrix.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getColumn">
+    
+
+        <code class="svelte-19lop9v">getColumn(mat: Matrix2, col: Integer): Vector2
+        
+</code>
+
+        <p>Gets a Vector2 representing the desired column of the matrix. 1-indexed, so calling mat:getColumn(1) will return the first column of the matrix.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getTranspose">
+    
+
+        <code class="svelte-19lop9v">getTranspose(mat: Matrix2): Matrix2
+        
+</code>
+
+        <p>Calculates and returns the transpose of this matrix.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getRow">
+    
+
+        <code class="svelte-19lop9v">getRow(mat: Matrix2, row: Integer): Vector2
+        
+</code>
+
+        <p>Gets a Vector2 representing the desired row of the matrix. 1-indexed, so calling mat:getRow(1) will return the first row of the matrix.</p>
+</section></section>
+    <section aria-label="Fields"><h3>Fields
+</h3>
+
+<section class="indent svelte-1s0i5cm" aria-label="vRC">
+    <code class="svelte-19lop9v">vRC: double
+</code>
+
+    <p>There is 1 such field for each element of the matrix. You can index these fields with the names v{row}{column}, for example &quot;mat.v12&quot; will return the value in the first row, second column of &quot;mat&quot;.</p>
+</section></section>
+</article><article class="indent svelte-1s0i5cm">
+    <h2>Matrix3</h2>
+
+    A matrix with 3 rows and 3 columns.
+
+    <section aria-label="Methods"><h3>Methods
+</h3>
+
+<section class="indent svelte-1s0i5cm" aria-label="scale">
+    
+
+        <code class="svelte-19lop9v">scale(mat: Matrix3, vec: Vector3): nil
+        
+</code>
+
+        <p>Scales this matrix by the specified amount, changing the values inside.</p>
+
+        <code class="svelte-19lop9v">scale(mat: Matrix3, x: Number, y: Number, z: Number): nil
+        
+</code>
+
+        <p>Scales this matrix by the specified amount, changing the values inside.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="reset">
+    
+
+        <code class="svelte-19lop9v">reset(mat: Matrix3): nil
+        
+</code>
+
+        <p>Resets this matrix back to the identity matrix.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="rotate">
+    
+
+        <code class="svelte-19lop9v">rotate(mat: Matrix3, vec: Vector3): nil
+        
+</code>
+
+        <p>Rotates this matrix by the specified amount, changing the values inside. Angles are given in degrees, and the rotation order is ZYX.</p>
+
+        <code class="svelte-19lop9v">rotate(mat: Matrix3, x: Number, y: Number, z: Number): nil
+        
+</code>
+
+        <p>Rotates this matrix by the specified amount, changing the values inside. Angles are given in degrees, and the rotation order is ZYX.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="translate">
+    
+
+        <code class="svelte-19lop9v">translate(mat: Matrix3, vec: Vector2): nil
+        
+</code>
+
+        <p>Translates this matrix by the specified amount, changing the values inside.</p>
+
+        <code class="svelte-19lop9v">translate(mat: Matrix3, x: Number, y: Number): nil
+        
+</code>
+
+        <p>Translates this matrix by the specified amount, changing the values inside.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="invert">
+    
+
+        <code class="svelte-19lop9v">invert(mat: Matrix3): nil
+        
+</code>
+
+        <p>Inverts this matrix, changing the values inside.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="transpose">
+    
+
+        <code class="svelte-19lop9v">transpose(mat: Matrix3): nil
+        
+</code>
+
+        <p>Transposes this matrix, changing the values inside.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="det">
+    
+
+        <code class="svelte-19lop9v">det(mat: Matrix3): Number
+        
+</code>
+
+        <p>Calculates and returns the determinant of this matrix.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getInverse">
+    
+
+        <code class="svelte-19lop9v">getInverse(mat: Matrix3): Matrix3
+        
+</code>
+
+        <p>Calculates and returns the inverse of this matrix.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getColumn">
+    
+
+        <code class="svelte-19lop9v">getColumn(mat: Matrix3, col: Integer): Vector3
+        
+</code>
+
+        <p>Gets a Vector3 representing the desired column of the matrix. 1-indexed, so calling mat:getColumn(1) will return the first column of the matrix.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getTranspose">
+    
+
+        <code class="svelte-19lop9v">getTranspose(mat: Matrix3): Matrix3
+        
+</code>
+
+        <p>Calculates and returns the transpose of this matrix.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getRow">
+    
+
+        <code class="svelte-19lop9v">getRow(mat: Matrix3, row: Integer): Vector3
+        
+</code>
+
+        <p>Gets a Vector3 representing the desired row of the matrix. 1-indexed, so calling mat:getRow(1) will return the first row of the matrix.</p>
+</section></section>
+    <section aria-label="Fields"><h3>Fields
+</h3>
+
+<section class="indent svelte-1s0i5cm" aria-label="vRC">
+    <code class="svelte-19lop9v">vRC: double
+</code>
+
+    <p>There is 1 such field for each element of the matrix. You can index these fields with the names v{row}{column}, for example &quot;mat.v12&quot; will return the value in the first row, second column of &quot;mat&quot;.</p>
+</section></section>
+</article><article class="indent svelte-1s0i5cm">
+    <h2>Matrix4</h2>
+
+    A matrix with 4 rows and 4 columns.
+
+    <section aria-label="Methods"><h3>Methods
+</h3>
+
+<section class="indent svelte-1s0i5cm" aria-label="scale">
+    
+
+        <code class="svelte-19lop9v">scale(mat: Matrix4, vec: Vector3): nil
+        
+</code>
+
+        <p>Scales this matrix by the specified amount, changing the values inside.</p>
+
+        <code class="svelte-19lop9v">scale(mat: Matrix4, x: Number, y: Number, z: Number): nil
+        
+</code>
+
+        <p>Scales this matrix by the specified amount, changing the values inside.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="reset">
+    
+
+        <code class="svelte-19lop9v">reset(mat: Matrix4): nil
+        
+</code>
+
+        <p>Resets this matrix back to the identity matrix.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="rotate">
+    
+
+        <code class="svelte-19lop9v">rotate(mat: Matrix4, vec: Vector3): nil
+        
+</code>
+
+        <p>Rotates this matrix by the specified amount, changing the values inside. Angles are given in degrees, and the rotation order is ZYX.</p>
+
+        <code class="svelte-19lop9v">rotate(mat: Matrix4, x: Number, y: Number, z: Number): nil
+        
+</code>
+
+        <p>Rotates this matrix by the specified amount, changing the values inside. Angles are given in degrees, and the rotation order is ZYX.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="translate">
+    
+
+        <code class="svelte-19lop9v">translate(mat: Matrix4, vec: Vector3): nil
+        
+</code>
+
+        <p>Translates this matrix by the specified amount, changing the values inside.</p>
+
+        <code class="svelte-19lop9v">translate(mat: Matrix4, x: Number, y: Number, z: Number): nil
+        
+</code>
+
+        <p>Translates this matrix by the specified amount, changing the values inside.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="invert">
+    
+
+        <code class="svelte-19lop9v">invert(mat: Matrix4): nil
+        
+</code>
+
+        <p>Inverts this matrix, changing the values inside.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="transpose">
+    
+
+        <code class="svelte-19lop9v">transpose(mat: Matrix4): nil
+        
+</code>
+
+        <p>Transposes this matrix, changing the values inside.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="det">
+    
+
+        <code class="svelte-19lop9v">det(mat: Matrix4): Number
+        
+</code>
+
+        <p>Calculates and returns the determinant of this matrix.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getInverse">
+    
+
+        <code class="svelte-19lop9v">getInverse(mat: Matrix4): Matrix4
+        
+</code>
+
+        <p>Calculates and returns the inverse of this matrix.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getColumn">
+    
+
+        <code class="svelte-19lop9v">getColumn(mat: Matrix4, col: Integer): Vector4
+        
+</code>
+
+        <p>Gets a Vector4 representing the desired column of the matrix. 1-indexed, so calling mat:getColumn(1) will return the first column of the matrix.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getTranspose">
+    
+
+        <code class="svelte-19lop9v">getTranspose(mat: Matrix4): Matrix4
+        
+</code>
+
+        <p>Calculates and returns the transpose of this matrix.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getRow">
+    
+
+        <code class="svelte-19lop9v">getRow(mat: Matrix4, row: Integer): Vector4
+        
+</code>
+
+        <p>Gets a Vector4 representing the desired row of the matrix. 1-indexed, so calling mat:getRow(1) will return the first row of the matrix.</p>
+</section></section>
+    <section aria-label="Fields"><h3>Fields
+</h3>
+
+<section class="indent svelte-1s0i5cm" aria-label="vRC">
+    <code class="svelte-19lop9v">vRC: double
+</code>
+
+    <p>There is 1 such field for each element of the matrix. You can index these fields with the names v{row}{column}, for example &quot;mat.v12&quot; will return the value in the first row, second column of &quot;mat&quot;.</p>
+</section></section>
+</article>
+</article><article class="indent svelte-1s0i5cm">
+    <h1>event</h1>
+    <article class="indent svelte-1s0i5cm">
+    <h2>EventsAPI</h2>
+
+    A global API that contains all of the figura Events. Accessed using the name &quot;events&quot;.
+
+    <section aria-label="Methods"><h3>Methods
+</h3>
+
+</section>
+    <section aria-label="Fields"><h3>Fields
+</h3>
+
+<section class="indent svelte-1s0i5cm" aria-label="TICK">
+    <code class="svelte-19lop9v">readonly TICK: org.moon.figura.lua.api.EventsAPI$LuaEvent
+</code>
+
+    <p>The TICK event is run every in-game tick: 20 times per second.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="RENDER">
+    <code class="svelte-19lop9v">readonly RENDER: org.moon.figura.lua.api.EventsAPI$LuaEvent
+</code>
+
+    <p>The RENDER event is run every frame, before the avatar is rendered. Takes a parameter delta, which is a number from 0 to 1 indicating the proportion of the way the game is between ticks.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="POST_RENDER">
+    <code class="svelte-19lop9v">readonly POST_RENDER: org.moon.figura.lua.api.EventsAPI$LuaEvent
+</code>
+
+    <p>The POST_RENDER event runs every frame, after the avatar is rendered. Takes a parameter delta, which is a number from 0 to 1 indicating the proportion of the way the game is between ticks.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="WORLD_RENDER">
+    <code class="svelte-19lop9v">readonly WORLD_RENDER: org.moon.figura.lua.api.EventsAPI$LuaEvent
+</code>
+
+    <p>The WORLD_RENDER event is run every frame, before the world is rendered. Always runs when a world is visible, even when the avatar itself is not, so this runs even in first person. Takes a parameter delta, which is a number from 0 to 1 indicating the proportion of the way the game is between ticks.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="POST_WORLD_RENDER">
+    <code class="svelte-19lop9v">readonly POST_WORLD_RENDER: org.moon.figura.lua.api.EventsAPI$LuaEvent
+</code>
+
+    <p>The POST_WORLD_RENDER event runs every frame, after the world is rendered. Always runs when a world is visible, even when the avatar itself is not, so this runs even in first person. Takes a parameter delta, which is a number from 0 to 1 indicating the proportion of the way the game is between ticks.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="CHAT_SEND_MESSAGE">
+    <code class="svelte-19lop9v">readonly CHAT_SEND_MESSAGE: org.moon.figura.lua.api.EventsAPI$LuaEvent
+</code>
+
+    <p>The CHAT_SEND_MESSAGE event is run every time you send a message in chat. A string parameter is passed in, which contains the message that was sent.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="CHAT_RECEIVE_MESSAGE">
+    <code class="svelte-19lop9v">readonly CHAT_RECEIVE_MESSAGE: org.moon.figura.lua.api.EventsAPI$LuaEvent
+</code>
+
+    <p>The CHAT_RECEIVE_MESSAGE event is run every time a message is received in chat. A string parameter is passed in, which contains the message you received.</p>
+</section></section>
+</article><article class="indent svelte-1s0i5cm">
+    <h2>Event</h2>
+
+    A hook for a certain event in Minecraft. You may register functions to one, and those functions will be called when the event occurs.
+
+    <section aria-label="Methods"><h3>Methods
+</h3>
+
+<section class="indent svelte-1s0i5cm" aria-label="remove">
+    
+
+        <code class="svelte-19lop9v">remove(event: Event): nil
+        
+</code>
+
+        <p>Removes the function at the given index from the event. The default index is 1, which is the first one you registered.</p>
+
+        <code class="svelte-19lop9v">remove(event: Event, index: Integer): nil
+        
+</code>
+
+        <p>Removes the function at the given index from the event. The default index is 1, which is the first one you registered.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="clear">
+    
+
+        <code class="svelte-19lop9v">clear(event: Event): nil
+        
+</code>
+
+        <p>Clears the given event of all its functions.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="register">
+    
+
+        <code class="svelte-19lop9v">register(event: Event, function: Function): nil
+        
+</code>
+
+        <p>Registers the given function to the given event. When the event occurs, the function will be run. Functions are run in the order they were registered.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getCount">
+    
+
+        <code class="svelte-19lop9v">getCount(event: Event): Integer
+        
+</code>
+
+        <p>Returns the number of functions registered to this event.</p>
+</section></section>
+    <section aria-label="Fields"><h3>Fields
+</h3>
+
+</section>
+</article>
+</article><article class="indent svelte-1s0i5cm">
+    <h1>nameplate</h1>
+    <article class="indent svelte-1s0i5cm">
+    <h2>NameplateAPI</h2>
+
+    A global API which is used for customizing your player&#39;s nameplate in chat, above your head, and in the tab list.
+
+    <section aria-label="Methods"><h3>Methods
+</h3>
+
+</section>
+    <section aria-label="Fields"><h3>Fields
+</h3>
+
+<section class="indent svelte-1s0i5cm" aria-label="CHAT">
+    <code class="svelte-19lop9v">readonly CHAT: org.moon.figura.lua.api.nameplate.NameplateCustomization
+</code>
+
+    <p>A customization for your nameplate in the chat.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="ENTITY">
+    <code class="svelte-19lop9v">readonly ENTITY: org.moon.figura.lua.api.nameplate.NameplateCustomization
+</code>
+
+    <p>A customization for your nameplate above your head.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="LIST">
+    <code class="svelte-19lop9v">readonly LIST: org.moon.figura.lua.api.nameplate.NameplateCustomization
+</code>
+
+    <p>A customization for your nameplate in the tab list.</p>
+</section></section>
+</article><article class="indent svelte-1s0i5cm">
+    <h2>NameplateCustomization</h2>
+
+    A customization that can be applied to a nameplate.
+
+    <section aria-label="Methods"><h3>Methods
+</h3>
+
+<section class="indent svelte-1s0i5cm" aria-label="setScale">
+    
+
+        <code class="svelte-19lop9v">setScale(customization: NameplateCustomization, color: Vector3): nil
+        
+</code>
+
+        <p>The scale factor of the nameplate. Only usable on the ENTITY nameplate.</p>
+
+        <code class="svelte-19lop9v">setScale(customization: NameplateCustomization, x: Number, y: Number, z: Number): nil
+        
+</code>
+
+        <p>The scale factor of the nameplate. Only usable on the ENTITY nameplate.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getText">
+    
+
+        <code class="svelte-19lop9v">getText(customization: NameplateCustomization): String
+        
+</code>
+
+        <p>The text to use in this nameplate.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="setText">
+    
+
+        <code class="svelte-19lop9v">setText(customization: NameplateCustomization, text: String): nil
+        
+</code>
+
+        <p>The text to use in this nameplate.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="setPos">
+    
+
+        <code class="svelte-19lop9v">setPos(customization: NameplateCustomization, color: Vector3): nil
+        
+</code>
+
+        <p>The position offset of the nameplate, in world coordinates. Only usable on the ENTITY nameplate.</p>
+
+        <code class="svelte-19lop9v">setPos(customization: NameplateCustomization, x: Number, y: Number, z: Number): nil
+        
+</code>
+
+        <p>The position offset of the nameplate, in world coordinates. Only usable on the ENTITY nameplate.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="setVisible">
+    
+
+        <code class="svelte-19lop9v">setVisible(customization: NameplateCustomization, visible: Boolean): nil
+        
+</code>
+
+        <p>Whether or not the nameplate should be visible. Only usable on the ENTITY nameplate.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getScale">
+    
+
+        <code class="svelte-19lop9v">getScale(customization: NameplateCustomization): Vector3
+        
+</code>
+
+        <p>The scale factor of the nameplate. Only usable on the ENTITY nameplate.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getPos">
+    
+
+        <code class="svelte-19lop9v">getPos(customization: NameplateCustomization): Vector3
+        
+</code>
+
+        <p>The position offset of the nameplate, in world coordinates. Only usable on the ENTITY nameplate.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isVisible">
+    
+
+        <code class="svelte-19lop9v">isVisible(customization: NameplateCustomization): Boolean
+        
+</code>
+
+        <p>Whether or not the nameplate should be visible. Only usable on the ENTITY nameplate.</p>
+</section></section>
+    <section aria-label="Fields"><h3>Fields
+</h3>
+
+</section>
+</article>
+</article><article class="indent svelte-1s0i5cm">
+    <h1>entity</h1>
+    <article class="indent svelte-1s0i5cm">
+    <h2>Entity</h2>
+
+    Acts as a proxy for an entity in the Minecraft world.
+
+    <section aria-label="Methods"><h3>Methods
+</h3>
+
+<section class="indent svelte-1s0i5cm" aria-label="getName">
+    
+
+        <code class="svelte-19lop9v">getName(entity: Entity): String
+        
+</code>
+
+        <p>Gets the name of this entity, if it has a custom name. If it doesn&#39;t, returns a translated form of getType().</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getType">
+    
+
+        <code class="svelte-19lop9v">getType(entity: Entity): String
+        
+</code>
+
+        <p>Gets the Minecraft identifier of this entity. For instance, &quot;minecraft:pig&quot;.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="exists">
+    
+
+        <code class="svelte-19lop9v">exists(entity: Entity): Boolean
+        
+</code>
+
+        <p>Checks whether the proxied entity currently exists. This may return false if the proxied entity leaves your loaded chunks, dies, or goes away for some other reason.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getItem">
+    
+
+        <code class="svelte-19lop9v">getItem(entity: Entity, index: Integer): ItemStack
+        
+</code>
+
+        <p>Gets an ItemStack for the item in the given slot. For the player, slots are indexed with 1 as the main hand, 2 as the off hand, and 3,4,5,6 as the 4 armor slots from the boots to the helmet. If an invalid slot number is given, or if the entity has no item in that slot, this will return nil.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getPos">
+    
+
+        <code class="svelte-19lop9v">getPos(entity: Entity): Vector3
+        
+</code>
+
+        <p>Gets the position of the entity in the world. If delta is passed in, then it will be used to linearly interpolate the position of the entity between the previous tick and the current tick. The default value of delta is 1.</p>
+
+        <code class="svelte-19lop9v">getPos(entity: Entity, delta: Number): Vector3
+        
+</code>
+
+        <p>Gets the position of the entity in the world. If delta is passed in, then it will be used to linearly interpolate the position of the entity between the previous tick and the current tick. The default value of delta is 1.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getRot">
+    
+
+        <code class="svelte-19lop9v">getRot(entity: Entity): Vector2
+        
+</code>
+
+        <p>Gets the rotation of the entity in degrees. If delta is passed in, then it will be used to linearly interpolate the rotation of the entity between the previous tick and the current tick. The default value of delta is 1.</p>
+
+        <code class="svelte-19lop9v">getRot(entity: Entity, delta: Number): Vector2
+        
+</code>
+
+        <p>Gets the rotation of the entity in degrees. If delta is passed in, then it will be used to linearly interpolate the rotation of the entity between the previous tick and the current tick. The default value of delta is 1.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getUUID">
+    
+
+        <code class="svelte-19lop9v">getUUID(entity: Entity): String
+        
+</code>
+
+        <p>Gets the UUID of the proxied entity.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isSprinting">
+    
+
+        <code class="svelte-19lop9v">isSprinting(entity: Entity): Boolean
+        
+</code>
+
+        <p>Returns true if this entity is currently sprinting.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getEyeY">
+    
+
+        <code class="svelte-19lop9v">getEyeY(entity: Entity): Number
+        
+</code>
+
+        <p>Returns the Y level of this entity&#39;s eyes. Not to be confused with getEyeHeight, this function also takes the entity itself&#39;s Y position into account.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isInLava">
+    
+
+        <code class="svelte-19lop9v">isInLava(entity: Entity): Boolean
+        
+</code>
+
+        <p>Returns true if this entity is currently in lava.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getBoundingBox">
+    
+
+        <code class="svelte-19lop9v">getBoundingBox(entity: Entity): Vector3
+        
+</code>
+
+        <p>Returns the size of this entity&#39;s bounding box as a Vector3. {x, y, z} are the width, height, and width. Minecraft entity hitboxes always have square bases.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isInvisible">
+    
+
+        <code class="svelte-19lop9v">isInvisible(entity: Entity): Boolean
+        
+</code>
+
+        <p>Returns true if this entity is invisible, for one reason or another.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isOnGround">
+    
+
+        <code class="svelte-19lop9v">isOnGround(entity: Entity): Boolean
+        
+</code>
+
+        <p>Returns whether or not this entity is currently on the ground.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getEyeHeight">
+    
+
+        <code class="svelte-19lop9v">getEyeHeight(entity: Entity): Number
+        
+</code>
+
+        <p>Returns the current eye height of this entity.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getPose">
+    
+
+        <code class="svelte-19lop9v">getPose(entity: Entity): String
+        
+</code>
+
+        <p>Returns the current pose of the player. This can be one of: &quot;STANDING&quot;, &quot;FALL_FLYING&quot;, &quot;SLEEPING&quot;, &quot;SWIMMING&quot;, &quot;SPIN_ATTACK&quot;, &quot;CROUCHING&quot;, &quot;LONG_JUMPING&quot;, or &quot;DYING&quot;.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getVehicle">
+    
+
+        <code class="svelte-19lop9v">getVehicle(entity: Entity): Entity
+        
+</code>
+
+        <p>Returns a proxy for the entity that this player is currently riding. If the player isn&#39;t riding anything, returns nil.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isInWater">
+    
+
+        <code class="svelte-19lop9v">isInWater(entity: Entity): Boolean
+        
+</code>
+
+        <p>Returns true if this entity is currently in a water block, including waterlogging.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isHamburger">
+    
+
+        <code class="svelte-19lop9v">isHamburger(entity: Entity): Boolean
+        
+</code>
+
+        <p>&quot;Refused to elaborate.&quot;</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isSilent">
+    
+
+        <code class="svelte-19lop9v">isSilent(entity: Entity): Boolean
+        
+</code>
+
+        <p>Returns true if this entity is silent.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getVelocity">
+    
+
+        <code class="svelte-19lop9v">getVelocity(entity: Entity): Vector3
+        
+</code>
+
+        <p>Gets the current velocity of this entity in world coordinates, calculated as its position this tick minus its position last tick.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getLookDir">
+    
+
+        <code class="svelte-19lop9v">getLookDir(entity: Entity): Vector3
+        
+</code>
+
+        <p>Returns a unit vector pointing in the direction that this entity is looking. See the blue line in the F3+B screen for an example.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getFireTicks">
+    
+
+        <code class="svelte-19lop9v">getFireTicks(entity: Entity): Integer
+        
+</code>
+
+        <p>Returns the remaining number of ticks this entity will be on fire for.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getMaxAir">
+    
+
+        <code class="svelte-19lop9v">getMaxAir(entity: Entity): Integer
+        
+</code>
+
+        <p>Gets the maximum amount of air this entity can have.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getDimensionName">
+    
+
+        <code class="svelte-19lop9v">getDimensionName(entity: Entity): String
+        
+</code>
+
+        <p>Gets the Minecraft identifier of the dimension this entity is in.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getFrozenTicks">
+    
+
+        <code class="svelte-19lop9v">getFrozenTicks(entity: Entity): Integer
+        
+</code>
+
+        <p>Gets the number of ticks this entity has been freezing in powder snow for.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getAir">
+    
+
+        <code class="svelte-19lop9v">getAir(entity: Entity): Integer
+        
+</code>
+
+        <p>Gets the current amount of air this entity has remaining.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getVariable">
+    
+
+        <code class="svelte-19lop9v">getVariable(entity: Entity, key: String): AnyType
+        
+</code>
+
+        <p>Gets the value of a variable this entity stored in themselves using the Meta api&#39;s store() function.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isGlowing">
+    
+
+        <code class="svelte-19lop9v">isGlowing(entity: Entity): Boolean
+        
+</code>
+
+        <p>Returns true if this entity is currently glowing.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isWet">
+    
+
+        <code class="svelte-19lop9v">isWet(entity: Entity): Boolean
+        
+</code>
+
+        <p>Returns true in any of three conditions: if the entity is in water, if the entity is in rain, or if the entity is in a bubble column. Otherwise, returns false.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isInRain">
+    
+
+        <code class="svelte-19lop9v">isInRain(entity: Entity): Boolean
+        
+</code>
+
+        <p>Returns true if this entity is currently standing in rain.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isUnderwater">
+    
+
+        <code class="svelte-19lop9v">isUnderwater(entity: Entity): Boolean
+        
+</code>
+
+        <p>Returns true if this entity&#39;s eyes are touching water.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="hasAvatar">
+    
+
+        <code class="svelte-19lop9v">hasAvatar(entity: Entity): Boolean
+        
+</code>
+
+        <p>Returns true if Figura has an avatar loaded for this entity.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isSneaking">
+    
+
+        <code class="svelte-19lop9v">isSneaking(entity: Entity): Boolean
+        
+</code>
+
+        <p>Returns true if this entity is sneaking.</p>
+</section></section>
+    <section aria-label="Fields"><h3>Fields
+</h3>
+
+</section>
+</article><article class="indent svelte-1s0i5cm">
+    <h2>LivingEntity</h2>
+
+    Acts as a proxy for a living entity in the Minecraft world.
+
+    <section aria-label="Methods"><h3>Methods
+</h3>
+
+<section class="indent svelte-1s0i5cm" aria-label="getHealth">
+    
+
+        <code class="svelte-19lop9v">getHealth(entity: LivingEntity): Number
+        
+</code>
+
+        <p>Returns the amount of health this entity has remaining.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getHeldItem">
+    
+
+        <code class="svelte-19lop9v">getHeldItem(entity: LivingEntity): ItemStack
+        
+</code>
+
+        <p>Returns an ItemStack representing the item in this entity&#39;s main hand. If true is passed in for &quot;offhand&quot;, then it will instead look at the item in the entity&#39;s offhand. If the entity isn&#39;t holding an item in that hand, returns nil.</p>
+
+        <code class="svelte-19lop9v">getHeldItem(entity: LivingEntity, offhand: Boolean): ItemStack
+        
+</code>
+
+        <p>Returns an ItemStack representing the item in this entity&#39;s main hand. If true is passed in for &quot;offhand&quot;, then it will instead look at the item in the entity&#39;s offhand. If the entity isn&#39;t holding an item in that hand, returns nil.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getMaxHealth">
+    
+
+        <code class="svelte-19lop9v">getMaxHealth(entity: LivingEntity): Number
+        
+</code>
+
+        <p>Returns the maximum amount of health this entity can have.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isUsingItem">
+    
+
+        <code class="svelte-19lop9v">isUsingItem(entity: LivingEntity): Boolean
+        
+</code>
+
+        <p>Returns true if the entity is currently using an item.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getBodyYaw">
+    
+
+        <code class="svelte-19lop9v">getBodyYaw(entity: LivingEntity): Number
+        
+</code>
+
+        <p>Gets the yaw of this entity&#39;s body in degrees. If delta is passed in, then it will be used to linearly interpolate the rotation of the body between the previous tick and the current tick. The default value of delta is 1.</p>
+
+        <code class="svelte-19lop9v">getBodyYaw(entity: LivingEntity, delta: Number): Number
+        
+</code>
+
+        <p>Gets the yaw of this entity&#39;s body in degrees. If delta is passed in, then it will be used to linearly interpolate the rotation of the body between the previous tick and the current tick. The default value of delta is 1.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getArrowCount">
+    
+
+        <code class="svelte-19lop9v">getArrowCount(entity: LivingEntity): Integer
+        
+</code>
+
+        <p>Returns the number of arrows sticking out of this entity.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getStingerCount">
+    
+
+        <code class="svelte-19lop9v">getStingerCount(entity: LivingEntity): Integer
+        
+</code>
+
+        <p>Returns the number of bee stingers sticking out of this entity.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getArmor">
+    
+
+        <code class="svelte-19lop9v">getArmor(entity: LivingEntity): Integer
+        
+</code>
+
+        <p>Returns the amount of armor points this entity has.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getStatusEffects">
+    
+
+        <code class="svelte-19lop9v">getStatusEffects(entity: LivingEntity): Table
+        
+</code>
+
+        <p>Returns, as a table, all of the status effects this entity has on it. The table contains sub-tables, each of which contains the name, amplifier, duration, and particle visibility of an effect this entity has.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getActiveItem">
+    
+
+        <code class="svelte-19lop9v">getActiveItem(entity: LivingEntity): ItemStack
+        
+</code>
+
+        <p>Returns an ItemStack representing the item the entity is currently using. If they&#39;re not using any item, returns nil.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isLeftHanded">
+    
+
+        <code class="svelte-19lop9v">isLeftHanded(entity: LivingEntity): Boolean
+        
+</code>
+
+        <p>Returns true if the entity&#39;s main hand is its left.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getActiveHand">
+    
+
+        <code class="svelte-19lop9v">getActiveHand(entity: LivingEntity): String
+        
+</code>
+
+        <p>Returns &quot;OFF_HAND&quot; or &quot;MAIN_HAND&quot;, depending on which hand this entity uses an item with.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isClimbing">
+    
+
+        <code class="svelte-19lop9v">isClimbing(entity: LivingEntity): Boolean
+        
+</code>
+
+        <p>Returns true if the entity is currently using a climbable block, like a ladder or vine.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getDeathTime">
+    
+
+        <code class="svelte-19lop9v">getDeathTime(entity: LivingEntity): Integer
+        
+</code>
+
+        <p>Returns the number of ticks this entity has been dead for.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getName">
+    
+
+        <code class="svelte-19lop9v">getName(entity: Entity): String
+        
+</code>
+
+        <p>Gets the name of this entity, if it has a custom name. If it doesn&#39;t, returns a translated form of getType().</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getType">
+    
+
+        <code class="svelte-19lop9v">getType(entity: Entity): String
+        
+</code>
+
+        <p>Gets the Minecraft identifier of this entity. For instance, &quot;minecraft:pig&quot;.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="exists">
+    
+
+        <code class="svelte-19lop9v">exists(entity: Entity): Boolean
+        
+</code>
+
+        <p>Checks whether the proxied entity currently exists. This may return false if the proxied entity leaves your loaded chunks, dies, or goes away for some other reason.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getItem">
+    
+
+        <code class="svelte-19lop9v">getItem(entity: Entity, index: Integer): ItemStack
+        
+</code>
+
+        <p>Gets an ItemStack for the item in the given slot. For the player, slots are indexed with 1 as the main hand, 2 as the off hand, and 3,4,5,6 as the 4 armor slots from the boots to the helmet. If an invalid slot number is given, or if the entity has no item in that slot, this will return nil.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getPos">
+    
+
+        <code class="svelte-19lop9v">getPos(entity: Entity): Vector3
+        
+</code>
+
+        <p>Gets the position of the entity in the world. If delta is passed in, then it will be used to linearly interpolate the position of the entity between the previous tick and the current tick. The default value of delta is 1.</p>
+
+        <code class="svelte-19lop9v">getPos(entity: Entity, delta: Number): Vector3
+        
+</code>
+
+        <p>Gets the position of the entity in the world. If delta is passed in, then it will be used to linearly interpolate the position of the entity between the previous tick and the current tick. The default value of delta is 1.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getRot">
+    
+
+        <code class="svelte-19lop9v">getRot(entity: Entity): Vector2
+        
+</code>
+
+        <p>Gets the rotation of the entity in degrees. If delta is passed in, then it will be used to linearly interpolate the rotation of the entity between the previous tick and the current tick. The default value of delta is 1.</p>
+
+        <code class="svelte-19lop9v">getRot(entity: Entity, delta: Number): Vector2
+        
+</code>
+
+        <p>Gets the rotation of the entity in degrees. If delta is passed in, then it will be used to linearly interpolate the rotation of the entity between the previous tick and the current tick. The default value of delta is 1.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getUUID">
+    
+
+        <code class="svelte-19lop9v">getUUID(entity: Entity): String
+        
+</code>
+
+        <p>Gets the UUID of the proxied entity.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isSprinting">
+    
+
+        <code class="svelte-19lop9v">isSprinting(entity: Entity): Boolean
+        
+</code>
+
+        <p>Returns true if this entity is currently sprinting.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getEyeY">
+    
+
+        <code class="svelte-19lop9v">getEyeY(entity: Entity): Number
+        
+</code>
+
+        <p>Returns the Y level of this entity&#39;s eyes. Not to be confused with getEyeHeight, this function also takes the entity itself&#39;s Y position into account.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isInLava">
+    
+
+        <code class="svelte-19lop9v">isInLava(entity: Entity): Boolean
+        
+</code>
+
+        <p>Returns true if this entity is currently in lava.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getBoundingBox">
+    
+
+        <code class="svelte-19lop9v">getBoundingBox(entity: Entity): Vector3
+        
+</code>
+
+        <p>Returns the size of this entity&#39;s bounding box as a Vector3. {x, y, z} are the width, height, and width. Minecraft entity hitboxes always have square bases.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isInvisible">
+    
+
+        <code class="svelte-19lop9v">isInvisible(entity: Entity): Boolean
+        
+</code>
+
+        <p>Returns true if this entity is invisible, for one reason or another.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isOnGround">
+    
+
+        <code class="svelte-19lop9v">isOnGround(entity: Entity): Boolean
+        
+</code>
+
+        <p>Returns whether or not this entity is currently on the ground.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getEyeHeight">
+    
+
+        <code class="svelte-19lop9v">getEyeHeight(entity: Entity): Number
+        
+</code>
+
+        <p>Returns the current eye height of this entity.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getPose">
+    
+
+        <code class="svelte-19lop9v">getPose(entity: Entity): String
+        
+</code>
+
+        <p>Returns the current pose of the player. This can be one of: &quot;STANDING&quot;, &quot;FALL_FLYING&quot;, &quot;SLEEPING&quot;, &quot;SWIMMING&quot;, &quot;SPIN_ATTACK&quot;, &quot;CROUCHING&quot;, &quot;LONG_JUMPING&quot;, or &quot;DYING&quot;.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getVehicle">
+    
+
+        <code class="svelte-19lop9v">getVehicle(entity: Entity): Entity
+        
+</code>
+
+        <p>Returns a proxy for the entity that this player is currently riding. If the player isn&#39;t riding anything, returns nil.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isInWater">
+    
+
+        <code class="svelte-19lop9v">isInWater(entity: Entity): Boolean
+        
+</code>
+
+        <p>Returns true if this entity is currently in a water block, including waterlogging.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isHamburger">
+    
+
+        <code class="svelte-19lop9v">isHamburger(entity: Entity): Boolean
+        
+</code>
+
+        <p>&quot;Refused to elaborate.&quot;</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isSilent">
+    
+
+        <code class="svelte-19lop9v">isSilent(entity: Entity): Boolean
+        
+</code>
+
+        <p>Returns true if this entity is silent.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getVelocity">
+    
+
+        <code class="svelte-19lop9v">getVelocity(entity: Entity): Vector3
+        
+</code>
+
+        <p>Gets the current velocity of this entity in world coordinates, calculated as its position this tick minus its position last tick.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getLookDir">
+    
+
+        <code class="svelte-19lop9v">getLookDir(entity: Entity): Vector3
+        
+</code>
+
+        <p>Returns a unit vector pointing in the direction that this entity is looking. See the blue line in the F3+B screen for an example.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getFireTicks">
+    
+
+        <code class="svelte-19lop9v">getFireTicks(entity: Entity): Integer
+        
+</code>
+
+        <p>Returns the remaining number of ticks this entity will be on fire for.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getMaxAir">
+    
+
+        <code class="svelte-19lop9v">getMaxAir(entity: Entity): Integer
+        
+</code>
+
+        <p>Gets the maximum amount of air this entity can have.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getDimensionName">
+    
+
+        <code class="svelte-19lop9v">getDimensionName(entity: Entity): String
+        
+</code>
+
+        <p>Gets the Minecraft identifier of the dimension this entity is in.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getFrozenTicks">
+    
+
+        <code class="svelte-19lop9v">getFrozenTicks(entity: Entity): Integer
+        
+</code>
+
+        <p>Gets the number of ticks this entity has been freezing in powder snow for.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getAir">
+    
+
+        <code class="svelte-19lop9v">getAir(entity: Entity): Integer
+        
+</code>
+
+        <p>Gets the current amount of air this entity has remaining.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getVariable">
+    
+
+        <code class="svelte-19lop9v">getVariable(entity: Entity, key: String): AnyType
+        
+</code>
+
+        <p>Gets the value of a variable this entity stored in themselves using the Meta api&#39;s store() function.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isGlowing">
+    
+
+        <code class="svelte-19lop9v">isGlowing(entity: Entity): Boolean
+        
+</code>
+
+        <p>Returns true if this entity is currently glowing.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isWet">
+    
+
+        <code class="svelte-19lop9v">isWet(entity: Entity): Boolean
+        
+</code>
+
+        <p>Returns true in any of three conditions: if the entity is in water, if the entity is in rain, or if the entity is in a bubble column. Otherwise, returns false.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isInRain">
+    
+
+        <code class="svelte-19lop9v">isInRain(entity: Entity): Boolean
+        
+</code>
+
+        <p>Returns true if this entity is currently standing in rain.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isUnderwater">
+    
+
+        <code class="svelte-19lop9v">isUnderwater(entity: Entity): Boolean
+        
+</code>
+
+        <p>Returns true if this entity&#39;s eyes are touching water.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="hasAvatar">
+    
+
+        <code class="svelte-19lop9v">hasAvatar(entity: Entity): Boolean
+        
+</code>
+
+        <p>Returns true if Figura has an avatar loaded for this entity.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isSneaking">
+    
+
+        <code class="svelte-19lop9v">isSneaking(entity: Entity): Boolean
+        
+</code>
+
+        <p>Returns true if this entity is sneaking.</p>
+</section></section>
+    <section aria-label="Fields"><h3>Fields
+</h3>
+
+</section>
+</article><article class="indent svelte-1s0i5cm">
+    <h2>Player</h2>
+
+    Acts as a proxy for a player entity in the Minecraft world. A global instance exists for the avatar&#39;s user, under the name &quot;player&quot;.
+
+    <section aria-label="Methods"><h3>Methods
+</h3>
+
+<section class="indent svelte-1s0i5cm" aria-label="getExperienceLevel">
+    
+
+        <code class="svelte-19lop9v">getExperienceLevel(entity: Player): Integer
+        
+</code>
+
+        <p>Gets the player&#39;s current level.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getModelType">
+    
+
+        <code class="svelte-19lop9v">getModelType(entity: Player): String
+        
+</code>
+
+        <p>Returns &quot;SLIM&quot; or &quot;DEFAULT&quot;, depending on the player&#39;s model type.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getFood">
+    
+
+        <code class="svelte-19lop9v">getFood(entity: Player): Integer
+        
+</code>
+
+        <p>Gets the current food level of the player, from 0 to 20.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getGamemode">
+    
+
+        <code class="svelte-19lop9v">getGamemode(entity: Player): String
+        
+</code>
+
+        <p>Returns &quot;SURVIVAL&quot;, &quot;CREATIVE&quot;, &quot;ADVENTURE&quot;, or &quot;SPECTATOR&quot; depending on the player&#39;s gamemode. If the gamemode is unknown, returns nil.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isFlying">
+    
+
+        <code class="svelte-19lop9v">isFlying(entity: Player): Boolean
+        
+</code>
+
+        <p>Returns whether the player is currently flying.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getSaturation">
+    
+
+        <code class="svelte-19lop9v">getSaturation(entity: Player): Number
+        
+</code>
+
+        <p>Gets the current saturation level of the player.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getExperienceProgress">
+    
+
+        <code class="svelte-19lop9v">getExperienceProgress(entity: Player): Number
+        
+</code>
+
+        <p>Gets the progress of the way towards the player&#39;s next level, as a value from 0 to 1.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getHealth">
+    
+
+        <code class="svelte-19lop9v">getHealth(entity: LivingEntity): Number
+        
+</code>
+
+        <p>Returns the amount of health this entity has remaining.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getHeldItem">
+    
+
+        <code class="svelte-19lop9v">getHeldItem(entity: LivingEntity): ItemStack
+        
+</code>
+
+        <p>Returns an ItemStack representing the item in this entity&#39;s main hand. If true is passed in for &quot;offhand&quot;, then it will instead look at the item in the entity&#39;s offhand. If the entity isn&#39;t holding an item in that hand, returns nil.</p>
+
+        <code class="svelte-19lop9v">getHeldItem(entity: LivingEntity, offhand: Boolean): ItemStack
+        
+</code>
+
+        <p>Returns an ItemStack representing the item in this entity&#39;s main hand. If true is passed in for &quot;offhand&quot;, then it will instead look at the item in the entity&#39;s offhand. If the entity isn&#39;t holding an item in that hand, returns nil.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getMaxHealth">
+    
+
+        <code class="svelte-19lop9v">getMaxHealth(entity: LivingEntity): Number
+        
+</code>
+
+        <p>Returns the maximum amount of health this entity can have.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isUsingItem">
+    
+
+        <code class="svelte-19lop9v">isUsingItem(entity: LivingEntity): Boolean
+        
+</code>
+
+        <p>Returns true if the entity is currently using an item.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getBodyYaw">
+    
+
+        <code class="svelte-19lop9v">getBodyYaw(entity: LivingEntity): Number
+        
+</code>
+
+        <p>Gets the yaw of this entity&#39;s body in degrees. If delta is passed in, then it will be used to linearly interpolate the rotation of the body between the previous tick and the current tick. The default value of delta is 1.</p>
+
+        <code class="svelte-19lop9v">getBodyYaw(entity: LivingEntity, delta: Number): Number
+        
+</code>
+
+        <p>Gets the yaw of this entity&#39;s body in degrees. If delta is passed in, then it will be used to linearly interpolate the rotation of the body between the previous tick and the current tick. The default value of delta is 1.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getArrowCount">
+    
+
+        <code class="svelte-19lop9v">getArrowCount(entity: LivingEntity): Integer
+        
+</code>
+
+        <p>Returns the number of arrows sticking out of this entity.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getStingerCount">
+    
+
+        <code class="svelte-19lop9v">getStingerCount(entity: LivingEntity): Integer
+        
+</code>
+
+        <p>Returns the number of bee stingers sticking out of this entity.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getArmor">
+    
+
+        <code class="svelte-19lop9v">getArmor(entity: LivingEntity): Integer
+        
+</code>
+
+        <p>Returns the amount of armor points this entity has.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getStatusEffects">
+    
+
+        <code class="svelte-19lop9v">getStatusEffects(entity: LivingEntity): Table
+        
+</code>
+
+        <p>Returns, as a table, all of the status effects this entity has on it. The table contains sub-tables, each of which contains the name, amplifier, duration, and particle visibility of an effect this entity has.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getActiveItem">
+    
+
+        <code class="svelte-19lop9v">getActiveItem(entity: LivingEntity): ItemStack
+        
+</code>
+
+        <p>Returns an ItemStack representing the item the entity is currently using. If they&#39;re not using any item, returns nil.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isLeftHanded">
+    
+
+        <code class="svelte-19lop9v">isLeftHanded(entity: LivingEntity): Boolean
+        
+</code>
+
+        <p>Returns true if the entity&#39;s main hand is its left.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getActiveHand">
+    
+
+        <code class="svelte-19lop9v">getActiveHand(entity: LivingEntity): String
+        
+</code>
+
+        <p>Returns &quot;OFF_HAND&quot; or &quot;MAIN_HAND&quot;, depending on which hand this entity uses an item with.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isClimbing">
+    
+
+        <code class="svelte-19lop9v">isClimbing(entity: LivingEntity): Boolean
+        
+</code>
+
+        <p>Returns true if the entity is currently using a climbable block, like a ladder or vine.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getDeathTime">
+    
+
+        <code class="svelte-19lop9v">getDeathTime(entity: LivingEntity): Integer
+        
+</code>
+
+        <p>Returns the number of ticks this entity has been dead for.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getName">
+    
+
+        <code class="svelte-19lop9v">getName(entity: Entity): String
+        
+</code>
+
+        <p>Gets the name of this entity, if it has a custom name. If it doesn&#39;t, returns a translated form of getType().</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getType">
+    
+
+        <code class="svelte-19lop9v">getType(entity: Entity): String
+        
+</code>
+
+        <p>Gets the Minecraft identifier of this entity. For instance, &quot;minecraft:pig&quot;.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="exists">
+    
+
+        <code class="svelte-19lop9v">exists(entity: Entity): Boolean
+        
+</code>
+
+        <p>Checks whether the proxied entity currently exists. This may return false if the proxied entity leaves your loaded chunks, dies, or goes away for some other reason.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getItem">
+    
+
+        <code class="svelte-19lop9v">getItem(entity: Entity, index: Integer): ItemStack
+        
+</code>
+
+        <p>Gets an ItemStack for the item in the given slot. For the player, slots are indexed with 1 as the main hand, 2 as the off hand, and 3,4,5,6 as the 4 armor slots from the boots to the helmet. If an invalid slot number is given, or if the entity has no item in that slot, this will return nil.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getPos">
+    
+
+        <code class="svelte-19lop9v">getPos(entity: Entity): Vector3
+        
+</code>
+
+        <p>Gets the position of the entity in the world. If delta is passed in, then it will be used to linearly interpolate the position of the entity between the previous tick and the current tick. The default value of delta is 1.</p>
+
+        <code class="svelte-19lop9v">getPos(entity: Entity, delta: Number): Vector3
+        
+</code>
+
+        <p>Gets the position of the entity in the world. If delta is passed in, then it will be used to linearly interpolate the position of the entity between the previous tick and the current tick. The default value of delta is 1.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getRot">
+    
+
+        <code class="svelte-19lop9v">getRot(entity: Entity): Vector2
+        
+</code>
+
+        <p>Gets the rotation of the entity in degrees. If delta is passed in, then it will be used to linearly interpolate the rotation of the entity between the previous tick and the current tick. The default value of delta is 1.</p>
+
+        <code class="svelte-19lop9v">getRot(entity: Entity, delta: Number): Vector2
+        
+</code>
+
+        <p>Gets the rotation of the entity in degrees. If delta is passed in, then it will be used to linearly interpolate the rotation of the entity between the previous tick and the current tick. The default value of delta is 1.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getUUID">
+    
+
+        <code class="svelte-19lop9v">getUUID(entity: Entity): String
+        
+</code>
+
+        <p>Gets the UUID of the proxied entity.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isSprinting">
+    
+
+        <code class="svelte-19lop9v">isSprinting(entity: Entity): Boolean
+        
+</code>
+
+        <p>Returns true if this entity is currently sprinting.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getEyeY">
+    
+
+        <code class="svelte-19lop9v">getEyeY(entity: Entity): Number
+        
+</code>
+
+        <p>Returns the Y level of this entity&#39;s eyes. Not to be confused with getEyeHeight, this function also takes the entity itself&#39;s Y position into account.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isInLava">
+    
+
+        <code class="svelte-19lop9v">isInLava(entity: Entity): Boolean
+        
+</code>
+
+        <p>Returns true if this entity is currently in lava.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getBoundingBox">
+    
+
+        <code class="svelte-19lop9v">getBoundingBox(entity: Entity): Vector3
+        
+</code>
+
+        <p>Returns the size of this entity&#39;s bounding box as a Vector3. {x, y, z} are the width, height, and width. Minecraft entity hitboxes always have square bases.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isInvisible">
+    
+
+        <code class="svelte-19lop9v">isInvisible(entity: Entity): Boolean
+        
+</code>
+
+        <p>Returns true if this entity is invisible, for one reason or another.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isOnGround">
+    
+
+        <code class="svelte-19lop9v">isOnGround(entity: Entity): Boolean
+        
+</code>
+
+        <p>Returns whether or not this entity is currently on the ground.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getEyeHeight">
+    
+
+        <code class="svelte-19lop9v">getEyeHeight(entity: Entity): Number
+        
+</code>
+
+        <p>Returns the current eye height of this entity.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getPose">
+    
+
+        <code class="svelte-19lop9v">getPose(entity: Entity): String
+        
+</code>
+
+        <p>Returns the current pose of the player. This can be one of: &quot;STANDING&quot;, &quot;FALL_FLYING&quot;, &quot;SLEEPING&quot;, &quot;SWIMMING&quot;, &quot;SPIN_ATTACK&quot;, &quot;CROUCHING&quot;, &quot;LONG_JUMPING&quot;, or &quot;DYING&quot;.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getVehicle">
+    
+
+        <code class="svelte-19lop9v">getVehicle(entity: Entity): Entity
+        
+</code>
+
+        <p>Returns a proxy for the entity that this player is currently riding. If the player isn&#39;t riding anything, returns nil.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isInWater">
+    
+
+        <code class="svelte-19lop9v">isInWater(entity: Entity): Boolean
+        
+</code>
+
+        <p>Returns true if this entity is currently in a water block, including waterlogging.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isHamburger">
+    
+
+        <code class="svelte-19lop9v">isHamburger(entity: Entity): Boolean
+        
+</code>
+
+        <p>&quot;Refused to elaborate.&quot;</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isSilent">
+    
+
+        <code class="svelte-19lop9v">isSilent(entity: Entity): Boolean
+        
+</code>
+
+        <p>Returns true if this entity is silent.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getVelocity">
+    
+
+        <code class="svelte-19lop9v">getVelocity(entity: Entity): Vector3
+        
+</code>
+
+        <p>Gets the current velocity of this entity in world coordinates, calculated as its position this tick minus its position last tick.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getLookDir">
+    
+
+        <code class="svelte-19lop9v">getLookDir(entity: Entity): Vector3
+        
+</code>
+
+        <p>Returns a unit vector pointing in the direction that this entity is looking. See the blue line in the F3+B screen for an example.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getFireTicks">
+    
+
+        <code class="svelte-19lop9v">getFireTicks(entity: Entity): Integer
+        
+</code>
+
+        <p>Returns the remaining number of ticks this entity will be on fire for.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getMaxAir">
+    
+
+        <code class="svelte-19lop9v">getMaxAir(entity: Entity): Integer
+        
+</code>
+
+        <p>Gets the maximum amount of air this entity can have.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getDimensionName">
+    
+
+        <code class="svelte-19lop9v">getDimensionName(entity: Entity): String
+        
+</code>
+
+        <p>Gets the Minecraft identifier of the dimension this entity is in.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getFrozenTicks">
+    
+
+        <code class="svelte-19lop9v">getFrozenTicks(entity: Entity): Integer
+        
+</code>
+
+        <p>Gets the number of ticks this entity has been freezing in powder snow for.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getAir">
+    
+
+        <code class="svelte-19lop9v">getAir(entity: Entity): Integer
+        
+</code>
+
+        <p>Gets the current amount of air this entity has remaining.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getVariable">
+    
+
+        <code class="svelte-19lop9v">getVariable(entity: Entity, key: String): AnyType
+        
+</code>
+
+        <p>Gets the value of a variable this entity stored in themselves using the Meta api&#39;s store() function.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isGlowing">
+    
+
+        <code class="svelte-19lop9v">isGlowing(entity: Entity): Boolean
+        
+</code>
+
+        <p>Returns true if this entity is currently glowing.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isWet">
+    
+
+        <code class="svelte-19lop9v">isWet(entity: Entity): Boolean
+        
+</code>
+
+        <p>Returns true in any of three conditions: if the entity is in water, if the entity is in rain, or if the entity is in a bubble column. Otherwise, returns false.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isInRain">
+    
+
+        <code class="svelte-19lop9v">isInRain(entity: Entity): Boolean
+        
+</code>
+
+        <p>Returns true if this entity is currently standing in rain.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isUnderwater">
+    
+
+        <code class="svelte-19lop9v">isUnderwater(entity: Entity): Boolean
+        
+</code>
+
+        <p>Returns true if this entity&#39;s eyes are touching water.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="hasAvatar">
+    
+
+        <code class="svelte-19lop9v">hasAvatar(entity: Entity): Boolean
+        
+</code>
+
+        <p>Returns true if Figura has an avatar loaded for this entity.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isSneaking">
+    
+
+        <code class="svelte-19lop9v">isSneaking(entity: Entity): Boolean
+        
+</code>
+
+        <p>Returns true if this entity is sneaking.</p>
+</section></section>
+    <section aria-label="Fields"><h3>Fields
+</h3>
+
+</section>
+</article>
+</article><article class="indent svelte-1s0i5cm">
+    <h1>misc</h1>
+    <article class="indent svelte-1s0i5cm">
+    <h2>ClientAPI</h2>
+
+    A global API used to interact with the current Minecraft client. Most of its functions return things that can be found in the F3 menu.
+
+    <section aria-label="Methods"><h3>Methods
+</h3>
+
+<section class="indent svelte-1s0i5cm" aria-label="getVersion">
+    
+
+        <code class="svelte-19lop9v">getVersion(): String
+        
+</code>
+
+        <p>Returns the &quot;version&quot; of your client. In testing, this returned &quot;Fabric&quot;.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getScaledWindowSize">
+    
+
+        <code class="svelte-19lop9v">getScaledWindowSize(): Vector2
+        
+</code>
+
+        <p>Returns the size of the window in Minecraft&#39;s interal GUI units.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getEntityStatistics">
+    
+
+        <code class="svelte-19lop9v">getEntityStatistics(): String
+        
+</code>
+
+        <p>Returns a string containing information about the loaded entities on the client. This string appears in the F3 menu.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isDebugOverlayEnabled">
+    
+
+        <code class="svelte-19lop9v">isDebugOverlayEnabled(): Boolean
+        
+</code>
+
+        <p>Returns true if the F3 screen is currently open.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getFPSString">
+    
+
+        <code class="svelte-19lop9v">getFPSString(): String
+        
+</code>
+
+        <p>Gets the FPS string of the client, displayed in the F3 menu. Contains info on the fps, the fps limit, vsync, cloud types, and biome blend radius.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isPaused">
+    
+
+        <code class="svelte-19lop9v">isPaused(): Boolean
+        
+</code>
+
+        <p>Returns true if the client is paused.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getVersionType">
+    
+
+        <code class="svelte-19lop9v">getVersionType(): String
+        
+</code>
+
+        <p>Returns the &quot;version type&quot; of your client. In testing, this returned &quot;Fabric&quot;.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getServerBrand">
+    
+
+        <code class="svelte-19lop9v">getServerBrand(): String
+        
+</code>
+
+        <p>Returns the type of server you&#39;re on. In singleplayer, this is &quot;Integrated&quot;.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getEntityCount">
+    
+
+        <code class="svelte-19lop9v">getEntityCount(): Integer
+        
+</code>
+
+        <p>Returns the number of currently loaded entities.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getChunkStatistics">
+    
+
+        <code class="svelte-19lop9v">getChunkStatistics(): String
+        
+</code>
+
+        <p>Returns a string containing information about the player&#39;s chunk. This string appears in the F3 menu.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getSoundStatistics">
+    
+
+        <code class="svelte-19lop9v">getSoundStatistics(): String
+        
+</code>
+
+        <p>Returns a string containing information about the currently playing sounds on the client. This string appears in the F3 menu.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getCurrentEffect">
+    
+
+        <code class="svelte-19lop9v">getCurrentEffect(): String
+        
+</code>
+
+        <p>Returns the path to the currently applied shader, used when spectating an entity that has different vision than normal. Normally returns nil.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getAllocatedMemory">
+    
+
+        <code class="svelte-19lop9v">getAllocatedMemory(): Integer
+        
+</code>
+
+        <p>Returns the maximum amount of memory that Minecraft can possibly use.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getJavaVersion">
+    
+
+        <code class="svelte-19lop9v">getJavaVersion(): String
+        
+</code>
+
+        <p>Returns your current Java version you&#39;re playing Minecraft with.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getFPS">
+    
+
+        <code class="svelte-19lop9v">getFPS(): Integer
+        
+</code>
+
+        <p>Gets the FPS of the client. Returns 0 if the fps counter isn&#39;t ready yet (or if your pc is just that bad).</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getGuiScale">
+    
+
+        <code class="svelte-19lop9v">getGuiScale(): Number
+        
+</code>
+
+        <p>Returns the current value of your Gui Scale setting. If you use auto, then it gets the actual current scale.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getUsedMemory">
+    
+
+        <code class="svelte-19lop9v">getUsedMemory(): Integer
+        
+</code>
+
+        <p>Returns the number of bytes of memory Minecraft is currently using.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getMaxMemory">
+    
+
+        <code class="svelte-19lop9v">getMaxMemory(): Integer
+        
+</code>
+
+        <p>Returns the maximum amount of memory that Minecraft will try to use.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getParticleCount">
+    
+
+        <code class="svelte-19lop9v">getParticleCount(): String
+        
+</code>
+
+        <p>Returns the number of currently loaded particles.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getCameraPos">
+    
+
+        <code class="svelte-19lop9v">getCameraPos(): Vector3
+        
+</code>
+
+        <p>Returns the position of the viewer&#39;s camera.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getMousePos">
+    
+
+        <code class="svelte-19lop9v">getMousePos(): Vector2
+        
+</code>
+
+        <p>Returns the position of the mouse in pixels, relative to the top-left corner.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getCameraRot">
+    
+
+        <code class="svelte-19lop9v">getCameraRot(): Vector3
+        
+</code>
+
+        <p>Returns the rotation of the viewer&#39;s camera.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getSystemTime">
+    
+
+        <code class="svelte-19lop9v">getSystemTime(): Integer
+        
+</code>
+
+        <p>Returns the current system time in milliseconds.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getFOV">
+    
+
+        <code class="svelte-19lop9v">getFOV(): Number
+        
+</code>
+
+        <p>Returns the current FOV option of the client, not including additional effects such as speed or sprinting.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isWindowFocused">
+    
+
+        <code class="svelte-19lop9v">isWindowFocused(): Boolean
+        
+</code>
+
+        <p>Returns true if the Minecraft window is currently focused.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isHudEnabled">
+    
+
+        <code class="svelte-19lop9v">isHudEnabled(): Boolean
+        
+</code>
+
+        <p>Returns true if the hud is enabled (F1 disables the HUD).</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getScreen">
+    
+
+        <code class="svelte-19lop9v">getScreen(): String
+        
+</code>
+
+        <p>Screen.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getWindowSize">
+    
+
+        <code class="svelte-19lop9v">getWindowSize(): Vector2
+        
+</code>
+
+        <p>Returns the size of the Minecraft window in pixels, as {width, height}.</p>
+</section></section>
+    <section aria-label="Fields"><h3>Fields
+</h3>
+
+</section>
+</article><article class="indent svelte-1s0i5cm">
+    <h2>HostAPI</h2>
+
+    A global API dedicated to specifically the host of the avatar. For other viewers, these do nothing.
+
+    <section aria-label="Methods"><h3>Methods
+</h3>
+
+<section class="indent svelte-1s0i5cm" aria-label="getSlot">
+    
+
+        <code class="svelte-19lop9v">getSlot(host: HostAPI, slot: String): ItemStack
+        
+</code>
+
+        <p>Gets an ItemStack for the item in the given slot. Should use the same syntax for slots as the /item command.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="sendChatMessage">
+    
+
+        <code class="svelte-19lop9v">sendChatMessage(host: HostAPI, text: String): nil
+        
+</code>
+
+        <p>Sends the given message in the chat.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isFirstPerson">
+    
+
+        <code class="svelte-19lop9v">isFirstPerson(host: HostAPI): Boolean
+        
+</code>
+
+        <p>Returns true if the camera is in first person mode.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="setSubtitle">
+    
+
+        <code class="svelte-19lop9v">setSubtitle(host: HostAPI, text: String): nil
+        
+</code>
+
+        <p>Sets the current subtitle to the given text. The text is given as json.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="setTitle">
+    
+
+        <code class="svelte-19lop9v">setTitle(host: HostAPI, text: String): nil
+        
+</code>
+
+        <p>Sets the current title to the given text. The text is given as json.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isHost">
+    
+
+        <code class="svelte-19lop9v">isHost(host: HostAPI): Boolean
+        
+</code>
+
+        <p>Returns true if this instance of the script is running on host.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="setTitleTimes">
+    
+
+        <code class="svelte-19lop9v">setTitleTimes(host: HostAPI, timesData: Vector3): nil
+        
+</code>
+
+        <p>I&#39;m going to be honest, I don&#39;t really know what this one does. It has something to do with the amount of time that titles stay on screen, but nothing more specific than that.</p>
+
+        <code class="svelte-19lop9v">setTitleTimes(host: HostAPI, fadeInTime: Integer, stayTime: Integer, fadeOutTime: Integer): nil
+        
+</code>
+
+        <p>I&#39;m going to be honest, I don&#39;t really know what this one does. It has something to do with the amount of time that titles stay on screen, but nothing more specific than that.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="swingArm">
+    
+
+        <code class="svelte-19lop9v">swingArm(host: HostAPI, offhand: Boolean): nil
+        
+</code>
+
+        <p>Animates swinging the player&#39;s arm. If the boolean is true, then the offhand is the one that swings.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="clearTitle">
+    
+
+        <code class="svelte-19lop9v">clearTitle(host: HostAPI): nil
+        
+</code>
+
+        <p>Clears the current title from the GUI.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getTargetedEntity">
+    
+
+        <code class="svelte-19lop9v">getTargetedEntity(host: HostAPI): Entity
+        
+</code>
+
+        <p>Returns a proxy for your currently targeted entity. This entity appears on the F3 screen.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="isCameraBackwards">
+    
+
+        <code class="svelte-19lop9v">isCameraBackwards(host: HostAPI): Boolean
+        
+</code>
+
+        <p>Returns true if the camera is facing backwards.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="setActionbar">
+    
+
+        <code class="svelte-19lop9v">setActionbar(host: HostAPI, text: String): nil
+        
+</code>
+
+        <p>Sets the action bar message to the given text. The boolean parameter defaults to false.</p>
+
+        <code class="svelte-19lop9v">setActionbar(host: HostAPI, text: String, animated: Boolean): nil
+        
+</code>
+
+        <p>Sets the action bar message to the given text. The boolean parameter defaults to false.</p>
+</section></section>
+    <section aria-label="Fields"><h3>Fields
+</h3>
+
+</section>
+</article><article class="indent svelte-1s0i5cm">
+    <h2>MetaAPI</h2>
+
+    A global API containing functions to interact with your avatar&#39;s metadata, and also to get meta-information about the current script environment.
+
+    <section aria-label="Methods"><h3>Methods
+</h3>
+
+<section class="indent svelte-1s0i5cm" aria-label="getName">
+    
+
+        <code class="svelte-19lop9v">getName(meta: MetaAPI): String
+        
+</code>
+
+        <p>Gets the name string of this avatar.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="store">
+    
+
+        <code class="svelte-19lop9v">store(meta: MetaAPI, key: String, value: AnyType): nil
+        
+</code>
+
+        <p>Store the given key-value pair inside your current avatar&#39;s metadata. Someone else can get this information from a different script with the getVariable() function in Player. The key must be a string.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getSize">
+    
+
+        <code class="svelte-19lop9v">getSize(meta: MetaAPI): Number
+        
+</code>
+
+        <p>Gets the file size of this avatar in KB.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getVersion">
+    
+
+        <code class="svelte-19lop9v">getVersion(meta: MetaAPI): String
+        
+</code>
+
+        <p>Gets the version string of this avatar.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="setColor">
+    
+
+        <code class="svelte-19lop9v">setColor(meta: MetaAPI, color: String): nil
+        
+</code>
+
+        <p>Sets the current color string of your avatar, used as your avatar theme.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getColor">
+    
+
+        <code class="svelte-19lop9v">getColor(meta: MetaAPI): String
+        
+</code>
+
+        <p>Gets the current color string of your avatar, used as your avatar theme.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="hasTexture">
+    
+
+        <code class="svelte-19lop9v">hasTexture(meta: MetaAPI): Boolean
+        
+</code>
+
+        <p>Gets whether or not this avatar has a texture.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getAuthor">
+    
+
+        <code class="svelte-19lop9v">getAuthor(meta: MetaAPI): String
+        
+</code>
+
+        <p>Gets the author string of this avatar.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="canRenderOffscreen">
+    
+
+        <code class="svelte-19lop9v">canRenderOffscreen(meta: MetaAPI): Boolean
+        
+</code>
+
+        <p>Gets whether or not the viewer trusts you to render the avatar off-screen.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getTickCount">
+    
+
+        <code class="svelte-19lop9v">getTickCount(meta: MetaAPI): Integer
+        
+</code>
+
+        <p>Gets the number of Events.TICK instructions of this avatar last tick (not yet implemented).</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getMaxParticles">
+    
+
+        <code class="svelte-19lop9v">getMaxParticles(meta: MetaAPI): Integer
+        
+</code>
+
+        <p>Gets the maximum allowed number of particles in the trust settings of the viewer.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getMaxRenderCount">
+    
+
+        <code class="svelte-19lop9v">getMaxRenderCount(meta: MetaAPI): Integer
+        
+</code>
+
+        <p>Gets the maximum allowed instructions in Events.RENDER in the trust settings of the viewer.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getRenderCount">
+    
+
+        <code class="svelte-19lop9v">getRenderCount(meta: MetaAPI): Integer
+        
+</code>
+
+        <p>Gets the number of Events.RENDER, Events.POST_RENDER, Events.WORLD_RENDER, and Events.POST_WORLD_RENDER instructions of this avatar last frame (not yet implemented).</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getMaxSounds">
+    
+
+        <code class="svelte-19lop9v">getMaxSounds(meta: MetaAPI): Integer
+        
+</code>
+
+        <p>Gets the maximum allowed number of sounds in the trust settings of the viewer.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getComplexity">
+    
+
+        <code class="svelte-19lop9v">getComplexity(meta: MetaAPI): Integer
+        
+</code>
+
+        <p>Gets the current complexity of this avatar.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getMaxTickCount">
+    
+
+        <code class="svelte-19lop9v">getMaxTickCount(meta: MetaAPI): Integer
+        
+</code>
+
+        <p>Gets the maximum allowed instructions in Events.TICK in the trust settings of the viewer.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getScriptMemory">
+    
+
+        <code class="svelte-19lop9v">getScriptMemory(meta: MetaAPI): Integer
+        
+</code>
+
+        <p>Gets the current amount of memory in use by this avatar, in bytes.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="hasScriptError">
+    
+
+        <code class="svelte-19lop9v">hasScriptError(meta: MetaAPI): Boolean
+        
+</code>
+
+        <p>Gets whether this script currently has stopped due to an error (kinda useless lmao).</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getInitCount">
+    
+
+        <code class="svelte-19lop9v">getInitCount(meta: MetaAPI): Integer
+        
+</code>
+
+        <p>Gets the number of initialization instructions of this avatar (not yet implemented).</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getMaxInitCount">
+    
+
+        <code class="svelte-19lop9v">getMaxInitCount(meta: MetaAPI): Integer
+        
+</code>
+
+        <p>Gets the maximum allowed instructions during initialization in the trust settings of the viewer.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getMaxScriptMemory">
+    
+
+        <code class="svelte-19lop9v">getMaxScriptMemory(meta: MetaAPI): Integer
+        
+</code>
+
+        <p>Gets the maximum allowed memory usage of this script in the trust settings of the viewer, in bytes.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getMaxComplexity">
+    
+
+        <code class="svelte-19lop9v">getMaxComplexity(meta: MetaAPI): Integer
+        
+</code>
+
+        <p>Gets the maximum allowed model complexity (number of faces) in the trust settings of the viewer.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="canEditNameplate">
+    
+
+        <code class="svelte-19lop9v">canEditNameplate(meta: MetaAPI): Boolean
+        
+</code>
+
+        <p>Gets whether or not the viewer allows your avatar to edit your nameplate.</p>
+</section></section>
+    <section aria-label="Fields"><h3>Fields
+</h3>
+
+</section>
+</article><article class="indent svelte-1s0i5cm">
+    <h2>RendererAPI</h2>
+
+    A global API providing functions that change the way Minecraft renders your player.
+
+    <section aria-label="Methods"><h3>Methods
+</h3>
+
+<section class="indent svelte-1s0i5cm" aria-label="canRenderFireOverlay">
+    
+
+        <code class="svelte-19lop9v">canRenderFireOverlay(api: RendererAPI): Boolean
+        
+</code>
+
+        <p>Gets whether or not fire should render on you when you&#39;re on fire. The default value is nil, meaning to use the vanilla default, which is true for players.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="setRenderFireOverlay">
+    
+
+        <code class="svelte-19lop9v">setRenderFireOverlay(api: RendererAPI, bool: Boolean): nil
+        
+</code>
+
+        <p>Sets whether or not fire should render on you when you&#39;re on fire.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getShadowRadius">
+    
+
+        <code class="svelte-19lop9v">getShadowRadius(api: RendererAPI): Number
+        
+</code>
+
+        <p>Gets the radius of your shadow. The default value is nil, which means to use the vanilla default of 0.5 for players.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="setShadowRadius">
+    
+
+        <code class="svelte-19lop9v">setShadowRadius(api: RendererAPI, radius: Number): nil
+        
+</code>
+
+        <p>Sets the radius of your shadow. The default value is nil, which means to use the vanilla default of 0.5 for players. The maximum value is 12.</p>
+</section></section>
+    <section aria-label="Fields"><h3>Fields
+</h3>
+
+</section>
+</article><article class="indent svelte-1s0i5cm">
+    <h2>SoundAPI</h2>
+
+    A global API which is used to play Minecraft sounds. Accessed using the name &quot;sound&quot;.
+
+    <section aria-label="Methods"><h3>Methods
+</h3>
+
+<section class="indent svelte-1s0i5cm" aria-label="playSound">
+    
+
+        <code class="svelte-19lop9v">playSound(api: SoundAPI, sound: String, pos: Vector3): nil
+        
+</code>
+
+        <p>Plays the specified sound at the specified position with the given volume and pitch multipliers. Volume in Minecraft refers to how far away people can hear the sound from, not the actual loudness of it. If you don&#39;t give values for volume and pitch, the default values are 1.</p>
+
+        <code class="svelte-19lop9v">playSound(api: SoundAPI, sound: String, posX: Number, posY: Number, posZ: Number): nil
+        
+</code>
+
+        <p>Plays the specified sound at the specified position with the given volume and pitch multipliers. Volume in Minecraft refers to how far away people can hear the sound from, not the actual loudness of it. If you don&#39;t give values for volume and pitch, the default values are 1.</p>
+
+        <code class="svelte-19lop9v">playSound(api: SoundAPI, sound: String, pos: Vector3, volume: Number, pitch: Number): nil
+        
+</code>
+
+        <p>Plays the specified sound at the specified position with the given volume and pitch multipliers. Volume in Minecraft refers to how far away people can hear the sound from, not the actual loudness of it. If you don&#39;t give values for volume and pitch, the default values are 1.</p>
+
+        <code class="svelte-19lop9v">playSound(api: SoundAPI, sound: String, posX: Number, posY: Number, posZ: Number, volume: Number, pitch: Number): nil
+        
+</code>
+
+        <p>Plays the specified sound at the specified position with the given volume and pitch multipliers. Volume in Minecraft refers to how far away people can hear the sound from, not the actual loudness of it. If you don&#39;t give values for volume and pitch, the default values are 1.</p>
+</section></section>
+    <section aria-label="Fields"><h3>Fields
+</h3>
+
+</section>
+</article><article class="indent svelte-1s0i5cm">
+    <h2>ParticleAPI</h2>
+
+    A global API which is used for dealing with Minecraft&#39;s particles. Can currently only be used to summon a particle. Accessed using the name &quot;particle&quot;.
+
+    <section aria-label="Methods"><h3>Methods
+</h3>
+
+<section class="indent svelte-1s0i5cm" aria-label="addParticle">
+    
+
+        <code class="svelte-19lop9v">addParticle(api: ParticleAPI, name: String, posVel: Vector6): nil
+        
+</code>
+
+        <p>Creates a particle with the given name at the specified position, with the given velocity. Some particles have special properties, like the &quot;dust&quot; particle. For these particles, the special properties can be put into the &quot;name&quot; parameter, the same way as it works for commands.</p>
+
+        <code class="svelte-19lop9v">addParticle(api: ParticleAPI, name: String, pos: Vector3): nil
+        
+</code>
+
+        <p>Creates a particle with the given name at the specified position, with the given velocity. Some particles have special properties, like the &quot;dust&quot; particle. For these particles, the special properties can be put into the &quot;name&quot; parameter, the same way as it works for commands.</p>
+
+        <code class="svelte-19lop9v">addParticle(api: ParticleAPI, name: String, pos: Vector3, vel: Vector3): nil
+        
+</code>
+
+        <p>Creates a particle with the given name at the specified position, with the given velocity. Some particles have special properties, like the &quot;dust&quot; particle. For these particles, the special properties can be put into the &quot;name&quot; parameter, the same way as it works for commands.</p>
+
+        <code class="svelte-19lop9v">addParticle(api: ParticleAPI, name: String, posX: Number, posY: Number, posZ: Number): nil
+        
+</code>
+
+        <p>Creates a particle with the given name at the specified position, with the given velocity. Some particles have special properties, like the &quot;dust&quot; particle. For these particles, the special properties can be put into the &quot;name&quot; parameter, the same way as it works for commands.</p>
+
+        <code class="svelte-19lop9v">addParticle(api: ParticleAPI, name: String, pos: Vector3, velX: Number, velY: Number, velZ: Number): nil
+        
+</code>
+
+        <p>Creates a particle with the given name at the specified position, with the given velocity. Some particles have special properties, like the &quot;dust&quot; particle. For these particles, the special properties can be put into the &quot;name&quot; parameter, the same way as it works for commands.</p>
+
+        <code class="svelte-19lop9v">addParticle(api: ParticleAPI, name: String, posX: Number, posY: Number, posZ: Number, vel: Vector3): nil
+        
+</code>
+
+        <p>Creates a particle with the given name at the specified position, with the given velocity. Some particles have special properties, like the &quot;dust&quot; particle. For these particles, the special properties can be put into the &quot;name&quot; parameter, the same way as it works for commands.</p>
+
+        <code class="svelte-19lop9v">addParticle(api: ParticleAPI, name: String, posX: Number, posY: Number, posZ: Number, velX: Number, velY: Number, velZ: Number): nil
+        
+</code>
+
+        <p>Creates a particle with the given name at the specified position, with the given velocity. Some particles have special properties, like the &quot;dust&quot; particle. For these particles, the special properties can be put into the &quot;name&quot; parameter, the same way as it works for commands.</p>
+</section></section>
+    <section aria-label="Fields"><h3>Fields
+</h3>
+
+</section>
+</article>
+</article></div></div>
+</div>
+
+
+		<script type="module" data-hydrate="j545wi">
+		import { start } from "/_app/start-b3ca0300.js";
+		start({
+			target: document.querySelector('[data-hydrate="j545wi"]').parentNode,
+			paths: {"base":"","assets":""},
+			session: {},
+			route: true,
+			spa: false,
+			trailing_slash: "never",
+			hydrate: {
+				status: 200,
+				error: null,
+				nodes: [
+					import("/_app/pages/__layout.svelte-e332817b.js"),
+						import("/_app/pages/index.svelte-854174c1.js")
+				],
+				params: {},
+				routeId: ""
+			}
+		});
+	</script></div>
+	</body>
+</html>
