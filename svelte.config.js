@@ -11,7 +11,7 @@ const config = {
 		adapter: adapter(),
 
 		paths: {
-			base: ""
+			base: "/figs"
 		},
 
 		prerender: {
