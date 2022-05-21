@@ -33,7 +33,7 @@ jobs:
         run: npm install
       
       - name: Build
-        run: node run build
+        run: npm run build
       
       - name: Publish To Github
         # You may pin to the exact commit or the version.
