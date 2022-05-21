@@ -40,6 +40,7 @@ jobs:
         # uses: cedricbuild/gh-publish-branch@daf6f8c34a612c120302a478911a0157d4a148f1
         uses: cedricbuild/gh-publish-branch@dev0
         with:
+          repo: self
           # Repository name with owner. For example, cedric05/dothttp
           branch: gh-pages
           # Directory to push
