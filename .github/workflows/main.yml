@@ -43,4 +43,4 @@ jobs:
           # Repository name with owner. For example, cedric05/dothttp
           branch: gh-pages
           # Directory to push
-          directory: build
+          directory: ./build
