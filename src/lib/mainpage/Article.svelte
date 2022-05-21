@@ -2,6 +2,8 @@
     export let tag = "article";
     export let title: string | null = null;
     export let heading: 1 | 2 | 3 | 4 | 5 | 6 = 1;
+
+    a
 </script>
 
 <svelte:element this={tag} class="indent" {...$$restProps}>
