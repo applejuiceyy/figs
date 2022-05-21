@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/figs/favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta http-equiv="content-security-policy" content="">
+	<link rel="stylesheet" href="/figs/_app/assets/pages/__layout.svelte-f1a05f01.css">
+	<link rel="stylesheet" href="/figs/_app/assets/Article.svelte_svelte_type_style_lang-cb855cfb.css">
+	<link rel="modulepreload" href="/figs/_app/start-4cc53e14.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/index-ac18434c.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/paths-396f020f.js">
+	<link rel="modulepreload" href="/figs/_app/pages/__layout.svelte-2728b87e.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/Article.svelte_svelte_type_style_lang-4914ee14.js">
+	<link rel="modulepreload" href="/figs/_app/pages/_category_/_item_/index.svelte-5aa03e59.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/CategoryItemDocs-c440b842.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/ItemFieldDocs-2cc1b2c5.js">
+				<script>
+		if ('serviceWorker' in navigator) {
+			navigator.serviceWorker.register('/figs/service-worker.js');
+		}
+	</script>
+	</head>
+	<body>
+		<div>
+
+
+<div class="root svelte-965776"><nav class="figura-background svelte-965776"><a class="nav-item svelte-965776" href="/figs/">FIGS!!</a>
+        <a class="nav-item expander svelte-965776" href="javascript:;" aria-label="Expand">Show Table</a></nav>
+
+    <div class="category figura-background svelte-965776"><div class="category-inner svelte-965776"><div class="category-item-root svelte-6qhb8p"><a class="category-selector svelte-6qhb8p" href="/figs/globals">globals</a>
+
+        
+    </div><div class="category-item-root svelte-6qhb8p"><a class="category-selector svelte-6qhb8p" href="/figs/world">world</a>
+
+        
+    </div><div class="category-item-root svelte-6qhb8p"><a class="category-selector svelte-6qhb8p" href="/figs/keybind">keybind</a>
+
+        
+    </div><div class="category-item-root svelte-6qhb8p"><a class="category-selector svelte-6qhb8p" href="/figs/model">model</a>
+
+        
+    </div><div class="category-item-root svelte-6qhb8p"><a class="category-selector svelte-6qhb8p" href="/figs/math">math</a>
+
+        
+    </div><div class="category-item-root svelte-6qhb8p"><a class="category-selector svelte-6qhb8p" href="/figs/event">event</a>
+
+        <div class="category-items svelte-6qhb8p"><a href="/figs/event/EventsAPI" class="svelte-6qhb8p">EventsAPI</a>
+
+                    <a href="/figs/event/Event" class="svelte-6qhb8p">Event</a>
+
+                    <div class="category-functions svelte-6qhb8p"><a href="/figs/event/Event/remove" class="svelte-6qhb8p">remove</a><a href="/figs/event/Event/clear" class="svelte-6qhb8p">clear</a><a href="/figs/event/Event/register" class="svelte-6qhb8p">register</a><a href="/figs/event/Event/getCount" class="svelte-6qhb8p">getCount</a></div>
+                        <div class="category-functions svelte-6qhb8p">
+                        </div>
+
+            </div>
+    </div><div class="category-item-root svelte-6qhb8p"><a class="category-selector svelte-6qhb8p" href="/figs/nameplate">nameplate</a>
+
+        
+    </div><div class="category-item-root svelte-6qhb8p"><a class="category-selector svelte-6qhb8p" href="/figs/entity">entity</a>
+
+        
+    </div><div class="category-item-root svelte-6qhb8p"><a class="category-selector svelte-6qhb8p" href="/figs/misc">misc</a>
+
+        
+    </div>
+
+            <footer class="svelte-965776">Made by applejuice
+            </footer></div></div>
+
+    <div class="content figura-background svelte-965776"><div class="rounding-content-wrapper svelte-965776"><article class="indent svelte-1s0i5cm">
+    <h1>Event</h1>
+
+    A hook for a certain event in Minecraft. You may register functions to one, and those functions will be called when the event occurs.
+
+    <section aria-label="Methods"><h2>Methods
+</h2>
+
+<section class="indent svelte-1s0i5cm" aria-label="remove">
+    
+
+        <span class="svelte-1g2wrps">remove(event: Event): nil
+        
+</span>
+
+        <span class="svelte-1g2wrps">remove(event: Event, index: Integer): nil
+        
+</span>
+    <p>Removes the function at the given index from the event. The default index is 1, which is the first one you registered.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="clear">
+    
+
+        <span class="svelte-1g2wrps">clear(event: Event): nil
+        
+</span>
+    <p>Clears the given event of all its functions.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="register">
+    
+
+        <span class="svelte-1g2wrps">register(event: Event, function: Function): nil
+        
+</span>
+    <p>Registers the given function to the given event. When the event occurs, the function will be run. Functions are run in the order they were registered.</p>
+</section><section class="indent svelte-1s0i5cm" aria-label="getCount">
+    
+
+        <span class="svelte-1g2wrps">getCount(event: Event): Integer
+        
+</span>
+    <p>Returns the number of functions registered to this event.</p>
+</section></section>
+    <section aria-label="Fields"><h2>Fields
+</h2>
+
+</section>
+</article></div></div>
+</div>
+
+
+		<script type="module" data-hydrate="1czshv9">
+		import { start } from "/figs/_app/start-4cc53e14.js";
+		start({
+			target: document.querySelector('[data-hydrate="1czshv9"]').parentNode,
+			paths: {"base":"/figs","assets":"/figs"},
+			session: {},
+			route: true,
+			spa: false,
+			trailing_slash: "always",
+			hydrate: {
+				status: 200,
+				error: null,
+				nodes: [
+					import("/figs/_app/pages/__layout.svelte-2728b87e.js"),
+						import("/figs/_app/pages/_category_/_item_/index.svelte-5aa03e59.js")
+				],
+				params: {category:"event",item:"Event"},
+				routeId: "[category]/[item]"
+			}
+		});
+	</script></div>
+	</body>
+</html>
