@@ -5,17 +5,17 @@
 		<link rel="icon" href="/figs/favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta http-equiv="content-security-policy" content="">
-	<link rel="stylesheet" href="/figs/_app/assets/pages/__layout.svelte-b8a49b79.css">
-	<link rel="stylesheet" href="/figs/_app/assets/Article.svelte_svelte_type_style_lang-6949c5b7.css">
-	<link rel="modulepreload" href="/figs/_app/start-63a5dcb1.js">
+	<link rel="stylesheet" href="/figs/_app/assets/pages/__layout.svelte-f1a05f01.css">
+	<link rel="stylesheet" href="/figs/_app/assets/Article.svelte_svelte_type_style_lang-cb855cfb.css">
+	<link rel="modulepreload" href="/figs/_app/start-a15c7bbc.js">
 	<link rel="modulepreload" href="/figs/_app/chunks/index-ac18434c.js">
 	<link rel="modulepreload" href="/figs/_app/chunks/paths-396f020f.js">
-	<link rel="modulepreload" href="/figs/_app/pages/__layout.svelte-e332817b.js">
+	<link rel="modulepreload" href="/figs/_app/pages/__layout.svelte-2728b87e.js">
 	<link rel="modulepreload" href="/figs/_app/chunks/Article.svelte_svelte_type_style_lang-4914ee14.js">
-	<link rel="modulepreload" href="/figs/_app/pages/_category_/index.svelte-e4adb4e4.js">
-	<link rel="modulepreload" href="/figs/_app/chunks/CategoryDocs-c2c0484b.js">
-	<link rel="modulepreload" href="/figs/_app/chunks/ItemFieldDocs-15de57d3.js">
-	<link rel="modulepreload" href="/figs/_app/chunks/CategoryItemDocs-ee84b141.js">
+	<link rel="modulepreload" href="/figs/_app/pages/_category_/index.svelte-6e7f21aa.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/CategoryDocs-3910f13e.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/ItemFieldDocs-2cc1b2c5.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/CategoryItemDocs-c440b842.js">
 				<script>
 		if ('serviceWorker' in navigator) {
 			navigator.serviceWorker.register('/figs/service-worker.js');
@@ -26,10 +26,10 @@
 		<div>
 
 
-<div class="root svelte-ytat92"><nav class="figura-background svelte-ytat92"><a class="nav-item svelte-ytat92" href="/figs/">FIGS!!</a>
-        <a class="nav-item expander svelte-ytat92" href="javascript:;" aria-label="Expand">Expand</a></nav>
+<div class="root svelte-965776"><nav class="figura-background svelte-965776"><a class="nav-item svelte-965776" href="/figs/">FIGS!!</a>
+        <a class="nav-item expander svelte-965776" href="javascript:;" aria-label="Expand">Show Table</a></nav>
 
-    <div class="category figura-background svelte-ytat92"><div class="category-inner svelte-ytat92"><div class="category-item-root svelte-6qhb8p"><a class="category-selector svelte-6qhb8p" href="/figs/globals">globals</a>
+    <div class="category figura-background svelte-965776"><div class="category-inner svelte-965776"><div class="category-item-root svelte-6qhb8p"><a class="category-selector svelte-6qhb8p" href="/figs/globals">globals</a>
 
         
     </div><div class="category-item-root svelte-6qhb8p"><a class="category-selector svelte-6qhb8p" href="/figs/world">world</a>
@@ -66,10 +66,10 @@
         
     </div>
 
-            <footer class="svelte-ytat92">Made by applejuice
+            <footer class="svelte-965776">Made by applejuice
             </footer></div></div>
 
-    <div class="content figura-background svelte-ytat92"><div class="rounding-content-wrapper svelte-ytat92"><article class="indent svelte-1s0i5cm">
+    <div class="content figura-background svelte-965776"><div class="rounding-content-wrapper svelte-965776"><article class="indent svelte-1s0i5cm">
     <h1>entity</h1>
     <article class="indent svelte-1s0i5cm">
     <h2>Entity</h2>
@@ -82,279 +82,242 @@
 <section class="indent svelte-1s0i5cm" aria-label="getName">
     
 
-        <code class="svelte-19lop9v">getName(entity: Entity): String
+        <span class="svelte-1g2wrps">getName(entity: Entity): String
         
-</code>
-
-        <p>Gets the name of this entity, if it has a custom name. If it doesn&#39;t, returns a translated form of getType().</p>
+</span>
+    <p>Gets the name of this entity, if it has a custom name. If it doesn&#39;t, returns a translated form of getType().</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getType">
     
 
-        <code class="svelte-19lop9v">getType(entity: Entity): String
+        <span class="svelte-1g2wrps">getType(entity: Entity): String
         
-</code>
-
-        <p>Gets the Minecraft identifier of this entity. For instance, &quot;minecraft:pig&quot;.</p>
+</span>
+    <p>Gets the Minecraft identifier of this entity. For instance, &quot;minecraft:pig&quot;.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="exists">
     
 
-        <code class="svelte-19lop9v">exists(entity: Entity): Boolean
+        <span class="svelte-1g2wrps">exists(entity: Entity): Boolean
         
-</code>
-
-        <p>Checks whether the proxied entity currently exists. This may return false if the proxied entity leaves your loaded chunks, dies, or goes away for some other reason.</p>
+</span>
+    <p>Checks whether the proxied entity currently exists. This may return false if the proxied entity leaves your loaded chunks, dies, or goes away for some other reason.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getItem">
     
 
-        <code class="svelte-19lop9v">getItem(entity: Entity, index: Integer): ItemStack
+        <span class="svelte-1g2wrps">getItem(entity: Entity, index: Integer): ItemStack
         
-</code>
-
-        <p>Gets an ItemStack for the item in the given slot. For the player, slots are indexed with 1 as the main hand, 2 as the off hand, and 3,4,5,6 as the 4 armor slots from the boots to the helmet. If an invalid slot number is given, or if the entity has no item in that slot, this will return nil.</p>
+</span>
+    <p>Gets an ItemStack for the item in the given slot. For the player, slots are indexed with 1 as the main hand, 2 as the off hand, and 3,4,5,6 as the 4 armor slots from the boots to the helmet. If an invalid slot number is given, or if the entity has no item in that slot, this will return nil.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getPos">
     
 
-        <code class="svelte-19lop9v">getPos(entity: Entity): Vector3
+        <span class="svelte-1g2wrps">getPos(entity: Entity): Vector3
         
-</code>
+</span>
 
-        <p>Gets the position of the entity in the world. If delta is passed in, then it will be used to linearly interpolate the position of the entity between the previous tick and the current tick. The default value of delta is 1.</p>
-
-        <code class="svelte-19lop9v">getPos(entity: Entity, delta: Number): Vector3
+        <span class="svelte-1g2wrps">getPos(entity: Entity, delta: Number): Vector3
         
-</code>
-
-        <p>Gets the position of the entity in the world. If delta is passed in, then it will be used to linearly interpolate the position of the entity between the previous tick and the current tick. The default value of delta is 1.</p>
+</span>
+    <p>Gets the position of the entity in the world. If delta is passed in, then it will be used to linearly interpolate the position of the entity between the previous tick and the current tick. The default value of delta is 1.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getRot">
     
 
-        <code class="svelte-19lop9v">getRot(entity: Entity): Vector2
+        <span class="svelte-1g2wrps">getRot(entity: Entity): Vector2
         
-</code>
+</span>
 
-        <p>Gets the rotation of the entity in degrees. If delta is passed in, then it will be used to linearly interpolate the rotation of the entity between the previous tick and the current tick. The default value of delta is 1.</p>
-
-        <code class="svelte-19lop9v">getRot(entity: Entity, delta: Number): Vector2
+        <span class="svelte-1g2wrps">getRot(entity: Entity, delta: Number): Vector2
         
-</code>
-
-        <p>Gets the rotation of the entity in degrees. If delta is passed in, then it will be used to linearly interpolate the rotation of the entity between the previous tick and the current tick. The default value of delta is 1.</p>
+</span>
+    <p>Gets the rotation of the entity in degrees. If delta is passed in, then it will be used to linearly interpolate the rotation of the entity between the previous tick and the current tick. The default value of delta is 1.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getUUID">
     
 
-        <code class="svelte-19lop9v">getUUID(entity: Entity): String
+        <span class="svelte-1g2wrps">getUUID(entity: Entity): String
         
-</code>
-
-        <p>Gets the UUID of the proxied entity.</p>
+</span>
+    <p>Gets the UUID of the proxied entity.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="isSprinting">
     
 
-        <code class="svelte-19lop9v">isSprinting(entity: Entity): Boolean
+        <span class="svelte-1g2wrps">isSprinting(entity: Entity): Boolean
         
-</code>
-
-        <p>Returns true if this entity is currently sprinting.</p>
+</span>
+    <p>Returns true if this entity is currently sprinting.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getEyeY">
     
 
-        <code class="svelte-19lop9v">getEyeY(entity: Entity): Number
+        <span class="svelte-1g2wrps">getEyeY(entity: Entity): Number
         
-</code>
-
-        <p>Returns the Y level of this entity&#39;s eyes. Not to be confused with getEyeHeight, this function also takes the entity itself&#39;s Y position into account.</p>
+</span>
+    <p>Returns the Y level of this entity&#39;s eyes. Not to be confused with getEyeHeight, this function also takes the entity itself&#39;s Y position into account.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="isInLava">
     
 
-        <code class="svelte-19lop9v">isInLava(entity: Entity): Boolean
+        <span class="svelte-1g2wrps">isInLava(entity: Entity): Boolean
         
-</code>
-
-        <p>Returns true if this entity is currently in lava.</p>
+</span>
+    <p>Returns true if this entity is currently in lava.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getBoundingBox">
     
 
-        <code class="svelte-19lop9v">getBoundingBox(entity: Entity): Vector3
+        <span class="svelte-1g2wrps">getBoundingBox(entity: Entity): Vector3
         
-</code>
-
-        <p>Returns the size of this entity&#39;s bounding box as a Vector3. {x, y, z} are the width, height, and width. Minecraft entity hitboxes always have square bases.</p>
+</span>
+    <p>Returns the size of this entity&#39;s bounding box as a Vector3. {x, y, z} are the width, height, and width. Minecraft entity hitboxes always have square bases.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="isInvisible">
     
 
-        <code class="svelte-19lop9v">isInvisible(entity: Entity): Boolean
+        <span class="svelte-1g2wrps">isInvisible(entity: Entity): Boolean
         
-</code>
-
-        <p>Returns true if this entity is invisible, for one reason or another.</p>
+</span>
+    <p>Returns true if this entity is invisible, for one reason or another.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="isOnGround">
     
 
-        <code class="svelte-19lop9v">isOnGround(entity: Entity): Boolean
+        <span class="svelte-1g2wrps">isOnGround(entity: Entity): Boolean
         
-</code>
-
-        <p>Returns whether or not this entity is currently on the ground.</p>
+</span>
+    <p>Returns whether or not this entity is currently on the ground.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getEyeHeight">
     
 
-        <code class="svelte-19lop9v">getEyeHeight(entity: Entity): Number
+        <span class="svelte-1g2wrps">getEyeHeight(entity: Entity): Number
         
-</code>
-
-        <p>Returns the current eye height of this entity.</p>
+</span>
+    <p>Returns the current eye height of this entity.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getPose">
     
 
-        <code class="svelte-19lop9v">getPose(entity: Entity): String
+        <span class="svelte-1g2wrps">getPose(entity: Entity): String
         
-</code>
-
-        <p>Returns the current pose of the player. This can be one of: &quot;STANDING&quot;, &quot;FALL_FLYING&quot;, &quot;SLEEPING&quot;, &quot;SWIMMING&quot;, &quot;SPIN_ATTACK&quot;, &quot;CROUCHING&quot;, &quot;LONG_JUMPING&quot;, or &quot;DYING&quot;.</p>
+</span>
+    <p>Returns the current pose of the player. This can be one of: &quot;STANDING&quot;, &quot;FALL_FLYING&quot;, &quot;SLEEPING&quot;, &quot;SWIMMING&quot;, &quot;SPIN_ATTACK&quot;, &quot;CROUCHING&quot;, &quot;LONG_JUMPING&quot;, or &quot;DYING&quot;.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getVehicle">
     
 
-        <code class="svelte-19lop9v">getVehicle(entity: Entity): Entity
+        <span class="svelte-1g2wrps">getVehicle(entity: Entity): Entity
         
-</code>
-
-        <p>Returns a proxy for the entity that this player is currently riding. If the player isn&#39;t riding anything, returns nil.</p>
+</span>
+    <p>Returns a proxy for the entity that this player is currently riding. If the player isn&#39;t riding anything, returns nil.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="isInWater">
     
 
-        <code class="svelte-19lop9v">isInWater(entity: Entity): Boolean
+        <span class="svelte-1g2wrps">isInWater(entity: Entity): Boolean
         
-</code>
-
-        <p>Returns true if this entity is currently in a water block, including waterlogging.</p>
+</span>
+    <p>Returns true if this entity is currently in a water block, including waterlogging.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="isHamburger">
     
 
-        <code class="svelte-19lop9v">isHamburger(entity: Entity): Boolean
+        <span class="svelte-1g2wrps">isHamburger(entity: Entity): Boolean
         
-</code>
-
-        <p>&quot;Refused to elaborate.&quot;</p>
+</span>
+    <p>&quot;Refused to elaborate.&quot;</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="isSilent">
     
 
-        <code class="svelte-19lop9v">isSilent(entity: Entity): Boolean
+        <span class="svelte-1g2wrps">isSilent(entity: Entity): Boolean
         
-</code>
-
-        <p>Returns true if this entity is silent.</p>
+</span>
+    <p>Returns true if this entity is silent.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getVelocity">
     
 
-        <code class="svelte-19lop9v">getVelocity(entity: Entity): Vector3
+        <span class="svelte-1g2wrps">getVelocity(entity: Entity): Vector3
         
-</code>
-
-        <p>Gets the current velocity of this entity in world coordinates, calculated as its position this tick minus its position last tick.</p>
+</span>
+    <p>Gets the current velocity of this entity in world coordinates, calculated as its position this tick minus its position last tick.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getLookDir">
     
 
-        <code class="svelte-19lop9v">getLookDir(entity: Entity): Vector3
+        <span class="svelte-1g2wrps">getLookDir(entity: Entity): Vector3
         
-</code>
-
-        <p>Returns a unit vector pointing in the direction that this entity is looking. See the blue line in the F3+B screen for an example.</p>
+</span>
+    <p>Returns a unit vector pointing in the direction that this entity is looking. See the blue line in the F3+B screen for an example.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getFireTicks">
     
 
-        <code class="svelte-19lop9v">getFireTicks(entity: Entity): Integer
+        <span class="svelte-1g2wrps">getFireTicks(entity: Entity): Integer
         
-</code>
-
-        <p>Returns the remaining number of ticks this entity will be on fire for.</p>
+</span>
+    <p>Returns the remaining number of ticks this entity will be on fire for.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getMaxAir">
     
 
-        <code class="svelte-19lop9v">getMaxAir(entity: Entity): Integer
+        <span class="svelte-1g2wrps">getMaxAir(entity: Entity): Integer
         
-</code>
-
-        <p>Gets the maximum amount of air this entity can have.</p>
+</span>
+    <p>Gets the maximum amount of air this entity can have.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getDimensionName">
     
 
-        <code class="svelte-19lop9v">getDimensionName(entity: Entity): String
+        <span class="svelte-1g2wrps">getDimensionName(entity: Entity): String
         
-</code>
-
-        <p>Gets the Minecraft identifier of the dimension this entity is in.</p>
+</span>
+    <p>Gets the Minecraft identifier of the dimension this entity is in.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getFrozenTicks">
     
 
-        <code class="svelte-19lop9v">getFrozenTicks(entity: Entity): Integer
+        <span class="svelte-1g2wrps">getFrozenTicks(entity: Entity): Integer
         
-</code>
-
-        <p>Gets the number of ticks this entity has been freezing in powder snow for.</p>
+</span>
+    <p>Gets the number of ticks this entity has been freezing in powder snow for.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getAir">
     
 
-        <code class="svelte-19lop9v">getAir(entity: Entity): Integer
+        <span class="svelte-1g2wrps">getAir(entity: Entity): Integer
         
-</code>
-
-        <p>Gets the current amount of air this entity has remaining.</p>
+</span>
+    <p>Gets the current amount of air this entity has remaining.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getVariable">
     
 
-        <code class="svelte-19lop9v">getVariable(entity: Entity, key: String): AnyType
+        <span class="svelte-1g2wrps">getVariable(entity: Entity, key: String): AnyType
         
-</code>
-
-        <p>Gets the value of a variable this entity stored in themselves using the Meta api&#39;s store() function.</p>
+</span>
+    <p>Gets the value of a variable this entity stored in themselves using the Meta api&#39;s store() function.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="isGlowing">
     
 
-        <code class="svelte-19lop9v">isGlowing(entity: Entity): Boolean
+        <span class="svelte-1g2wrps">isGlowing(entity: Entity): Boolean
         
-</code>
-
-        <p>Returns true if this entity is currently glowing.</p>
+</span>
+    <p>Returns true if this entity is currently glowing.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="isWet">
     
 
-        <code class="svelte-19lop9v">isWet(entity: Entity): Boolean
+        <span class="svelte-1g2wrps">isWet(entity: Entity): Boolean
         
-</code>
-
-        <p>Returns true in any of three conditions: if the entity is in water, if the entity is in rain, or if the entity is in a bubble column. Otherwise, returns false.</p>
+</span>
+    <p>Returns true in any of three conditions: if the entity is in water, if the entity is in rain, or if the entity is in a bubble column. Otherwise, returns false.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="isInRain">
     
 
-        <code class="svelte-19lop9v">isInRain(entity: Entity): Boolean
+        <span class="svelte-1g2wrps">isInRain(entity: Entity): Boolean
         
-</code>
-
-        <p>Returns true if this entity is currently standing in rain.</p>
+</span>
+    <p>Returns true if this entity is currently standing in rain.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="isUnderwater">
     
 
-        <code class="svelte-19lop9v">isUnderwater(entity: Entity): Boolean
+        <span class="svelte-1g2wrps">isUnderwater(entity: Entity): Boolean
         
-</code>
-
-        <p>Returns true if this entity&#39;s eyes are touching water.</p>
+</span>
+    <p>Returns true if this entity&#39;s eyes are touching water.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="hasAvatar">
     
 
-        <code class="svelte-19lop9v">hasAvatar(entity: Entity): Boolean
+        <span class="svelte-1g2wrps">hasAvatar(entity: Entity): Boolean
         
-</code>
-
-        <p>Returns true if Figura has an avatar loaded for this entity.</p>
+</span>
+    <p>Returns true if Figura has an avatar loaded for this entity.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="isSneaking">
     
 
-        <code class="svelte-19lop9v">isSneaking(entity: Entity): Boolean
+        <span class="svelte-1g2wrps">isSneaking(entity: Entity): Boolean
         
-</code>
-
-        <p>Returns true if this entity is sneaking.</p>
+</span>
+    <p>Returns true if this entity is sneaking.</p>
 </section></section>
     <section aria-label="Fields"><h3>Fields
 </h3>
@@ -371,403 +334,348 @@
 <section class="indent svelte-1s0i5cm" aria-label="getHealth">
     
 
-        <code class="svelte-19lop9v">getHealth(entity: LivingEntity): Number
+        <span class="svelte-1g2wrps">getHealth(entity: LivingEntity): Number
         
-</code>
-
-        <p>Returns the amount of health this entity has remaining.</p>
+</span>
+    <p>Returns the amount of health this entity has remaining.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getHeldItem">
     
 
-        <code class="svelte-19lop9v">getHeldItem(entity: LivingEntity): ItemStack
+        <span class="svelte-1g2wrps">getHeldItem(entity: LivingEntity): ItemStack
         
-</code>
+</span>
 
-        <p>Returns an ItemStack representing the item in this entity&#39;s main hand. If true is passed in for &quot;offhand&quot;, then it will instead look at the item in the entity&#39;s offhand. If the entity isn&#39;t holding an item in that hand, returns nil.</p>
-
-        <code class="svelte-19lop9v">getHeldItem(entity: LivingEntity, offhand: Boolean): ItemStack
+        <span class="svelte-1g2wrps">getHeldItem(entity: LivingEntity, offhand: Boolean): ItemStack
         
-</code>
-
-        <p>Returns an ItemStack representing the item in this entity&#39;s main hand. If true is passed in for &quot;offhand&quot;, then it will instead look at the item in the entity&#39;s offhand. If the entity isn&#39;t holding an item in that hand, returns nil.</p>
+</span>
+    <p>Returns an ItemStack representing the item in this entity&#39;s main hand. If true is passed in for &quot;offhand&quot;, then it will instead look at the item in the entity&#39;s offhand. If the entity isn&#39;t holding an item in that hand, returns nil.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getMaxHealth">
     
 
-        <code class="svelte-19lop9v">getMaxHealth(entity: LivingEntity): Number
+        <span class="svelte-1g2wrps">getMaxHealth(entity: LivingEntity): Number
         
-</code>
-
-        <p>Returns the maximum amount of health this entity can have.</p>
+</span>
+    <p>Returns the maximum amount of health this entity can have.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="isUsingItem">
     
 
-        <code class="svelte-19lop9v">isUsingItem(entity: LivingEntity): Boolean
+        <span class="svelte-1g2wrps">isUsingItem(entity: LivingEntity): Boolean
         
-</code>
-
-        <p>Returns true if the entity is currently using an item.</p>
+</span>
+    <p>Returns true if the entity is currently using an item.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getBodyYaw">
     
 
-        <code class="svelte-19lop9v">getBodyYaw(entity: LivingEntity): Number
+        <span class="svelte-1g2wrps">getBodyYaw(entity: LivingEntity): Number
         
-</code>
+</span>
 
-        <p>Gets the yaw of this entity&#39;s body in degrees. If delta is passed in, then it will be used to linearly interpolate the rotation of the body between the previous tick and the current tick. The default value of delta is 1.</p>
-
-        <code class="svelte-19lop9v">getBodyYaw(entity: LivingEntity, delta: Number): Number
+        <span class="svelte-1g2wrps">getBodyYaw(entity: LivingEntity, delta: Number): Number
         
-</code>
-
-        <p>Gets the yaw of this entity&#39;s body in degrees. If delta is passed in, then it will be used to linearly interpolate the rotation of the body between the previous tick and the current tick. The default value of delta is 1.</p>
+</span>
+    <p>Gets the yaw of this entity&#39;s body in degrees. If delta is passed in, then it will be used to linearly interpolate the rotation of the body between the previous tick and the current tick. The default value of delta is 1.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getArrowCount">
     
 
-        <code class="svelte-19lop9v">getArrowCount(entity: LivingEntity): Integer
+        <span class="svelte-1g2wrps">getArrowCount(entity: LivingEntity): Integer
         
-</code>
-
-        <p>Returns the number of arrows sticking out of this entity.</p>
+</span>
+    <p>Returns the number of arrows sticking out of this entity.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getStingerCount">
     
 
-        <code class="svelte-19lop9v">getStingerCount(entity: LivingEntity): Integer
+        <span class="svelte-1g2wrps">getStingerCount(entity: LivingEntity): Integer
         
-</code>
-
-        <p>Returns the number of bee stingers sticking out of this entity.</p>
+</span>
+    <p>Returns the number of bee stingers sticking out of this entity.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getArmor">
     
 
-        <code class="svelte-19lop9v">getArmor(entity: LivingEntity): Integer
+        <span class="svelte-1g2wrps">getArmor(entity: LivingEntity): Integer
         
-</code>
-
-        <p>Returns the amount of armor points this entity has.</p>
+</span>
+    <p>Returns the amount of armor points this entity has.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getStatusEffects">
     
 
-        <code class="svelte-19lop9v">getStatusEffects(entity: LivingEntity): Table
+        <span class="svelte-1g2wrps">getStatusEffects(entity: LivingEntity): Table
         
-</code>
-
-        <p>Returns, as a table, all of the status effects this entity has on it. The table contains sub-tables, each of which contains the name, amplifier, duration, and particle visibility of an effect this entity has.</p>
+</span>
+    <p>Returns, as a table, all of the status effects this entity has on it. The table contains sub-tables, each of which contains the name, amplifier, duration, and particle visibility of an effect this entity has.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getActiveItem">
     
 
-        <code class="svelte-19lop9v">getActiveItem(entity: LivingEntity): ItemStack
+        <span class="svelte-1g2wrps">getActiveItem(entity: LivingEntity): ItemStack
         
-</code>
-
-        <p>Returns an ItemStack representing the item the entity is currently using. If they&#39;re not using any item, returns nil.</p>
+</span>
+    <p>Returns an ItemStack representing the item the entity is currently using. If they&#39;re not using any item, returns nil.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="isLeftHanded">
     
 
-        <code class="svelte-19lop9v">isLeftHanded(entity: LivingEntity): Boolean
+        <span class="svelte-1g2wrps">isLeftHanded(entity: LivingEntity): Boolean
         
-</code>
-
-        <p>Returns true if the entity&#39;s main hand is its left.</p>
+</span>
+    <p>Returns true if the entity&#39;s main hand is its left.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getActiveHand">
     
 
-        <code class="svelte-19lop9v">getActiveHand(entity: LivingEntity): String
+        <span class="svelte-1g2wrps">getActiveHand(entity: LivingEntity): String
         
-</code>
-
-        <p>Returns &quot;OFF_HAND&quot; or &quot;MAIN_HAND&quot;, depending on which hand this entity uses an item with.</p>
+</span>
+    <p>Returns &quot;OFF_HAND&quot; or &quot;MAIN_HAND&quot;, depending on which hand this entity uses an item with.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="isClimbing">
     
 
-        <code class="svelte-19lop9v">isClimbing(entity: LivingEntity): Boolean
+        <span class="svelte-1g2wrps">isClimbing(entity: LivingEntity): Boolean
         
-</code>
-
-        <p>Returns true if the entity is currently using a climbable block, like a ladder or vine.</p>
+</span>
+    <p>Returns true if the entity is currently using a climbable block, like a ladder or vine.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getDeathTime">
     
 
-        <code class="svelte-19lop9v">getDeathTime(entity: LivingEntity): Integer
+        <span class="svelte-1g2wrps">getDeathTime(entity: LivingEntity): Integer
         
-</code>
-
-        <p>Returns the number of ticks this entity has been dead for.</p>
+</span>
+    <p>Returns the number of ticks this entity has been dead for.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getName">
     
 
-        <code class="svelte-19lop9v">getName(entity: Entity): String
+        <span class="svelte-1g2wrps">getName(entity: Entity): String
         
-</code>
-
-        <p>Gets the name of this entity, if it has a custom name. If it doesn&#39;t, returns a translated form of getType().</p>
+</span>
+    <p>Gets the name of this entity, if it has a custom name. If it doesn&#39;t, returns a translated form of getType().</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getType">
     
 
-        <code class="svelte-19lop9v">getType(entity: Entity): String
+        <span class="svelte-1g2wrps">getType(entity: Entity): String
         
-</code>
-
-        <p>Gets the Minecraft identifier of this entity. For instance, &quot;minecraft:pig&quot;.</p>
+</span>
+    <p>Gets the Minecraft identifier of this entity. For instance, &quot;minecraft:pig&quot;.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="exists">
     
 
-        <code class="svelte-19lop9v">exists(entity: Entity): Boolean
+        <span class="svelte-1g2wrps">exists(entity: Entity): Boolean
         
-</code>
-
-        <p>Checks whether the proxied entity currently exists. This may return false if the proxied entity leaves your loaded chunks, dies, or goes away for some other reason.</p>
+</span>
+    <p>Checks whether the proxied entity currently exists. This may return false if the proxied entity leaves your loaded chunks, dies, or goes away for some other reason.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getItem">
     
 
-        <code class="svelte-19lop9v">getItem(entity: Entity, index: Integer): ItemStack
+        <span class="svelte-1g2wrps">getItem(entity: Entity, index: Integer): ItemStack
         
-</code>
-
-        <p>Gets an ItemStack for the item in the given slot. For the player, slots are indexed with 1 as the main hand, 2 as the off hand, and 3,4,5,6 as the 4 armor slots from the boots to the helmet. If an invalid slot number is given, or if the entity has no item in that slot, this will return nil.</p>
+</span>
+    <p>Gets an ItemStack for the item in the given slot. For the player, slots are indexed with 1 as the main hand, 2 as the off hand, and 3,4,5,6 as the 4 armor slots from the boots to the helmet. If an invalid slot number is given, or if the entity has no item in that slot, this will return nil.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getPos">
     
 
-        <code class="svelte-19lop9v">getPos(entity: Entity): Vector3
+        <span class="svelte-1g2wrps">getPos(entity: Entity): Vector3
         
-</code>
+</span>
 
-        <p>Gets the position of the entity in the world. If delta is passed in, then it will be used to linearly interpolate the position of the entity between the previous tick and the current tick. The default value of delta is 1.</p>
-
-        <code class="svelte-19lop9v">getPos(entity: Entity, delta: Number): Vector3
+        <span class="svelte-1g2wrps">getPos(entity: Entity, delta: Number): Vector3
         
-</code>
-
-        <p>Gets the position of the entity in the world. If delta is passed in, then it will be used to linearly interpolate the position of the entity between the previous tick and the current tick. The default value of delta is 1.</p>
+</span>
+    <p>Gets the position of the entity in the world. If delta is passed in, then it will be used to linearly interpolate the position of the entity between the previous tick and the current tick. The default value of delta is 1.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getRot">
     
 
-        <code class="svelte-19lop9v">getRot(entity: Entity): Vector2
+        <span class="svelte-1g2wrps">getRot(entity: Entity): Vector2
         
-</code>
+</span>
 
-        <p>Gets the rotation of the entity in degrees. If delta is passed in, then it will be used to linearly interpolate the rotation of the entity between the previous tick and the current tick. The default value of delta is 1.</p>
-
-        <code class="svelte-19lop9v">getRot(entity: Entity, delta: Number): Vector2
+        <span class="svelte-1g2wrps">getRot(entity: Entity, delta: Number): Vector2
         
-</code>
-
-        <p>Gets the rotation of the entity in degrees. If delta is passed in, then it will be used to linearly interpolate the rotation of the entity between the previous tick and the current tick. The default value of delta is 1.</p>
+</span>
+    <p>Gets the rotation of the entity in degrees. If delta is passed in, then it will be used to linearly interpolate the rotation of the entity between the previous tick and the current tick. The default value of delta is 1.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getUUID">
     
 
-        <code class="svelte-19lop9v">getUUID(entity: Entity): String
+        <span class="svelte-1g2wrps">getUUID(entity: Entity): String
         
-</code>
-
-        <p>Gets the UUID of the proxied entity.</p>
+</span>
+    <p>Gets the UUID of the proxied entity.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="isSprinting">
     
 
-        <code class="svelte-19lop9v">isSprinting(entity: Entity): Boolean
+        <span class="svelte-1g2wrps">isSprinting(entity: Entity): Boolean
         
-</code>
-
-        <p>Returns true if this entity is currently sprinting.</p>
+</span>
+    <p>Returns true if this entity is currently sprinting.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getEyeY">
     
 
-        <code class="svelte-19lop9v">getEyeY(entity: Entity): Number
+        <span class="svelte-1g2wrps">getEyeY(entity: Entity): Number
         
-</code>
-
-        <p>Returns the Y level of this entity&#39;s eyes. Not to be confused with getEyeHeight, this function also takes the entity itself&#39;s Y position into account.</p>
+</span>
+    <p>Returns the Y level of this entity&#39;s eyes. Not to be confused with getEyeHeight, this function also takes the entity itself&#39;s Y position into account.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="isInLava">
     
 
-        <code class="svelte-19lop9v">isInLava(entity: Entity): Boolean
+        <span class="svelte-1g2wrps">isInLava(entity: Entity): Boolean
         
-</code>
-
-        <p>Returns true if this entity is currently in lava.</p>
+</span>
+    <p>Returns true if this entity is currently in lava.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getBoundingBox">
     
 
-        <code class="svelte-19lop9v">getBoundingBox(entity: Entity): Vector3
+        <span class="svelte-1g2wrps">getBoundingBox(entity: Entity): Vector3
         
-</code>
-
-        <p>Returns the size of this entity&#39;s bounding box as a Vector3. {x, y, z} are the width, height, and width. Minecraft entity hitboxes always have square bases.</p>
+</span>
+    <p>Returns the size of this entity&#39;s bounding box as a Vector3. {x, y, z} are the width, height, and width. Minecraft entity hitboxes always have square bases.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="isInvisible">
     
 
-        <code class="svelte-19lop9v">isInvisible(entity: Entity): Boolean
+        <span class="svelte-1g2wrps">isInvisible(entity: Entity): Boolean
         
-</code>
-
-        <p>Returns true if this entity is invisible, for one reason or another.</p>
+</span>
+    <p>Returns true if this entity is invisible, for one reason or another.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="isOnGround">
     
 
-        <code class="svelte-19lop9v">isOnGround(entity: Entity): Boolean
+        <span class="svelte-1g2wrps">isOnGround(entity: Entity): Boolean
         
-</code>
-
-        <p>Returns whether or not this entity is currently on the ground.</p>
+</span>
+    <p>Returns whether or not this entity is currently on the ground.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getEyeHeight">
     
 
-        <code class="svelte-19lop9v">getEyeHeight(entity: Entity): Number
+        <span class="svelte-1g2wrps">getEyeHeight(entity: Entity): Number
         
-</code>
-
-        <p>Returns the current eye height of this entity.</p>
+</span>
+    <p>Returns the current eye height of this entity.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getPose">
     
 
-        <code class="svelte-19lop9v">getPose(entity: Entity): String
+        <span class="svelte-1g2wrps">getPose(entity: Entity): String
         
-</code>
-
-        <p>Returns the current pose of the player. This can be one of: &quot;STANDING&quot;, &quot;FALL_FLYING&quot;, &quot;SLEEPING&quot;, &quot;SWIMMING&quot;, &quot;SPIN_ATTACK&quot;, &quot;CROUCHING&quot;, &quot;LONG_JUMPING&quot;, or &quot;DYING&quot;.</p>
+</span>
+    <p>Returns the current pose of the player. This can be one of: &quot;STANDING&quot;, &quot;FALL_FLYING&quot;, &quot;SLEEPING&quot;, &quot;SWIMMING&quot;, &quot;SPIN_ATTACK&quot;, &quot;CROUCHING&quot;, &quot;LONG_JUMPING&quot;, or &quot;DYING&quot;.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getVehicle">
     
 
-        <code class="svelte-19lop9v">getVehicle(entity: Entity): Entity
+        <span class="svelte-1g2wrps">getVehicle(entity: Entity): Entity
         
-</code>
-
-        <p>Returns a proxy for the entity that this player is currently riding. If the player isn&#39;t riding anything, returns nil.</p>
+</span>
+    <p>Returns a proxy for the entity that this player is currently riding. If the player isn&#39;t riding anything, returns nil.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="isInWater">
     
 
-        <code class="svelte-19lop9v">isInWater(entity: Entity): Boolean
+        <span class="svelte-1g2wrps">isInWater(entity: Entity): Boolean
         
-</code>
-
-        <p>Returns true if this entity is currently in a water block, including waterlogging.</p>
+</span>
+    <p>Returns true if this entity is currently in a water block, including waterlogging.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="isHamburger">
     
 
-        <code class="svelte-19lop9v">isHamburger(entity: Entity): Boolean
+        <span class="svelte-1g2wrps">isHamburger(entity: Entity): Boolean
         
-</code>
-
-        <p>&quot;Refused to elaborate.&quot;</p>
+</span>
+    <p>&quot;Refused to elaborate.&quot;</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="isSilent">
     
 
-        <code class="svelte-19lop9v">isSilent(entity: Entity): Boolean
+        <span class="svelte-1g2wrps">isSilent(entity: Entity): Boolean
         
-</code>
-
-        <p>Returns true if this entity is silent.</p>
+</span>
+    <p>Returns true if this entity is silent.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getVelocity">
     
 
-        <code class="svelte-19lop9v">getVelocity(entity: Entity): Vector3
+        <span class="svelte-1g2wrps">getVelocity(entity: Entity): Vector3
         
-</code>
-
-        <p>Gets the current velocity of this entity in world coordinates, calculated as its position this tick minus its position last tick.</p>
+</span>
+    <p>Gets the current velocity of this entity in world coordinates, calculated as its position this tick minus its position last tick.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getLookDir">
     
 
-        <code class="svelte-19lop9v">getLookDir(entity: Entity): Vector3
+        <span class="svelte-1g2wrps">getLookDir(entity: Entity): Vector3
         
-</code>
-
-        <p>Returns a unit vector pointing in the direction that this entity is looking. See the blue line in the F3+B screen for an example.</p>
+</span>
+    <p>Returns a unit vector pointing in the direction that this entity is looking. See the blue line in the F3+B screen for an example.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getFireTicks">
     
 
-        <code class="svelte-19lop9v">getFireTicks(entity: Entity): Integer
+        <span class="svelte-1g2wrps">getFireTicks(entity: Entity): Integer
         
-</code>
-
-        <p>Returns the remaining number of ticks this entity will be on fire for.</p>
+</span>
+    <p>Returns the remaining number of ticks this entity will be on fire for.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getMaxAir">
     
 
-        <code class="svelte-19lop9v">getMaxAir(entity: Entity): Integer
+        <span class="svelte-1g2wrps">getMaxAir(entity: Entity): Integer
         
-</code>
-
-        <p>Gets the maximum amount of air this entity can have.</p>
+</span>
+    <p>Gets the maximum amount of air this entity can have.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getDimensionName">
     
 
-        <code class="svelte-19lop9v">getDimensionName(entity: Entity): String
+        <span class="svelte-1g2wrps">getDimensionName(entity: Entity): String
         
-</code>
-
-        <p>Gets the Minecraft identifier of the dimension this entity is in.</p>
+</span>
+    <p>Gets the Minecraft identifier of the dimension this entity is in.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getFrozenTicks">
     
 
-        <code class="svelte-19lop9v">getFrozenTicks(entity: Entity): Integer
+        <span class="svelte-1g2wrps">getFrozenTicks(entity: Entity): Integer
         
-</code>
-
-        <p>Gets the number of ticks this entity has been freezing in powder snow for.</p>
+</span>
+    <p>Gets the number of ticks this entity has been freezing in powder snow for.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getAir">
     
 
-        <code class="svelte-19lop9v">getAir(entity: Entity): Integer
+        <span class="svelte-1g2wrps">getAir(entity: Entity): Integer
         
-</code>
-
-        <p>Gets the current amount of air this entity has remaining.</p>
+</span>
+    <p>Gets the current amount of air this entity has remaining.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getVariable">
     
 
-        <code class="svelte-19lop9v">getVariable(entity: Entity, key: String): AnyType
+        <span class="svelte-1g2wrps">getVariable(entity: Entity, key: String): AnyType
         
-</code>
-
-        <p>Gets the value of a variable this entity stored in themselves using the Meta api&#39;s store() function.</p>
+</span>
+    <p>Gets the value of a variable this entity stored in themselves using the Meta api&#39;s store() function.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="isGlowing">
     
 
-        <code class="svelte-19lop9v">isGlowing(entity: Entity): Boolean
+        <span class="svelte-1g2wrps">isGlowing(entity: Entity): Boolean
         
-</code>
-
-        <p>Returns true if this entity is currently glowing.</p>
+</span>
+    <p>Returns true if this entity is currently glowing.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="isWet">
     
 
-        <code class="svelte-19lop9v">isWet(entity: Entity): Boolean
+        <span class="svelte-1g2wrps">isWet(entity: Entity): Boolean
         
-</code>
-
-        <p>Returns true in any of three conditions: if the entity is in water, if the entity is in rain, or if the entity is in a bubble column. Otherwise, returns false.</p>
+</span>
+    <p>Returns true in any of three conditions: if the entity is in water, if the entity is in rain, or if the entity is in a bubble column. Otherwise, returns false.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="isInRain">
     
 
-        <code class="svelte-19lop9v">isInRain(entity: Entity): Boolean
+        <span class="svelte-1g2wrps">isInRain(entity: Entity): Boolean
         
-</code>
-
-        <p>Returns true if this entity is currently standing in rain.</p>
+</span>
+    <p>Returns true if this entity is currently standing in rain.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="isUnderwater">
     
 
-        <code class="svelte-19lop9v">isUnderwater(entity: Entity): Boolean
+        <span class="svelte-1g2wrps">isUnderwater(entity: Entity): Boolean
         
-</code>
-
-        <p>Returns true if this entity&#39;s eyes are touching water.</p>
+</span>
+    <p>Returns true if this entity&#39;s eyes are touching water.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="hasAvatar">
     
 
-        <code class="svelte-19lop9v">hasAvatar(entity: Entity): Boolean
+        <span class="svelte-1g2wrps">hasAvatar(entity: Entity): Boolean
         
-</code>
-
-        <p>Returns true if Figura has an avatar loaded for this entity.</p>
+</span>
+    <p>Returns true if Figura has an avatar loaded for this entity.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="isSneaking">
     
 
-        <code class="svelte-19lop9v">isSneaking(entity: Entity): Boolean
+        <span class="svelte-1g2wrps">isSneaking(entity: Entity): Boolean
         
-</code>
-
-        <p>Returns true if this entity is sneaking.</p>
+</span>
+    <p>Returns true if this entity is sneaking.</p>
 </section></section>
     <section aria-label="Fields"><h3>Fields
 </h3>
@@ -784,459 +692,397 @@
 <section class="indent svelte-1s0i5cm" aria-label="getExperienceLevel">
     
 
-        <code class="svelte-19lop9v">getExperienceLevel(entity: Player): Integer
+        <span class="svelte-1g2wrps">getExperienceLevel(entity: Player): Integer
         
-</code>
-
-        <p>Gets the player&#39;s current level.</p>
+</span>
+    <p>Gets the player&#39;s current level.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getModelType">
     
 
-        <code class="svelte-19lop9v">getModelType(entity: Player): String
+        <span class="svelte-1g2wrps">getModelType(entity: Player): String
         
-</code>
-
-        <p>Returns &quot;SLIM&quot; or &quot;DEFAULT&quot;, depending on the player&#39;s model type.</p>
+</span>
+    <p>Returns &quot;SLIM&quot; or &quot;DEFAULT&quot;, depending on the player&#39;s model type.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getFood">
     
 
-        <code class="svelte-19lop9v">getFood(entity: Player): Integer
+        <span class="svelte-1g2wrps">getFood(entity: Player): Integer
         
-</code>
-
-        <p>Gets the current food level of the player, from 0 to 20.</p>
+</span>
+    <p>Gets the current food level of the player, from 0 to 20.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getGamemode">
     
 
-        <code class="svelte-19lop9v">getGamemode(entity: Player): String
+        <span class="svelte-1g2wrps">getGamemode(entity: Player): String
         
-</code>
-
-        <p>Returns &quot;SURVIVAL&quot;, &quot;CREATIVE&quot;, &quot;ADVENTURE&quot;, or &quot;SPECTATOR&quot; depending on the player&#39;s gamemode. If the gamemode is unknown, returns nil.</p>
+</span>
+    <p>Returns &quot;SURVIVAL&quot;, &quot;CREATIVE&quot;, &quot;ADVENTURE&quot;, or &quot;SPECTATOR&quot; depending on the player&#39;s gamemode. If the gamemode is unknown, returns nil.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="isFlying">
     
 
-        <code class="svelte-19lop9v">isFlying(entity: Player): Boolean
+        <span class="svelte-1g2wrps">isFlying(entity: Player): Boolean
         
-</code>
-
-        <p>Returns whether the player is currently flying.</p>
+</span>
+    <p>Returns whether the player is currently flying.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getSaturation">
     
 
-        <code class="svelte-19lop9v">getSaturation(entity: Player): Number
+        <span class="svelte-1g2wrps">getSaturation(entity: Player): Number
         
-</code>
-
-        <p>Gets the current saturation level of the player.</p>
+</span>
+    <p>Gets the current saturation level of the player.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getExperienceProgress">
     
 
-        <code class="svelte-19lop9v">getExperienceProgress(entity: Player): Number
+        <span class="svelte-1g2wrps">getExperienceProgress(entity: Player): Number
         
-</code>
-
-        <p>Gets the progress of the way towards the player&#39;s next level, as a value from 0 to 1.</p>
+</span>
+    <p>Gets the progress of the way towards the player&#39;s next level, as a value from 0 to 1.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getHealth">
     
 
-        <code class="svelte-19lop9v">getHealth(entity: LivingEntity): Number
+        <span class="svelte-1g2wrps">getHealth(entity: LivingEntity): Number
         
-</code>
-
-        <p>Returns the amount of health this entity has remaining.</p>
+</span>
+    <p>Returns the amount of health this entity has remaining.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getHeldItem">
     
 
-        <code class="svelte-19lop9v">getHeldItem(entity: LivingEntity): ItemStack
+        <span class="svelte-1g2wrps">getHeldItem(entity: LivingEntity): ItemStack
         
-</code>
+</span>
 
-        <p>Returns an ItemStack representing the item in this entity&#39;s main hand. If true is passed in for &quot;offhand&quot;, then it will instead look at the item in the entity&#39;s offhand. If the entity isn&#39;t holding an item in that hand, returns nil.</p>
-
-        <code class="svelte-19lop9v">getHeldItem(entity: LivingEntity, offhand: Boolean): ItemStack
+        <span class="svelte-1g2wrps">getHeldItem(entity: LivingEntity, offhand: Boolean): ItemStack
         
-</code>
-
-        <p>Returns an ItemStack representing the item in this entity&#39;s main hand. If true is passed in for &quot;offhand&quot;, then it will instead look at the item in the entity&#39;s offhand. If the entity isn&#39;t holding an item in that hand, returns nil.</p>
+</span>
+    <p>Returns an ItemStack representing the item in this entity&#39;s main hand. If true is passed in for &quot;offhand&quot;, then it will instead look at the item in the entity&#39;s offhand. If the entity isn&#39;t holding an item in that hand, returns nil.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getMaxHealth">
     
 
-        <code class="svelte-19lop9v">getMaxHealth(entity: LivingEntity): Number
+        <span class="svelte-1g2wrps">getMaxHealth(entity: LivingEntity): Number
         
-</code>
-
-        <p>Returns the maximum amount of health this entity can have.</p>
+</span>
+    <p>Returns the maximum amount of health this entity can have.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="isUsingItem">
     
 
-        <code class="svelte-19lop9v">isUsingItem(entity: LivingEntity): Boolean
+        <span class="svelte-1g2wrps">isUsingItem(entity: LivingEntity): Boolean
         
-</code>
-
-        <p>Returns true if the entity is currently using an item.</p>
+</span>
+    <p>Returns true if the entity is currently using an item.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getBodyYaw">
     
 
-        <code class="svelte-19lop9v">getBodyYaw(entity: LivingEntity): Number
+        <span class="svelte-1g2wrps">getBodyYaw(entity: LivingEntity): Number
         
-</code>
+</span>
 
-        <p>Gets the yaw of this entity&#39;s body in degrees. If delta is passed in, then it will be used to linearly interpolate the rotation of the body between the previous tick and the current tick. The default value of delta is 1.</p>
-
-        <code class="svelte-19lop9v">getBodyYaw(entity: LivingEntity, delta: Number): Number
+        <span class="svelte-1g2wrps">getBodyYaw(entity: LivingEntity, delta: Number): Number
         
-</code>
-
-        <p>Gets the yaw of this entity&#39;s body in degrees. If delta is passed in, then it will be used to linearly interpolate the rotation of the body between the previous tick and the current tick. The default value of delta is 1.</p>
+</span>
+    <p>Gets the yaw of this entity&#39;s body in degrees. If delta is passed in, then it will be used to linearly interpolate the rotation of the body between the previous tick and the current tick. The default value of delta is 1.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getArrowCount">
     
 
-        <code class="svelte-19lop9v">getArrowCount(entity: LivingEntity): Integer
+        <span class="svelte-1g2wrps">getArrowCount(entity: LivingEntity): Integer
         
-</code>
-
-        <p>Returns the number of arrows sticking out of this entity.</p>
+</span>
+    <p>Returns the number of arrows sticking out of this entity.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getStingerCount">
     
 
-        <code class="svelte-19lop9v">getStingerCount(entity: LivingEntity): Integer
+        <span class="svelte-1g2wrps">getStingerCount(entity: LivingEntity): Integer
         
-</code>
-
-        <p>Returns the number of bee stingers sticking out of this entity.</p>
+</span>
+    <p>Returns the number of bee stingers sticking out of this entity.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getArmor">
     
 
-        <code class="svelte-19lop9v">getArmor(entity: LivingEntity): Integer
+        <span class="svelte-1g2wrps">getArmor(entity: LivingEntity): Integer
         
-</code>
-
-        <p>Returns the amount of armor points this entity has.</p>
+</span>
+    <p>Returns the amount of armor points this entity has.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getStatusEffects">
     
 
-        <code class="svelte-19lop9v">getStatusEffects(entity: LivingEntity): Table
+        <span class="svelte-1g2wrps">getStatusEffects(entity: LivingEntity): Table
         
-</code>
-
-        <p>Returns, as a table, all of the status effects this entity has on it. The table contains sub-tables, each of which contains the name, amplifier, duration, and particle visibility of an effect this entity has.</p>
+</span>
+    <p>Returns, as a table, all of the status effects this entity has on it. The table contains sub-tables, each of which contains the name, amplifier, duration, and particle visibility of an effect this entity has.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getActiveItem">
     
 
-        <code class="svelte-19lop9v">getActiveItem(entity: LivingEntity): ItemStack
+        <span class="svelte-1g2wrps">getActiveItem(entity: LivingEntity): ItemStack
         
-</code>
-
-        <p>Returns an ItemStack representing the item the entity is currently using. If they&#39;re not using any item, returns nil.</p>
+</span>
+    <p>Returns an ItemStack representing the item the entity is currently using. If they&#39;re not using any item, returns nil.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="isLeftHanded">
     
 
-        <code class="svelte-19lop9v">isLeftHanded(entity: LivingEntity): Boolean
+        <span class="svelte-1g2wrps">isLeftHanded(entity: LivingEntity): Boolean
         
-</code>
-
-        <p>Returns true if the entity&#39;s main hand is its left.</p>
+</span>
+    <p>Returns true if the entity&#39;s main hand is its left.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getActiveHand">
     
 
-        <code class="svelte-19lop9v">getActiveHand(entity: LivingEntity): String
+        <span class="svelte-1g2wrps">getActiveHand(entity: LivingEntity): String
         
-</code>
-
-        <p>Returns &quot;OFF_HAND&quot; or &quot;MAIN_HAND&quot;, depending on which hand this entity uses an item with.</p>
+</span>
+    <p>Returns &quot;OFF_HAND&quot; or &quot;MAIN_HAND&quot;, depending on which hand this entity uses an item with.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="isClimbing">
     
 
-        <code class="svelte-19lop9v">isClimbing(entity: LivingEntity): Boolean
+        <span class="svelte-1g2wrps">isClimbing(entity: LivingEntity): Boolean
         
-</code>
-
-        <p>Returns true if the entity is currently using a climbable block, like a ladder or vine.</p>
+</span>
+    <p>Returns true if the entity is currently using a climbable block, like a ladder or vine.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getDeathTime">
     
 
-        <code class="svelte-19lop9v">getDeathTime(entity: LivingEntity): Integer
+        <span class="svelte-1g2wrps">getDeathTime(entity: LivingEntity): Integer
         
-</code>
-
-        <p>Returns the number of ticks this entity has been dead for.</p>
+</span>
+    <p>Returns the number of ticks this entity has been dead for.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getName">
     
 
-        <code class="svelte-19lop9v">getName(entity: Entity): String
+        <span class="svelte-1g2wrps">getName(entity: Entity): String
         
-</code>
-
-        <p>Gets the name of this entity, if it has a custom name. If it doesn&#39;t, returns a translated form of getType().</p>
+</span>
+    <p>Gets the name of this entity, if it has a custom name. If it doesn&#39;t, returns a translated form of getType().</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getType">
     
 
-        <code class="svelte-19lop9v">getType(entity: Entity): String
+        <span class="svelte-1g2wrps">getType(entity: Entity): String
         
-</code>
-
-        <p>Gets the Minecraft identifier of this entity. For instance, &quot;minecraft:pig&quot;.</p>
+</span>
+    <p>Gets the Minecraft identifier of this entity. For instance, &quot;minecraft:pig&quot;.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="exists">
     
 
-        <code class="svelte-19lop9v">exists(entity: Entity): Boolean
+        <span class="svelte-1g2wrps">exists(entity: Entity): Boolean
         
-</code>
-
-        <p>Checks whether the proxied entity currently exists. This may return false if the proxied entity leaves your loaded chunks, dies, or goes away for some other reason.</p>
+</span>
+    <p>Checks whether the proxied entity currently exists. This may return false if the proxied entity leaves your loaded chunks, dies, or goes away for some other reason.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getItem">
     
 
-        <code class="svelte-19lop9v">getItem(entity: Entity, index: Integer): ItemStack
+        <span class="svelte-1g2wrps">getItem(entity: Entity, index: Integer): ItemStack
         
-</code>
-
-        <p>Gets an ItemStack for the item in the given slot. For the player, slots are indexed with 1 as the main hand, 2 as the off hand, and 3,4,5,6 as the 4 armor slots from the boots to the helmet. If an invalid slot number is given, or if the entity has no item in that slot, this will return nil.</p>
+</span>
+    <p>Gets an ItemStack for the item in the given slot. For the player, slots are indexed with 1 as the main hand, 2 as the off hand, and 3,4,5,6 as the 4 armor slots from the boots to the helmet. If an invalid slot number is given, or if the entity has no item in that slot, this will return nil.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getPos">
     
 
-        <code class="svelte-19lop9v">getPos(entity: Entity): Vector3
+        <span class="svelte-1g2wrps">getPos(entity: Entity): Vector3
         
-</code>
+</span>
 
-        <p>Gets the position of the entity in the world. If delta is passed in, then it will be used to linearly interpolate the position of the entity between the previous tick and the current tick. The default value of delta is 1.</p>
-
-        <code class="svelte-19lop9v">getPos(entity: Entity, delta: Number): Vector3
+        <span class="svelte-1g2wrps">getPos(entity: Entity, delta: Number): Vector3
         
-</code>
-
-        <p>Gets the position of the entity in the world. If delta is passed in, then it will be used to linearly interpolate the position of the entity between the previous tick and the current tick. The default value of delta is 1.</p>
+</span>
+    <p>Gets the position of the entity in the world. If delta is passed in, then it will be used to linearly interpolate the position of the entity between the previous tick and the current tick. The default value of delta is 1.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getRot">
     
 
-        <code class="svelte-19lop9v">getRot(entity: Entity): Vector2
+        <span class="svelte-1g2wrps">getRot(entity: Entity): Vector2
         
-</code>
+</span>
 
-        <p>Gets the rotation of the entity in degrees. If delta is passed in, then it will be used to linearly interpolate the rotation of the entity between the previous tick and the current tick. The default value of delta is 1.</p>
-
-        <code class="svelte-19lop9v">getRot(entity: Entity, delta: Number): Vector2
+        <span class="svelte-1g2wrps">getRot(entity: Entity, delta: Number): Vector2
         
-</code>
-
-        <p>Gets the rotation of the entity in degrees. If delta is passed in, then it will be used to linearly interpolate the rotation of the entity between the previous tick and the current tick. The default value of delta is 1.</p>
+</span>
+    <p>Gets the rotation of the entity in degrees. If delta is passed in, then it will be used to linearly interpolate the rotation of the entity between the previous tick and the current tick. The default value of delta is 1.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getUUID">
     
 
-        <code class="svelte-19lop9v">getUUID(entity: Entity): String
+        <span class="svelte-1g2wrps">getUUID(entity: Entity): String
         
-</code>
-
-        <p>Gets the UUID of the proxied entity.</p>
+</span>
+    <p>Gets the UUID of the proxied entity.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="isSprinting">
     
 
-        <code class="svelte-19lop9v">isSprinting(entity: Entity): Boolean
+        <span class="svelte-1g2wrps">isSprinting(entity: Entity): Boolean
         
-</code>
-
-        <p>Returns true if this entity is currently sprinting.</p>
+</span>
+    <p>Returns true if this entity is currently sprinting.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getEyeY">
     
 
-        <code class="svelte-19lop9v">getEyeY(entity: Entity): Number
+        <span class="svelte-1g2wrps">getEyeY(entity: Entity): Number
         
-</code>
-
-        <p>Returns the Y level of this entity&#39;s eyes. Not to be confused with getEyeHeight, this function also takes the entity itself&#39;s Y position into account.</p>
+</span>
+    <p>Returns the Y level of this entity&#39;s eyes. Not to be confused with getEyeHeight, this function also takes the entity itself&#39;s Y position into account.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="isInLava">
     
 
-        <code class="svelte-19lop9v">isInLava(entity: Entity): Boolean
+        <span class="svelte-1g2wrps">isInLava(entity: Entity): Boolean
         
-</code>
-
-        <p>Returns true if this entity is currently in lava.</p>
+</span>
+    <p>Returns true if this entity is currently in lava.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getBoundingBox">
     
 
-        <code class="svelte-19lop9v">getBoundingBox(entity: Entity): Vector3
+        <span class="svelte-1g2wrps">getBoundingBox(entity: Entity): Vector3
         
-</code>
-
-        <p>Returns the size of this entity&#39;s bounding box as a Vector3. {x, y, z} are the width, height, and width. Minecraft entity hitboxes always have square bases.</p>
+</span>
+    <p>Returns the size of this entity&#39;s bounding box as a Vector3. {x, y, z} are the width, height, and width. Minecraft entity hitboxes always have square bases.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="isInvisible">
     
 
-        <code class="svelte-19lop9v">isInvisible(entity: Entity): Boolean
+        <span class="svelte-1g2wrps">isInvisible(entity: Entity): Boolean
         
-</code>
-
-        <p>Returns true if this entity is invisible, for one reason or another.</p>
+</span>
+    <p>Returns true if this entity is invisible, for one reason or another.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="isOnGround">
     
 
-        <code class="svelte-19lop9v">isOnGround(entity: Entity): Boolean
+        <span class="svelte-1g2wrps">isOnGround(entity: Entity): Boolean
         
-</code>
-
-        <p>Returns whether or not this entity is currently on the ground.</p>
+</span>
+    <p>Returns whether or not this entity is currently on the ground.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getEyeHeight">
     
 
-        <code class="svelte-19lop9v">getEyeHeight(entity: Entity): Number
+        <span class="svelte-1g2wrps">getEyeHeight(entity: Entity): Number
         
-</code>
-
-        <p>Returns the current eye height of this entity.</p>
+</span>
+    <p>Returns the current eye height of this entity.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getPose">
     
 
-        <code class="svelte-19lop9v">getPose(entity: Entity): String
+        <span class="svelte-1g2wrps">getPose(entity: Entity): String
         
-</code>
-
-        <p>Returns the current pose of the player. This can be one of: &quot;STANDING&quot;, &quot;FALL_FLYING&quot;, &quot;SLEEPING&quot;, &quot;SWIMMING&quot;, &quot;SPIN_ATTACK&quot;, &quot;CROUCHING&quot;, &quot;LONG_JUMPING&quot;, or &quot;DYING&quot;.</p>
+</span>
+    <p>Returns the current pose of the player. This can be one of: &quot;STANDING&quot;, &quot;FALL_FLYING&quot;, &quot;SLEEPING&quot;, &quot;SWIMMING&quot;, &quot;SPIN_ATTACK&quot;, &quot;CROUCHING&quot;, &quot;LONG_JUMPING&quot;, or &quot;DYING&quot;.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getVehicle">
     
 
-        <code class="svelte-19lop9v">getVehicle(entity: Entity): Entity
+        <span class="svelte-1g2wrps">getVehicle(entity: Entity): Entity
         
-</code>
-
-        <p>Returns a proxy for the entity that this player is currently riding. If the player isn&#39;t riding anything, returns nil.</p>
+</span>
+    <p>Returns a proxy for the entity that this player is currently riding. If the player isn&#39;t riding anything, returns nil.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="isInWater">
     
 
-        <code class="svelte-19lop9v">isInWater(entity: Entity): Boolean
+        <span class="svelte-1g2wrps">isInWater(entity: Entity): Boolean
         
-</code>
-
-        <p>Returns true if this entity is currently in a water block, including waterlogging.</p>
+</span>
+    <p>Returns true if this entity is currently in a water block, including waterlogging.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="isHamburger">
     
 
-        <code class="svelte-19lop9v">isHamburger(entity: Entity): Boolean
+        <span class="svelte-1g2wrps">isHamburger(entity: Entity): Boolean
         
-</code>
-
-        <p>&quot;Refused to elaborate.&quot;</p>
+</span>
+    <p>&quot;Refused to elaborate.&quot;</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="isSilent">
     
 
-        <code class="svelte-19lop9v">isSilent(entity: Entity): Boolean
+        <span class="svelte-1g2wrps">isSilent(entity: Entity): Boolean
         
-</code>
-
-        <p>Returns true if this entity is silent.</p>
+</span>
+    <p>Returns true if this entity is silent.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getVelocity">
     
 
-        <code class="svelte-19lop9v">getVelocity(entity: Entity): Vector3
+        <span class="svelte-1g2wrps">getVelocity(entity: Entity): Vector3
         
-</code>
-
-        <p>Gets the current velocity of this entity in world coordinates, calculated as its position this tick minus its position last tick.</p>
+</span>
+    <p>Gets the current velocity of this entity in world coordinates, calculated as its position this tick minus its position last tick.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getLookDir">
     
 
-        <code class="svelte-19lop9v">getLookDir(entity: Entity): Vector3
+        <span class="svelte-1g2wrps">getLookDir(entity: Entity): Vector3
         
-</code>
-
-        <p>Returns a unit vector pointing in the direction that this entity is looking. See the blue line in the F3+B screen for an example.</p>
+</span>
+    <p>Returns a unit vector pointing in the direction that this entity is looking. See the blue line in the F3+B screen for an example.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getFireTicks">
     
 
-        <code class="svelte-19lop9v">getFireTicks(entity: Entity): Integer
+        <span class="svelte-1g2wrps">getFireTicks(entity: Entity): Integer
         
-</code>
-
-        <p>Returns the remaining number of ticks this entity will be on fire for.</p>
+</span>
+    <p>Returns the remaining number of ticks this entity will be on fire for.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getMaxAir">
     
 
-        <code class="svelte-19lop9v">getMaxAir(entity: Entity): Integer
+        <span class="svelte-1g2wrps">getMaxAir(entity: Entity): Integer
         
-</code>
-
-        <p>Gets the maximum amount of air this entity can have.</p>
+</span>
+    <p>Gets the maximum amount of air this entity can have.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getDimensionName">
     
 
-        <code class="svelte-19lop9v">getDimensionName(entity: Entity): String
+        <span class="svelte-1g2wrps">getDimensionName(entity: Entity): String
         
-</code>
-
-        <p>Gets the Minecraft identifier of the dimension this entity is in.</p>
+</span>
+    <p>Gets the Minecraft identifier of the dimension this entity is in.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getFrozenTicks">
     
 
-        <code class="svelte-19lop9v">getFrozenTicks(entity: Entity): Integer
+        <span class="svelte-1g2wrps">getFrozenTicks(entity: Entity): Integer
         
-</code>
-
-        <p>Gets the number of ticks this entity has been freezing in powder snow for.</p>
+</span>
+    <p>Gets the number of ticks this entity has been freezing in powder snow for.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getAir">
     
 
-        <code class="svelte-19lop9v">getAir(entity: Entity): Integer
+        <span class="svelte-1g2wrps">getAir(entity: Entity): Integer
         
-</code>
-
-        <p>Gets the current amount of air this entity has remaining.</p>
+</span>
+    <p>Gets the current amount of air this entity has remaining.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="getVariable">
     
 
-        <code class="svelte-19lop9v">getVariable(entity: Entity, key: String): AnyType
+        <span class="svelte-1g2wrps">getVariable(entity: Entity, key: String): AnyType
         
-</code>
-
-        <p>Gets the value of a variable this entity stored in themselves using the Meta api&#39;s store() function.</p>
+</span>
+    <p>Gets the value of a variable this entity stored in themselves using the Meta api&#39;s store() function.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="isGlowing">
     
 
-        <code class="svelte-19lop9v">isGlowing(entity: Entity): Boolean
+        <span class="svelte-1g2wrps">isGlowing(entity: Entity): Boolean
         
-</code>
-
-        <p>Returns true if this entity is currently glowing.</p>
+</span>
+    <p>Returns true if this entity is currently glowing.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="isWet">
     
 
-        <code class="svelte-19lop9v">isWet(entity: Entity): Boolean
+        <span class="svelte-1g2wrps">isWet(entity: Entity): Boolean
         
-</code>
-
-        <p>Returns true in any of three conditions: if the entity is in water, if the entity is in rain, or if the entity is in a bubble column. Otherwise, returns false.</p>
+</span>
+    <p>Returns true in any of three conditions: if the entity is in water, if the entity is in rain, or if the entity is in a bubble column. Otherwise, returns false.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="isInRain">
     
 
-        <code class="svelte-19lop9v">isInRain(entity: Entity): Boolean
+        <span class="svelte-1g2wrps">isInRain(entity: Entity): Boolean
         
-</code>
-
-        <p>Returns true if this entity is currently standing in rain.</p>
+</span>
+    <p>Returns true if this entity is currently standing in rain.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="isUnderwater">
     
 
-        <code class="svelte-19lop9v">isUnderwater(entity: Entity): Boolean
+        <span class="svelte-1g2wrps">isUnderwater(entity: Entity): Boolean
         
-</code>
-
-        <p>Returns true if this entity&#39;s eyes are touching water.</p>
+</span>
+    <p>Returns true if this entity&#39;s eyes are touching water.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="hasAvatar">
     
 
-        <code class="svelte-19lop9v">hasAvatar(entity: Entity): Boolean
+        <span class="svelte-1g2wrps">hasAvatar(entity: Entity): Boolean
         
-</code>
-
-        <p>Returns true if Figura has an avatar loaded for this entity.</p>
+</span>
+    <p>Returns true if Figura has an avatar loaded for this entity.</p>
 </section><section class="indent svelte-1s0i5cm" aria-label="isSneaking">
     
 
-        <code class="svelte-19lop9v">isSneaking(entity: Entity): Boolean
+        <span class="svelte-1g2wrps">isSneaking(entity: Entity): Boolean
         
-</code>
-
-        <p>Returns true if this entity is sneaking.</p>
+</span>
+    <p>Returns true if this entity is sneaking.</p>
 </section></section>
     <section aria-label="Fields"><h3>Fields
 </h3>
@@ -1247,10 +1093,10 @@
 </div>
 
 
-		<script type="module" data-hydrate="1t8jfrx">
-		import { start } from "/figs/_app/start-63a5dcb1.js";
+		<script type="module" data-hydrate="15p07s5">
+		import { start } from "/figs/_app/start-a15c7bbc.js";
 		start({
-			target: document.querySelector('[data-hydrate="1t8jfrx"]').parentNode,
+			target: document.querySelector('[data-hydrate="15p07s5"]').parentNode,
 			paths: {"base":"/figs","assets":"/figs"},
 			session: {},
 			route: true,
@@ -1260,8 +1106,8 @@
 				status: 200,
 				error: null,
 				nodes: [
-					import("/figs/_app/pages/__layout.svelte-e332817b.js"),
-						import("/figs/_app/pages/_category_/index.svelte-e4adb4e4.js")
+					import("/figs/_app/pages/__layout.svelte-2728b87e.js"),
+						import("/figs/_app/pages/_category_/index.svelte-6e7f21aa.js")
 				],
 				params: {category:"entity"},
 				routeId: "[category]"
