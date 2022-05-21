@@ -35,12 +35,9 @@ jobs:
       - name: Build
         run: npm run build
       
-      - name: Publish To Github
-        # You may pin to the exact commit or the version.
-        # uses: cedricbuild/gh-publish-branch@daf6f8c34a612c120302a478911a0157d4a148f1
-        uses: cedricbuild/gh-publish-branch@dev0
-        with:
-          # Repository name with owner. For example, cedric05/dothttp
-          branch: gh-pages
-          # Directory to push
-          directory: ./build
+      - name: Deploy
+        uses: s0/git-publish-subdir-action@develop
+        env:
+          REPO: self
+          BRANCH: gh-pages
+          FOLDER: build
