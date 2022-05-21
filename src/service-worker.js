@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { build, files , prerendered, version } from '$service-worker';
 
 // stolen from: https://rodneylab.com/sveltekit-pwa/
