@@ -14,6 +14,6 @@ import Category from "../Article.svelte";
             {method.name}({parameter}): {method.returns[idx]}
         </Code>
 
-        <p>{method.description}</p>
     {/each}
+    <p>{method.description}</p>
 </Category>

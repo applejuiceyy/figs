@@ -1,9 +1,9 @@
-<code>
+<span>
     <slot/>
-</code>
+</span>
 
 <style>
-    code {
+    span {
         display: block;
 
         font-family: 'Lucida Console';

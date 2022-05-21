@@ -39,7 +39,7 @@
 <div class="root">
     <nav class:expanded class="figura-background">
         <a class="nav-item" href={base + "/"}>FIGS!!</a>
-        <a class="nav-item expander" href="javascript:;" aria-label="Expand" on:click={()=>expanded = !expanded}>Expand</a>
+        <a class="nav-item expander" href="javascript:;" aria-label="Expand" on:click={()=>expanded = !expanded}>{expanded? "Hide Table" : "Show Table"}</a>
     </nav>
 
     <div class="category figura-background" class:expanded>
@@ -94,7 +94,7 @@
     .root {
         display: grid;
         grid-template-rows: min-content 1fr;
-        grid-template-columns: 400px 1fr;
+        grid-template-columns: 200px 1fr;
 
         width: calc(100vw - var(--scrollbar-width));
         min-height: 100vh;
@@ -112,8 +112,6 @@
 
         height: max-content;
         grid-column: 1 / 3;
-
-        overflow: none;
     }
 
     nav>* {
@@ -134,6 +132,10 @@
 
     .expander {
         display: none;
+    }
+
+    .content {
+        word-wrap: anywhere;
     }
 
     .rounding-content-wrapper {
@@ -178,6 +180,10 @@
 
         nav.expanded {
             border-radius: initial;
+        }
+
+        .rounding-content-wrapper {
+            box-shadow: initial;
         }
     }
 
