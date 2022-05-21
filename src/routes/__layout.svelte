@@ -149,6 +149,14 @@
         box-shadow: inset 5px 5px 10px 0 #00000044;
     }
 
+    @media (prefers-color-scheme: dark) {
+        .rounding-content-wrapper {
+            background-color: #111111;
+            color: #bbbbbb;
+            box-shadow: inset 5px 5px 10px 0 #ffffff11;
+        }
+    }
+
     @media only screen and (max-width: 800px) {
         .content {
             background-image: initial;

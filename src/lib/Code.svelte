@@ -12,5 +12,7 @@
 
         border-radius: 5px;
         background-image: linear-gradient(45deg, darkgray, gray);
+
+        color: black;
     }
 </style>

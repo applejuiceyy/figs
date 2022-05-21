@@ -19,4 +19,10 @@
         margin-bottom: 5px;
         border-left: 5px solid black;
     }
+
+    @media (prefers-color-scheme: dark) {
+        .indent {
+            border-left-color: #aaaaaa;
+        }
+    }
 </style>
