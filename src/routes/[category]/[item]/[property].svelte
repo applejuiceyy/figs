@@ -1,10 +1,10 @@
 <script context="module" type="ts">
     import CategoryDocs from "$lib/mainpage/CategoryDocs.svelte";
     import rewrite_docs from "$lib/rewrite_docs.json";
-    import type { Docs, APIInterface } from "$lib/rewrite_docs";
+    import type { Docs, APIInterface, Method, Field } from "$lib/rewrite_docs";
     import CategoryItemDocs from "$lib/mainpage/CategoryItemDocs.svelte";
-import ItemMethodDocs from "$lib/mainpage/method/ItemMethodDocs.svelte";
-import ItemFieldDocs from "$lib/mainpage/field/ItemFieldDocs.svelte";
+    import ItemMethodDocs from "$lib/mainpage/method/ItemMethodDocs.svelte";
+    import ItemFieldDocs from "$lib/mainpage/field/ItemFieldDocs.svelte";
 
     let load = function ({
         params: { category, item, property },
@@ -26,7 +26,7 @@ import ItemFieldDocs from "$lib/mainpage/field/ItemFieldDocs.svelte";
                         return {
                             props: {
                                 docs: interf[i].methods[v],
-                                kind: "method"
+                                kind: "method",
                             },
                         };
                     }
@@ -37,7 +37,7 @@ import ItemFieldDocs from "$lib/mainpage/field/ItemFieldDocs.svelte";
                         return {
                             props: {
                                 docs: interf[i].fields[v],
-                                kind: "field"
+                                kind: "field",
                             },
                         };
                     }
@@ -60,12 +60,45 @@ import ItemFieldDocs from "$lib/mainpage/field/ItemFieldDocs.svelte";
 </script>
 
 <script type="ts">
-    export let docs: any;
+    import { MetaTags } from "svelte-meta-tags";
+
+    export let docs: Method | Field;
     export let kind: "field" | "method";
+
+    // workaround for ts typings not working in properties
+
+    let docsMethod: Method;
+    let docsField: Field = docs as Field;
+
+    $: docsMethod = docs as Method;
+    $: docsField = docs as Field;
 </script>
 
 {#if kind === "field"}
-    <ItemFieldDocs field={docs} />
+    <MetaTags
+        title={docs.name}
+        description="{docsField.editable
+            ? ''
+            : 'readonly '}{docsField.name}: {docsField.type}
+{docs.description}"
+    />
+    <ItemFieldDocs field={docsField} />
 {:else}
-    <ItemMethodDocs method={docs} />
+    {@const methodBody = docsMethod.parameters.map((val, i) => {
+            let paramsStr = val
+                .map((field) => field.name + ": " + field.type)
+                .join(", ");
+
+            return docsMethod.name + "(" + paramsStr + "): " + docsMethod.returns[i]
+        })[0]
+    }
+
+    <MetaTags
+        title={docs.name}
+        description="{methodBody}
+{docsMethod.parameters.length > 1? "(" + (docsMethod.parameters.length - 1) +  " more overloads)": ""}
+
+{docsMethod.description}"
+    />
+    <ItemMethodDocs method={docsMethod} />
 {/if}

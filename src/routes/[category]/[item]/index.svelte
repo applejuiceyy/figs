@@ -36,7 +36,11 @@ import CategoryItemDocs from "$lib/mainpage/CategoryItemDocs.svelte";
 </script>
 
 <script type="ts">
+    import { MetaTags } from 'svelte-meta-tags';
+    
     export let docs: APIInterface;
 </script>
+
+<MetaTags title="{docs.name}" description="{docs.description}"/>
 
 <CategoryItemDocs docs={docs}/>

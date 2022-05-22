@@ -16,10 +16,14 @@ import ItemMethodsDocs from "./method/ItemMethodsDocs.svelte";
 
     {docs.description}
 
-    <section aria-label="Methods">
-        <ItemMethodsDocs content={docs.methods} title={title + 1}/>
-    </section>
-    <section aria-label="Fields">
-        <ItemFieldsDocs content={docs.fields} title={title + 1}/>
-    </section>
+    {#if docs.methods.length > 0}
+        <section aria-label="Methods">
+            <ItemMethodsDocs content={docs.methods} title={title + 1}/>
+        </section>
+    {/if}
+    {#if docs.fields.length > 0}
+        <section aria-label="Fields">
+            <ItemFieldsDocs content={docs.fields} title={title + 1}/>
+        </section>
+    {/if}
 </Category>

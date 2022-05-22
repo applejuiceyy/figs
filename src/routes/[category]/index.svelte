@@ -22,8 +22,12 @@
 </script>
 
 <script type="ts">
-    export let docs: APIInterface;
+    import { MetaTags } from 'svelte-meta-tags';
+    
+    export let docs: APIInterface[];
     export let name: string;
 </script>
+
+<MetaTags title="{name}" description="{docs.map((val) => val.name + "\n\n" + val.description).join("\n\n\n")}"/>
 
 <CategoryDocs docs={docs} name={name}/>

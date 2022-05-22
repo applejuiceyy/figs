@@ -89,6 +89,8 @@
         background-size: calc(64px * 4) calc(64px * 4);
         image-rendering: crisp-edges;
         background-attachment: fixed;
+
+        animation: brew 60s linear 0s infinite;
     }
 
     .root {
@@ -154,6 +156,10 @@
             background-color: #111111;
             color: #bbbbbb;
             box-shadow: inset 5px 5px 10px 0 #ffffff11;
+        }
+
+        :global(body) {
+            background-color: #111111;
         }
     }
 
