@@ -23,7 +23,7 @@ export interface Field {
     editable: boolean;
 }
 
-export interface Parameters {
+export interface Parameter {
     name: string;
     type: string;
 }

@@ -26,6 +26,7 @@
                         return {
                             props: {
                                 docs: interf[i].methods[v],
+                                container: interf[i].name,
                                 kind: "method",
                             },
                         };
@@ -37,6 +38,7 @@
                         return {
                             props: {
                                 docs: interf[i].fields[v],
+                                container: interf[i].name,
                                 kind: "field",
                             },
                         };
@@ -63,6 +65,7 @@
     import { MetaTags } from "svelte-meta-tags";
 
     export let docs: Method | Field;
+    export let container: string;
     export let kind: "field" | "method";
 
     // workaround for ts typings not working in properties
@@ -82,7 +85,7 @@
             : 'readonly '}{docsField.name}: {docsField.type}
 {docs.description}"
     />
-    <ItemFieldDocs field={docsField} />
+    <ItemFieldDocs container={container} field={docsField} />
 {:else}
     {@const methodBody = docsMethod.parameters.map((val, i) => {
             let paramsStr = val
@@ -100,5 +103,5 @@
 
 {docsMethod.description}"
     />
-    <ItemMethodDocs method={docsMethod} />
+    <ItemMethodDocs container={container} method={docsMethod} />
 {/if}

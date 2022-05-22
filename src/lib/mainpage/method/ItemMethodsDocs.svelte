@@ -2,7 +2,8 @@
 import ItemMethodDocs from "./ItemMethodDocs.svelte";
 
     export let content: any;
-    export let title: number;
+    export let container: string;
+    export let title: number = 1;
 </script>
 
 <svelte:element this={"h" + title}>
@@ -10,5 +11,5 @@ import ItemMethodDocs from "./ItemMethodDocs.svelte";
 </svelte:element>
 
 {#each content as method}
-    <ItemMethodDocs method={method}/>
+    <ItemMethodDocs container={container} method={method}/>
 {/each}

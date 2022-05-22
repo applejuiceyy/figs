@@ -2,18 +2,18 @@
     import Code from "$lib/Code.svelte";
 import type { Method } from "$lib/rewrite_docs";
 import Category from "../Article.svelte";
+import OverloadDocs from "./OverloadDocs.svelte";
+import Parameters from "./ParametersDocs.svelte";
 
     export let method: Method;
+    export let container: string;
+
+
 </script>
 
 <Category tag="section" aria-label={method.name}>
     {#each method.parameters as parameters, idx}
-        {@const parameter = parameters.map((field) => field.name + ": " + field.type).join(", ") }
-
-        <Code>
-            {method.name}({parameter}): {method.returns[idx]}
-        </Code>
-
+        <OverloadDocs container={container} name={method.name} parameters={parameters} returns={method.returns[idx]} />
     {/each}
     <p>{method.description}</p>
 </Category>

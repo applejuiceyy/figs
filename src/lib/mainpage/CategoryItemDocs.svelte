@@ -10,20 +10,23 @@ import ItemMethodsDocs from "./method/ItemMethodsDocs.svelte";
 </script>
 
 <Category>
-    <svelte:element this={"h" + title}>
+    <svelte:element this={"h" + title} style:margin-bottom={docs.super === "AnyType"? "initial":"0px"}>
         {docs.name}
     </svelte:element>
+    {#if docs.super !== "AnyType"}
+        Inherits {docs.super}<br>
+    {/if}
 
-    {docs.description}
+    <p>{docs.description}</p>
 
     {#if docs.methods.length > 0}
         <section aria-label="Methods">
-            <ItemMethodsDocs content={docs.methods} title={title + 1}/>
+            <ItemMethodsDocs container={docs.name} content={docs.methods} title={title + 1}/>
         </section>
     {/if}
     {#if docs.fields.length > 0}
         <section aria-label="Fields">
-            <ItemFieldsDocs content={docs.fields} title={title + 1}/>
+            <ItemFieldsDocs container={docs.name} content={docs.fields} title={title + 1}/>
         </section>
     {/if}
 </Category>

@@ -6,7 +6,7 @@
     span {
         display: block;
 
-        font-family: 'Lucida Console';
+        font-family: 'Lucida Console', monospace;
         padding: 5px;
         margin: 5px;
 

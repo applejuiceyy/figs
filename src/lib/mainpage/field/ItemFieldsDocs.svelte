@@ -1,8 +1,9 @@
 <script type="ts">
-    import ItemPropertyDocs from "./ItemFieldDocs.svelte";
+    import ItemFieldDocs from "./ItemFieldDocs.svelte";
 
     export let content: any;
-    export let title: number;
+    export let container: string;
+    export let title: number = 1;
 </script>
 
 <svelte:element this={"h" + title}>
@@ -10,5 +11,5 @@
 </svelte:element>
 
 {#each content as field}
-    <ItemPropertyDocs field={field}/>
+    <ItemFieldDocs container={container} field={field}/>
 {/each}

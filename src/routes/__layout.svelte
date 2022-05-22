@@ -64,10 +64,6 @@
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-    :global(*), :global(*::after), :global(*::before) {
-        font-family: Roboto;
-    }
-
     footer {
         margin-top: auto;
         padding-top: 40px;
@@ -205,5 +201,6 @@
         margin: 0;
         overflow-x: hidden;
         overflow-y: auto;
+        font-family: Roboto;
     }
 </style>
