@@ -1,19 +1,19 @@
 const build = [
-  "/figs/_app/start-b2b40bdd.js",
-  "/figs/_app/pages/__layout.svelte-f872b860.js",
-  "/figs/_app/assets/pages/__layout.svelte-cba14572.css",
-  "/figs/_app/error.svelte-a170a6ba.js",
-  "/figs/_app/pages/_category_/_item_/_property_.svelte-f9372336.js",
-  "/figs/_app/pages/_category_/_item_/index.svelte-0609fd3a.js",
-  "/figs/_app/pages/_category_/index.svelte-de493fd5.js",
-  "/figs/_app/pages/index.svelte-eafda3df.js",
-  "/figs/_app/chunks/index-ac18434c.js",
+  "/figs/_app/start-f7cfb967.js",
+  "/figs/_app/pages/__layout.svelte-2e4b4bb7.js",
+  "/figs/_app/assets/pages/__layout.svelte-a43a56f9.css",
+  "/figs/_app/error.svelte-9cfc132a.js",
+  "/figs/_app/pages/_category_/_item_/_property_.svelte-63ddfbdd.js",
+  "/figs/_app/pages/_category_/_item_/index.svelte-9f9ac155.js",
+  "/figs/_app/pages/_category_/index.svelte-622aed89.js",
+  "/figs/_app/pages/index.svelte-49a4c951.js",
+  "/figs/_app/chunks/index-26185746.js",
   "/figs/_app/chunks/paths-396f020f.js",
   "/figs/_app/chunks/Article.svelte_svelte_type_style_lang-4914ee14.js",
   "/figs/_app/assets/Article.svelte_svelte_type_style_lang-f569f655.css",
-  "/figs/_app/chunks/ItemFieldDocs-c1930f56.js",
-  "/figs/_app/chunks/CategoryItemDocs-9f02d953.js",
-  "/figs/_app/chunks/CategoryDocs-528a20e7.js"
+  "/figs/_app/chunks/MetaTags-38f54132.js",
+  "/figs/_app/chunks/CategoryItemDocs-ed4f006e.js",
+  "/figs/_app/chunks/CategoryDocs-8e5c98df.js"
 ];
 const files = [
   "/figs/favicon.png"
@@ -578,7 +578,7 @@ const prerendered = [
   "/figs/misc/SoundAPI/playSound/",
   "/figs/misc/ParticleAPI/addParticle/"
 ];
-const version = "1653148386613";
+const version = "1653255264657";
 const worker = self;
 const CACHE_NAME = `A;static-cache-${version}`;
 const to_cache = build.concat(files).concat(prerendered);
