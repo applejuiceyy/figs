@@ -1,5 +1,5 @@
 const build = [
-  "/figs/_app/start-0e5c783e.js",
+  "/figs/_app/start-1c588390.js",
   "/figs/_app/pages/__layout.svelte-280abc60.js",
   "/figs/_app/assets/pages/__layout.svelte-c7fe677c.css",
   "/figs/_app/error.svelte-9cfc132a.js",
@@ -582,7 +582,7 @@ const prerendered = [
   "/figs/misc/SoundAPI/playSound/",
   "/figs/misc/ParticleAPI/addParticle/"
 ];
-const version = "1653259988120";
+const version = "1653603165920";
 const worker = self;
 const CACHE_NAME = `A;static-cache-${version}`;
 const to_cache = build.concat(files).concat(prerendered);
