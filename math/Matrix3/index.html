@@ -7,14 +7,14 @@
 		<meta http-equiv="content-security-policy" content=""><title>Matrix3</title><meta name="robots" content="index,follow" data-svelte="svelte-1v2a5gq"><meta name="googlebot" content="index,follow" data-svelte="svelte-1v2a5gq"><meta name="description" content="A matrix with 3 rows and 3 columns." data-svelte="svelte-1v2a5gq">
 	<link rel="stylesheet" href="/figs/_app/assets/pages/__layout.svelte-c7fe677c.css">
 	<link rel="stylesheet" href="/figs/_app/assets/Article.svelte_svelte_type_style_lang-d08a4240.css">
-	<link rel="modulepreload" href="/figs/_app/start-1c588390.js">
+	<link rel="modulepreload" href="/figs/_app/start-ac55e572.js">
 	<link rel="modulepreload" href="/figs/_app/chunks/index-26185746.js">
 	<link rel="modulepreload" href="/figs/_app/chunks/paths-396f020f.js">
-	<link rel="modulepreload" href="/figs/_app/pages/__layout.svelte-280abc60.js">
-	<link rel="modulepreload" href="/figs/_app/chunks/Article.svelte_svelte_type_style_lang-94aeeae6.js">
-	<link rel="modulepreload" href="/figs/_app/pages/_category_/_item_/index.svelte-36c031a7.js">
-	<link rel="modulepreload" href="/figs/_app/chunks/CategoryItemDocs-940be288.js">
-	<link rel="modulepreload" href="/figs/_app/chunks/MetaTags-053d9886.js">
+	<link rel="modulepreload" href="/figs/_app/pages/__layout.svelte-3235b406.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/Article.svelte_svelte_type_style_lang-2cd13b43.js">
+	<link rel="modulepreload" href="/figs/_app/pages/_category_/_item_/index.svelte-7160740b.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/CategoryItemDocs-5bfbb640.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/MetaTags-4dff3baf.js">
 				<script>
 		if ('serviceWorker' in navigator) {
 			navigator.serviceWorker.register('/figs/service-worker.js');
@@ -60,7 +60,7 @@
 
                     <a href="/figs/math/Matrix3" class="svelte-6qhb8p">Matrix3</a>
 
-                    <div class="category-functions svelte-6qhb8p"><a href="/figs/math/Matrix3/scale" class="svelte-6qhb8p">scale</a><a href="/figs/math/Matrix3/reset" class="svelte-6qhb8p">reset</a><a href="/figs/math/Matrix3/rotate" class="svelte-6qhb8p">rotate</a><a href="/figs/math/Matrix3/translate" class="svelte-6qhb8p">translate</a><a href="/figs/math/Matrix3/det" class="svelte-6qhb8p">det</a><a href="/figs/math/Matrix3/transpose" class="svelte-6qhb8p">transpose</a><a href="/figs/math/Matrix3/invert" class="svelte-6qhb8p">invert</a><a href="/figs/math/Matrix3/getTranspose" class="svelte-6qhb8p">getTranspose</a><a href="/figs/math/Matrix3/getInverse" class="svelte-6qhb8p">getInverse</a><a href="/figs/math/Matrix3/getColumn" class="svelte-6qhb8p">getColumn</a><a href="/figs/math/Matrix3/getRow" class="svelte-6qhb8p">getRow</a></div>
+                    <div class="category-functions svelte-6qhb8p"><a href="/figs/math/Matrix3/scale" class="svelte-6qhb8p">scale</a><a href="/figs/math/Matrix3/reset" class="svelte-6qhb8p">reset</a><a href="/figs/math/Matrix3/rotate" class="svelte-6qhb8p">rotate</a><a href="/figs/math/Matrix3/getColumn" class="svelte-6qhb8p">getColumn</a><a href="/figs/math/Matrix3/invert" class="svelte-6qhb8p">invert</a><a href="/figs/math/Matrix3/transpose" class="svelte-6qhb8p">transpose</a><a href="/figs/math/Matrix3/translate" class="svelte-6qhb8p">translate</a><a href="/figs/math/Matrix3/det" class="svelte-6qhb8p">det</a><a href="/figs/math/Matrix3/getInverse" class="svelte-6qhb8p">getInverse</a><a href="/figs/math/Matrix3/getTranspose" class="svelte-6qhb8p">getTranspose</a><a href="/figs/math/Matrix3/getRow" class="svelte-6qhb8p">getRow</a></div>
                         <div class="category-functions svelte-6qhb8p"><a href="/figs/math/Matrix3/vRC" class="svelte-6qhb8p">vRC</a>
                         </div><a href="/figs/math/Matrix4" class="svelte-6qhb8p">Matrix4</a>
 
@@ -89,7 +89,7 @@
     <div class="content figura-background svelte-11fz2q4"><div class="rounding-content-wrapper svelte-11fz2q4">
 
 <article class="indent svelte-ap5gjs">
-    <h1 style="margin-bottom: initial;">Matrix3</h1>
+    <h1 style="margin-bottom: 0px;">Matrix3</h1>
     
 
     <p>A matrix with 3 rows and 3 columns.</p>
@@ -111,6 +111,18 @@
 </span><span class="svelte-eg9hl2">Matrix3:rotate(x: <span style="color: #0000bb">Number</span>, y: <span style="color: #0000bb">Number</span>, z: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">nil</span>
 </span>
     <p>Rotates this matrix by the specified amount, changing the values inside. Angles are given in degrees, and the rotation order is ZYX.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="getColumn">
+    <span class="svelte-eg9hl2">Matrix3:getColumn(col: <span style="color: #0000bb">Integer</span>): <span style="color: #0000bb">Vector3</span>
+</span>
+    <p>Gets a Vector3 representing the desired column of the matrix. 1-indexed, so calling mat:getColumn(1) will return the first column of the matrix.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="invert">
+    <span class="svelte-eg9hl2">Matrix3:invert(): <span style="color: #0000bb">nil</span>
+</span>
+    <p>Inverts this matrix, changing the values inside.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="transpose">
+    <span class="svelte-eg9hl2">Matrix3:transpose(): <span style="color: #0000bb">nil</span>
+</span>
+    <p>Transposes this matrix, changing the values inside.</p>
 </section><section class="indent svelte-ap5gjs" aria-label="translate">
     <span class="svelte-eg9hl2">Matrix3:translate(vec: <span style="color: #0000bb">Vector2</span>): <span style="color: #0000bb">nil</span>
 </span><span class="svelte-eg9hl2">Matrix3:translate(x: <span style="color: #0000bb">Number</span>, y: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">nil</span>
@@ -120,26 +132,14 @@
     <span class="svelte-eg9hl2">Matrix3:det(): <span style="color: #0000bb">Number</span>
 </span>
     <p>Calculates and returns the determinant of this matrix.</p>
-</section><section class="indent svelte-ap5gjs" aria-label="transpose">
-    <span class="svelte-eg9hl2">Matrix3:transpose(): <span style="color: #0000bb">nil</span>
-</span>
-    <p>Transposes this matrix, changing the values inside.</p>
-</section><section class="indent svelte-ap5gjs" aria-label="invert">
-    <span class="svelte-eg9hl2">Matrix3:invert(): <span style="color: #0000bb">nil</span>
-</span>
-    <p>Inverts this matrix, changing the values inside.</p>
-</section><section class="indent svelte-ap5gjs" aria-label="getTranspose">
-    <span class="svelte-eg9hl2">Matrix3:getTranspose(): <span style="color: #0000bb">Matrix3</span>
-</span>
-    <p>Calculates and returns the transpose of this matrix.</p>
 </section><section class="indent svelte-ap5gjs" aria-label="getInverse">
     <span class="svelte-eg9hl2">Matrix3:getInverse(): <span style="color: #0000bb">Matrix3</span>
 </span>
     <p>Calculates and returns the inverse of this matrix.</p>
-</section><section class="indent svelte-ap5gjs" aria-label="getColumn">
-    <span class="svelte-eg9hl2">Matrix3:getColumn(col: <span style="color: #0000bb">Integer</span>): <span style="color: #0000bb">Vector3</span>
+</section><section class="indent svelte-ap5gjs" aria-label="getTranspose">
+    <span class="svelte-eg9hl2">Matrix3:getTranspose(): <span style="color: #0000bb">Matrix3</span>
 </span>
-    <p>Gets a Vector3 representing the desired column of the matrix. 1-indexed, so calling mat:getColumn(1) will return the first column of the matrix.</p>
+    <p>Calculates and returns the transpose of this matrix.</p>
 </section><section class="indent svelte-ap5gjs" aria-label="getRow">
     <span class="svelte-eg9hl2">Matrix3:getRow(row: <span style="color: #0000bb">Integer</span>): <span style="color: #0000bb">Vector3</span>
 </span>
@@ -158,10 +158,10 @@
 </div>
 
 
-		<script type="module" data-hydrate="v59mih">
-		import { start } from "/figs/_app/start-1c588390.js";
+		<script type="module" data-hydrate="c8kpz3">
+		import { start } from "/figs/_app/start-ac55e572.js";
 		start({
-			target: document.querySelector('[data-hydrate="v59mih"]').parentNode,
+			target: document.querySelector('[data-hydrate="c8kpz3"]').parentNode,
 			paths: {"base":"/figs","assets":"/figs"},
 			session: {},
 			route: true,
@@ -171,8 +171,8 @@
 				status: 200,
 				error: null,
 				nodes: [
-					import("/figs/_app/pages/__layout.svelte-280abc60.js"),
-						import("/figs/_app/pages/_category_/_item_/index.svelte-36c031a7.js")
+					import("/figs/_app/pages/__layout.svelte-3235b406.js"),
+						import("/figs/_app/pages/_category_/_item_/index.svelte-7160740b.js")
 				],
 				params: {category:"math",item:"Matrix3"},
 				routeId: "[category]/[item]"

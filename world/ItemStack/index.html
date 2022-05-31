@@ -7,14 +7,14 @@
 		<meta http-equiv="content-security-policy" content=""><title>ItemStack</title><meta name="robots" content="index,follow" data-svelte="svelte-1v2a5gq"><meta name="googlebot" content="index,follow" data-svelte="svelte-1v2a5gq"><meta name="description" content="A proxy for an item stack from Minecraft." data-svelte="svelte-1v2a5gq">
 	<link rel="stylesheet" href="/figs/_app/assets/pages/__layout.svelte-c7fe677c.css">
 	<link rel="stylesheet" href="/figs/_app/assets/Article.svelte_svelte_type_style_lang-d08a4240.css">
-	<link rel="modulepreload" href="/figs/_app/start-1c588390.js">
+	<link rel="modulepreload" href="/figs/_app/start-ac55e572.js">
 	<link rel="modulepreload" href="/figs/_app/chunks/index-26185746.js">
 	<link rel="modulepreload" href="/figs/_app/chunks/paths-396f020f.js">
-	<link rel="modulepreload" href="/figs/_app/pages/__layout.svelte-280abc60.js">
-	<link rel="modulepreload" href="/figs/_app/chunks/Article.svelte_svelte_type_style_lang-94aeeae6.js">
-	<link rel="modulepreload" href="/figs/_app/pages/_category_/_item_/index.svelte-36c031a7.js">
-	<link rel="modulepreload" href="/figs/_app/chunks/CategoryItemDocs-940be288.js">
-	<link rel="modulepreload" href="/figs/_app/chunks/MetaTags-053d9886.js">
+	<link rel="modulepreload" href="/figs/_app/pages/__layout.svelte-3235b406.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/Article.svelte_svelte_type_style_lang-2cd13b43.js">
+	<link rel="modulepreload" href="/figs/_app/pages/_category_/_item_/index.svelte-7160740b.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/CategoryItemDocs-5bfbb640.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/MetaTags-4dff3baf.js">
 				<script>
 		if ('serviceWorker' in navigator) {
 			navigator.serviceWorker.register('/figs/service-worker.js');
@@ -39,8 +39,8 @@
 
                     <a href="/figs/world/ItemStack" class="svelte-6qhb8p">ItemStack</a>
 
-                    <div class="category-functions svelte-6qhb8p"><a href="/figs/world/ItemStack/exists" class="svelte-6qhb8p">exists</a></div>
-                        <div class="category-functions svelte-6qhb8p"><a href="/figs/world/ItemStack/id" class="svelte-6qhb8p">id</a>
+                    <div class="category-functions svelte-6qhb8p"><a href="/figs/world/ItemStack/getName" class="svelte-6qhb8p">getName</a><a href="/figs/world/ItemStack/exists" class="svelte-6qhb8p">exists</a><a href="/figs/world/ItemStack/getCount" class="svelte-6qhb8p">getCount</a><a href="/figs/world/ItemStack/getTags" class="svelte-6qhb8p">getTags</a><a href="/figs/world/ItemStack/getDamage" class="svelte-6qhb8p">getDamage</a><a href="/figs/world/ItemStack/getCooldown" class="svelte-6qhb8p">getCooldown</a><a href="/figs/world/ItemStack/getRarity" class="svelte-6qhb8p">getRarity</a><a href="/figs/world/ItemStack/getUseAction" class="svelte-6qhb8p">getUseAction</a><a href="/figs/world/ItemStack/getMaxDamage" class="svelte-6qhb8p">getMaxDamage</a><a href="/figs/world/ItemStack/getRepairCost" class="svelte-6qhb8p">getRepairCost</a><a href="/figs/world/ItemStack/getUseDuration" class="svelte-6qhb8p">getUseDuration</a><a href="/figs/world/ItemStack/toStackString" class="svelte-6qhb8p">toStackString</a><a href="/figs/world/ItemStack/getMaxCount" class="svelte-6qhb8p">getMaxCount</a><a href="/figs/world/ItemStack/isBlockItem" class="svelte-6qhb8p">isBlockItem</a><a href="/figs/world/ItemStack/isDamageable" class="svelte-6qhb8p">isDamageable</a><a href="/figs/world/ItemStack/isFood" class="svelte-6qhb8p">isFood</a><a href="/figs/world/ItemStack/hasGlint" class="svelte-6qhb8p">hasGlint</a><a href="/figs/world/ItemStack/isEnchantable" class="svelte-6qhb8p">isEnchantable</a><a href="/figs/world/ItemStack/isStackable" class="svelte-6qhb8p">isStackable</a></div>
+                        <div class="category-functions svelte-6qhb8p"><a href="/figs/world/ItemStack/id" class="svelte-6qhb8p">id</a><a href="/figs/world/ItemStack/tag" class="svelte-6qhb8p">tag</a>
                         </div><a href="/figs/world/Biome" class="svelte-6qhb8p">Biome</a>
 
                     
@@ -75,7 +75,7 @@
     <div class="content figura-background svelte-11fz2q4"><div class="rounding-content-wrapper svelte-11fz2q4">
 
 <article class="indent svelte-ap5gjs">
-    <h1 style="margin-bottom: initial;">ItemStack</h1>
+    <h1 style="margin-bottom: 0px;">ItemStack</h1>
     
 
     <p>A proxy for an item stack from Minecraft.</p>
@@ -83,10 +83,82 @@
     <section aria-label="Methods"><h2>Methods
 </h2>
 
-<section class="indent svelte-ap5gjs" aria-label="exists">
+<section class="indent svelte-ap5gjs" aria-label="getName">
+    <span class="svelte-eg9hl2">ItemStack:getName(): <span style="color: #0000bb">String</span>
+</span>
+    <p>Gets the name of the item.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="exists">
     <span class="svelte-eg9hl2">ItemStack:exists(): <span style="color: #0000bb">Boolean</span>
 </span>
     <p>Checks whether or not this ItemStack currently exists. Minecraft may delete ItemStack instances on occasion. I don&#39;t think it will delete them while they&#39;re in someone&#39;s inventory or on the ground, but testing is required to know for sure. Contact devs once someone has an answer to when these stop existing!</p>
+</section><section class="indent svelte-ap5gjs" aria-label="getCount">
+    <span class="svelte-eg9hl2">ItemStack:getCount(): <span style="color: #0000bb">Integer</span>
+</span>
+    <p>Gets the number of items in this stack.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="getTags">
+    <span class="svelte-eg9hl2">ItemStack:getTags(): <span style="color: #0000bb">Table</span>
+</span>
+    <p>Gets all the tags of this item as strings in a table.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="getDamage">
+    <span class="svelte-eg9hl2">ItemStack:getDamage(): <span style="color: #0000bb">Integer</span>
+</span>
+    <p>Gets the damage value of the item in this stack. Works on things like tools, or other things with a durability bar.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="getCooldown">
+    <span class="svelte-eg9hl2">ItemStack:getCooldown(): <span style="color: #0000bb">Integer</span>
+</span>
+    <p>Gets the remaining cooldown on this item, in ticks.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="getRarity">
+    <span class="svelte-eg9hl2">ItemStack:getRarity(): <span style="color: #0000bb">String</span>
+</span>
+    <p>Gets the rarity of this item stack. COMMON = white, UNCOMMON = yellow, RARE = aqua, EPIC = light purple.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="getUseAction">
+    <span class="svelte-eg9hl2">ItemStack:getUseAction(): <span style="color: #0000bb">String</span>
+</span>
+    <p>Returns the name of the animation that plays when using this item.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="getMaxDamage">
+    <span class="svelte-eg9hl2">ItemStack:getMaxDamage(): <span style="color: #0000bb">Integer</span>
+</span>
+    <p>Gets the maximum durability of this item stack.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="getRepairCost">
+    <span class="svelte-eg9hl2">ItemStack:getRepairCost(): <span style="color: #0000bb">Integer</span>
+</span>
+    <p>Gets the repair cost modifier, in an anvil, for this item stack.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="getUseDuration">
+    <span class="svelte-eg9hl2">ItemStack:getUseDuration(): <span style="color: #0000bb">Integer</span>
+</span>
+    <p>Gets the number of ticks needed to &quot;use&quot; this item. Currently only has a use for food items. Always 32 for food items except kelp, which is 16.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="toStackString">
+    <span class="svelte-eg9hl2">ItemStack:toStackString(): <span style="color: #0000bb">String</span>
+</span>
+    <p>Converts this ItemStack to a string, like you&#39;d see in a command.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="getMaxCount">
+    <span class="svelte-eg9hl2">ItemStack:getMaxCount(): <span style="color: #0000bb">Integer</span>
+</span>
+    <p>Gets the maximum stack size of this item.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="isBlockItem">
+    <span class="svelte-eg9hl2">ItemStack:isBlockItem(): <span style="color: #0000bb">Boolean</span>
+</span>
+    <p>Returns true if this item represents a block.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="isDamageable">
+    <span class="svelte-eg9hl2">ItemStack:isDamageable(): <span style="color: #0000bb">Boolean</span>
+</span>
+    <p>Returns true if this item stack has durability.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="isFood">
+    <span class="svelte-eg9hl2">ItemStack:isFood(): <span style="color: #0000bb">Boolean</span>
+</span>
+    <p>Returns true if this item is edible.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="hasGlint">
+    <span class="svelte-eg9hl2">ItemStack:hasGlint(): <span style="color: #0000bb">Boolean</span>
+</span>
+    <p>Returns true if this item glows with enchantment glint.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="isEnchantable">
+    <span class="svelte-eg9hl2">ItemStack:isEnchantable(): <span style="color: #0000bb">Boolean</span>
+</span>
+    <p>Returns true if this item stack can be put in an enchanting table.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="isStackable">
+    <span class="svelte-eg9hl2">ItemStack:isStackable(): <span style="color: #0000bb">Boolean</span>
+</span>
+    <p>Returns true if the item is stackable.</p>
 </section></section>
     <section aria-label="Fields"><h2>Fields
 </h2>
@@ -96,15 +168,20 @@
 </span>
 
     <p>Contains the id of the item this ItemStack refers to.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="tag">
+    <span class="svelte-eg9hl2">readonly ItemStack.tag: <span style="color: #0000bb">Table</span>
+</span>
+
+    <p>A table containing the NBT tag of this ItemStack. If this ItemStack has nothing in its tag, it is nil.</p>
 </section></section>
 </article></div></div>
 </div>
 
 
-		<script type="module" data-hydrate="3083dt">
-		import { start } from "/figs/_app/start-1c588390.js";
+		<script type="module" data-hydrate="51kl7v">
+		import { start } from "/figs/_app/start-ac55e572.js";
 		start({
-			target: document.querySelector('[data-hydrate="3083dt"]').parentNode,
+			target: document.querySelector('[data-hydrate="51kl7v"]').parentNode,
 			paths: {"base":"/figs","assets":"/figs"},
 			session: {},
 			route: true,
@@ -114,8 +191,8 @@
 				status: 200,
 				error: null,
 				nodes: [
-					import("/figs/_app/pages/__layout.svelte-280abc60.js"),
-						import("/figs/_app/pages/_category_/_item_/index.svelte-36c031a7.js")
+					import("/figs/_app/pages/__layout.svelte-3235b406.js"),
+						import("/figs/_app/pages/_category_/_item_/index.svelte-7160740b.js")
 				],
 				params: {category:"world",item:"ItemStack"},
 				routeId: "[category]/[item]"

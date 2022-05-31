@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/figs/favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta http-equiv="content-security-policy" content=""><title>getUseDuration</title><meta name="robots" content="index,follow" data-svelte="svelte-1v2a5gq"><meta name="googlebot" content="index,follow" data-svelte="svelte-1v2a5gq"><meta name="description" content="getUseDuration(itemStack: ItemStack): Integer
+
+
+Gets the number of ticks needed to &quot;use&quot; this item. Currently only has a use for food items. Always 32 for food items except kelp, which is 16." data-svelte="svelte-1v2a5gq">
+	<link rel="stylesheet" href="/figs/_app/assets/pages/__layout.svelte-c7fe677c.css">
+	<link rel="stylesheet" href="/figs/_app/assets/Article.svelte_svelte_type_style_lang-d08a4240.css">
+	<link rel="modulepreload" href="/figs/_app/start-ac55e572.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/index-26185746.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/paths-396f020f.js">
+	<link rel="modulepreload" href="/figs/_app/pages/__layout.svelte-3235b406.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/Article.svelte_svelte_type_style_lang-2cd13b43.js">
+	<link rel="modulepreload" href="/figs/_app/pages/_category_/_item_/_property_.svelte-0baec96b.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/MetaTags-4dff3baf.js">
+				<script>
+		if ('serviceWorker' in navigator) {
+			navigator.serviceWorker.register('/figs/service-worker.js');
+		}
+	</script>
+	</head>
+	<body>
+		<div>
+
+
+<div class="root svelte-11fz2q4"><nav class="figura-background svelte-11fz2q4"><a class="nav-item svelte-11fz2q4" href="/figs/">FIGS!!</a>
+        <a class="nav-item expander svelte-11fz2q4" href="javascript:;" aria-label="Expand">Show Table</a></nav>
+
+    <div class="category figura-background svelte-11fz2q4"><div class="category-inner svelte-11fz2q4"><div class="category-item-root svelte-6qhb8p"><a class="category-selector svelte-6qhb8p" href="/figs/globals">globals</a>
+
+        
+    </div><div class="category-item-root svelte-6qhb8p"><a class="category-selector svelte-6qhb8p" href="/figs/world">world</a>
+
+        <div class="category-items svelte-6qhb8p"><a href="/figs/world/WorldAPI" class="svelte-6qhb8p">WorldAPI</a>
+
+                    <a href="/figs/world/BlockState" class="svelte-6qhb8p">BlockState</a>
+
+                    <a href="/figs/world/ItemStack" class="svelte-6qhb8p">ItemStack</a>
+
+                    <div class="category-functions svelte-6qhb8p"><a href="/figs/world/ItemStack/getName" class="svelte-6qhb8p">getName</a><a href="/figs/world/ItemStack/exists" class="svelte-6qhb8p">exists</a><a href="/figs/world/ItemStack/getCount" class="svelte-6qhb8p">getCount</a><a href="/figs/world/ItemStack/getTags" class="svelte-6qhb8p">getTags</a><a href="/figs/world/ItemStack/getDamage" class="svelte-6qhb8p">getDamage</a><a href="/figs/world/ItemStack/getCooldown" class="svelte-6qhb8p">getCooldown</a><a href="/figs/world/ItemStack/getRarity" class="svelte-6qhb8p">getRarity</a><a href="/figs/world/ItemStack/getUseAction" class="svelte-6qhb8p">getUseAction</a><a href="/figs/world/ItemStack/getMaxDamage" class="svelte-6qhb8p">getMaxDamage</a><a href="/figs/world/ItemStack/getRepairCost" class="svelte-6qhb8p">getRepairCost</a><a href="/figs/world/ItemStack/getUseDuration" class="svelte-6qhb8p selected">getUseDuration</a><a href="/figs/world/ItemStack/toStackString" class="svelte-6qhb8p">toStackString</a><a href="/figs/world/ItemStack/getMaxCount" class="svelte-6qhb8p">getMaxCount</a><a href="/figs/world/ItemStack/isBlockItem" class="svelte-6qhb8p">isBlockItem</a><a href="/figs/world/ItemStack/isDamageable" class="svelte-6qhb8p">isDamageable</a><a href="/figs/world/ItemStack/isFood" class="svelte-6qhb8p">isFood</a><a href="/figs/world/ItemStack/hasGlint" class="svelte-6qhb8p">hasGlint</a><a href="/figs/world/ItemStack/isEnchantable" class="svelte-6qhb8p">isEnchantable</a><a href="/figs/world/ItemStack/isStackable" class="svelte-6qhb8p">isStackable</a></div>
+                        <div class="category-functions svelte-6qhb8p"><a href="/figs/world/ItemStack/id" class="svelte-6qhb8p">id</a><a href="/figs/world/ItemStack/tag" class="svelte-6qhb8p">tag</a>
+                        </div><a href="/figs/world/Biome" class="svelte-6qhb8p">Biome</a>
+
+                    
+
+            </div>
+    </div><div class="category-item-root svelte-6qhb8p"><a class="category-selector svelte-6qhb8p" href="/figs/keybind">keybind</a>
+
+        
+    </div><div class="category-item-root svelte-6qhb8p"><a class="category-selector svelte-6qhb8p" href="/figs/model">model</a>
+
+        
+    </div><div class="category-item-root svelte-6qhb8p"><a class="category-selector svelte-6qhb8p" href="/figs/math">math</a>
+
+        
+    </div><div class="category-item-root svelte-6qhb8p"><a class="category-selector svelte-6qhb8p" href="/figs/event">event</a>
+
+        
+    </div><div class="category-item-root svelte-6qhb8p"><a class="category-selector svelte-6qhb8p" href="/figs/nameplate">nameplate</a>
+
+        
+    </div><div class="category-item-root svelte-6qhb8p"><a class="category-selector svelte-6qhb8p" href="/figs/entity">entity</a>
+
+        
+    </div><div class="category-item-root svelte-6qhb8p"><a class="category-selector svelte-6qhb8p" href="/figs/misc">misc</a>
+
+        
+    </div>
+
+            <footer class="svelte-11fz2q4">Made by applejuice
+            </footer></div></div>
+
+    <div class="content figura-background svelte-11fz2q4"><div class="rounding-content-wrapper svelte-11fz2q4">
+
+    
+    <section class="indent svelte-ap5gjs" aria-label="getUseDuration">
+    <span class="svelte-eg9hl2">ItemStack:getUseDuration(): <span style="color: #0000bb">Integer</span>
+</span>
+    <p>Gets the number of ticks needed to &quot;use&quot; this item. Currently only has a use for food items. Always 32 for food items except kelp, which is 16.</p>
+</section></div></div>
+</div>
+
+
+		<script type="module" data-hydrate="1rxouyj">
+		import { start } from "/figs/_app/start-ac55e572.js";
+		start({
+			target: document.querySelector('[data-hydrate="1rxouyj"]').parentNode,
+			paths: {"base":"/figs","assets":"/figs"},
+			session: {},
+			route: true,
+			spa: false,
+			trailing_slash: "always",
+			hydrate: {
+				status: 200,
+				error: null,
+				nodes: [
+					import("/figs/_app/pages/__layout.svelte-3235b406.js"),
+						import("/figs/_app/pages/_category_/_item_/_property_.svelte-0baec96b.js")
+				],
+				params: {category:"world",item:"ItemStack",property:"getUseDuration"},
+				routeId: "[category]/[item]/[property]"
+			}
+		});
+	</script></div>
+	</body>
+</html>

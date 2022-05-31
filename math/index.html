@@ -59,15 +59,15 @@ math
 Contains functions which Figura adds to the default Lua &quot;math&quot; library table." data-svelte="svelte-1v2a5gq">
 	<link rel="stylesheet" href="/figs/_app/assets/pages/__layout.svelte-c7fe677c.css">
 	<link rel="stylesheet" href="/figs/_app/assets/Article.svelte_svelte_type_style_lang-d08a4240.css">
-	<link rel="modulepreload" href="/figs/_app/start-1c588390.js">
+	<link rel="modulepreload" href="/figs/_app/start-ac55e572.js">
 	<link rel="modulepreload" href="/figs/_app/chunks/index-26185746.js">
 	<link rel="modulepreload" href="/figs/_app/chunks/paths-396f020f.js">
-	<link rel="modulepreload" href="/figs/_app/pages/__layout.svelte-280abc60.js">
-	<link rel="modulepreload" href="/figs/_app/chunks/Article.svelte_svelte_type_style_lang-94aeeae6.js">
-	<link rel="modulepreload" href="/figs/_app/pages/_category_/index.svelte-f3220c67.js">
-	<link rel="modulepreload" href="/figs/_app/chunks/CategoryDocs-bef6ec73.js">
-	<link rel="modulepreload" href="/figs/_app/chunks/MetaTags-053d9886.js">
-	<link rel="modulepreload" href="/figs/_app/chunks/CategoryItemDocs-940be288.js">
+	<link rel="modulepreload" href="/figs/_app/pages/__layout.svelte-3235b406.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/Article.svelte_svelte_type_style_lang-2cd13b43.js">
+	<link rel="modulepreload" href="/figs/_app/pages/_category_/index.svelte-8cbca28c.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/CategoryDocs-2e732474.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/MetaTags-4dff3baf.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/CategoryItemDocs-5bfbb640.js">
 				<script>
 		if ('serviceWorker' in navigator) {
 			navigator.serviceWorker.register('/figs/service-worker.js');
@@ -142,7 +142,7 @@ Contains functions which Figura adds to the default Lua &quot;math&quot; library
 <article class="indent svelte-ap5gjs">
     <h1>math</h1>
     <article class="indent svelte-ap5gjs">
-    <h2 style="margin-bottom: initial;">VectorsAPI</h2>
+    <h2 style="margin-bottom: 0px;">VectorsAPI</h2>
     
 
     <p>A global API which provides functions dedicated to creating and otherwise manipulating vectors. Accessed using the name &quot;vectors&quot;.</p>
@@ -162,32 +162,28 @@ Contains functions which Figura adds to the default Lua &quot;math&quot; library
     <span class="svelte-eg9hl2">VectorsAPI.vec2(x: <span style="color: #0000bb">Number</span>, y: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">Vector2</span>
 </span>
     <p>Creates and returns a Vector2 with the given values. Nil values become zero.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="vec3">
+    <span class="svelte-eg9hl2">VectorsAPI.vec3(x: <span style="color: #0000bb">Number</span>, y: <span style="color: #0000bb">Number</span>, z: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">Vector3</span>
+</span>
+    <p>Creates and returns a Vector3 with the given values. Nil values become zero.</p>
 </section><section class="indent svelte-ap5gjs" aria-label="intToRGB">
     <span class="svelte-eg9hl2">VectorsAPI.intToRGB(color: <span style="color: #0000bb">Integer</span>): <span style="color: #0000bb">Vector3</span>
 </span>
     <p>Converts the given color from integer format to RGB format.</p>
-</section><section class="indent svelte-ap5gjs" aria-label="rgbToHSV">
-    <span class="svelte-eg9hl2">VectorsAPI.rgbToHSV(rgb: <span style="color: #0000bb">Vector3</span>): <span style="color: #0000bb">Vector3</span>
-</span><span class="svelte-eg9hl2">VectorsAPI.rgbToHSV(r: <span style="color: #0000bb">Number</span>, g: <span style="color: #0000bb">Number</span>, b: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">Vector3</span>
-</span>
-    <p>Converts the given color from RGB format to HSV format.</p>
 </section><section class="indent svelte-ap5gjs" aria-label="rainbow">
     <span class="svelte-eg9hl2">VectorsAPI.rainbow(speed: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">Vector3</span>
 </span>
-    <p>Gets an rgb vector with a shifting hue based on the given speed value and the current in-game time.</p>
+    <p>Gets an rgb vector with a shifting hue based on the given speed value and how much time the game is opened.</p>
 </section><section class="indent svelte-ap5gjs" aria-label="hsvToRGB">
     <span class="svelte-eg9hl2">VectorsAPI.hsvToRGB(hsv: <span style="color: #0000bb">Vector3</span>): <span style="color: #0000bb">Vector3</span>
 </span><span class="svelte-eg9hl2">VectorsAPI.hsvToRGB(h: <span style="color: #0000bb">Number</span>, s: <span style="color: #0000bb">Number</span>, v: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">Vector3</span>
 </span>
     <p>Converts the given color from HSV format to RGB format.</p>
-</section><section class="indent svelte-ap5gjs" aria-label="vec3">
-    <span class="svelte-eg9hl2">VectorsAPI.vec3(x: <span style="color: #0000bb">Number</span>, y: <span style="color: #0000bb">Number</span>, z: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">Vector3</span>
+</section><section class="indent svelte-ap5gjs" aria-label="rgbToHSV">
+    <span class="svelte-eg9hl2">VectorsAPI.rgbToHSV(rgb: <span style="color: #0000bb">Vector3</span>): <span style="color: #0000bb">Vector3</span>
+</span><span class="svelte-eg9hl2">VectorsAPI.rgbToHSV(r: <span style="color: #0000bb">Number</span>, g: <span style="color: #0000bb">Number</span>, b: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">Vector3</span>
 </span>
-    <p>Creates and returns a Vector3 with the given values. Nil values become zero.</p>
-</section><section class="indent svelte-ap5gjs" aria-label="vec5">
-    <span class="svelte-eg9hl2">VectorsAPI.vec5(x: <span style="color: #0000bb">Number</span>, y: <span style="color: #0000bb">Number</span>, z: <span style="color: #0000bb">Number</span>, w: <span style="color: #0000bb">Number</span>, t: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">Vector5</span>
-</span>
-    <p>Creates and returns a Vector5 with the given values. Nil values become zero.</p>
+    <p>Converts the given color from RGB format to HSV format.</p>
 </section><section class="indent svelte-ap5gjs" aria-label="vec6">
     <span class="svelte-eg9hl2">VectorsAPI.vec6(x: <span style="color: #0000bb">Number</span>, y: <span style="color: #0000bb">Number</span>, z: <span style="color: #0000bb">Number</span>, w: <span style="color: #0000bb">Number</span>, t: <span style="color: #0000bb">Number</span>, h: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">Vector6</span>
 </span>
@@ -196,6 +192,10 @@ Contains functions which Figura adds to the default Lua &quot;math&quot; library
     <span class="svelte-eg9hl2">VectorsAPI.vec4(x: <span style="color: #0000bb">Number</span>, y: <span style="color: #0000bb">Number</span>, z: <span style="color: #0000bb">Number</span>, w: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">Vector4</span>
 </span>
     <p>Creates and returns a Vector4 with the given values. Nil values become zero.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="vec5">
+    <span class="svelte-eg9hl2">VectorsAPI.vec5(x: <span style="color: #0000bb">Number</span>, y: <span style="color: #0000bb">Number</span>, z: <span style="color: #0000bb">Number</span>, w: <span style="color: #0000bb">Number</span>, t: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">Vector5</span>
+</span>
+    <p>Creates and returns a Vector5 with the given values. Nil values become zero.</p>
 </section><section class="indent svelte-ap5gjs" aria-label="hexToRGB">
     <span class="svelte-eg9hl2">VectorsAPI.hexToRGB(hex: <span style="color: #0000bb">String</span>): <span style="color: #0000bb">Vector3</span>
 </span>
@@ -244,6 +244,10 @@ Contains functions which Figura adds to the default Lua &quot;math&quot; library
     <span class="svelte-eg9hl2">Vector2:normalized(): <span style="color: #0000bb">Vector2</span>
 </span>
     <p>Returns a copy of this vector with length 1, unless its length was originally 0.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="lengthSquared">
+    <span class="svelte-eg9hl2">Vector2:lengthSquared(): <span style="color: #0000bb">Number</span>
+</span>
+    <p>Returns the length of this vector squared. Suitable when you only care about relative lengths, because it avoids a square root.</p>
 </section><section class="indent svelte-ap5gjs" aria-label="clampLength">
     <span class="svelte-eg9hl2">Vector2:clampLength(minLength: <span style="color: #0000bb">Number</span>, maxLength: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">nil</span>
 </span>
@@ -256,10 +260,6 @@ Contains functions which Figura adds to the default Lua &quot;math&quot; library
     <span class="svelte-eg9hl2">Vector2:toDeg(): <span style="color: #0000bb">Vector2</span>
 </span>
     <p>Returns a copy of the given vector, in degrees.</p>
-</section><section class="indent svelte-ap5gjs" aria-label="lengthSquared">
-    <span class="svelte-eg9hl2">Vector2:lengthSquared(): <span style="color: #0000bb">Number</span>
-</span>
-    <p>Returns the length of this vector squared. Suitable when you only care about relative lengths, because it avoids a square root.</p>
 </section><section class="indent svelte-ap5gjs" aria-label="clamped">
     <span class="svelte-eg9hl2">Vector2:clamped(minLength: <span style="color: #0000bb">Number</span>, maxLength: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">Vector2</span>
 </span>
@@ -316,6 +316,14 @@ Contains functions which Figura adds to the default Lua &quot;math&quot; library
     <span class="svelte-eg9hl2">Vector3:normalized(): <span style="color: #0000bb">Vector3</span>
 </span>
     <p>Returns a copy of this vector with length 1, unless its length was originally 0.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="augmented">
+    <span class="svelte-eg9hl2">Vector3:augmented(): <span style="color: #0000bb">Vector4</span>
+</span>
+    <p>Returns the augmented form of this vector. The augmented form is Vector4 with a 1 in its W coordinate.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="lengthSquared">
+    <span class="svelte-eg9hl2">Vector3:lengthSquared(): <span style="color: #0000bb">Number</span>
+</span>
+    <p>Returns the length of this vector squared. Suitable when you only care about relative lengths, because it avoids a square root.</p>
 </section><section class="indent svelte-ap5gjs" aria-label="clampLength">
     <span class="svelte-eg9hl2">Vector3:clampLength(minLength: <span style="color: #0000bb">Number</span>, maxLength: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">nil</span>
 </span>
@@ -324,26 +332,18 @@ Contains functions which Figura adds to the default Lua &quot;math&quot; library
     <span class="svelte-eg9hl2">Vector3:toRad(): <span style="color: #0000bb">Vector3</span>
 </span>
     <p>Returns a copy of the given vector, in radians.</p>
-</section><section class="indent svelte-ap5gjs" aria-label="augmented">
-    <span class="svelte-eg9hl2">Vector3:augmented(): <span style="color: #0000bb">Vector4</span>
-</span>
-    <p>Returns the augmented form of this vector. The augmented form is Vector4 with a 1 in its W coordinate.</p>
 </section><section class="indent svelte-ap5gjs" aria-label="toDeg">
     <span class="svelte-eg9hl2">Vector3:toDeg(): <span style="color: #0000bb">Vector3</span>
 </span>
     <p>Returns a copy of the given vector, in degrees.</p>
-</section><section class="indent svelte-ap5gjs" aria-label="lengthSquared">
-    <span class="svelte-eg9hl2">Vector3:lengthSquared(): <span style="color: #0000bb">Number</span>
-</span>
-    <p>Returns the length of this vector squared. Suitable when you only care about relative lengths, because it avoids a square root.</p>
-</section><section class="indent svelte-ap5gjs" aria-label="clamped">
-    <span class="svelte-eg9hl2">Vector3:clamped(minLength: <span style="color: #0000bb">Number</span>, maxLength: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">Vector3</span>
-</span>
-    <p>Returns a modified copy of this vector, with its length clamped from minLength to maxLength. If the vector has length zero, then the copy does too.</p>
 </section><section class="indent svelte-ap5gjs" aria-label="cross">
     <span class="svelte-eg9hl2">Vector3:cross(vec2: <span style="color: #0000bb">Vector3</span>): <span style="color: #0000bb">Vector3</span>
 </span>
     <p>Returns the cross product of vec1 and vec2.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="clamped">
+    <span class="svelte-eg9hl2">Vector3:clamped(minLength: <span style="color: #0000bb">Number</span>, maxLength: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">Vector3</span>
+</span>
+    <p>Returns a modified copy of this vector, with its length clamped from minLength to maxLength. If the vector has length zero, then the copy does too.</p>
 </section></section>
     <section aria-label="Fields"><h3>Fields
 </h3>
@@ -401,6 +401,10 @@ Contains functions which Figura adds to the default Lua &quot;math&quot; library
     <span class="svelte-eg9hl2">Vector4:normalized(): <span style="color: #0000bb">Vector4</span>
 </span>
     <p>Returns a copy of this vector with length 1, unless its length was originally 0.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="lengthSquared">
+    <span class="svelte-eg9hl2">Vector4:lengthSquared(): <span style="color: #0000bb">Number</span>
+</span>
+    <p>Returns the length of this vector squared. Suitable when you only care about relative lengths, because it avoids a square root.</p>
 </section><section class="indent svelte-ap5gjs" aria-label="clampLength">
     <span class="svelte-eg9hl2">Vector4:clampLength(minLength: <span style="color: #0000bb">Number</span>, maxLength: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">nil</span>
 </span>
@@ -413,10 +417,6 @@ Contains functions which Figura adds to the default Lua &quot;math&quot; library
     <span class="svelte-eg9hl2">Vector4:toDeg(): <span style="color: #0000bb">Vector4</span>
 </span>
     <p>Returns a copy of the given vector, in degrees.</p>
-</section><section class="indent svelte-ap5gjs" aria-label="lengthSquared">
-    <span class="svelte-eg9hl2">Vector4:lengthSquared(): <span style="color: #0000bb">Number</span>
-</span>
-    <p>Returns the length of this vector squared. Suitable when you only care about relative lengths, because it avoids a square root.</p>
 </section><section class="indent svelte-ap5gjs" aria-label="clamped">
     <span class="svelte-eg9hl2">Vector4:clamped(minLength: <span style="color: #0000bb">Number</span>, maxLength: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">Vector4</span>
 </span>
@@ -483,6 +483,10 @@ Contains functions which Figura adds to the default Lua &quot;math&quot; library
     <span class="svelte-eg9hl2">Vector5:normalized(): <span style="color: #0000bb">Vector5</span>
 </span>
     <p>Returns a copy of this vector with length 1, unless its length was originally 0.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="lengthSquared">
+    <span class="svelte-eg9hl2">Vector5:lengthSquared(): <span style="color: #0000bb">Number</span>
+</span>
+    <p>Returns the length of this vector squared. Suitable when you only care about relative lengths, because it avoids a square root.</p>
 </section><section class="indent svelte-ap5gjs" aria-label="clampLength">
     <span class="svelte-eg9hl2">Vector5:clampLength(minLength: <span style="color: #0000bb">Number</span>, maxLength: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">nil</span>
 </span>
@@ -495,10 +499,6 @@ Contains functions which Figura adds to the default Lua &quot;math&quot; library
     <span class="svelte-eg9hl2">Vector5:toDeg(): <span style="color: #0000bb">Vector5</span>
 </span>
     <p>Returns a copy of the given vector, in degrees.</p>
-</section><section class="indent svelte-ap5gjs" aria-label="lengthSquared">
-    <span class="svelte-eg9hl2">Vector5:lengthSquared(): <span style="color: #0000bb">Number</span>
-</span>
-    <p>Returns the length of this vector squared. Suitable when you only care about relative lengths, because it avoids a square root.</p>
 </section><section class="indent svelte-ap5gjs" aria-label="clamped">
     <span class="svelte-eg9hl2">Vector5:clamped(minLength: <span style="color: #0000bb">Number</span>, maxLength: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">Vector5</span>
 </span>
@@ -570,6 +570,10 @@ Contains functions which Figura adds to the default Lua &quot;math&quot; library
     <span class="svelte-eg9hl2">Vector6:normalized(): <span style="color: #0000bb">Vector6</span>
 </span>
     <p>Returns a copy of this vector with length 1, unless its length was originally 0.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="lengthSquared">
+    <span class="svelte-eg9hl2">Vector6:lengthSquared(): <span style="color: #0000bb">Number</span>
+</span>
+    <p>Returns the length of this vector squared. Suitable when you only care about relative lengths, because it avoids a square root.</p>
 </section><section class="indent svelte-ap5gjs" aria-label="clampLength">
     <span class="svelte-eg9hl2">Vector6:clampLength(minLength: <span style="color: #0000bb">Number</span>, maxLength: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">nil</span>
 </span>
@@ -582,10 +586,6 @@ Contains functions which Figura adds to the default Lua &quot;math&quot; library
     <span class="svelte-eg9hl2">Vector6:toDeg(): <span style="color: #0000bb">Vector6</span>
 </span>
     <p>Returns a copy of the given vector, in degrees.</p>
-</section><section class="indent svelte-ap5gjs" aria-label="lengthSquared">
-    <span class="svelte-eg9hl2">Vector6:lengthSquared(): <span style="color: #0000bb">Number</span>
-</span>
-    <p>Returns the length of this vector squared. Suitable when you only care about relative lengths, because it avoids a square root.</p>
 </section><section class="indent svelte-ap5gjs" aria-label="clamped">
     <span class="svelte-eg9hl2">Vector6:clamped(minLength: <span style="color: #0000bb">Number</span>, maxLength: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">Vector6</span>
 </span>
@@ -626,7 +626,7 @@ Contains functions which Figura adds to the default Lua &quot;math&quot; library
     <p>The sixth coordinate of this vector. Can also be gotten with the index [6].</p>
 </section></section>
 </article><article class="indent svelte-ap5gjs">
-    <h2 style="margin-bottom: initial;">MatricesAPI</h2>
+    <h2 style="margin-bottom: 0px;">MatricesAPI</h2>
     
 
     <p>A global API which provides functions dedicated to creating and otherwise manipulating matrices. Accessed using the name &quot;matrices&quot;.</p>
@@ -639,16 +639,51 @@ Contains functions which Figura adds to the default Lua &quot;math&quot; library
 </span><span class="svelte-eg9hl2">MatricesAPI.scale2(x: <span style="color: #0000bb">Number</span>, y: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">Matrix2</span>
 </span>
     <p>Creates a new Matrix2 that scales by the specified factors.</p>
-</section><section class="indent svelte-ap5gjs" aria-label="translate4">
-    <span class="svelte-eg9hl2">MatricesAPI.translate4(vec: <span style="color: #0000bb">Vector3</span>): <span style="color: #0000bb">Matrix4</span>
-</span><span class="svelte-eg9hl2">MatricesAPI.translate4(x: <span style="color: #0000bb">Number</span>, y: <span style="color: #0000bb">Number</span>, z: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">Matrix4</span>
+</section><section class="indent svelte-ap5gjs" aria-label="mat2">
+    <span class="svelte-eg9hl2">MatricesAPI.mat2(): <span style="color: #0000bb">Matrix2</span>
+</span><span class="svelte-eg9hl2">MatricesAPI.mat2(col1: <span style="color: #0000bb">Vector2</span>, col2: <span style="color: #0000bb">Vector2</span>): <span style="color: #0000bb">Matrix2</span>
 </span>
-    <p>Creates a new Matrix4 that translates by the specified offset.</p>
+    <p>Creates a Matrix2 using the given parameters as columns. If you call the function with no parameters, returns the 2x2 identity matrix.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="zRotation3">
+    <span class="svelte-eg9hl2">MatricesAPI.zRotation3(angle: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">Matrix3</span>
+</span>
+    <p>Creates a new Matrix3 that rotates by the specified angle around the Z axis. Angle is given in degrees.</p>
 </section><section class="indent svelte-ap5gjs" aria-label="rotation4">
     <span class="svelte-eg9hl2">MatricesAPI.rotation4(vec: <span style="color: #0000bb">Vector3</span>): <span style="color: #0000bb">Matrix4</span>
 </span><span class="svelte-eg9hl2">MatricesAPI.rotation4(x: <span style="color: #0000bb">Number</span>, y: <span style="color: #0000bb">Number</span>, z: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">Matrix4</span>
 </span>
     <p>Creates a new Matrix4 that rotates by the specified angles. Angles are given in degrees, and the rotation order is ZYX.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="xRotation4">
+    <span class="svelte-eg9hl2">MatricesAPI.xRotation4(angle: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">Matrix4</span>
+</span>
+    <p>Creates a new Matrix4 that rotates by the specified angle around the X axis. Angle is given in degrees.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="rotation2">
+    <span class="svelte-eg9hl2">MatricesAPI.rotation2(angle: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">Matrix2</span>
+</span>
+    <p>Creates a new Matrix2 that rotates by the specified angle. Angle is given in degrees.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="mat3">
+    <span class="svelte-eg9hl2">MatricesAPI.mat3(): <span style="color: #0000bb">Matrix3</span>
+</span><span class="svelte-eg9hl2">MatricesAPI.mat3(col1: <span style="color: #0000bb">Vector3</span>, col2: <span style="color: #0000bb">Vector3</span>, col3: <span style="color: #0000bb">Vector3</span>): <span style="color: #0000bb">Matrix3</span>
+</span>
+    <p>Creates a Matrix3 using the given parameters as columns. If you call the function with no parameters, returns the 3x3 identity matrix.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="xRotation3">
+    <span class="svelte-eg9hl2">MatricesAPI.xRotation3(angle: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">Matrix3</span>
+</span>
+    <p>Creates a new Matrix3 that rotates by the specified angle around the X axis. Angle is given in degrees.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="yRotation3">
+    <span class="svelte-eg9hl2">MatricesAPI.yRotation3(angle: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">Matrix3</span>
+</span>
+    <p>Creates a new Matrix3 that rotates by the specified angle around the Y axis. Angle is given in degrees.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="rotation3">
+    <span class="svelte-eg9hl2">MatricesAPI.rotation3(vec: <span style="color: #0000bb">Vector3</span>): <span style="color: #0000bb">Matrix3</span>
+</span><span class="svelte-eg9hl2">MatricesAPI.rotation3(x: <span style="color: #0000bb">Number</span>, y: <span style="color: #0000bb">Number</span>, z: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">Matrix3</span>
+</span>
+    <p>Creates a new Matrix3 that rotates by the specified angles. Angles are given in degrees, and the rotation order is ZYX.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="mat4">
+    <span class="svelte-eg9hl2">MatricesAPI.mat4(): <span style="color: #0000bb">Matrix4</span>
+</span><span class="svelte-eg9hl2">MatricesAPI.mat4(col1: <span style="color: #0000bb">Vector4</span>, col2: <span style="color: #0000bb">Vector4</span>, col3: <span style="color: #0000bb">Vector4</span>, col4: <span style="color: #0000bb">Vector4</span>): <span style="color: #0000bb">Matrix4</span>
+</span>
+    <p>Creates a Matrix4 using the given parameters as columns. If you call the function with no parameters, returns the 4x4 identity matrix.</p>
 </section><section class="indent svelte-ap5gjs" aria-label="scale3">
     <span class="svelte-eg9hl2">MatricesAPI.scale3(vec: <span style="color: #0000bb">Vector3</span>): <span style="color: #0000bb">Matrix3</span>
 </span><span class="svelte-eg9hl2">MatricesAPI.scale3(x: <span style="color: #0000bb">Number</span>, y: <span style="color: #0000bb">Number</span>, z: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">Matrix3</span>
@@ -659,63 +694,28 @@ Contains functions which Figura adds to the default Lua &quot;math&quot; library
 </span><span class="svelte-eg9hl2">MatricesAPI.scale4(x: <span style="color: #0000bb">Number</span>, y: <span style="color: #0000bb">Number</span>, z: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">Matrix4</span>
 </span>
     <p>Creates a new Matrix4 that scales by the specified factors.</p>
-</section><section class="indent svelte-ap5gjs" aria-label="rotation3">
-    <span class="svelte-eg9hl2">MatricesAPI.rotation3(vec: <span style="color: #0000bb">Vector3</span>): <span style="color: #0000bb">Matrix3</span>
-</span><span class="svelte-eg9hl2">MatricesAPI.rotation3(x: <span style="color: #0000bb">Number</span>, y: <span style="color: #0000bb">Number</span>, z: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">Matrix3</span>
-</span>
-    <p>Creates a new Matrix3 that rotates by the specified angles. Angles are given in degrees, and the rotation order is ZYX.</p>
 </section><section class="indent svelte-ap5gjs" aria-label="translate3">
     <span class="svelte-eg9hl2">MatricesAPI.translate3(vec: <span style="color: #0000bb">Vector2</span>): <span style="color: #0000bb">Matrix3</span>
 </span><span class="svelte-eg9hl2">MatricesAPI.translate3(x: <span style="color: #0000bb">Number</span>, y: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">Matrix3</span>
 </span>
     <p>Creates a new Matrix3 that translates by the specified offset.</p>
-</section><section class="indent svelte-ap5gjs" aria-label="mat2">
-    <span class="svelte-eg9hl2">MatricesAPI.mat2(): <span style="color: #0000bb">Matrix2</span>
-</span><span class="svelte-eg9hl2">MatricesAPI.mat2(col1: <span style="color: #0000bb">Vector2</span>, col2: <span style="color: #0000bb">Vector2</span>): <span style="color: #0000bb">Matrix2</span>
-</span>
-    <p>Creates a Matrix2 using the given parameters as columns. If you call the function with no parameters, returns the 2x2 identity matrix.</p>
-</section><section class="indent svelte-ap5gjs" aria-label="mat3">
-    <span class="svelte-eg9hl2">MatricesAPI.mat3(): <span style="color: #0000bb">Matrix3</span>
-</span><span class="svelte-eg9hl2">MatricesAPI.mat3(col1: <span style="color: #0000bb">Vector3</span>, col2: <span style="color: #0000bb">Vector3</span>, col3: <span style="color: #0000bb">Vector3</span>): <span style="color: #0000bb">Matrix3</span>
-</span>
-    <p>Creates a Matrix3 using the given parameters as columns. If you call the function with no parameters, returns the 3x3 identity matrix.</p>
-</section><section class="indent svelte-ap5gjs" aria-label="yRotation4">
-    <span class="svelte-eg9hl2">MatricesAPI.yRotation4(angle: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">Matrix4</span>
-</span>
-    <p>Creates a new Matrix4 that rotates by the specified angle around the Y axis. Angle is given in degrees.</p>
-</section><section class="indent svelte-ap5gjs" aria-label="xRotation4">
-    <span class="svelte-eg9hl2">MatricesAPI.xRotation4(angle: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">Matrix4</span>
-</span>
-    <p>Creates a new Matrix4 that rotates by the specified angle around the X axis. Angle is given in degrees.</p>
-</section><section class="indent svelte-ap5gjs" aria-label="xRotation3">
-    <span class="svelte-eg9hl2">MatricesAPI.xRotation3(angle: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">Matrix3</span>
-</span>
-    <p>Creates a new Matrix3 that rotates by the specified angle around the X axis. Angle is given in degrees.</p>
-</section><section class="indent svelte-ap5gjs" aria-label="rotation2">
-    <span class="svelte-eg9hl2">MatricesAPI.rotation2(angle: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">Matrix2</span>
-</span>
-    <p>Creates a new Matrix2 that rotates by the specified angle. Angle is given in degrees.</p>
-</section><section class="indent svelte-ap5gjs" aria-label="yRotation3">
-    <span class="svelte-eg9hl2">MatricesAPI.yRotation3(angle: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">Matrix3</span>
-</span>
-    <p>Creates a new Matrix3 that rotates by the specified angle around the Y axis. Angle is given in degrees.</p>
 </section><section class="indent svelte-ap5gjs" aria-label="zRotation4">
     <span class="svelte-eg9hl2">MatricesAPI.zRotation4(angle: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">Matrix4</span>
 </span>
     <p>Creates a new Matrix4 that rotates by the specified angle around the Z axis. Angle is given in degrees.</p>
-</section><section class="indent svelte-ap5gjs" aria-label="mat4">
-    <span class="svelte-eg9hl2">MatricesAPI.mat4(): <span style="color: #0000bb">Matrix4</span>
-</span><span class="svelte-eg9hl2">MatricesAPI.mat4(col1: <span style="color: #0000bb">Vector4</span>, col2: <span style="color: #0000bb">Vector4</span>, col3: <span style="color: #0000bb">Vector4</span>, col4: <span style="color: #0000bb">Vector4</span>): <span style="color: #0000bb">Matrix4</span>
+</section><section class="indent svelte-ap5gjs" aria-label="translate4">
+    <span class="svelte-eg9hl2">MatricesAPI.translate4(vec: <span style="color: #0000bb">Vector3</span>): <span style="color: #0000bb">Matrix4</span>
+</span><span class="svelte-eg9hl2">MatricesAPI.translate4(x: <span style="color: #0000bb">Number</span>, y: <span style="color: #0000bb">Number</span>, z: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">Matrix4</span>
 </span>
-    <p>Creates a Matrix4 using the given parameters as columns. If you call the function with no parameters, returns the 4x4 identity matrix.</p>
-</section><section class="indent svelte-ap5gjs" aria-label="zRotation3">
-    <span class="svelte-eg9hl2">MatricesAPI.zRotation3(angle: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">Matrix3</span>
+    <p>Creates a new Matrix4 that translates by the specified offset.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="yRotation4">
+    <span class="svelte-eg9hl2">MatricesAPI.yRotation4(angle: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">Matrix4</span>
 </span>
-    <p>Creates a new Matrix3 that rotates by the specified angle around the Z axis. Angle is given in degrees.</p>
+    <p>Creates a new Matrix4 that rotates by the specified angle around the Y axis. Angle is given in degrees.</p>
 </section></section>
     
 </article><article class="indent svelte-ap5gjs">
-    <h2 style="margin-bottom: initial;">Matrix2</h2>
+    <h2 style="margin-bottom: 0px;">Matrix2</h2>
     
 
     <p>A matrix with 2 rows and 2 columns.</p>
@@ -736,30 +736,30 @@ Contains functions which Figura adds to the default Lua &quot;math&quot; library
     <span class="svelte-eg9hl2">Matrix2:rotate(angle: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">nil</span>
 </span>
     <p>Rotates this matrix by the specified amount, changing the values inside. Angle is given in degrees.</p>
-</section><section class="indent svelte-ap5gjs" aria-label="det">
-    <span class="svelte-eg9hl2">Matrix2:det(): <span style="color: #0000bb">Number</span>
-</span>
-    <p>Calculates and returns the determinant of this matrix.</p>
-</section><section class="indent svelte-ap5gjs" aria-label="transpose">
-    <span class="svelte-eg9hl2">Matrix2:transpose(): <span style="color: #0000bb">nil</span>
-</span>
-    <p>Transposes this matrix, changing the values inside.</p>
-</section><section class="indent svelte-ap5gjs" aria-label="invert">
-    <span class="svelte-eg9hl2">Matrix2:invert(): <span style="color: #0000bb">nil</span>
-</span>
-    <p>Inverts this matrix, changing the values inside.</p>
-</section><section class="indent svelte-ap5gjs" aria-label="getTranspose">
-    <span class="svelte-eg9hl2">Matrix2:getTranspose(): <span style="color: #0000bb">Matrix2</span>
-</span>
-    <p>Calculates and returns the transpose of this matrix.</p>
-</section><section class="indent svelte-ap5gjs" aria-label="getInverse">
-    <span class="svelte-eg9hl2">Matrix2:getInverse(): <span style="color: #0000bb">Matrix2</span>
-</span>
-    <p>Calculates and returns the inverse of this matrix.</p>
 </section><section class="indent svelte-ap5gjs" aria-label="getColumn">
     <span class="svelte-eg9hl2">Matrix2:getColumn(col: <span style="color: #0000bb">Integer</span>): <span style="color: #0000bb">Vector2</span>
 </span>
     <p>Gets a Vector2 representing the desired column of the matrix. 1-indexed, so calling mat:getColumn(1) will return the first column of the matrix.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="invert">
+    <span class="svelte-eg9hl2">Matrix2:invert(): <span style="color: #0000bb">nil</span>
+</span>
+    <p>Inverts this matrix, changing the values inside.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="transpose">
+    <span class="svelte-eg9hl2">Matrix2:transpose(): <span style="color: #0000bb">nil</span>
+</span>
+    <p>Transposes this matrix, changing the values inside.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="det">
+    <span class="svelte-eg9hl2">Matrix2:det(): <span style="color: #0000bb">Number</span>
+</span>
+    <p>Calculates and returns the determinant of this matrix.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="getInverse">
+    <span class="svelte-eg9hl2">Matrix2:getInverse(): <span style="color: #0000bb">Matrix2</span>
+</span>
+    <p>Calculates and returns the inverse of this matrix.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="getTranspose">
+    <span class="svelte-eg9hl2">Matrix2:getTranspose(): <span style="color: #0000bb">Matrix2</span>
+</span>
+    <p>Calculates and returns the transpose of this matrix.</p>
 </section><section class="indent svelte-ap5gjs" aria-label="getRow">
     <span class="svelte-eg9hl2">Matrix2:getRow(row: <span style="color: #0000bb">Integer</span>): <span style="color: #0000bb">Vector2</span>
 </span>
@@ -775,7 +775,7 @@ Contains functions which Figura adds to the default Lua &quot;math&quot; library
     <p>There is 1 such field for each element of the matrix. You can index these fields with the names v{row}{column}, for example &quot;mat.v12&quot; will return the value in the first row, second column of &quot;mat&quot;.</p>
 </section></section>
 </article><article class="indent svelte-ap5gjs">
-    <h2 style="margin-bottom: initial;">Matrix3</h2>
+    <h2 style="margin-bottom: 0px;">Matrix3</h2>
     
 
     <p>A matrix with 3 rows and 3 columns.</p>
@@ -797,6 +797,18 @@ Contains functions which Figura adds to the default Lua &quot;math&quot; library
 </span><span class="svelte-eg9hl2">Matrix3:rotate(x: <span style="color: #0000bb">Number</span>, y: <span style="color: #0000bb">Number</span>, z: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">nil</span>
 </span>
     <p>Rotates this matrix by the specified amount, changing the values inside. Angles are given in degrees, and the rotation order is ZYX.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="getColumn">
+    <span class="svelte-eg9hl2">Matrix3:getColumn(col: <span style="color: #0000bb">Integer</span>): <span style="color: #0000bb">Vector3</span>
+</span>
+    <p>Gets a Vector3 representing the desired column of the matrix. 1-indexed, so calling mat:getColumn(1) will return the first column of the matrix.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="invert">
+    <span class="svelte-eg9hl2">Matrix3:invert(): <span style="color: #0000bb">nil</span>
+</span>
+    <p>Inverts this matrix, changing the values inside.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="transpose">
+    <span class="svelte-eg9hl2">Matrix3:transpose(): <span style="color: #0000bb">nil</span>
+</span>
+    <p>Transposes this matrix, changing the values inside.</p>
 </section><section class="indent svelte-ap5gjs" aria-label="translate">
     <span class="svelte-eg9hl2">Matrix3:translate(vec: <span style="color: #0000bb">Vector2</span>): <span style="color: #0000bb">nil</span>
 </span><span class="svelte-eg9hl2">Matrix3:translate(x: <span style="color: #0000bb">Number</span>, y: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">nil</span>
@@ -806,26 +818,14 @@ Contains functions which Figura adds to the default Lua &quot;math&quot; library
     <span class="svelte-eg9hl2">Matrix3:det(): <span style="color: #0000bb">Number</span>
 </span>
     <p>Calculates and returns the determinant of this matrix.</p>
-</section><section class="indent svelte-ap5gjs" aria-label="transpose">
-    <span class="svelte-eg9hl2">Matrix3:transpose(): <span style="color: #0000bb">nil</span>
-</span>
-    <p>Transposes this matrix, changing the values inside.</p>
-</section><section class="indent svelte-ap5gjs" aria-label="invert">
-    <span class="svelte-eg9hl2">Matrix3:invert(): <span style="color: #0000bb">nil</span>
-</span>
-    <p>Inverts this matrix, changing the values inside.</p>
-</section><section class="indent svelte-ap5gjs" aria-label="getTranspose">
-    <span class="svelte-eg9hl2">Matrix3:getTranspose(): <span style="color: #0000bb">Matrix3</span>
-</span>
-    <p>Calculates and returns the transpose of this matrix.</p>
 </section><section class="indent svelte-ap5gjs" aria-label="getInverse">
     <span class="svelte-eg9hl2">Matrix3:getInverse(): <span style="color: #0000bb">Matrix3</span>
 </span>
     <p>Calculates and returns the inverse of this matrix.</p>
-</section><section class="indent svelte-ap5gjs" aria-label="getColumn">
-    <span class="svelte-eg9hl2">Matrix3:getColumn(col: <span style="color: #0000bb">Integer</span>): <span style="color: #0000bb">Vector3</span>
+</section><section class="indent svelte-ap5gjs" aria-label="getTranspose">
+    <span class="svelte-eg9hl2">Matrix3:getTranspose(): <span style="color: #0000bb">Matrix3</span>
 </span>
-    <p>Gets a Vector3 representing the desired column of the matrix. 1-indexed, so calling mat:getColumn(1) will return the first column of the matrix.</p>
+    <p>Calculates and returns the transpose of this matrix.</p>
 </section><section class="indent svelte-ap5gjs" aria-label="getRow">
     <span class="svelte-eg9hl2">Matrix3:getRow(row: <span style="color: #0000bb">Integer</span>): <span style="color: #0000bb">Vector3</span>
 </span>
@@ -841,7 +841,7 @@ Contains functions which Figura adds to the default Lua &quot;math&quot; library
     <p>There is 1 such field for each element of the matrix. You can index these fields with the names v{row}{column}, for example &quot;mat.v12&quot; will return the value in the first row, second column of &quot;mat&quot;.</p>
 </section></section>
 </article><article class="indent svelte-ap5gjs">
-    <h2 style="margin-bottom: initial;">Matrix4</h2>
+    <h2 style="margin-bottom: 0px;">Matrix4</h2>
     
 
     <p>A matrix with 4 rows and 4 columns.</p>
@@ -863,6 +863,18 @@ Contains functions which Figura adds to the default Lua &quot;math&quot; library
 </span><span class="svelte-eg9hl2">Matrix4:rotate(x: <span style="color: #0000bb">Number</span>, y: <span style="color: #0000bb">Number</span>, z: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">nil</span>
 </span>
     <p>Rotates this matrix by the specified amount, changing the values inside. Angles are given in degrees, and the rotation order is ZYX.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="getColumn">
+    <span class="svelte-eg9hl2">Matrix4:getColumn(col: <span style="color: #0000bb">Integer</span>): <span style="color: #0000bb">Vector4</span>
+</span>
+    <p>Gets a Vector4 representing the desired column of the matrix. 1-indexed, so calling mat:getColumn(1) will return the first column of the matrix.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="invert">
+    <span class="svelte-eg9hl2">Matrix4:invert(): <span style="color: #0000bb">nil</span>
+</span>
+    <p>Inverts this matrix, changing the values inside.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="transpose">
+    <span class="svelte-eg9hl2">Matrix4:transpose(): <span style="color: #0000bb">nil</span>
+</span>
+    <p>Transposes this matrix, changing the values inside.</p>
 </section><section class="indent svelte-ap5gjs" aria-label="translate">
     <span class="svelte-eg9hl2">Matrix4:translate(vec: <span style="color: #0000bb">Vector3</span>): <span style="color: #0000bb">nil</span>
 </span><span class="svelte-eg9hl2">Matrix4:translate(x: <span style="color: #0000bb">Number</span>, y: <span style="color: #0000bb">Number</span>, z: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">nil</span>
@@ -872,26 +884,14 @@ Contains functions which Figura adds to the default Lua &quot;math&quot; library
     <span class="svelte-eg9hl2">Matrix4:det(): <span style="color: #0000bb">Number</span>
 </span>
     <p>Calculates and returns the determinant of this matrix.</p>
-</section><section class="indent svelte-ap5gjs" aria-label="transpose">
-    <span class="svelte-eg9hl2">Matrix4:transpose(): <span style="color: #0000bb">nil</span>
-</span>
-    <p>Transposes this matrix, changing the values inside.</p>
-</section><section class="indent svelte-ap5gjs" aria-label="invert">
-    <span class="svelte-eg9hl2">Matrix4:invert(): <span style="color: #0000bb">nil</span>
-</span>
-    <p>Inverts this matrix, changing the values inside.</p>
-</section><section class="indent svelte-ap5gjs" aria-label="getTranspose">
-    <span class="svelte-eg9hl2">Matrix4:getTranspose(): <span style="color: #0000bb">Matrix4</span>
-</span>
-    <p>Calculates and returns the transpose of this matrix.</p>
 </section><section class="indent svelte-ap5gjs" aria-label="getInverse">
     <span class="svelte-eg9hl2">Matrix4:getInverse(): <span style="color: #0000bb">Matrix4</span>
 </span>
     <p>Calculates and returns the inverse of this matrix.</p>
-</section><section class="indent svelte-ap5gjs" aria-label="getColumn">
-    <span class="svelte-eg9hl2">Matrix4:getColumn(col: <span style="color: #0000bb">Integer</span>): <span style="color: #0000bb">Vector4</span>
+</section><section class="indent svelte-ap5gjs" aria-label="getTranspose">
+    <span class="svelte-eg9hl2">Matrix4:getTranspose(): <span style="color: #0000bb">Matrix4</span>
 </span>
-    <p>Gets a Vector4 representing the desired column of the matrix. 1-indexed, so calling mat:getColumn(1) will return the first column of the matrix.</p>
+    <p>Calculates and returns the transpose of this matrix.</p>
 </section><section class="indent svelte-ap5gjs" aria-label="getRow">
     <span class="svelte-eg9hl2">Matrix4:getRow(row: <span style="color: #0000bb">Integer</span>): <span style="color: #0000bb">Vector4</span>
 </span>
@@ -907,7 +907,7 @@ Contains functions which Figura adds to the default Lua &quot;math&quot; library
     <p>There is 1 such field for each element of the matrix. You can index these fields with the names v{row}{column}, for example &quot;mat.v12&quot; will return the value in the first row, second column of &quot;mat&quot;.</p>
 </section></section>
 </article><article class="indent svelte-ap5gjs">
-    <h2 style="margin-bottom: initial;">math</h2>
+    <h2 style="margin-bottom: 0px;">math</h2>
     
 
     <p>Contains functions which Figura adds to the default Lua &quot;math&quot; library table.</p>
@@ -934,10 +934,10 @@ Contains functions which Figura adds to the default Lua &quot;math&quot; library
 </div>
 
 
-		<script type="module" data-hydrate="47ytgc">
-		import { start } from "/figs/_app/start-1c588390.js";
+		<script type="module" data-hydrate="oixb83">
+		import { start } from "/figs/_app/start-ac55e572.js";
 		start({
-			target: document.querySelector('[data-hydrate="47ytgc"]').parentNode,
+			target: document.querySelector('[data-hydrate="oixb83"]').parentNode,
 			paths: {"base":"/figs","assets":"/figs"},
 			session: {},
 			route: true,
@@ -947,8 +947,8 @@ Contains functions which Figura adds to the default Lua &quot;math&quot; library
 				status: 200,
 				error: null,
 				nodes: [
-					import("/figs/_app/pages/__layout.svelte-280abc60.js"),
-						import("/figs/_app/pages/_category_/index.svelte-f3220c67.js")
+					import("/figs/_app/pages/__layout.svelte-3235b406.js"),
+						import("/figs/_app/pages/_category_/index.svelte-8cbca28c.js")
 				],
 				params: {category:"math"},
 				routeId: "[category]"
