@@ -9,15 +9,15 @@
 Documentation for the various things Figura adds to the global lua state." data-svelte="svelte-1v2a5gq">
 	<link rel="stylesheet" href="/figs/_app/assets/pages/__layout.svelte-c7fe677c.css">
 	<link rel="stylesheet" href="/figs/_app/assets/Article.svelte_svelte_type_style_lang-d08a4240.css">
-	<link rel="modulepreload" href="/figs/_app/start-ac55e572.js">
+	<link rel="modulepreload" href="/figs/_app/start-fa03a545.js">
 	<link rel="modulepreload" href="/figs/_app/chunks/index-26185746.js">
 	<link rel="modulepreload" href="/figs/_app/chunks/paths-396f020f.js">
-	<link rel="modulepreload" href="/figs/_app/pages/__layout.svelte-3235b406.js">
-	<link rel="modulepreload" href="/figs/_app/chunks/Article.svelte_svelte_type_style_lang-2cd13b43.js">
-	<link rel="modulepreload" href="/figs/_app/pages/_category_/index.svelte-8cbca28c.js">
-	<link rel="modulepreload" href="/figs/_app/chunks/CategoryDocs-2e732474.js">
-	<link rel="modulepreload" href="/figs/_app/chunks/MetaTags-4dff3baf.js">
-	<link rel="modulepreload" href="/figs/_app/chunks/CategoryItemDocs-5bfbb640.js">
+	<link rel="modulepreload" href="/figs/_app/pages/__layout.svelte-f31668dd.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/Article.svelte_svelte_type_style_lang-99973d4f.js">
+	<link rel="modulepreload" href="/figs/_app/pages/_category_/index.svelte-a07f9594.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/CategoryDocs-022eeac9.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/MetaTags-ea673ab3.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/CategoryItemDocs-ed4bc782.js">
 				<script>
 		if ('serviceWorker' in navigator) {
 			navigator.serviceWorker.register('/figs/service-worker.js');
@@ -38,6 +38,9 @@ Documentation for the various things Figura adds to the global lua state." data-
                     
 
             </div>
+    </div><div class="category-item-root svelte-6qhb8p"><a class="category-selector svelte-6qhb8p" href="/figs/action_wheel">action_wheel</a>
+
+        
     </div><div class="category-item-root svelte-6qhb8p"><a class="category-selector svelte-6qhb8p" href="/figs/world">world</a>
 
         
@@ -92,6 +95,17 @@ Documentation for the various things Figura adds to the global lua state." data-
     <span class="svelte-eg9hl2">require(scriptName: <span style="color: #0000bb">String</span>): <span style="color: #0000bb">AnyType</span>
 </span>
     <p>The require() function takes the name of one of your scripts, without the .lua extension. If this script has not been already run before, it will run that script and return the value that script returns. If it has been run before, then it will not run the file again, but it will return the same thing as the first time. If a required script has no returns, then require() will return true. If the name you give isn&#39;t any of your scripts, it will error.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="printTable">
+    <span class="svelte-eg9hl2">printTable(table: <span style="color: #0000bb">Table</span>): <span style="color: #0000bb">nil</span>
+</span><span class="svelte-eg9hl2">printTable(javaObject: <span style="color: #0000bb">Userdata</span>): <span style="color: #0000bb">nil</span>
+</span><span class="svelte-eg9hl2">printTable(table: <span style="color: #0000bb">Table</span>, maxDepth: <span style="color: #0000bb">Integer</span>): <span style="color: #0000bb">nil</span>
+</span><span class="svelte-eg9hl2">printTable(javaObject: <span style="color: #0000bb">Userdata</span>, maxDepth: <span style="color: #0000bb">Integer</span>): <span style="color: #0000bb">nil</span>
+</span>
+    <p>The first argument is either a Table, or it&#39;s a Userdata, which refers to any of the added Figura types. Prints the table out to chat, specially formatted. If userdata is passed in, it is automatically converted to a table or string, and displayed. In the case of tables inside of tables, the &quot;maxDepth&quot; parameter will be used to determine how far to go. BE CAREFUL WITH RECURSIVE TABLES! If you try to print a table too deeply, then your game may freeze while it calculates everything to print, and you may have to restart your client if you go too crazy with it. Default value for maxDepth is 1.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="printJson">
+    <span class="svelte-eg9hl2">printJson(json: <span style="color: #0000bb">String</span>): <span style="color: #0000bb">nil</span>
+</span>
+    <p>Takes a Minecraft json string as an argument, and prints it to the chat formatted.</p>
 </section><section class="indent svelte-ap5gjs" aria-label="logTable">
     <span class="svelte-eg9hl2">logTable(table: <span style="color: #0000bb">Table</span>): <span style="color: #0000bb">nil</span>
 </span><span class="svelte-eg9hl2">logTable(javaObject: <span style="color: #0000bb">Userdata</span>): <span style="color: #0000bb">nil</span>
@@ -103,17 +117,6 @@ Documentation for the various things Figura adds to the global lua state." data-
     <span class="svelte-eg9hl2">logJson(json: <span style="color: #0000bb">String</span>): <span style="color: #0000bb">nil</span>
 </span>
     <p>An alias for printJson().</p>
-</section><section class="indent svelte-ap5gjs" aria-label="printJson">
-    <span class="svelte-eg9hl2">printJson(json: <span style="color: #0000bb">String</span>): <span style="color: #0000bb">nil</span>
-</span>
-    <p>Takes a Minecraft json string as an argument, and prints it to the chat formatted.</p>
-</section><section class="indent svelte-ap5gjs" aria-label="printTable">
-    <span class="svelte-eg9hl2">printTable(table: <span style="color: #0000bb">Table</span>): <span style="color: #0000bb">nil</span>
-</span><span class="svelte-eg9hl2">printTable(javaObject: <span style="color: #0000bb">Userdata</span>): <span style="color: #0000bb">nil</span>
-</span><span class="svelte-eg9hl2">printTable(table: <span style="color: #0000bb">Table</span>, maxDepth: <span style="color: #0000bb">Integer</span>): <span style="color: #0000bb">nil</span>
-</span><span class="svelte-eg9hl2">printTable(javaObject: <span style="color: #0000bb">Userdata</span>, maxDepth: <span style="color: #0000bb">Integer</span>): <span style="color: #0000bb">nil</span>
-</span>
-    <p>The first argument is either a Table, or it&#39;s a Userdata, which refers to any of the added Figura types. Prints the table out to chat, specially formatted. If userdata is passed in, it is automatically converted to a table or string, and displayed. In the case of tables inside of tables, the &quot;maxDepth&quot; parameter will be used to determine how far to go. BE CAREFUL WITH RECURSIVE TABLES! If you try to print a table too deeply, then your game may freeze while it calculates everything to print, and you may have to restart your client if you go too crazy with it. Default value for maxDepth is 1.</p>
 </section></section>
     <section aria-label="Fields"><h3>Fields
 </h3>
@@ -184,10 +187,10 @@ Documentation for the various things Figura adds to the global lua state." data-
 </div>
 
 
-		<script type="module" data-hydrate="1gt41gy">
-		import { start } from "/figs/_app/start-ac55e572.js";
+		<script type="module" data-hydrate="kzt72k">
+		import { start } from "/figs/_app/start-fa03a545.js";
 		start({
-			target: document.querySelector('[data-hydrate="1gt41gy"]').parentNode,
+			target: document.querySelector('[data-hydrate="kzt72k"]').parentNode,
 			paths: {"base":"/figs","assets":"/figs"},
 			session: {},
 			route: true,
@@ -197,8 +200,8 @@ Documentation for the various things Figura adds to the global lua state." data-
 				status: 200,
 				error: null,
 				nodes: [
-					import("/figs/_app/pages/__layout.svelte-3235b406.js"),
-						import("/figs/_app/pages/_category_/index.svelte-8cbca28c.js")
+					import("/figs/_app/pages/__layout.svelte-f31668dd.js"),
+						import("/figs/_app/pages/_category_/index.svelte-a07f9594.js")
 				],
 				params: {category:"globals"},
 				routeId: "[category]"

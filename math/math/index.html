@@ -7,14 +7,14 @@
 		<meta http-equiv="content-security-policy" content=""><title>math</title><meta name="robots" content="index,follow" data-svelte="svelte-1v2a5gq"><meta name="googlebot" content="index,follow" data-svelte="svelte-1v2a5gq"><meta name="description" content="Contains functions which Figura adds to the default Lua &quot;math&quot; library table." data-svelte="svelte-1v2a5gq">
 	<link rel="stylesheet" href="/figs/_app/assets/pages/__layout.svelte-c7fe677c.css">
 	<link rel="stylesheet" href="/figs/_app/assets/Article.svelte_svelte_type_style_lang-d08a4240.css">
-	<link rel="modulepreload" href="/figs/_app/start-ac55e572.js">
+	<link rel="modulepreload" href="/figs/_app/start-fa03a545.js">
 	<link rel="modulepreload" href="/figs/_app/chunks/index-26185746.js">
 	<link rel="modulepreload" href="/figs/_app/chunks/paths-396f020f.js">
-	<link rel="modulepreload" href="/figs/_app/pages/__layout.svelte-3235b406.js">
-	<link rel="modulepreload" href="/figs/_app/chunks/Article.svelte_svelte_type_style_lang-2cd13b43.js">
-	<link rel="modulepreload" href="/figs/_app/pages/_category_/_item_/index.svelte-7160740b.js">
-	<link rel="modulepreload" href="/figs/_app/chunks/CategoryItemDocs-5bfbb640.js">
-	<link rel="modulepreload" href="/figs/_app/chunks/MetaTags-4dff3baf.js">
+	<link rel="modulepreload" href="/figs/_app/pages/__layout.svelte-f31668dd.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/Article.svelte_svelte_type_style_lang-99973d4f.js">
+	<link rel="modulepreload" href="/figs/_app/pages/_category_/_item_/index.svelte-3d3f54c5.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/CategoryItemDocs-ed4bc782.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/MetaTags-ea673ab3.js">
 				<script>
 		if ('serviceWorker' in navigator) {
 			navigator.serviceWorker.register('/figs/service-worker.js');
@@ -29,6 +29,9 @@
         <a class="nav-item expander svelte-11fz2q4" href="javascript:;" aria-label="Expand">Show Table</a></nav>
 
     <div class="category figura-background svelte-11fz2q4"><div class="category-inner svelte-11fz2q4"><div class="category-item-root svelte-6qhb8p"><a class="category-selector svelte-6qhb8p" href="/figs/globals">globals</a>
+
+        
+    </div><div class="category-item-root svelte-6qhb8p"><a class="category-selector svelte-6qhb8p" href="/figs/action_wheel">action_wheel</a>
 
         
     </div><div class="category-item-root svelte-6qhb8p"><a class="category-selector svelte-6qhb8p" href="/figs/world">world</a>
@@ -64,7 +67,7 @@
 
                     <a href="/figs/math/math" class="svelte-6qhb8p">math</a>
 
-                    <div class="category-functions svelte-6qhb8p"><a href="/figs/math/math/round" class="svelte-6qhb8p">round</a><a href="/figs/math/math/clamp" class="svelte-6qhb8p">clamp</a><a href="/figs/math/math/lerp" class="svelte-6qhb8p">lerp</a></div>
+                    <div class="category-functions svelte-6qhb8p"><a href="/figs/math/math/round" class="svelte-6qhb8p">round</a><a href="/figs/math/math/sign" class="svelte-6qhb8p">sign</a><a href="/figs/math/math/map" class="svelte-6qhb8p">map</a><a href="/figs/math/math/lerp" class="svelte-6qhb8p">lerp</a><a href="/figs/math/math/lerpAngle" class="svelte-6qhb8p">lerpAngle</a><a href="/figs/math/math/shortAngle" class="svelte-6qhb8p">shortAngle</a><a href="/figs/math/math/clamp" class="svelte-6qhb8p">clamp</a></div>
                         <div class="category-functions svelte-6qhb8p">
                         </div>
 
@@ -101,24 +104,41 @@
     <span class="svelte-eg9hl2">math.round(value: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">Number</span>
 </span>
     <p>Rounds the given number to the nearest whole integer.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="sign">
+    <span class="svelte-eg9hl2">math.sign(value: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">Number</span>
+</span>
+    <p>Returns the sign of the given number. Returns 1 if the number is positive, -1 if it&#39;s negative, and 0 if it&#39;s 0.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="map">
+    <span class="svelte-eg9hl2">math.map(value: <span style="color: #0000bb">Number</span>, oldMin: <span style="color: #0000bb">Number</span>, oldMax: <span style="color: #0000bb">Number</span>, newMin: <span style="color: #0000bb">Number</span>, newMax: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">Number</span>
+</span>
+    <p>Maps the given value from one range to another. For example, if you have a value of 20 in the range 0-200, and you want to map it to the range 100-200, the result will be 110.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="lerp">
+    <span class="svelte-eg9hl2">math.lerp(a: <span style="color: #0000bb">Number</span>, b: <span style="color: #0000bb">Number</span>, t: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">Number</span>
+</span><span class="svelte-eg9hl2">math.lerp(a: <span style="color: #0000bb">Vector</span>, b: <span style="color: #0000bb">Vector</span>, t: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">Vector</span>
+</span>
+    <p>Linearly interpolates from its first argument to its second argument, with the third argument as the parameter. Works on both regular numbers and vectors.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="lerpAngle">
+    <span class="svelte-eg9hl2">math.lerpAngle(a: <span style="color: #0000bb">Number</span>, b: <span style="color: #0000bb">Number</span>, t: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">Number</span>
+</span>
+    <p>Similar to the default lerp function, but numbers are limited to the range of 0-360. Lerp is done towards the shortest angle. For example, a lerp of 340 and 20, with factor of 0.75, will return 310.</p>
+</section><section class="indent svelte-ap5gjs" aria-label="shortAngle">
+    <span class="svelte-eg9hl2">math.shortAngle(from: <span style="color: #0000bb">Number</span>, to: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">Number</span>
+</span>
+    <p>Returns the shortest angle between two angles. For example, if you have an angle of 350 degrees and you want to get the shortest angle between it and 0 degrees, the result will be 10 degrees.</p>
 </section><section class="indent svelte-ap5gjs" aria-label="clamp">
     <span class="svelte-eg9hl2">math.clamp(value: <span style="color: #0000bb">Number</span>, min: <span style="color: #0000bb">Number</span>, max: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">Number</span>
 </span>
     <p>Clamps the given value between min and max.</p>
-</section><section class="indent svelte-ap5gjs" aria-label="lerp">
-    <span class="svelte-eg9hl2">math.lerp(a: <span style="color: #0000bb">AnyType</span>, b: <span style="color: #0000bb">AnyType</span>, t: <span style="color: #0000bb">Number</span>): <span style="color: #0000bb">AnyType</span>
-</span>
-    <p>Linearly interpolates from its first argument to its second argument, with the third argument as the parameter. Works on both regular numbers and vectors.</p>
 </section></section>
     
 </article></div></div>
 </div>
 
 
-		<script type="module" data-hydrate="aqtcqw">
-		import { start } from "/figs/_app/start-ac55e572.js";
+		<script type="module" data-hydrate="1ythgn3">
+		import { start } from "/figs/_app/start-fa03a545.js";
 		start({
-			target: document.querySelector('[data-hydrate="aqtcqw"]').parentNode,
+			target: document.querySelector('[data-hydrate="1ythgn3"]').parentNode,
 			paths: {"base":"/figs","assets":"/figs"},
 			session: {},
 			route: true,
@@ -128,8 +148,8 @@
 				status: 200,
 				error: null,
 				nodes: [
-					import("/figs/_app/pages/__layout.svelte-3235b406.js"),
-						import("/figs/_app/pages/_category_/_item_/index.svelte-7160740b.js")
+					import("/figs/_app/pages/__layout.svelte-f31668dd.js"),
+						import("/figs/_app/pages/_category_/_item_/index.svelte-3d3f54c5.js")
 				],
 				params: (function(a){return {category:a,item:a}}("math")),
 				routeId: "[category]/[item]"
