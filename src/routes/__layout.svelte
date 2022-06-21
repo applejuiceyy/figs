@@ -1,7 +1,7 @@
 <script context="module" type="ts">
     let load = function ({params: {category, item, property}, url}: {url: any, params: {category: string | undefined, item: string | undefined, property: string | undefined}}) {
         // url is accessed because of params bug, don't worry about it
-        // https://stackblitz.com/edit/sveltejs-kit-template-default-pp6sdm?file=src%2Froutes%2F__layout.svelte,src%2Froutes%2F[first]%2Findex.svelte,src%2Froutes%2Findex.svelte,src%2Froutes%2F[first]%2F[second]%2Findex.svelte&terminal=dev
+        
         return {
             props: {
                 item: item,
@@ -17,21 +17,44 @@
 <script type="ts">
     import {base} from "$app/paths";
     import CategoryViewer from "$lib/sidebar/CategoryViewer.svelte";
+    import version from "$lib/rewrite_version.txt?raw";
+    import { cheeseSvg } from "$lib/actions/cheese";
     import { onDestroy, onMount } from "svelte";
 
     let interv: any = null;
 
+    let cheeseFalling = false;
+
     onMount(()=> {
-        interv = setInterval(()=>
-        {document.documentElement.style.setProperty('--scrollbar-width', (window.innerWidth - document.documentElement.clientWidth) + "px")
-    })
+        let v = ()=>{
+            stamina += staminaMomentum;
+            stamina = Math.max(stamina, 0);
+            staminaMomentum -= 0.001;
+            staminaMomentum *= 0.99;
+
+            if(stamina > 20) {
+                cheeseFalling = true;
+            }
+
+            requestAnimationFrame(v);
+        }
+        interv = requestAnimationFrame(v);
     })
 
-    onDestroy(() => clearInterval(interv))
+    onDestroy(() => interv && cancelAnimationFrame(interv));
+
+    function increaseStamina() {
+        if(!cheeseFalling) {
+            staminaMomentum += 0.1;
+        }
+    }
 
     export let item: string | undefined = undefined;
     export let category: string | undefined = undefined;
     export let property: string | undefined = undefined;
+
+    let stamina: number = 0;
+    let staminaMomentum: number = 0;
 
     let expanded: boolean = false;
 </script>
@@ -40,6 +63,7 @@
     <nav class:expanded class="figura-background">
         <a class="nav-item" href={base + "/"}>FIGS!!</a>
         <a class="nav-item expander" href="javascript:;" aria-label="Expand" on:click={()=>expanded = !expanded}>{expanded? "Hide Table" : "Show Table"}</a>
+        <a class="nav-item" href="javascript:;" style:margin-left="auto" on:click={increaseStamina} style:font-size={(Math.max(stamina, 10) - 9) + "em"} style:opacity="0.5">{version}</a>
     </nav>
 
     <div class="category figura-background" class:expanded>
@@ -55,6 +79,10 @@
     <div class:expanded class="content figura-background">
         <div class="rounding-content-wrapper">
             <slot />
+
+            <svg class="cheese-svg" width="100%" height="100%" use:cheeseSvg={cheeseFalling} aria-hidden="true" style:pointer-events="none" style:touch-action="none">
+
+            </svg>
         </div>
     </div>
 </div>
@@ -145,6 +173,13 @@
         box-sizing: border-box;
 
         box-shadow: inset 5px 5px 10px 0 #00000044;
+
+        position: relative;
+    }
+
+    .cheese-svg {
+        position: absolute;
+        inset: 0;
     }
 
     @media (prefers-color-scheme: dark) {
