@@ -1,4 +1,4 @@
-import cheese from "$lib/cheese.png";
+import cheese from "$lib/resource/cheese.png";
 
 interface Binding<D> {
     element: Element,

@@ -78,7 +78,9 @@
 
     <div class:expanded class="content figura-background">
         <div class="rounding-content-wrapper">
-            <slot />
+            {#key [item, category, property]}
+                <slot />
+            {/key}
 
             <svg class="cheese-svg" width="100%" height="100%" use:cheeseSvg={cheeseFalling} aria-hidden="true" style:pointer-events="none" style:touch-action="none">
 
@@ -109,7 +111,7 @@
     }
 
     .figura-background {
-        background-image: url("$lib/background.png");
+        background-image: url("$lib/resource/background.png");
         background-size: calc(64px * 4) calc(64px * 4);
         image-rendering: crisp-edges;
         background-attachment: fixed;
