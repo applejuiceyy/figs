@@ -6,7 +6,7 @@ let engine: Matter.Engine;
 
 let lastTick: number;
 
-let runnerTickerFrame: number | null = null;
+let runnerTickerFrame: ReturnType<typeof setTimeout> | null = null;
 
 let afterTickEvents: (() => void)[] = [];  // poor man's solution
 
@@ -16,7 +16,7 @@ engine = Matter.Engine.create();
 
 lastTick = Date.now();
 
-runnerTickerFrame = requestAnimationFrame(running);
+runnerTickerFrame = setTimeout(running, 1);
 
 createWalls();
 
@@ -26,12 +26,12 @@ engine.gravity.y = 1.5;
 
 function running() {
     let n = Date.now();
-    Matter.Engine.update(engine, Math.min(n - lastTick, 100));
+    Matter.Engine.update(engine, 10);
     
     lastTick = n;
 
     afterTickEvents.forEach((val) => val());
-    runnerTickerFrame = requestAnimationFrame(running);
+    runnerTickerFrame = setTimeout(running, 1);
 }
 
 function rotate(bx: number, by: number, angle: number) {
@@ -61,13 +61,13 @@ function handleWindowFocus() {
 
     handleWindowLeave();
     lastTick = Date.now();
-    runnerTickerFrame = requestAnimationFrame(running);
+    runnerTickerFrame = setTimeout(running, 1);
 }
 
 function handleWindowLeave() {
     console.log("eee")
     if(runnerTickerFrame !== null) {
-        cancelAnimationFrame(runnerTickerFrame);
+        clearTimeout(runnerTickerFrame);
     }
 }
 

@@ -1,3 +1,7 @@
+<script context="module" type="ts">
+    let globalMiningSpeed = 200;
+</script>
+
 <script type="ts">
     import hammer from "$lib/resource/hammer.svg";
     import RandomisedPlayer from "./RandomisedPlayer.svelte";
@@ -38,17 +42,19 @@
                 fell = true;
                 digging = false;
                 brokeAudioPlayer.play();
+                globalMiningSpeed -= 10;
+                globalMiningSpeed = Math.max(globalMiningSpeed, 10);
                 loadGravity();
             }
             else {
                 breaking += 1;
 
-                breakTimeout = setTimeout(z, 1000);
+                breakTimeout = setTimeout(z, globalMiningSpeed);
             }
         }
-        breakingAudioPlayer.play();
         digging = true;
-        breakTimeout = setTimeout(z, 1000);
+        breakingAudioPlayer.play();
+        breakTimeout = setTimeout(z, globalMiningSpeed);
     }
 
     function handleMouseUp() {
@@ -94,7 +100,7 @@
         opacity: 0;
         background-color: transparent;
         border: 0;
-        transition: opacity 0.5s 2s;
+        transition: opacity 0.5s;
     }
 
     .hammer-button:hover {

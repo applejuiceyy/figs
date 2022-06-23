@@ -4,6 +4,7 @@
     export let volume: number = 1;
     export let loopSize: number | null = null;
 
+    let timeout: ReturnType<typeof setTimeout> | null = null;
 
     export function play() {
         let player = document.createElement("audio");
@@ -16,7 +17,13 @@
             player.addEventListener("ended", () => loop && play());
         }
         else {
-            setTimeout(() => loop && play(), loopSize);
+            timeout = setTimeout(() => loop && play(), loopSize);
+        }
+    }
+
+    $: {
+        if (!loop && timeout !== null) {
+            clearTimeout(timeout);
         }
     }
 </script>
