@@ -34,19 +34,6 @@ function running() {
     runnerTickerFrame = setTimeout(running, 1);
 }
 
-function rotate(bx: number, by: number, angle: number) {
-    var cos = Math.cos(angle),
-        sin = Math.sin(angle),
-        run = bx,
-        rise = by,
-        cx = (cos * run) + (sin * rise),
-        cy = (cos * rise) - (sin * run);
-    return {
-        x: cx,
-        y: cy
-    };
-}
-
 function handleResize() {
     walls.forEach((val)=>Matter.Composite.remove(engine.world, val));
 
@@ -54,21 +41,6 @@ function handleResize() {
     createWalls();
 
     Matter.Composite.add(engine.world, walls);
-}
-
-function handleWindowFocus() {
-    console.log("focus")
-
-    handleWindowLeave();
-    lastTick = Date.now();
-    runnerTickerFrame = setTimeout(running, 1);
-}
-
-function handleWindowLeave() {
-    console.log("eee")
-    if(runnerTickerFrame !== null) {
-        clearTimeout(runnerTickerFrame);
-    }
 }
 
 function getClientSize() {
@@ -120,11 +92,11 @@ function onScroll() {
     for (var i = 0; i < bodies.length; i++) {
         var body = bodies[i];
 
-        if (!body.isStatic && body.position.y >= 500) {
+        if (!body.isStatic) {
 
-            Matter.Body.setPosition(body, {
-                x: body.position.x,
-                y: body.position.y - delta
+            Matter.Body.applyForce(body, {x: body.position.x, y: body.position.y}, {
+                x: 0,
+                y: -delta / 500
             })
         }
     }
@@ -242,6 +214,7 @@ export function gravity(node: HTMLElement, props: GravityActionProperties) {
         shadowElement.style.transform = "";
         shadowElement.style.pointerEvents = "none";
         shadowElement.style.userSelect = "none";
+        shadowElement.style.margin = "";
 
         (node.parentElement as HTMLElement).insertBefore(shadowElement, node);
     }
