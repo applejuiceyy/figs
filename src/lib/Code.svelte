@@ -69,7 +69,7 @@
         <slot/>
 
         <button aria-hidden="true" on:mousedown={handleMouseDown} on:mouseup={handleMouseUp} on:mouseleave={handleMouseUp} class="hammer-button">
-            <img draggable="false" src={hammer} alt="hammer"/>
+            <img style:touch-action="none" style:user-select="none" draggable="false" src={hammer} alt="hammer"/>
         </button>
     </span>
 {/key}
