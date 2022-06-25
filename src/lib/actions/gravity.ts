@@ -1,4 +1,5 @@
 import * as Matter from "matter-js";
+import namespace from "$lib/svgNamespace";
 
 let bodyIdx = 0;
 
@@ -76,7 +77,7 @@ function createWalls() {
     }));
 }
 
-function addListener<C extends Node, M extends Parameters<C["addEventListener"]>>(container: C, name: M[0], func: M[1], options?: M[2]) {
+function addListener(container: EventTarget, name: string, func: (ev: any)=>void, options?: any) {
     container.addEventListener(name, func, options);
     return ()=>{container.removeEventListener(name, func)}
 }
@@ -102,6 +103,15 @@ function onScroll() {
     }
 }
 
+function rotate(cx: number, cy: number, x: number, y: number, angle: number) {
+    var radians = angle,
+        cos = Math.cos(radians),
+        sin = Math.sin(radians),
+        nx = (cos * (x - cx)) + (sin * (y - cy)) + cx,
+        ny = (cos * (y - cy)) - (sin * (x - cx)) + cy;
+    return [nx, ny];
+}
+
 
 type BodyGenerator = (Body: typeof Matter.Body, Bodies: typeof Matter.Bodies, Vertices: typeof Matter.Vertices, idx: number, rect: DOMRect) => Matter.Body;
 
@@ -109,6 +119,94 @@ interface GravityActionProperties {
     active: boolean
     shadowElement?: boolean,
     generateBody?: BodyGenerator
+}
+
+class ForceGizmo {
+    glasspane: HTMLElement;
+
+    localX: number;
+    localY: number;
+
+    mouseX: number;
+    mouseY: number;
+
+    pullCircle: SVGCircleElement;
+    body: Matter.Body;
+    pullingLine: SVGLineElement;
+    centerCircle: any;
+
+    constructor(body: Matter.Body, localX: number, localY: number, mouseX: number, mouseY: number) {
+        this.glasspane = document.getElementById("root-glasspane") as HTMLElement;
+
+        this.body = body;
+
+        this.localX = localX;
+        this.localY = localY;
+
+        this.mouseX = mouseX;
+        this.mouseY = mouseY;
+
+        this.pullCircle = document.createElementNS(namespace, "circle");
+        this.pullCircle.setAttributeNS(null, "fill", "red");
+        this.pullCircle.setAttributeNS(null, "r", "5");
+
+        this.pullingLine = document.createElementNS(namespace, "line");
+        this.pullingLine.setAttributeNS(null, "stroke", "red");
+
+        this.centerCircle = document.createElementNS(namespace, "circle");
+        this.centerCircle.setAttributeNS(null, "fill", "green");
+        this.centerCircle.setAttributeNS(null, "r", "5");
+
+        this.glasspane.appendChild(this.pullCircle);
+        this.glasspane.appendChild(this.pullingLine);
+        this.glasspane.appendChild(this.centerCircle);
+
+        this.update();
+    }
+
+    update() {
+        const rotated = rotate(0, 0, this.localX, this.localY, -this.body.angle);
+        let gX = rotated[0] + this.body.position.x;
+        let gY = rotated[1] + this.body.position.y;
+
+        let xD = Math.abs(gX - this.mouseX);
+        let yD = Math.abs(gY - this.mouseY);
+
+        let dist = Math.sqrt(xD * xD + yD * yD);
+
+        this.pullCircle.setAttributeNS(null, "transform", `translate(${gX}, ${gY})`);
+        this.pullCircle.setAttributeNS(null, "r", String(dist / 90));
+
+        this.pullingLine.setAttributeNS(null, "x1", String(gX));
+        this.pullingLine.setAttributeNS(null, "y1", String(gY));
+
+        this.pullingLine.setAttributeNS(null, "x2", String(this.mouseX));
+        this.pullingLine.setAttributeNS(null, "y2", String(this.mouseY));
+
+        this.pullingLine.setAttributeNS(null, "stroke-width", String(Math.max(dist / 100, 1)));
+
+        this.centerCircle.setAttributeNS(null, "transform", `translate(${this.body.position.x}, ${this.body.position.y})`)
+    }
+
+    destroy() {
+        this.pullCircle.remove();
+        this.pullingLine.remove();
+        this.centerCircle.remove();
+    }
+
+    applyForce() {
+        const rotated = rotate(0, 0, this.localX, this.localY, -this.body.angle);
+        let gX = rotated[0] + this.body.position.x;
+        let gY = rotated[1] + this.body.position.y;
+
+        let xD = gX - this.mouseX;
+        let yD = gY - this.mouseY;
+
+        Matter.Body.applyForce(this.body, {x: gX, y: gY}, {
+            x: -xD / 80,
+            y: -yD / 80
+        })
+    }
 }
 
 export function gravity(node: HTMLElement, props: GravityActionProperties) {
@@ -124,6 +222,8 @@ export function gravity(node: HTMLElement, props: GravityActionProperties) {
     let mConstraint: Matter.Constraint | null = null;
 
     let bodySize: {x: number, y: number} = {x: 0, y: 0};
+
+    let forceGizmo: ForceGizmo | null = null;
     
     // activate / deactivate
 
@@ -150,6 +250,10 @@ export function gravity(node: HTMLElement, props: GravityActionProperties) {
         if(body.position.x < -100 || body.position.x > getClientSize().x + 100 || body.position.y < -100 || body.position.y > getClientSize().y + 100) {
             Matter.Body.setPosition(body, {x: getClientSize().x / 2, y:getClientSize().y / 2});
             Matter.Body.setVelocity(body, {x:0, y:0});
+        }
+
+        if (forceGizmo !== null) {
+            forceGizmo.update();
         }
     }
 
@@ -276,10 +380,6 @@ export function gravity(node: HTMLElement, props: GravityActionProperties) {
         console.log(x, y);
 
         if(isActive) {
-            if(mConstraint !== null) {
-                handleMouseUp()
-            }
-
             mConstraint = Matter.Constraint.create({
                 bodyA: body,
 
@@ -309,16 +409,34 @@ export function gravity(node: HTMLElement, props: GravityActionProperties) {
                 y: y
             }
         }
+
+        if(forceGizmo !== null) {
+            forceGizmo.mouseX = x;
+            forceGizmo.mouseY = y;
+
+            forceGizmo.update();
+        }
     }
 
-    function handleMouseUp() {
+    function destroyConstraint() {
         if(mConstraint !== null)
         {
-            node.classList.remove("grabbing")
+            node.classList.remove("grabbing");
             Matter.Composite.remove(engine.world, mConstraint);
             mConstraint = null;
 
             node.dispatchEvent(new CustomEvent("gravityrelease"))
+        }
+    }
+
+    function applyForceGizmo(ev: MouseEvent) {
+        if (forceGizmo !== null) {
+            ev.preventDefault();
+            ev.stopImmediatePropagation();
+
+            forceGizmo.applyForce();
+            forceGizmo.destroy();
+            forceGizmo = null;
         }
     }
 
@@ -357,37 +475,41 @@ export function gravity(node: HTMLElement, props: GravityActionProperties) {
 
     let events: (() => void)[] = [];
 
-    // @ts-ignore
     events.push(addListener(node,"mousedown", function(ev: MouseEvent) {
-        handleMouseDown(ev.clientX, ev.clientY)
+        if (ev.button === 0) {
+            handleMouseDown(ev.clientX, ev.clientY)
+        }
+        else if (ev.button === 2) {
+            const [lX, lY] = rotate(0, 0, ev.clientX - body.position.x, ev.clientY - body.position.y, body.angle);
+            forceGizmo = new ForceGizmo(body, lX, lY, ev.clientX, ev.clientY);
+        }
     }))
 
-    // @ts-ignore
-    events.push(addListener(node, "touchstart", function(ev: TouchEvent) {
-        let touch = ev.targetTouches[0]
-        handleMouseDown(touch.clientX, touch.clientY)
-    }))
-
-    document.addEventListener("mousemove", function(ev) {
-        handleMouseMove(ev.clientX, ev.clientY)
-    })
-
-    // @ts-ignore
-    events.push(addListener(document, "mousemove", function(ev: MouseEvent) {
-        handleMouseMove(ev.clientX, ev.clientY)
-    }))
-
-    // @ts-ignore
-    events.push(addListener(document, "touchmove", function(ev: TouchEvent) {
-        let touch = ev.targetTouches[0]
+    
+    events.push(addListener(node, "contextmenu", function(ev) {
         ev.preventDefault();
-        handleMouseMove(touch.clientX, touch.clientY)
-    }, {passive: false}))
+    }))
 
-    events.push(addListener(document, "mouseup", handleMouseUp))
 
-    events.push(addListener(document, "touchcancel", (ev)=>{handleMouseUp()}))
-    events.push(addListener(document, "touchend", (ev)=>{handleMouseUp()}))
+    events.push(addListener(document, "mousemove", function(ev: MouseEvent) {
+        handleMouseMove(ev.clientX, ev.clientY);
+    }))
+
+    let disableDoc: boolean;
+    events.push(addListener(document, "mouseup", (ev) => {
+        destroyConstraint();
+        disableDoc = forceGizmo !== null;
+        applyForceGizmo(ev);
+    }))
+
+    events.push(addListener(document, "contextmenu", (ev) => {
+        if (disableDoc) {
+            disableDoc = false;
+            ev.preventDefault();
+        }
+    }))
+
+
 
     updateProps(props);
 

@@ -89,6 +89,7 @@
     </div>
 </div>
 
+<svg id="root-glasspane" width="100%" height="100%"></svg>
 
 
 <style>
@@ -102,6 +103,13 @@
         padding-right: 10px;
 
         background-image: linear-gradient(115deg, #ff880088, #55330088);
+    }
+
+    #root-glasspane {
+        position: fixed;
+        inset: 0;
+        touch-action: none;
+        pointer-events: none;
     }
 
     .category-inner {

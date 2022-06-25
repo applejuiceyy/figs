@@ -1,4 +1,5 @@
 import cheese from "$lib/resource/cheese.png";
+import namespace from "$lib/svgNamespace";
 
 interface Binding<D> {
     element: Element,
@@ -6,8 +7,6 @@ interface Binding<D> {
 }
 
 type ElementBinding = Binding<{x: number, y: number, ym: number, scale: number, angle: number, anglem: number}>;
-
-const namespace = "http://www.w3.org/2000/svg";
 
 export function cheeseSvg(node: Element, shouldDo: boolean) {
     let data: ElementBinding [] = [];
