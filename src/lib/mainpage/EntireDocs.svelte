@@ -1,5 +1,5 @@
 <script>
-    import rewrite_docs from "$lib/rewrite_docs.json";
+    import rewrite_docs from "$lib/docs/rewrite_docs.json";
 import CategoryDocs from "./CategoryDocs.svelte";
 </script>
 

@@ -1,4 +1,5 @@
 <script type="ts">
+import ChunkedText from "$lib/ChunkedText.svelte";
 import Category from "./Article.svelte";
 
 import ItemFieldsDocs from "./field/ItemFieldsDocs.svelte";
@@ -17,7 +18,7 @@ import ItemMethodsDocs from "./method/ItemMethodsDocs.svelte";
         Inherits {docs.parent}<br>
     {/if}
 
-    <p>{docs.description}</p>
+    <p><ChunkedText value={docs.description} /></p>
 
     {#if docs.methods.length > 0}
         <section aria-label="Methods">

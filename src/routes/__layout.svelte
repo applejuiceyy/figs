@@ -17,9 +17,11 @@
 <script type="ts">
     import {base} from "$app/paths";
     import CategoryViewer from "$lib/sidebar/CategoryViewer.svelte";
-    import version from "$lib/rewrite_version.txt?raw";
+    import version from "$lib/docs/rewrite_version.txt?raw";
     import { cheeseSvg } from "$lib/actions/cheese";
     import { onDestroy, onMount } from "svelte";
+
+    import stores from "$lib/state/stores";
 
     let interv: any = null;
 
@@ -63,7 +65,8 @@
     <nav class:expanded class="figura-background">
         <a class="nav-item" href={base + "/"}>FIGS!!</a>
         <a class="nav-item expander" href="javascript:;" aria-label="Expand" on:click={()=>expanded = !expanded}>{expanded? "Hide Table" : "Show Table"}</a>
-        <a class="nav-item" href="javascript:;" style:margin-left="auto" on:click={increaseStamina} style:font-size={(Math.max(stamina, 10) - 9) + "em"} style:opacity="0.5">{version}</a>
+        <a class="nav-item" href="javascript:;" style:margin-left="auto" on:click={()=>$stores.readerEnabled = !$stores.readerEnabled}>{$stores.readerEnabled ? "Disable" : "Enable"} Better Reader</a>
+        <a class="nav-item" href="javascript:;"  on:click={increaseStamina} style:font-size={(Math.max(stamina, 10) - 9) + "em"} style:opacity="0.5">{version}</a>
     </nav>
 
     <div class="category figura-background" class:expanded>

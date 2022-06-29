@@ -1,7 +1,7 @@
 <script context="module" type="ts">
     import CategoryDocs from "$lib/mainpage/CategoryDocs.svelte";
-    import rewrite_docs from "$lib/rewrite_docs.json";
-    import type {Docs, APIInterface} from "$lib/rewrite_docs";
+    import rewrite_docs from "$lib/docs/rewrite_docs.json";
+    import type {Docs, APIInterface} from "$lib/docs/rewrite_docs";
 
     let load = function ({params: {category}}: {params: {category: string}}) {
         if(!(category in rewrite_docs)) {

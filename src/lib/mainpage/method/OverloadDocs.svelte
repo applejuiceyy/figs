@@ -1,7 +1,7 @@
 <script type="ts">
 import Code from "$lib/Code.svelte";
 
-    import type {Parameter} from "$lib/rewrite_docs";
+    import type {Parameter} from "$lib/docs/rewrite_docs";
     import ParametersDocs from "./ParametersDocs.svelte";
 
     export let name: string;

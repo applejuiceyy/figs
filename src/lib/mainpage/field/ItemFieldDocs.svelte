@@ -1,6 +1,7 @@
 <script type="ts">
-    import Code from "$lib/Code.svelte";
-import type { Field } from "$lib/rewrite_docs";
+    import ChunkedText from "$lib/ChunkedText.svelte";
+import Code from "$lib/Code.svelte";
+import type { Field } from "$lib/docs/rewrite_docs";
 import Category from "../Article.svelte";
 
     export let field: Field;
@@ -12,5 +13,5 @@ import Category from "../Article.svelte";
         {field.editable?"":"readonly "}{#if container !== "globals"}{container}.{/if}{field.name}: <span style="color: #0000bb">{field.type}</span>
     </Code>
 
-    <p>{field.description}</p>
+    <p><ChunkedText value={field.description}/></p>
 </Category>

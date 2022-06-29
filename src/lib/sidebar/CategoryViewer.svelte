@@ -1,5 +1,5 @@
 <script type="ts">
-    import rewrite_docs from "$lib/rewrite_docs.json";
+    import rewrite_docs from "$lib/docs/rewrite_docs.json";
     import {base} from "$app/paths";
 import ItemMethodDocs from "$lib/mainpage/method/ItemMethodDocs.svelte";
 

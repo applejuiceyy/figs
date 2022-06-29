@@ -1,5 +1,5 @@
 <script type="ts">
-    import type {Parameter} from "$lib/rewrite_docs";
+    import type {Parameter} from "$lib/docs/rewrite_docs";
 
     export let params: Parameter[];
 

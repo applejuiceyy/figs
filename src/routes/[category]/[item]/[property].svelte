@@ -1,8 +1,6 @@
 <script context="module" type="ts">
-    import CategoryDocs from "$lib/mainpage/CategoryDocs.svelte";
-    import rewrite_docs from "$lib/rewrite_docs.json";
-    import type { Docs, APIInterface, Method, Field } from "$lib/rewrite_docs";
-    import CategoryItemDocs from "$lib/mainpage/CategoryItemDocs.svelte";
+    import rewrite_docs from "$lib/docs/rewrite_docs.json";
+    import type { Docs, Method, Field } from "$lib/docs/rewrite_docs";
     import ItemMethodDocs from "$lib/mainpage/method/ItemMethodDocs.svelte";
     import ItemFieldDocs from "$lib/mainpage/field/ItemFieldDocs.svelte";
 
