@@ -1,20 +1,21 @@
 const build = [
-  "/figs/_app/start-a6907914.js",
-  "/figs/_app/pages/__layout.svelte-fbefff3b.js",
+  "/figs/_app/start-d5704579.js",
+  "/figs/_app/pages/__layout.svelte-8741c89e.js",
   "/figs/_app/assets/pages/__layout.svelte-126fb55f.css",
   "/figs/_app/assets/cheese-9bdf176f.png",
-  "/figs/_app/error.svelte-130067e2.js",
-  "/figs/_app/pages/_category_/_item_/_property_.svelte-1b4e3866.js",
-  "/figs/_app/pages/_category_/_item_/index.svelte-66599481.js",
-  "/figs/_app/pages/_category_/index.svelte-928e9e79.js",
-  "/figs/_app/pages/index.svelte-d4b1ccda.js",
-  "/figs/_app/chunks/index-8bf6b353.js",
+  "/figs/_app/error.svelte-5375b613.js",
+  "/figs/_app/pages/_category_/_item_/_property_.svelte-bd9d0128.js",
+  "/figs/_app/pages/_category_/_item_/index.svelte-16ff9ea9.js",
+  "/figs/_app/pages/_category_/index.svelte-05b1324f.js",
+  "/figs/_app/pages/index.svelte-86c721d2.js",
+  "/figs/_app/chunks/index-642db81b.js",
+  "/figs/_app/chunks/index-fc234b66.js",
   "/figs/_app/chunks/paths-396f020f.js",
   "/figs/_app/chunks/preload-helper-a6ef5122.js",
-  "/figs/_app/chunks/Article.svelte_svelte_type_style_lang-99973d4f.js",
-  "/figs/_app/assets/Article.svelte_svelte_type_style_lang-da5e2cae.css",
+  "/figs/_app/chunks/Article.svelte_svelte_type_style_lang-94bf7d1f.js",
+  "/figs/_app/assets/Article.svelte_svelte_type_style_lang-0c0fbf74.css",
   "/figs/_app/chunks/svgNamespace-ebff0b03.js",
-  "/figs/_app/chunks/MetaTags-cdc41b4c.js",
+  "/figs/_app/chunks/MetaTags-527ca136.js",
   "/figs/_app/assets/stone1-97f2a8a7.ogg",
   "/figs/_app/assets/stone2-98a5c319.ogg",
   "/figs/_app/assets/stone3-19273f0e.ogg",
@@ -26,8 +27,8 @@ const build = [
   "/figs/_app/assets/stone5-67b1e504.ogg",
   "/figs/_app/assets/stone6-2b65e1bd.ogg",
   "/figs/_app/assets/hammer-ccd8d2cd.svg",
-  "/figs/_app/chunks/CategoryItemDocs-36ae1fd5.js",
-  "/figs/_app/chunks/CategoryDocs-c5cf0586.js",
+  "/figs/_app/chunks/CategoryItemDocs-3a7adf4b.js",
+  "/figs/_app/chunks/CategoryDocs-106461db.js",
   "/figs/_app/chunks/gravity-a6de735c.js"
 ];
 const files = [
@@ -719,7 +720,7 @@ const prerendered = [
   "/figs/misc/SoundAPI/playSound/",
   "/figs/misc/ParticleAPI/addParticle/"
 ];
-const version = "1656174902793";
+const version = "1656499292624";
 const worker = self;
 const CACHE_NAME = `A;static-cache-${version}`;
 const to_cache = build.concat(files).concat(prerendered);
