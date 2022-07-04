@@ -1,144 +1,76 @@
 {
   ".svelte-kit/runtime/client/start.js": {
-    "file": "start-d5704579.js",
+    "file": "start-7c4dcf4e.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
-      "_index-642db81b.js",
-      "_index-fc234b66.js",
-      "_paths-396f020f.js",
-      "_preload-helper-a6ef5122.js"
+      "_index-9a157a4e.js",
+      "_preload-helper-8187e54d.js"
     ],
     "dynamicImports": [
       "src/routes/__layout.svelte",
       ".svelte-kit/runtime/components/error.svelte",
-      "src/routes/[category]/[item]/[property].svelte",
-      "src/routes/[category]/[item]/index.svelte",
-      "src/routes/[category]/index.svelte",
       "src/routes/index.svelte"
     ]
   },
   "src/routes/__layout.svelte": {
-    "file": "pages/__layout.svelte-8741c89e.js",
+    "file": "pages/__layout.svelte-826e36a7.js",
     "src": "src/routes/__layout.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-642db81b.js",
-      "_paths-396f020f.js",
-      "_Article.svelte_svelte_type_style_lang-94bf7d1f.js",
+      "_index-9a157a4e.js",
+      "_preload-helper-8187e54d.js",
       "_svgNamespace-ebff0b03.js",
-      "_index-fc234b66.js"
+      "_ClassDescribe-08a50e72.js"
     ],
     "css": [
-      "assets/pages/__layout.svelte-126fb55f.css"
+      "assets/pages/__layout.svelte-44529922.css"
     ],
     "assets": [
       "assets/cheese-9bdf176f.png"
     ]
   },
   ".svelte-kit/runtime/components/error.svelte": {
-    "file": "error.svelte-5375b613.js",
+    "file": "error.svelte-b0f75f9e.js",
     "src": ".svelte-kit/runtime/components/error.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-642db81b.js"
-    ]
-  },
-  "src/routes/[category]/[item]/[property].svelte": {
-    "file": "pages/_category_/_item_/_property_.svelte-bd9d0128.js",
-    "src": "src/routes/[category]/[item]/[property].svelte",
-    "isEntry": true,
-    "isDynamicEntry": true,
-    "imports": [
-      "_index-642db81b.js",
-      "_MetaTags-527ca136.js",
-      "_Article.svelte_svelte_type_style_lang-94bf7d1f.js",
-      "_preload-helper-a6ef5122.js",
-      "_index-fc234b66.js"
-    ]
-  },
-  "src/routes/[category]/[item]/index.svelte": {
-    "file": "pages/_category_/_item_/index.svelte-16ff9ea9.js",
-    "src": "src/routes/[category]/[item]/index.svelte",
-    "isEntry": true,
-    "isDynamicEntry": true,
-    "imports": [
-      "_index-642db81b.js",
-      "_CategoryItemDocs-3a7adf4b.js",
-      "_Article.svelte_svelte_type_style_lang-94bf7d1f.js",
-      "_MetaTags-527ca136.js",
-      "_index-fc234b66.js",
-      "_preload-helper-a6ef5122.js"
-    ]
-  },
-  "src/routes/[category]/index.svelte": {
-    "file": "pages/_category_/index.svelte-05b1324f.js",
-    "src": "src/routes/[category]/index.svelte",
-    "isEntry": true,
-    "isDynamicEntry": true,
-    "imports": [
-      "_index-642db81b.js",
-      "_Article.svelte_svelte_type_style_lang-94bf7d1f.js",
-      "_CategoryDocs-106461db.js",
-      "_MetaTags-527ca136.js",
-      "_index-fc234b66.js",
-      "_CategoryItemDocs-3a7adf4b.js",
-      "_preload-helper-a6ef5122.js"
+      "_index-9a157a4e.js"
     ]
   },
   "src/routes/index.svelte": {
-    "file": "pages/index.svelte-86c721d2.js",
+    "file": "pages/index.svelte-9b1125e3.js",
     "src": "src/routes/index.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-642db81b.js",
-      "_Article.svelte_svelte_type_style_lang-94bf7d1f.js",
-      "_CategoryDocs-106461db.js",
-      "_MetaTags-527ca136.js",
-      "_index-fc234b66.js",
-      "_CategoryItemDocs-3a7adf4b.js",
-      "_preload-helper-a6ef5122.js"
+      "_index-9a157a4e.js",
+      "_ClassDescribe-08a50e72.js",
+      "_preload-helper-8187e54d.js"
     ]
   },
-  "_index-642db81b.js": {
-    "file": "chunks/index-642db81b.js"
+  "_index-9a157a4e.js": {
+    "file": "chunks/index-9a157a4e.js"
   },
-  "_index-fc234b66.js": {
-    "file": "chunks/index-fc234b66.js",
+  "_preload-helper-8187e54d.js": {
+    "file": "chunks/preload-helper-8187e54d.js",
     "imports": [
-      "_index-642db81b.js"
+      "_index-9a157a4e.js"
     ]
   },
-  "_paths-396f020f.js": {
-    "file": "chunks/paths-396f020f.js"
-  },
-  "_preload-helper-a6ef5122.js": {
-    "file": "chunks/preload-helper-a6ef5122.js"
-  },
-  "_Article.svelte_svelte_type_style_lang-94bf7d1f.js": {
-    "file": "chunks/Article.svelte_svelte_type_style_lang-94bf7d1f.js",
+  "_ClassDescribe-08a50e72.js": {
+    "file": "chunks/ClassDescribe-08a50e72.js",
     "imports": [
-      "_index-fc234b66.js"
-    ],
-    "css": [
-      "assets/Article.svelte_svelte_type_style_lang-0c0fbf74.css"
-    ]
-  },
-  "_svgNamespace-ebff0b03.js": {
-    "file": "chunks/svgNamespace-ebff0b03.js"
-  },
-  "_MetaTags-527ca136.js": {
-    "file": "chunks/MetaTags-527ca136.js",
-    "imports": [
-      "_index-642db81b.js",
-      "_Article.svelte_svelte_type_style_lang-94bf7d1f.js",
-      "_preload-helper-a6ef5122.js"
+      "_index-9a157a4e.js",
+      "_preload-helper-8187e54d.js"
     ],
     "dynamicImports": [
       "src/lib/actions/gravity.ts"
+    ],
+    "css": [
+      "assets/ClassDescribe-ba431b67.css"
     ],
     "assets": [
       "assets/stone1-97f2a8a7.ogg",
@@ -154,27 +86,18 @@
       "assets/hammer-ccd8d2cd.svg"
     ]
   },
-  "_CategoryItemDocs-3a7adf4b.js": {
-    "file": "chunks/CategoryItemDocs-3a7adf4b.js",
-    "imports": [
-      "_index-642db81b.js",
-      "_MetaTags-527ca136.js"
-    ]
-  },
-  "_CategoryDocs-106461db.js": {
-    "file": "chunks/CategoryDocs-106461db.js",
-    "imports": [
-      "_index-642db81b.js",
-      "_MetaTags-527ca136.js",
-      "_CategoryItemDocs-3a7adf4b.js"
-    ]
+  "_svgNamespace-ebff0b03.js": {
+    "file": "chunks/svgNamespace-ebff0b03.js"
   },
   "src/lib/actions/gravity.ts": {
-    "file": "chunks/gravity-a6de735c.js",
+    "file": "chunks/gravity-1a5bdc38.js",
     "src": "src/lib/actions/gravity.ts",
     "isDynamicEntry": true,
     "imports": [
-      "_svgNamespace-ebff0b03.js"
+      "_ClassDescribe-08a50e72.js",
+      "_svgNamespace-ebff0b03.js",
+      "_index-9a157a4e.js",
+      "_preload-helper-8187e54d.js"
     ]
   }
 }
