@@ -1,27 +1,15 @@
-<script context="module" type="ts">
-    let load = function ({params: {category, item, property}, url}: {url: any, params: {category: string | undefined, item: string | undefined, property: string | undefined}}) {
-        // url is accessed because of params bug, don't worry about it
-        
-        return {
-            props: {
-                item: item,
-                category: category,
-                property: property
-            }
-        };
-    };
-
-    export { load };
-</script>
-
 <script type="ts">
     import {base} from "$app/paths";
-    import CategoryViewer from "$lib/sidebar/CategoryViewer.svelte";
     import version from "$lib/docs/rewrite_version.txt?raw";
     import { cheeseSvg } from "$lib/actions/cheese";
     import { onDestroy, onMount } from "svelte";
 
+    import { page } from "$app/stores";
+
     import stores from "$lib/state/stores";
+    import SidebarView from "$lib/content/sidebar/SidebarView.svelte";
+
+import HintOverlay from "$lib/highlighter/HintOverlay.svelte";
 
     let interv: any = null;
 
@@ -51,10 +39,6 @@
         }
     }
 
-    export let item: string | undefined = undefined;
-    export let category: string | undefined = undefined;
-    export let property: string | undefined = undefined;
-
     let stamina: number = 0;
     let staminaMomentum: number = 0;
 
@@ -71,7 +55,7 @@
 
     <div class="category figura-background" class:expanded>
         <div class="category-inner">
-            <CategoryViewer item={item} category={category} property={property}/>
+            <SidebarView/>
 
             <footer>
                 Made by applejuice
@@ -79,20 +63,18 @@
         </div>
     </div>
 
-    <div class:expanded class="content figura-background">
-        <div class="rounding-content-wrapper">
-            {#key [item, category, property]}
-                <slot />
-            {/key}
+    <div class:expanded class="content">
+        <slot />
 
-            <svg class="cheese-svg" width="100%" height="100%" use:cheeseSvg={cheeseFalling} aria-hidden="true" style:pointer-events="none" style:touch-action="none">
+        <svg class="cheese-svg" width="100%" height="100%" use:cheeseSvg={cheeseFalling} aria-hidden="true" style:pointer-events="none" style:touch-action="none">
 
-            </svg>
-        </div>
+        </svg>
     </div>
 </div>
 
-<svg id="root-glasspane" width="100%" height="100%"></svg>
+<svg id="root-glasspane" class="glasspane" width="100%" height="100%" style:z-index="99999"></svg>
+
+<HintOverlay/>
 
 
 <style>
@@ -100,15 +82,14 @@
 
     footer {
         margin-top: auto;
-        padding-top: 40px;
-        padding-bottom: 40px;
-        padding-left: 10px;
-        padding-right: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        text-align: center;
 
-        background-image: linear-gradient(115deg, #ff880088, #55330088);
+        background-color: #bbbbbb;
     }
 
-    #root-glasspane {
+    .glasspane {
         position: fixed;
         inset: 0;
         touch-action: none;
@@ -135,7 +116,6 @@
         grid-template-rows: min-content 1fr;
         grid-template-columns: 200px 1fr;
 
-        width: calc(100vw - var(--scrollbar-width));
         min-height: 100vh;
     }
 
@@ -175,19 +155,12 @@
 
     .content {
         word-wrap: anywhere;
-    }
 
-    .rounding-content-wrapper {
-        min-height: 100%;
         background-color: white;
-        border-radius: 15px 0 0 0;
         padding: 5px;
 
-        box-sizing: border-box;
-
-        box-shadow: inset 5px 5px 10px 0 #00000044;
-
         position: relative;
+        isolation: isolate;
     }
 
     .cheese-svg {
@@ -196,10 +169,9 @@
     }
 
     @media (prefers-color-scheme: dark) {
-        .rounding-content-wrapper {
-            background-color: #111111;
+        .content {
+            background-color: black;
             color: #bbbbbb;
-            box-shadow: inset 5px 5px 10px 0 #ffffff11;
         }
 
         :global(body) {

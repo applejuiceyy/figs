@@ -1,10 +1,9 @@
 import adapter from '@sveltejs/adapter-static';
 import preprocess from 'svelte-preprocess';
+import isoImport from "vite-plugin-iso-import";
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	// Consult https://github.com/sveltejs/svelte-preprocess
-	// for more information about preprocessors
 	preprocess: preprocess(),
 
 	kit: {
@@ -15,10 +14,17 @@ const config = {
 		},
 
 		prerender: {
-			default: true
+			default: true,
+			crawl: true
 		},
 
-		trailingSlash: 'always'
+		trailingSlash: 'always',
+
+		vite: {
+
+
+			plugins: [isoImport()]
+		},
 	},
 };
 

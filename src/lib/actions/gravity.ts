@@ -97,7 +97,7 @@ function onScroll() {
 
             Matter.Body.applyForce(body, {x: body.position.x, y: body.position.y}, {
                 x: 0,
-                y: -delta / 500
+                y: -delta / 5000 * body.mass
             })
         }
     }
@@ -210,6 +210,8 @@ class ForceGizmo {
 }
 
 export function gravity(node: HTMLElement, props: GravityActionProperties) {
+    let originalParent = node.parentElement as Element;
+
 	let isActive = false;
     let hasShadowElement = false;
 
@@ -276,6 +278,9 @@ export function gravity(node: HTMLElement, props: GravityActionProperties) {
             node.style.left = "0";
             node.style.touchAction = "none";
             node.style.userSelect = "none";
+            node.style.zIndex = "9999";
+
+            document.body.appendChild(node);
     
             node.style.willChange = "transform";
 
@@ -300,6 +305,9 @@ export function gravity(node: HTMLElement, props: GravityActionProperties) {
         node.style.position = "";
         node.style.willChange = "";
         node.style.touchAction = "";
+        node.style.zIndex = "";
+
+        originalParent.appendChild(node);
 
         if(hasShadowElement) {
             console.log("remove shadow")

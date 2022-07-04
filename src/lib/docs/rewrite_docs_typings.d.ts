@@ -1,17 +1,18 @@
 export interface Docs {
-    [category: string]: APIInterface[];
+    [category: string]: Class[];
 }
-export interface APIInterface {
+export interface Class {
     name: string;
     description: string;
     methods: Method[];
     fields: Field[];
+    parent?: string;
 }
 
 export interface Method {
     name: string;
     description: string;
-    parameters: Parameters[][];
+    parameters: Parameter[][];
     returns: string[];
 }
 

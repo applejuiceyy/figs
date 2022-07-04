@@ -65,20 +65,20 @@
 </script>
 
 {#key gravityAction}
-    <span style:outline={gravityAction !== null && fell ? '1px solid black' : ''} style:margin={gravityAction !== null && fell ? '0' : ''} style:background-image={breaking === -1 ? "" : "url(" + breakStages["./resource/breaking/destroy_stage_" + breaking + ".png"].default + ")"} use:conditionalAction={{action: gravityAction, params: {active: true, shadowElement: true}, condition: gravityAction !== null && fell}}>
+    <code style:outline={gravityAction !== null && fell ? '1px solid black' : ''} style:margin={gravityAction !== null && fell ? '0' : ''} style:background-image={breaking === -1 ? "" : "url(" + breakStages["./resource/breaking/destroy_stage_" + breaking + ".png"].default + ")"} use:conditionalAction={{action: gravityAction, params: {active: true, shadowElement: true}, condition: gravityAction !== null && fell}}>
         <slot/>
 
         <button aria-hidden="true" on:mousedown={handleMouseDown} on:mouseup={handleMouseUp} on:mouseleave={handleMouseUp} class="hammer-button">
-            <img style:touch-action="none" style:user-select="none" draggable="false" src={hammer} alt="hammer"/>
+            <svg style:color="white" style:touch-action="none" style:user-select="none" href={hammer} width="16" height="16"/>
         </button>
-    </span>
+    </code>
 {/key}
 
 <RandomisedPlayer bind:this={breakingAudioPlayer} sounds={Object.values(breakingSounds).map(v => v.default)} loop={digging} loopSize={300} volume={0.5}/>
 <RandomisedPlayer bind:this={brokeAudioPlayer} sounds={Object.values(brokeSounds).map(v => v.default)} />
 
 <style>
-    span {
+    code {
         display: block;
 
         font-family: 'Lucida Console', monospace;
@@ -86,14 +86,14 @@
         margin: 5px;
 
         border-radius: 5px;
-        background-color: darkgray;
+        background-color: #eeeeee;
 
         background-size: 10%;
         background-position: 50% 50%;
 
-        color: black;
-
         box-sizing: border-box;
+
+        color: black;
     }
 
     .hammer-button {
@@ -104,6 +104,13 @@
     }
 
     .hammer-button:hover {
-        opacity: 0.5;
+        opacity: 1;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        code {
+            background-color: #111111;
+            color: white;
+        }
     }
 </style>
