@@ -30,7 +30,7 @@
 
     @media (prefers-color-scheme: dark) {
         .partial-background::before {
-            background-color: #111111;
+            background-color: #222222;
         }
     }
 

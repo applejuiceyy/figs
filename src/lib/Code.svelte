@@ -94,6 +94,10 @@
         box-sizing: border-box;
 
         color: black;
+
+        position: relative;
+
+        overflow-x: auto;
     }
 
     .hammer-button {
@@ -101,6 +105,10 @@
         background-color: transparent;
         border: 0;
         transition: opacity 0.5s;
+
+        position: absolute;
+        top: 0;
+        right: 0;
     }
 
     .hammer-button:hover {

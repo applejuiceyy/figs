@@ -1,6 +1,6 @@
 import adapter from '@sveltejs/adapter-static';
 import preprocess from 'svelte-preprocess';
-import isoImport from "vite-plugin-iso-import";
+import ViteYaml from '@modyfi/vite-plugin-yaml';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -21,9 +21,9 @@ const config = {
 		trailingSlash: 'always',
 
 		vite: {
+			optimizeDeps: ["markdown"],
 
-
-			plugins: [isoImport()]
+			plugins: [ViteYaml()]
 		},
 	},
 };

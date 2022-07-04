@@ -14,7 +14,7 @@ import FieldDescribe from '$lib/content/mainpage/FieldDescribe.svelte';
 {/each}
 
 {#each Object.entries(processed.globalVariables) as [name, var_]}
-    <FieldDescribe field={var_} hostClass={processed.globalType}/>
+    <FieldDescribe field={var_} hostClass={processed.globalType} inlineTypeDocs={true}/>
 {/each}
 
 {#each Object.entries(processed.relevantTypes) as [name, klass]}

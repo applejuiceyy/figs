@@ -6,7 +6,7 @@
     import StyledItem from "../sidebar/StyledItem.svelte";
     import {base} from "$app/paths";
 
-    import examples from "$lib/docs/examples.json";
+    import examples from "$lib/docs/examples.yaml";
     import ChunkedText from "$lib/ChunkedText.svelte";
     import Highlight from "$lib/highlighter/Highlight.svelte";
     import Code from "$lib/Code.svelte";

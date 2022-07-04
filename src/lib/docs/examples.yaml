@@ -1,0 +1,62 @@
+---
+d:
+    - &is_comment |-
+        # This is a comment
+        Everything written in it is completely ignored by the lua parser
+
+
+
+log:
+    content: log(60, "abc")
+    hints:
+    - range:
+          - 0
+          - 2
+      type: docs
+      name: log
+    - range:
+          - 4
+          - 5
+      type: primitive
+      name: number
+    - range:
+          - 8
+          - 12
+      type: primitive
+      name: string
+
+
+
+require:
+    content: local library = require("lib.parser") -- this will import a file
+    hints:
+    - range:
+          - 16
+          - 22
+      type: docs
+      name: require
+    - range:
+          - 24
+          - 35
+      type: primitive
+      name: string
+    - range:
+          - 38
+          - 63
+      type: inherent
+      name: *is_comment
+
+
+
+Page.getAction:
+    content: local action = myPage:getAction(1)
+    hints: []
+
+
+
+ClickAction.onRightClick:
+    content: |-
+      action:onRightClick(function()
+          log("Heheh I got Right Clicked!")
+      end)
+    hints: []
