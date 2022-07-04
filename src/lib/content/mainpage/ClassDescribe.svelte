@@ -9,6 +9,7 @@ import Background from "./Background.svelte";
 import MethodDescribe from "./MethodDescribe.svelte";
 import FieldDescribe from "./FieldDescribe.svelte";
 import Highlight from "$lib/highlighter/Highlight.svelte";
+import Code from "$lib/Code.svelte";
     export let klass: Class;
 
     export let forceSmall: boolean = false;
@@ -19,7 +20,7 @@ import Highlight from "$lib/highlighter/Highlight.svelte";
 <Background forceFilled={forceSmall}>
     <StyledItem src={klass_src} href={base + "#" + klass.name} wrap="h1" color="dark" id={setId ? klass.name : null} style={klass.parent === undefined ? "" : "margin-bottom: 0px;"}>{klass.name}</StyledItem>
     {#if klass.parent !== undefined}
-        <p style:padding-bottom="5px" style:margin-top="0" style:margin-bottom="25px">subclasses <Highlight code={klass.parent} hoverHighlight={[{range: [0, klass.parent.length], type: "docs", name: klass.parent}]}></Highlight></p>
+        <p style:padding-bottom="5px" style:margin-top="0" style:margin-bottom="25px">subclasses <Code style="display: inline;"><Highlight code={klass.parent} hoverHighlight={[{range: [0, klass.parent.length], type: "docs", name: klass.parent}]}></Highlight></Code></p>
     {/if}
 </Background>
 

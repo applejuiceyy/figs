@@ -10,12 +10,25 @@ type ElementBinding = Binding<{x: number, y: number, ym: number, scale: number, 
 
 export function cheeseSvg(node: Element, shouldDo: boolean) {
     let data: ElementBinding [] = [];
+    let bounds = node.getBoundingClientRect();
 
     let sync = (svg: Element, data: ElementBinding) => {
+        console.log(bounds.top + data.data.y)
+        if (bounds.top + data.data.y < -data.data.scale * 100 || bounds.top + data.data.y > window.innerHeight + data.data.scale * 100) {
+            svg.remove();
+            return;
+        }
+
+        if (svg.parentElement === null) {
+            node.appendChild(svg);
+        }
+
         svg.setAttributeNS(null, "transform", `translate(${data.data.x},${data.data.y}) rotate(${data.data.angle}) scale(${data.data.scale}, ${data.data.scale})`);
     }
 
 	let execute = () => {
+        bounds = node.getBoundingClientRect();
+
         if(Math.random() > 0.99 && shouldDo) {
             let element = document.createElementNS(namespace, "image");
 

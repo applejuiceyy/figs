@@ -245,5 +245,11 @@ import HintOverlay from "$lib/highlighter/HintOverlay.svelte";
         overflow-x: hidden;
         overflow-y: auto;
         font-family: Roboto;
+
+        
+    }
+
+    :global(html) {
+        scroll-behavior: smooth;
     }
 </style>

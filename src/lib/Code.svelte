@@ -62,10 +62,12 @@
         digging = false;
         breakTimeout && clearTimeout(breakTimeout);
     }
+
+    export let style = "";
 </script>
 
 {#key gravityAction}
-    <code style:outline={gravityAction !== null && fell ? '1px solid black' : ''} style:margin={gravityAction !== null && fell ? '0' : ''} style:background-image={breaking === -1 ? "" : "url(" + breakStages["./resource/breaking/destroy_stage_" + breaking + ".png"].default + ")"} use:conditionalAction={{action: gravityAction, params: {active: true, shadowElement: true}, condition: gravityAction !== null && fell}}>
+    <code style={style} style:outline={gravityAction !== null && fell ? '1px solid black' : ''} style:margin={gravityAction !== null && fell ? '0' : ''} style:background-image={breaking === -1 ? "" : "url(" + breakStages["./resource/breaking/destroy_stage_" + breaking + ".png"].default + ")"} use:conditionalAction={{action: gravityAction, params: {active: true, shadowElement: true}, condition: gravityAction !== null && fell}}>
         <slot/>
 
         <button aria-hidden="true" on:mousedown={handleMouseDown} on:mouseup={handleMouseUp} on:mouseleave={handleMouseUp} class="hammer-button">
@@ -88,7 +90,7 @@
         border-radius: 5px;
         background-color: #eeeeee;
 
-        background-size: 10%;
+        background-size: 50px;
         background-position: 50% 50%;
 
         box-sizing: border-box;
@@ -100,6 +102,9 @@
         overflow-x: auto;
 
         word-wrap: normal;
+
+        image-rendering: crisp-edges;
+        background-blend-mode: screen;
     }
 
     .hammer-button {
