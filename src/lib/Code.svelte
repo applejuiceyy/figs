@@ -98,6 +98,8 @@
         position: relative;
 
         overflow-x: auto;
+
+        word-wrap: normal;
     }
 
     .hammer-button {

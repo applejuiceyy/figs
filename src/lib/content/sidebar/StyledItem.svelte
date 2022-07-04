@@ -7,6 +7,8 @@
     export let id: string | null = null;
 
     export let color: "light" | "dark" = "dark";
+
+    export let style = "";
 </script>
 
 <a id={id ?? ""} class:flex={wrap === null} href={href} class:dark={color === "dark"}>
@@ -14,7 +16,7 @@
         <img src={src} style:object-fit="contain" style:height="1em" style:width="auto" aria-hidden="true" alt=""/>
         <slot/>
     {:else}
-        <svelte:element this={wrap} class="flex">
+        <svelte:element this={wrap} class="flex" style={style}>
             <img src={src} style:object-fit="contain" style:height="1em" style:width="auto" aria-hidden="true" alt=""/><slot/>
         </svelte:element>
     {/if}

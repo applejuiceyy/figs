@@ -126,7 +126,7 @@ import type { SvelteComponent } from "svelte/internal";
         padding-bottom: 50px;
         background-color: black;
 
-        border-left: blue 5px solid;
+        border-left: purple 5px solid;
         border-radius: 5px;
 
         color: white;

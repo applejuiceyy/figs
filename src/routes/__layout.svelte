@@ -97,9 +97,15 @@ import HintOverlay from "$lib/highlighter/HintOverlay.svelte";
     }
 
     .category-inner {
-        height: 100%;
+        height: 100vh;
+        width: 250px;
         display: flex;
         flex-direction: column;
+
+        position: sticky;
+        top: 0;
+
+        overflow-y: auto;
     }
 
     .figura-background {
@@ -114,9 +120,10 @@ import HintOverlay from "$lib/highlighter/HintOverlay.svelte";
     .root {
         display: grid;
         grid-template-rows: min-content 1fr;
-        grid-template-columns: 200px 1fr;
+        grid-template-columns: 250px 1fr;
 
         min-height: 100vh;
+        width: calc(100vw - (100vw - 100%));
     }
 
     nav {
@@ -134,9 +141,11 @@ import HintOverlay from "$lib/highlighter/HintOverlay.svelte";
     }
 
     nav>* {
-        padding: 15px;
+        padding: 30px;
         text-decoration: none;
         color: white;
+        position: relative;
+        z-index: 1;
     }
 
     @keyframes brew {
@@ -161,6 +170,8 @@ import HintOverlay from "$lib/highlighter/HintOverlay.svelte";
 
         position: relative;
         isolation: isolate;
+
+        overflow: hidden;
     }
 
     .cheese-svg {
@@ -212,8 +223,20 @@ import HintOverlay from "$lib/highlighter/HintOverlay.svelte";
             border-radius: initial;
         }
 
-        .rounding-content-wrapper {
-            box-shadow: initial;
+        .category-inner {
+            width: auto;
+            position:initial;
+            top: 0;
+
+            overflow-y: visible;
+        }
+    }
+
+    @media (pointer: coarse) {
+        .category-inner :global(a) {
+            padding: 20px;
+            box-sizing: border-box;
+            outline: 1px #777777 solid;
         }
     }
 

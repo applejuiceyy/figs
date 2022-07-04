@@ -20,5 +20,5 @@ import { findFromQualifiedName, globalFunctions } from "$lib/docs/processor/proc
         <MethodDescribe hostClass={indexedDoc.klass} method={indexedDoc.value} forceSmall={true}/>
     {/if}
 {:else}
-    I don't know what this is
+    Not Found
 {/if}

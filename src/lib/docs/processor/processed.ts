@@ -30,7 +30,7 @@ export function getSupers(name: string): string[] {
 }
 
 export function searchInClass(klass: Class, name: string): {value: Method, type: "method"} | {value: Field, type: "field"} | null {
-    let method = globalFunctions.find(val => val.name === name);
+    let method = klass.methods.find(val => val.name === name);
 
     if (method !== undefined) {
         return {
@@ -39,7 +39,7 @@ export function searchInClass(klass: Class, name: string): {value: Method, type:
         }
     }
 
-    let variable = globalVariables.find(val => val.name === name);
+    let variable = klass.fields.find(val => val.name === name);
 
     if (variable !== undefined) {
         return {
@@ -74,7 +74,7 @@ export function findFromQualifiedName(name: string): {value: Method, type: "meth
         }
     }
     else if (name.split(".")[0] in relevantTypes) {
-        let res = searchInClass(relevantTypes[name.split(".")[1]], name.split(".")[1]);
+        let res = searchInClass(relevantTypes[name.split(".")[0]], name.split(".")[1]);
 
         if (res !== null) {
             return {
@@ -82,7 +82,7 @@ export function findFromQualifiedName(name: string): {value: Method, type: "meth
                 value: res.value,
                 // @ts-ignore
                 type: res.type,
-                klass: relevantTypes[name.split(".")[1]]
+                klass: relevantTypes[name.split(".")[0]]
             }
         }
     }

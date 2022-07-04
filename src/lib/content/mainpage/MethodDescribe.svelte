@@ -116,6 +116,7 @@ import { pickType } from "./typePicker";
     .code-example.filled {
         margin: 10px;
         padding: 10px;
+        overflow: hidden;
     }
 
     @media only screen and (min-width: 1000px) {

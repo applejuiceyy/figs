@@ -49,7 +49,7 @@
 
             <div class="code-example filled" style:margin-top="50px">
                 <Code>
-                    <Highlight code={field.name + ": " + field.type} hoverHighlight={[{range: [field.name.length + 2, field.name.length + 2 + field.type.length], type: pickType(field.type), name: field.type}]}></Highlight>
+                    <Highlight code={field.name + ": " + field.type} hoverHighlight={inlineTypeDocs ? [] : [{range: [field.name.length + 2, field.name.length + 2 + field.type.length], type: pickType(field.type), name: field.type}]}></Highlight>
                 </Code>
 
                 {#if inlineTypeDocs && field.type in types}
