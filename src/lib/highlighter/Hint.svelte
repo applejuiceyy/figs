@@ -44,4 +44,16 @@ import { writable, type Writable } from "svelte/store";
     .hint :global(.token) {
         text-decoration: underline dotted currentColor;
     }
+
+    @media (pointer: coarse) {
+        span {
+            position: relative;
+        }
+
+        span::before {
+            content: "";
+            position: absolute;
+            inset: -10px;
+        }
+    }
 </style>

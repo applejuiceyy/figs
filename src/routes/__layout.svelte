@@ -49,7 +49,7 @@ import HintOverlay from "$lib/highlighter/HintOverlay.svelte";
     <nav class:expanded class="figura-background">
         <a class="nav-item" href={base + "/"}>FIGS!!</a>
         <a class="nav-item expander" href="javascript:;" aria-label="Expand" on:click={()=>expanded = !expanded}>{expanded? "Hide Table" : "Show Table"}</a>
-        <a class="nav-item" href="javascript:;" style:margin-left="auto" on:click={()=>$stores.readerEnabled = !$stores.readerEnabled}>{$stores.readerEnabled ? "Disable" : "Enable"} Better Reader</a>
+        <a class="nav-item better-reader-button" href="javascript:;" style:margin-left="auto" on:click={()=>$stores.readerEnabled = !$stores.readerEnabled}>{$stores.readerEnabled ? "Disable" : "Enable"} Better Reader</a>
         <a class="nav-item" href="javascript:;"  on:click={increaseStamina} style:font-size={(Math.max(stamina, 10) - 9) + "em"} style:opacity="0.5">{version}</a>
     </nav>
 
@@ -141,11 +141,9 @@ import HintOverlay from "$lib/highlighter/HintOverlay.svelte";
     }
 
     nav>* {
-        padding: 30px;
+        padding: 10px;
         text-decoration: none;
         color: white;
-        position: relative;
-        z-index: 1;
     }
 
     @keyframes brew {
@@ -193,6 +191,7 @@ import HintOverlay from "$lib/highlighter/HintOverlay.svelte";
     @media only screen and (max-width: 800px) {
         .content {
             background-image: initial;
+            z-index: -1;
         }
 
         .expander {
@@ -251,5 +250,15 @@ import HintOverlay from "$lib/highlighter/HintOverlay.svelte";
 
     :global(html) {
         scroll-behavior: smooth;
+    }
+
+    @media (hover: none) {
+        .better-reader-button {
+            visibility: hidden;
+        }
+
+        nav>* {
+            padding: 20px;
+        }
     }
 </style>

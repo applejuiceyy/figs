@@ -40,6 +40,8 @@
         display: block;
 
         text-align: center;
+
+        font-weight: 800;
     }
 
     @media (prefers-color-scheme: dark) {

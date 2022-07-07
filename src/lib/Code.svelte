@@ -128,4 +128,11 @@
             color: white;
         }
     }
+
+    @media (pointer: coarse) {
+        code {
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+    }
 </style>

@@ -40,7 +40,7 @@
     }
 
     a {
-        color: white;
+        color: #eeeeee;
     }
 
     a.dark {
@@ -49,7 +49,7 @@
 
     @media (prefers-color-scheme: dark) {
         a.dark {
-            color: white;
+            color: #eeeeee;
         }
 
         a {
