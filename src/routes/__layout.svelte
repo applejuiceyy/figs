@@ -170,6 +170,8 @@ import HintOverlay from "$lib/highlighter/HintOverlay.svelte";
         isolation: isolate;
 
         overflow: hidden;
+
+        padding-bottom: 0;
     }
 
     .cheese-svg {

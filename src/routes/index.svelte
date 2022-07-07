@@ -4,6 +4,7 @@
     import ClassDescribe from '$lib/content/mainpage/ClassDescribe.svelte';
 import MethodDescribe from "$lib/content/mainpage/MethodDescribe.svelte";
 import FieldDescribe from '$lib/content/mainpage/FieldDescribe.svelte';
+import ImageFooter from '$lib/content/mainpage/ImageFooter.svelte';
 </script>
 
 <MetaTags title="FIGS!!!" description="The thingy applejuice made because they're bored!\n(Now Rewritten :flushed:)"/>
@@ -20,3 +21,5 @@ import FieldDescribe from '$lib/content/mainpage/FieldDescribe.svelte';
 {#each Object.entries(processed.relevantTypes) as [name, klass]}
     <ClassDescribe klass={klass}/>
 {/each}
+
+<ImageFooter/>
