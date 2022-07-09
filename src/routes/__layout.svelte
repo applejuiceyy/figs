@@ -193,7 +193,6 @@ import HintOverlay from "$lib/highlighter/HintOverlay.svelte";
     @media only screen and (max-width: 800px) {
         .content {
             background-image: initial;
-            z-index: -1;
         }
 
         .expander {
@@ -218,6 +217,7 @@ import HintOverlay from "$lib/highlighter/HintOverlay.svelte";
 
         nav {
             border-radius: 0 0 15px 15px;
+            z-index: 1;
         }
 
         nav.expanded {

@@ -15,12 +15,13 @@ import { writable, type Writable } from "svelte/store";
     let currentID: number | null = null;
     let span: HTMLSpanElement;
 
+
     function handleMouseOver() {
         if (currentID !== null) {
             handleMouseOut();
         }
 
-        currentID = new Date().getMilliseconds();
+        currentID = new Date().getUTCMilliseconds();
         $activePopups = [...$activePopups, {type, name, id: currentID, span}]
     }
 
@@ -30,12 +31,10 @@ import { writable, type Writable } from "svelte/store";
     }
 
     onDestroy(() => {
-        if (currentID !== null) {
-            handleMouseOut();
-        }
+        handleMouseOut();
     })
 
-    function noop(){}
+    function noop(){return}
 </script>
 
 <span bind:this={span} class="hint" on:mouseover={handleMouseOver} on:mouseout={handleMouseOut} on:blur={noop} on:focus={noop}><slot/></span>
@@ -43,17 +42,5 @@ import { writable, type Writable } from "svelte/store";
 <style>
     .hint :global(.token) {
         text-decoration: underline dotted currentColor;
-    }
-
-    @media (pointer: coarse) {
-        span {
-            position: relative;
-        }
-
-        span::before {
-            content: "";
-            position: absolute;
-            inset: -10px;
-        }
     }
 </style>

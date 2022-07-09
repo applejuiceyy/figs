@@ -13,13 +13,10 @@ import type { SvelteComponent } from "svelte/internal";
         popupComponents[chunks[chunks.length - 1].split(".")[0]] = val.default;
     })
 
-    console.log(popupComponents);
-
     let root: HTMLDivElement;
     let active = true;
 
     let scrollY: number;
-    let lastScrollY: number = 0;
 
     let popups = $activePopups;
 
@@ -34,52 +31,65 @@ import type { SvelteComponent } from "svelte/internal";
             root.style.left = "";
         }
         else {
-            let bottom = popups[0].span.getBoundingClientRect().bottom;
-            let left = popups[0].span.getBoundingClientRect().left;
+            
             root.style.transition = "top 0.2s cubic-bezier(0, 0.55, 0.45, 1) 0s, left 0.2s cubic-bezier(0, 0.55, 0.45, 1) 0s";
             root.style.display = "";
-            root.style.top = bottom + 10 + "px";
-            root.style.left = left + "px";
-            root.style.height = window.innerHeight - bottom - 10 + "px";
-            root.style.width = window.innerWidth - left - 40 + "px";
-
-            requestAnimationFrame(() => {
-                root.style.top = bottom + "px";
-            })
-
-            setTimeout(() => {
-                root.style.transition = "";
-            }, 200)
+            
+            reposition(10);
+            requestAnimationFrame(() => reposition());
         }
     }
 
     function updatePopups() {
         popups = $activePopups;
-        console.log(popups);
     }
 
     function getPopups() {
         return popups;
     }
 
+    function reposition(offsetY: number = 0) {
+        if (root === null || popups.length === 0) {
+            return;
+        }
+
+        let bottom = popups[0].span.getBoundingClientRect().bottom;
+        let left = popups[0].span.getBoundingClientRect().left;
+        left = Math.min(window.innerWidth - 300, left);
+        left = Math.max(10, left);
+
+        root.style.top = bottom + scrollY + offsetY + "px";
+        root.style.left = left + "px";
+        root.style.height = window.innerHeight - bottom - 10 + "px";
+        root.style.width = window.innerWidth - left - 40 + "px";
+    }
+
+    let updateTimeout: ReturnType<typeof setTimeout> | null = null;
+
     $: {
         if (!import.meta.env.SSR) {
-            setTimeout(() => {
+            if (updateTimeout !== null) {
+                clearTimeout(updateTimeout);
+            }
+
+            updateTimeout = setTimeout(() => {
                 $activePopups;
 
-                if (active || lastScrollY !== scrollY)
+                if (active)
                 {
-                    if (active) {
-                        updatePopups();
-                    }
-
+                    updatePopups();
                     doStuff();
-
-                    lastScrollY = scrollY;
 
                     active = active || getPopups().length == 0;
                 }
-            }, 1);
+            }, $activePopups.length === 0 ? 400 : 1);
+        }
+    }
+
+    $: {
+        if (!import.meta.env.SSR) {
+            scrollY;
+            reposition();
         }
     }
 </script>
@@ -99,7 +109,7 @@ import type { SvelteComponent } from "svelte/internal";
 
 <style>
     .hint-overlay {
-        position: fixed;
+        position: absolute;
 
         display: flex;
         flex-direction: column;
