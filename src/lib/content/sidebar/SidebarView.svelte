@@ -5,7 +5,13 @@
     import ClassViewer from "./ClassViewer.svelte";
     import StyledItem from "./StyledItem.svelte";
 
-    import klass_src from "$lib/resource/class.webp"
+    import klass_src from "$lib/resource/class.webp";
+    import type { Class } from "$lib/docs/rewrite_docs_typings";
+import { comparer } from "$lib/docs/processor/processed";
+
+    let sortedClasses: Class[];
+
+    $: sortedClasses = Object.values(processed.relevantTypes).sort(comparer);
 </script>
 
 <div class="sidebar-viewer">
@@ -18,8 +24,8 @@
     <span class="tab">Miscellaneous Types</span>
 
     <div class="fields-container">
-        {#each Object.entries(processed.relevantTypes) as [name, value]}
-            <StyledItem href={base + "#" + value.name} src={klass_src}>{name}</StyledItem>
+        {#each sortedClasses as value}
+            <StyledItem href={base + "#" + value.name} src={klass_src}>{value.name}</StyledItem>
         {/each}
     </div>
 </div>

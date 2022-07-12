@@ -17,15 +17,15 @@ globalVariables.forEach((variable: any) => delete relevantTypes[variable.type]);
 delete relevantTypes.globals;
 
 export function getSupers(name: string): string[] {
-    let klass = relevantTypes[name];
+    let klass = types[name];
     if (klass === undefined) {
-        return [name as string];
+        return [name];
     }
     if (klass.parent) {
         return [klass.name, ...getSupers(klass.parent)];
     }
     else {
-        return [];
+        return [name];
     }
 }
 
@@ -88,4 +88,33 @@ export function findFromQualifiedName(name: string): {value: Method, type: "meth
     }
 
     return null;
+}
+
+export function isFromSuperClass(hostClass: Class, method: Method) {
+    let supers = getSupers(hostClass.name);
+    supers.shift();
+
+    for (let i = 0; i < supers.length; i++) {
+        let klass = supers[i];
+
+        if (!(klass in types)) {
+            continue;
+        }
+
+        if (types[klass].methods.findIndex((val) => method.name === val.name) !== -1) {
+            return klass;
+        }
+    }
+
+    return null;
+}
+
+export function comparer(a: {name: string}, b: {name: string}) {
+    if (a.name < b.name) {
+        return -1;
+    }
+    if (a.name > b.name) {
+        return 1;
+    }
+    return 0;
 }

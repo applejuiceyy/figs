@@ -11,7 +11,7 @@
     import Highlight from "$lib/highlighter/Highlight.svelte";
     import Code from "$lib/Code.svelte";
     import type { Example, Hint } from "$lib/docs/examples_typings";
-    import { getSupers } from "$lib/docs/processor/processed";
+    import { getSupers, isFromSuperClass } from "$lib/docs/processor/processed";
 import { pickType } from "./typePicker";
 
     export let hostClass: Class;
@@ -31,7 +31,6 @@ import { pickType } from "./typePicker";
     function processOverload(overload: Parameter[], returns: string): [string, Hint[]] {
         let ret = "";
         let hints: Hint[] = [];
-
         let shouldUseColon = shouldShowClass && overload.length > 0 && (getSupers(hostClass.name).includes(overload[0].type) || overload[0].type === hostClass.name);
 
         if (shouldUseColon) {
@@ -78,13 +77,20 @@ import { pickType } from "./typePicker";
 
         return [ret, hints];
     }
+
+    let superclass = isFromSuperClass(hostClass, method);
 </script>
 
 <Background forceFilled={forceSmall}>
     <div class="method-root" class:force-small={forceSmall}>
-        <StyledItem src={method_src} href={base + "#" + qualifiedName} wrap="h1" color="dark" id={setId ? qualifiedName : null}>
-            {qualifiedName}
-        </StyledItem>
+        <div>
+            <StyledItem src={method_src} href={base + "#" + qualifiedName} wrap="h1" color="dark" id={setId ? qualifiedName : null} style={superclass === null ? "" : "margin-bottom: 0px;"}>
+                {qualifiedName}
+            </StyledItem>
+            {#if superclass !== null}
+            <p style:margin-left="5px" style:padding-bottom="5px" style:margin-top="0" style:margin-bottom="25px">Inherited from <Code style="display: inline;"><Highlight code={superclass} hoverHighlight={[{range: [0, superclass.length], type: "docs", name: superclass}]}></Highlight></Code></p>
+            {/if}
+        </div>
 
         <div class="code-example" class:filled={qualifiedName in examples} class:force-small={forceSmall}>
             {#if example !== null}
@@ -93,6 +99,7 @@ import { pickType } from "./typePicker";
         </div>
 
         <div style:margin="5px">
+
             <ChunkedText value={method.description}/>
 
             <div class="code-example filled" style:margin-top="50px">
