@@ -3,8 +3,12 @@ import type { Class, Field, Method } from "$lib/docs/rewrite_docs_typings";
 import type rewrite_docs_typings from "$lib/docs/rewrite_docs_typings";
 
 export let types: {[field: string]: rewrite_docs_typings.Class} = Object.create(null);
+export let enums: {[field: string]: rewrite_docs_typings.Enum} = Object.create(null);
 
-Object.values(docs).forEach(value => value.forEach(type => types[type.name] = type));
+docs.lists.forEach(e => enums[e.name] = e);
+
+
+Object.entries(docs).forEach(([category, value]) => category !== "lists" && value.forEach(type => types[type.name] = type as Class));
 
 export let globalType = types.globals;
 

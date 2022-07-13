@@ -13,6 +13,7 @@
     import type { Example, Hint } from "$lib/docs/examples_typings";
     import { getSupers, isFromSuperClass } from "$lib/docs/processor/processed";
 import { pickType } from "./typePicker";
+import DescribeRoot from "./DescribeRoot.svelte";
 
     export let hostClass: Class;
     export let method: Method;
@@ -82,7 +83,7 @@ import { pickType } from "./typePicker";
 </script>
 
 <Background forceFilled={forceSmall}>
-    <div class="method-root" class:force-small={forceSmall}>
+    <DescribeRoot forceSmall={forceSmall}>
         <div>
             <StyledItem src={method_src} href={base + "#" + qualifiedName} wrap="h1" color="dark" id={setId ? qualifiedName : null} style={superclass === null ? "" : "margin-bottom: 0px;"}>
                 {qualifiedName}
@@ -111,15 +112,10 @@ import { pickType } from "./typePicker";
                 {/each}
             </div>
         </div>
-    </div>
+    </DescribeRoot>
 </Background>
 
 <style>
-    .method-root {
-        padding: 10px;
-        margin-bottom: 10px;
-    }
-
     .code-example.filled {
         margin: 10px;
         padding: 10px;
@@ -127,12 +123,6 @@ import { pickType } from "./typePicker";
     }
 
     @media only screen and (min-width: 1000px) {
-        .method-root:not(.force-small) {
-            display: grid;
-            grid-template-columns: calc(50% - 5px) 50%;
-            padding-right: 0px;
-        }
-
         .code-example.filled:not(.force-small)  {
             margin: 0px;
             padding: 0px;

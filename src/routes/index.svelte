@@ -5,16 +5,19 @@
     import MethodDescribe from "$lib/content/mainpage/MethodDescribe.svelte";
     import FieldDescribe from '$lib/content/mainpage/FieldDescribe.svelte';
     import ImageFooter from '$lib/content/mainpage/ImageFooter.svelte';
-    import type { Class, Field, Method } from '$lib/docs/rewrite_docs_typings';
+    import type { Class, Enum, Field, Method } from '$lib/docs/rewrite_docs_typings';
     import { comparer } from '$lib/docs/processor/processed';
+import EnumDescribe from '$lib/content/mainpage/EnumDescribe.svelte';
 
     let sortedMethods: Method[];
     let sortedFields: Field[];
     let sortedClasses: Class[];
+    let sortedEnums: Enum[];
 
     $: sortedMethods = processed.globalFunctions.sort(comparer);
     $: sortedFields = processed.globalVariables.sort(comparer);
     $: sortedClasses = Object.values(processed.relevantTypes).sort(comparer);
+    $: sortedEnums = Object.values(processed.enums).sort(comparer);
 </script>
 
 <MetaTags title="FIGS!!!" description="The thingy applejuice made because they're bored!\n(Now Rewritten :flushed:)"/>
@@ -30,6 +33,11 @@
 
 {#each sortedClasses as klass}
     <ClassDescribe klass={klass}/>
+{/each}
+
+<div style:margin-top="100px"></div>
+{#each sortedEnums as enum_}
+    <EnumDescribe enum_={enum_}/>
 {/each}
 
 <ImageFooter/>

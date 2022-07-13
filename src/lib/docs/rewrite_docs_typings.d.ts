@@ -1,5 +1,6 @@
 export interface Docs {
     [category: string]: Class[];
+    lists: Enum[]
 }
 export interface Class {
     name: string;
@@ -27,4 +28,10 @@ export interface Field {
 export interface Parameter {
     name: string;
     type: string;
+}
+
+export interface Enum {
+    name: string,
+    description: string,
+    entries: string[]
 }
