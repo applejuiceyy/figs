@@ -9,7 +9,7 @@
     import stores from "$lib/state/stores";
     import SidebarView from "$lib/content/sidebar/SidebarView.svelte";
 
-import HintOverlay from "$lib/highlighter/HintOverlay.svelte";
+    import HintOverlay from "$lib/highlighter/HintOverlay.svelte";
 
     let interv: any = null;
 
@@ -43,6 +43,9 @@ import HintOverlay from "$lib/highlighter/HintOverlay.svelte";
     let staminaMomentum: number = 0;
 
     let expanded: boolean = false;
+
+    let hashedNavigation: boolean;
+    $: hashedNavigation = ($page.stuff as {navigation: string}).navigation === "hashed";
 </script>
 
 <div class="root">
@@ -55,7 +58,9 @@ import HintOverlay from "$lib/highlighter/HintOverlay.svelte";
 
     <div class="category figura-background" class:expanded>
         <div class="category-inner">
-            <SidebarView/>
+
+
+            <SidebarView everything={hashedNavigation} path={hashedNavigation ? '/all#' : '/'}/>
 
             <footer>
                 Made by applejuice

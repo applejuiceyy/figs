@@ -25,10 +25,6 @@ const config = {
 
 			plugins: [ViteYaml()]
 		},
-
-		browser: {
-			router: false
-		}
 	},
 };
 

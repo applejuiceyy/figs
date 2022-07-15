@@ -80,12 +80,14 @@ import DescribeRoot from "./DescribeRoot.svelte";
     }
 
     let superclass = isFromSuperClass(hostClass, method);
+
+    export let path: string;
 </script>
 
 <Background forceFilled={forceSmall}>
     <DescribeRoot forceSmall={forceSmall}>
         <div>
-            <StyledItem src={method_src} href={base + "#" + qualifiedName} wrap="h1" color="dark" id={setId ? qualifiedName : null} style={superclass === null ? "" : "margin-bottom: 0px;"}>
+            <StyledItem src={method_src} href={base + path + qualifiedName} wrap="h1" color="dark" id={setId ? qualifiedName : null} style={superclass === null ? "" : "margin-bottom: 0px;"}>
                 {qualifiedName}
             </StyledItem>
             {#if superclass !== null}

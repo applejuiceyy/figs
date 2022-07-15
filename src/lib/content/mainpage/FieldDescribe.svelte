@@ -31,11 +31,13 @@ import DescribeRoot from "./DescribeRoot.svelte";
 
     // @ts-ignore
     $: example = qualifiedName in examples ? examples[qualifiedName] : null;
+
+    export let path: string;
 </script>
 
 <Background forceFilled={forceSmall}>
     <DescribeRoot forceSmall={forceSmall}>
-        <StyledItem src={field_src} href={base + "#" + qualifiedName} wrap="h1" color="dark" id={setId ? qualifiedName : null}>
+        <StyledItem src={field_src} href={base + path + qualifiedName} wrap="h1" color="dark" id={setId ? qualifiedName : null}>
             {qualifiedName}
         </StyledItem>
 
@@ -57,11 +59,11 @@ import DescribeRoot from "./DescribeRoot.svelte";
                     {@const v = types[field.type]}
                     <div style:outline="2px #777777 solid" style:border-radius="5px" style:margin-right="5px">
                         {#each Object.entries(v.methods) as [name, func]}
-                            <MethodDescribe method={func} hostClass={v} forceSmall={true}/>
+                            <MethodDescribe method={func} hostClass={v} forceSmall={true} path={path}/>
                         {/each}
                         
                         {#each Object.entries(v.fields) as [name, var_]}
-                            <svelte:self field={var_} hostClass={v} forceSmall={true}/>
+                            <svelte:self field={var_} hostClass={v} forceSmall={true} path={path}/>
                         {/each}
                     </div>
                 {/if}

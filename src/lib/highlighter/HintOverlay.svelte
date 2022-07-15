@@ -53,6 +53,10 @@ import type { SvelteComponent } from "svelte/internal";
             return;
         }
 
+        if (popups[0].span.parentElement === null) {
+            return;
+        }
+
         let bottom = popups[0].span.getBoundingClientRect().bottom;
         let left = popups[0].span.getBoundingClientRect().left;
         left = Math.min(window.innerWidth - 300, left);
@@ -82,7 +86,7 @@ import type { SvelteComponent } from "svelte/internal";
 
                     active = active || getPopups().length == 0;
                 }
-            }, $activePopups.length === 0 ? 400 : 1);
+            }, $activePopups.length === 0 ? 100 : 1);
         }
     }
 

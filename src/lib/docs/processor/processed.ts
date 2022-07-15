@@ -1,5 +1,5 @@
 import docs from "$lib/docs/rewrite_docs.json";
-import type { Class, Field, Method } from "$lib/docs/rewrite_docs_typings";
+import type { Class, Enum, Field, Method } from "$lib/docs/rewrite_docs_typings";
 import type rewrite_docs_typings from "$lib/docs/rewrite_docs_typings";
 
 export let types: {[field: string]: rewrite_docs_typings.Class} = Object.create(null);
@@ -55,7 +55,7 @@ export function searchInClass(klass: Class, name: string): {value: Method, type:
     return null;
 }
 
-export function findFromQualifiedName(name: string): {value: Method, type: "method", klass: Class} | {value: Field, type: "field", klass: Class} | {value: Class, type: "class"} | null {
+export function findFromQualifiedName(name: string): {value: Method, type: "method", klass: Class} | {value: Field, type: "field", klass: Class} | {value: Class, type: "class"} | {value: Enum, type: "enum"}  | null {
     if (name.indexOf(".") === -1) {
         let res = searchInClass(globalType, name);
 
@@ -70,15 +70,22 @@ export function findFromQualifiedName(name: string): {value: Method, type: "meth
             }
         }
 
-        if (name in relevantTypes) {
+        if (name in types) {
             return {
-                value: relevantTypes[name],
+                value: types[name],
                 type: "class"
             }
         }
+
+        if (name in enums) {
+            return {
+                value: enums[name],
+                type: "enum"
+            }
+        }
     }
-    else if (name.split(".")[0] in relevantTypes) {
-        let res = searchInClass(relevantTypes[name.split(".")[0]], name.split(".")[1]);
+    else if (name.split(".")[0] in types) {
+        let res = searchInClass(types[name.split(".")[0]], name.split(".")[1]);
 
         if (res !== null) {
             return {
@@ -86,7 +93,7 @@ export function findFromQualifiedName(name: string): {value: Method, type: "meth
                 value: res.value,
                 // @ts-ignore
                 type: res.type,
-                klass: relevantTypes[name.split(".")[0]]
+                klass: types[name.split(".")[0]]
             }
         }
     }

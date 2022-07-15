@@ -13,11 +13,13 @@ import DescribeRoot from "./DescribeRoot.svelte";
     export let enum_: Enum;
     export let forceSmall: boolean = false;
     export let setId: boolean = true;
+
+    export let path: string;
 </script>
 
 <Background forceFilled={forceSmall}>
     <DescribeRoot forceSmall={forceSmall}>
-        <StyledItem src={klass_src} href={base + "#" + enum_.name} wrap="h1" color="dark" id={setId ? enum_.name : null}>{enum_.name}</StyledItem>
+        <StyledItem src={klass_src} href={base + path + enum_.name} wrap="h1" color="dark" id={setId ? enum_.name : null}>{enum_.name}</StyledItem>
         
         <div></div>
 

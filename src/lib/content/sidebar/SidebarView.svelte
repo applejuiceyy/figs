@@ -7,27 +7,39 @@
 
     import klass_src from "$lib/resource/class.webp";
     import type { Class, Enum } from "$lib/docs/rewrite_docs_typings";
-import { comparer } from "$lib/docs/processor/processed";
+    import { comparer } from "$lib/docs/processor/processed";
 
     let sortedClasses: Class[];
     let sortedEnums: Enum[];
 
     $: sortedClasses = Object.values(processed.relevantTypes).sort(comparer);
     $: sortedEnums = Object.values(processed.enums).sort(comparer);
+
+    export let path: string;
+    export let everything: boolean;
+
 </script>
 
 <div class="sidebar-viewer">
+    <div class="fields-container">
+        {#if everything}
+            <StyledItem href={base} src={klass_src}>Show not everything</StyledItem>
+        {:else}
+            <StyledItem href="{base}/all" src={klass_src}>Show everything</StyledItem>
+        {/if}
+    </div>
+
     <span class="tab">Global Objects</span>
 
     <div class="fields-container">
-        <ClassViewer klass={processed.globalType}/>
+        <ClassViewer klass={processed.globalType} path={path}/>
     </div>
 
     <span class="tab">Miscellaneous Types</span>
 
     <div class="fields-container">
         {#each sortedClasses as value}
-            <StyledItem href={base + "#" + value.name} src={klass_src}>{value.name}</StyledItem>
+            <StyledItem href={base + path + value.name} src={klass_src}>{value.name}</StyledItem>
         {/each}
     </div>
 
@@ -35,7 +47,7 @@ import { comparer } from "$lib/docs/processor/processed";
 
     <div class="fields-container">
         {#each sortedEnums as value}
-            <StyledItem href={base + "#" + value.name} src={klass_src}>{value.name}</StyledItem>
+            <StyledItem href={base + path + value.name} src={klass_src}>{value.name}</StyledItem>
         {/each}
     </div>
 </div>
