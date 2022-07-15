@@ -24,8 +24,11 @@ import DescribeRoot from "./DescribeRoot.svelte";
     export let field: Field;
     export let inlineTypeDocs: boolean = false;
 
-    let shouldShowClass = hostClass.name !== "globals";
-    let qualifiedName = (shouldShowClass? hostClass.name + "." : "") + field.name;
+    let shouldShowClass: boolean;
+    let qualifiedName: string;
+
+    $: shouldShowClass = hostClass.name !== "globals";
+    $: qualifiedName = (shouldShowClass? hostClass.name + "." : "") + field.name;
 
     let example: Example;
 

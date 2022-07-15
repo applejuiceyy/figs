@@ -21,13 +21,15 @@ import DescribeRoot from "./DescribeRoot.svelte";
     export let forceSmall: boolean = false;
     export let setId: boolean = true;
 
-    let shouldShowClass = hostClass.name !== "globals";
-    let qualifiedName = (shouldShowClass? hostClass.name + "." : "") + method.name;
+    let shouldShowClass: boolean;
+    let qualifiedName: string;
 
     let example: Example;
 
     // @ts-ignore: keeps erroring for some reason and I don't wanna deal with it
     $: example = qualifiedName in examples ? examples[qualifiedName] : null;
+    $: shouldShowClass = hostClass.name !== "globals";
+    $: qualifiedName = (shouldShowClass? hostClass.name + "." : "") + method.name;
 
     function processOverload(overload: Parameter[], returns: string): [string, Hint[]] {
         let ret = "";
@@ -79,8 +81,10 @@ import DescribeRoot from "./DescribeRoot.svelte";
         return [ret, hints];
     }
 
-    let superclass = isFromSuperClass(hostClass, method);
+    let superclass: string | null;
 
+    $: superclass = isFromSuperClass(hostClass, method);
+    
     export let path: string;
 </script>
 
