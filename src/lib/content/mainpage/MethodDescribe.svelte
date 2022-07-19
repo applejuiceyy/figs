@@ -89,7 +89,7 @@ import DescribeRoot from "./DescribeRoot.svelte";
 </script>
 
 <Background forceFilled={forceSmall}>
-    <DescribeRoot forceSmall={forceSmall}>
+    <DescribeRoot forceSmall={forceSmall} favouriteId={qualifiedName}>
         <div>
             <StyledItem src={method_src} href={base + path + qualifiedName} wrap="h1" color="dark" id={setId ? qualifiedName : null} style={superclass === null ? "" : "margin-bottom: 0px;"}>
                 {qualifiedName}

@@ -13,7 +13,6 @@ export function cheeseSvg(node: Element, shouldDo: boolean) {
     let bounds = node.getBoundingClientRect();
 
     let sync = (svg: Element, data: ElementBinding) => {
-        console.log(bounds.top + data.data.y)
         if (bounds.top + data.data.y < -data.data.scale * 100 || bounds.top + data.data.y > window.innerHeight + data.data.scale * 100) {
             svg.remove();
             return;

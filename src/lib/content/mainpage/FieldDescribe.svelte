@@ -39,7 +39,7 @@ import DescribeRoot from "./DescribeRoot.svelte";
 </script>
 
 <Background forceFilled={forceSmall}>
-    <DescribeRoot forceSmall={forceSmall}>
+    <DescribeRoot forceSmall={forceSmall} favouriteId={qualifiedName}>
         <StyledItem src={field_src} href={base + path + qualifiedName} wrap="h1" color="dark" id={setId ? qualifiedName : null}>
             {qualifiedName}
         </StyledItem>

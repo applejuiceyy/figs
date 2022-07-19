@@ -51,6 +51,7 @@
 <div class="root">
     <nav class:expanded class="figura-background">
         <a class="nav-item" href={base + "/"}>FIGS!!</a>
+        <a class="nav-item" href={base + "/fav"}>Favourites</a>
         <a class="nav-item expander" href="javascript:;" aria-label="Expand" on:click={()=>expanded = !expanded}>{expanded? "Hide Table" : "Show Table"}</a>
         <a class="nav-item better-reader-button" href="javascript:;" style:margin-left="auto" on:click={()=>$stores.readerEnabled = !$stores.readerEnabled}>{$stores.readerEnabled ? "Disable" : "Enable"} Better Reader</a>
         <a class="nav-item" href="javascript:;"  on:click={increaseStamina} style:font-size={(Math.max(stamina, 10) - 9) + "em"} style:opacity="0.5">{version}</a>
