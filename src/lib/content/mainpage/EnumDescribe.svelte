@@ -9,6 +9,7 @@ import Code from "$lib/Code.svelte";
     import StyledItem from "../sidebar/StyledItem.svelte";
     import Background from "./Background.svelte";
 import DescribeRoot from "./DescribeRoot.svelte";
+import StarToggle from "./StarToggle.svelte";
 
     export let enum_: Enum;
     export let forceSmall: boolean = false;
@@ -21,6 +22,8 @@ import DescribeRoot from "./DescribeRoot.svelte";
     <DescribeRoot forceSmall={forceSmall}>
         <StyledItem src={klass_src} href={base + path + enum_.name} wrap="h1" color="dark" id={setId ? enum_.name : null}>{enum_.name}</StyledItem>
         
+        <StarToggle favouriteId={enum_.name} forceSmall={forceSmall}/>
+
         <div></div>
 
         <div style:margin="5px">

@@ -14,6 +14,7 @@
     import { getSupers, isFromSuperClass } from "$lib/docs/processor/processed";
 import { pickType } from "./typePicker";
 import DescribeRoot from "./DescribeRoot.svelte";
+import StarToggle from "./StarToggle.svelte";
 
     export let hostClass: Class;
     export let method: Method;
@@ -89,7 +90,7 @@ import DescribeRoot from "./DescribeRoot.svelte";
 </script>
 
 <Background forceFilled={forceSmall}>
-    <DescribeRoot forceSmall={forceSmall} favouriteId={qualifiedName}>
+    <DescribeRoot forceSmall={forceSmall}>
         <div>
             <StyledItem src={method_src} href={base + path + qualifiedName} wrap="h1" color="dark" id={setId ? qualifiedName : null} style={superclass === null ? "" : "margin-bottom: 0px;"}>
                 {qualifiedName}
@@ -98,6 +99,8 @@ import DescribeRoot from "./DescribeRoot.svelte";
             <p style:margin-left="5px" style:padding-bottom="5px" style:margin-top="0" style:margin-bottom="25px">Inherited from <Code style="display: inline;"><Highlight code={superclass} hoverHighlight={[{range: [0, superclass.length], type: "docs", name: superclass}]}></Highlight></Code></p>
             {/if}
         </div>
+
+        <StarToggle favouriteId={qualifiedName} forceSmall={forceSmall}/>
 
         <div class="code-example" class:filled={qualifiedName in examples} class:force-small={forceSmall}>
             {#if example !== null}

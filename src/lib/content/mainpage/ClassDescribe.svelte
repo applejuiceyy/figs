@@ -10,6 +10,9 @@ import MethodDescribe from "./MethodDescribe.svelte";
 import FieldDescribe from "./FieldDescribe.svelte";
 import Highlight from "$lib/highlighter/Highlight.svelte";
 import Code from "$lib/Code.svelte";
+import DescribeRoot from "./DescribeRoot.svelte";
+import ChunkedText from "$lib/ChunkedText.svelte";
+import StarToggle from "./StarToggle.svelte";
     export let klass: Class;
 
     export let forceSmall: boolean = false;
@@ -20,10 +23,22 @@ import Code from "$lib/Code.svelte";
 
 <div style:margin-top="100px"></div>
 <Background forceFilled={forceSmall}>
-    <StyledItem src={klass_src} href={base + path + klass.name} wrap="h1" color="dark" id={setId ? klass.name : null} style={klass.parent === undefined ? "" : "margin-bottom: 0px;"}>{klass.name}</StyledItem>
-    {#if klass.parent !== undefined}
-        <p style:padding-bottom="5px" style:margin-top="0" style:margin-bottom="25px">subclasses <Code style="display: inline;"><Highlight code={klass.parent} hoverHighlight={[{range: [0, klass.parent.length], type: "docs", name: klass.parent}]}></Highlight></Code></p>
-    {/if}
+    <DescribeRoot forceSmall={forceSmall}>
+        <div>
+            <StyledItem src={klass_src} href={base + path + klass.name} wrap="h1" color="dark" id={setId ? klass.name : null} style={klass.parent === undefined ? "" : "margin-bottom: 0px;"}>{klass.name}</StyledItem>
+            {#if klass.parent !== undefined}
+                <p style:padding-bottom="5px" style:margin-top="0" style:margin-bottom="25px">subclasses <Code style="display: inline;"><Highlight code={klass.parent} hoverHighlight={[{range: [0, klass.parent.length], type: "docs", name: klass.parent}]}></Highlight></Code></p>
+            {/if}
+        </div>
+
+        <StarToggle favouriteId={klass.name} forceSmall={forceSmall}/>
+
+        <div></div>
+        
+        <div style:margin="5px">
+            <ChunkedText value={klass.description}/>
+        </div>
+    </DescribeRoot>
 </Background>
 
 {#each klass.methods as method}

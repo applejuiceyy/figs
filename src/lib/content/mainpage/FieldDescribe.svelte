@@ -16,6 +16,7 @@
     import MethodDescribe from "./MethodDescribe.svelte";
     import { pickType } from "./typePicker";
 import DescribeRoot from "./DescribeRoot.svelte";
+import StarToggle from "./StarToggle.svelte";
 
     export let forceSmall: boolean = false;
     export let setId: boolean = true;
@@ -39,10 +40,12 @@ import DescribeRoot from "./DescribeRoot.svelte";
 </script>
 
 <Background forceFilled={forceSmall}>
-    <DescribeRoot forceSmall={forceSmall} favouriteId={qualifiedName}>
+    <DescribeRoot forceSmall={forceSmall}>
         <StyledItem src={field_src} href={base + path + qualifiedName} wrap="h1" color="dark" id={setId ? qualifiedName : null}>
             {qualifiedName}
         </StyledItem>
+                
+        <StarToggle favouriteId={qualifiedName} forceSmall={forceSmall}/>
 
         <div class="code-example" class:filled={qualifiedName in examples} class:force-small={forceSmall}>
             {#if example !== null}
