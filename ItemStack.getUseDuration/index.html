@@ -6,16 +6,17 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta http-equiv="content-security-policy" content=""><title>getUseDuration</title><meta name="robots" content="index,follow" data-svelte="svelte-1v2a5gq"><meta name="googlebot" content="index,follow" data-svelte="svelte-1v2a5gq"><meta name="description" content="Gets the number of ticks needed to &quot;use&quot; this item. Currently only has a use for food items. Always 32 for food items except kelp, which is 16." data-svelte="svelte-1v2a5gq">
 	<link rel="stylesheet" href="/figs/_app/assets/pages/__layout.svelte-e1d5d126.css">
-	<link rel="stylesheet" href="/figs/_app/assets/ClassDescribe-3a863179.css">
-	<link rel="stylesheet" href="/figs/_app/assets/MetaTags-8b1c78fe.css">
-	<link rel="modulepreload" href="/figs/_app/start-adbe5f79.js">
-	<link rel="modulepreload" href="/figs/_app/chunks/index-ae975e2a.js">
-	<link rel="modulepreload" href="/figs/_app/chunks/preload-helper-3f0961f0.js">
-	<link rel="modulepreload" href="/figs/_app/pages/__layout.svelte-4ab75e05.js">
-	<link rel="modulepreload" href="/figs/_app/chunks/svgNamespace-ebff0b03.js">
-	<link rel="modulepreload" href="/figs/_app/chunks/ClassDescribe-4e887482.js">
-	<link rel="modulepreload" href="/figs/_app/pages/_location_.svelte-4cf5fac8.js">
-	<link rel="modulepreload" href="/figs/_app/chunks/MetaTags-5922f937.js">
+	<link rel="stylesheet" href="/figs/_app/assets/ClassDescribe-e98a078b.css">
+	<link rel="stylesheet" href="/figs/_app/assets/EnumDescribe-669a8967.css">
+	<link rel="modulepreload" href="/figs/_app/start-13c85c11.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/index-4c83912a.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/preload-helper-94699599.js">
+	<link rel="modulepreload" href="/figs/_app/pages/__layout.svelte-1456afbf.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/ClassDescribe-be7a8da4.js">
+	<link rel="modulepreload" href="/figs/_app/pages/_location_.svelte-d478ecc4.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/MetaTags-b3aacbef.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/DescribeAny-bdd7641f.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/EnumDescribe-af5958b0.js">
 				<script>
 		if ('serviceWorker' in navigator) {
 			navigator.serviceWorker.register('/figs/service-worker.js');
@@ -27,6 +28,7 @@
 
 
 <div class="root svelte-518g4d"><nav class="figura-background svelte-518g4d"><a class="nav-item svelte-518g4d" href="/figs/">FIGS!!</a>
+        <a class="nav-item svelte-518g4d" href="/figs/fav">Favourites</a>
         <a class="nav-item expander svelte-518g4d" href="javascript:;" aria-label="Expand">Show Table</a>
         <a class="nav-item better-reader-button svelte-518g4d" href="javascript:;" style="margin-left: auto;">Enable Better Reader</a>
         <a class="nav-item svelte-518g4d" href="javascript:;" style="font-size: 1em; opacity: 0.5;">Pre-5</a></nav>
@@ -183,7 +185,13 @@
 
     <div class="content svelte-518g4d">
 
-<div class="partial-background svelte-129d3dw"><div class="method-root svelte-19p6c4d"><div><a id="" href="/figs/ItemStack.getUseDuration" class="svelte-yl6yu4  dark"><h1 class="flex svelte-yl6yu4" style=""><img src="data:image/webp;base64,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" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">ItemStack.getUseDuration</h1>
+
+<div class="partial-background svelte-129d3dw"><div class="method-root svelte-1h2on4"><button class="favourite-button svelte-1h2on4"><div class="svg-wrapper svelte-1g0zyqa"><img src="/figs/_app/assets/unlit_star-44b7d610.svg" aria-hidden="true" alt="">
+
+    <img class="posrel svelte-1g0zyqa" src="/figs/_app/assets/star-150d3691.svg" aria-hidden="true" alt="">
+        <svg class="posrel svelte-1g0zyqa" width="100%" height="100%"></svg>
+</div></button>
+    <div><a id="" href="/figs/ItemStack.getUseDuration" class="svelte-yl6yu4  dark"><h1 class="flex svelte-yl6yu4" style=""><img src="data:image/webp;base64,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" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">ItemStack.getUseDuration</h1>
 </a>
             </div>
 
@@ -213,10 +221,10 @@
 
 
 
-		<script type="module" data-hydrate="1eu8unr">
-		import { start } from "/figs/_app/start-adbe5f79.js";
+		<script type="module" data-hydrate="1jz4j81">
+		import { start } from "/figs/_app/start-13c85c11.js";
 		start({
-			target: document.querySelector('[data-hydrate="1eu8unr"]').parentNode,
+			target: document.querySelector('[data-hydrate="1jz4j81"]').parentNode,
 			paths: {"base":"/figs","assets":"/figs"},
 			session: {},
 			route: true,
@@ -226,8 +234,8 @@
 				status: 200,
 				error: null,
 				nodes: [
-					import("/figs/_app/pages/__layout.svelte-4ab75e05.js"),
-						import("/figs/_app/pages/_location_.svelte-4cf5fac8.js")
+					import("/figs/_app/pages/__layout.svelte-1456afbf.js"),
+						import("/figs/_app/pages/_location_.svelte-d478ecc4.js")
 				],
 				params: {location:"ItemStack.getUseDuration"},
 				routeId: "[location]"

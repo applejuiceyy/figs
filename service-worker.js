@@ -1,17 +1,18 @@
 const build = [
-  "/figs/_app/start-adbe5f79.js",
-  "/figs/_app/pages/__layout.svelte-4ab75e05.js",
+  "/figs/_app/start-13c85c11.js",
+  "/figs/_app/pages/__layout.svelte-1456afbf.js",
   "/figs/_app/assets/pages/__layout.svelte-e1d5d126.css",
   "/figs/_app/assets/cheese-9bdf176f.png",
-  "/figs/_app/error.svelte-238fe5f7.js",
-  "/figs/_app/pages/_location_.svelte-4cf5fac8.js",
-  "/figs/_app/pages/all.svelte-b7b23d69.js",
+  "/figs/_app/error.svelte-8801cf6d.js",
+  "/figs/_app/pages/_location_.svelte-d478ecc4.js",
+  "/figs/_app/pages/all.svelte-d7b69c59.js",
   "/figs/_app/assets/pages/all.svelte-54be8d37.css",
-  "/figs/_app/pages/index.svelte-2e3ce4f0.js",
-  "/figs/_app/chunks/index-ae975e2a.js",
-  "/figs/_app/chunks/preload-helper-3f0961f0.js",
-  "/figs/_app/chunks/ClassDescribe-4e887482.js",
-  "/figs/_app/assets/ClassDescribe-3a863179.css",
+  "/figs/_app/pages/fav.svelte-40b1dc62.js",
+  "/figs/_app/pages/index.svelte-9fbd1619.js",
+  "/figs/_app/chunks/index-4c83912a.js",
+  "/figs/_app/chunks/preload-helper-94699599.js",
+  "/figs/_app/chunks/ClassDescribe-be7a8da4.js",
+  "/figs/_app/assets/ClassDescribe-e98a078b.css",
   "/figs/_app/assets/stone1-97f2a8a7.ogg",
   "/figs/_app/assets/stone2-98a5c319.ogg",
   "/figs/_app/assets/stone3-19273f0e.ogg",
@@ -23,10 +24,13 @@ const build = [
   "/figs/_app/assets/stone5-67b1e504.ogg",
   "/figs/_app/assets/stone6-2b65e1bd.ogg",
   "/figs/_app/assets/hammer-ccd8d2cd.svg",
-  "/figs/_app/chunks/svgNamespace-ebff0b03.js",
-  "/figs/_app/chunks/MetaTags-5922f937.js",
-  "/figs/_app/assets/MetaTags-8b1c78fe.css",
-  "/figs/_app/chunks/gravity-c9d25db8.js"
+  "/figs/_app/assets/unlit_star-44b7d610.svg",
+  "/figs/_app/assets/star-150d3691.svg",
+  "/figs/_app/chunks/MetaTags-b3aacbef.js",
+  "/figs/_app/chunks/DescribeAny-bdd7641f.js",
+  "/figs/_app/chunks/EnumDescribe-af5958b0.js",
+  "/figs/_app/assets/EnumDescribe-669a8967.css",
+  "/figs/_app/chunks/gravity-f2a2457e.js"
 ];
 const files = [
   "/figs/favicon.png"
@@ -34,6 +38,7 @@ const files = [
 const prerendered = [
   "/figs/",
   "/figs/all/",
+  "/figs/fav/",
   "/figs/log/",
   "/figs/logJson/",
   "/figs/logTable/",
@@ -793,7 +798,7 @@ const prerendered = [
   "/figs/math.lerpAngle/",
   "/figs/math.shortAngle/"
 ];
-const version = "1658240893894";
+const version = "1658255323261";
 const worker = self;
 const CACHE_NAME = `A;static-cache-${version}`;
 const to_cache = build.concat(files).concat(prerendered);
