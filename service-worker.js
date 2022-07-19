@@ -1,18 +1,18 @@
 const build = [
-  "/figs/_app/start-13c85c11.js",
-  "/figs/_app/pages/__layout.svelte-1456afbf.js",
+  "/figs/_app/start-a19adb14.js",
+  "/figs/_app/pages/__layout.svelte-6bea1926.js",
   "/figs/_app/assets/pages/__layout.svelte-e1d5d126.css",
   "/figs/_app/assets/cheese-9bdf176f.png",
   "/figs/_app/error.svelte-8801cf6d.js",
-  "/figs/_app/pages/_location_.svelte-d478ecc4.js",
-  "/figs/_app/pages/all.svelte-d7b69c59.js",
+  "/figs/_app/pages/_location_.svelte-b0b4015f.js",
+  "/figs/_app/pages/all.svelte-4dd8e894.js",
   "/figs/_app/assets/pages/all.svelte-54be8d37.css",
-  "/figs/_app/pages/fav.svelte-40b1dc62.js",
+  "/figs/_app/pages/fav.svelte-a2d64de7.js",
   "/figs/_app/pages/index.svelte-9fbd1619.js",
   "/figs/_app/chunks/index-4c83912a.js",
   "/figs/_app/chunks/preload-helper-94699599.js",
-  "/figs/_app/chunks/ClassDescribe-be7a8da4.js",
-  "/figs/_app/assets/ClassDescribe-e98a078b.css",
+  "/figs/_app/chunks/ClassDescribe-5eca7958.js",
+  "/figs/_app/assets/ClassDescribe-79c2f86d.css",
   "/figs/_app/assets/stone1-97f2a8a7.ogg",
   "/figs/_app/assets/stone2-98a5c319.ogg",
   "/figs/_app/assets/stone3-19273f0e.ogg",
@@ -27,10 +27,10 @@ const build = [
   "/figs/_app/assets/unlit_star-44b7d610.svg",
   "/figs/_app/assets/star-150d3691.svg",
   "/figs/_app/chunks/MetaTags-b3aacbef.js",
-  "/figs/_app/chunks/DescribeAny-bdd7641f.js",
-  "/figs/_app/chunks/EnumDescribe-af5958b0.js",
+  "/figs/_app/chunks/DescribeAny-86369476.js",
+  "/figs/_app/chunks/EnumDescribe-748f99d2.js",
   "/figs/_app/assets/EnumDescribe-669a8967.css",
-  "/figs/_app/chunks/gravity-f2a2457e.js"
+  "/figs/_app/chunks/gravity-8c097e81.js"
 ];
 const files = [
   "/figs/favicon.png"
@@ -798,7 +798,7 @@ const prerendered = [
   "/figs/math.lerpAngle/",
   "/figs/math.shortAngle/"
 ];
-const version = "1658255323261";
+const version = "1658264213461";
 const worker = self;
 const CACHE_NAME = `A;static-cache-${version}`;
 const to_cache = build.concat(files).concat(prerendered);

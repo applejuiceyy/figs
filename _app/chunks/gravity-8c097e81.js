@@ -1,4 +1,4 @@
-import{o as ie,n as re}from"./ClassDescribe-be7a8da4.js";import"./index-4c83912a.js";import"./preload-helper-94699599.js";var V={exports:{}};/*!
+import{p as ie,n as re}from"./ClassDescribe-5eca7958.js";import"./index-4c83912a.js";import"./preload-helper-94699599.js";var V={exports:{}};/*!
  * matter-js 0.18.0 by @liabru
  * http://brm.io/matter-js/
  * License MIT
