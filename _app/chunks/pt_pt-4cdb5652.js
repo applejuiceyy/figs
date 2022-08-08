@@ -1,1 +1,0 @@
-const o="Favoritos",s="Conteudo";var a={favourites:o,"hide-table":"Esconder Tabela","show-table":"Mostrar Tabela","disable-focus":"Desligar Modo Focado","enable-focus":"Ligar Modo Focado",content:s,"global-objects":"Objetos globais","misc-types":"Outras Classes","misc-enums":"Outras Listas"};export{s as content,a as default,o as favourites};
