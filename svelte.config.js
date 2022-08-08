@@ -1,31 +1,43 @@
-import adapter from '@sveltejs/adapter-static';
-import preprocess from 'svelte-preprocess';
-import ViteYaml from '@modyfi/vite-plugin-yaml';
+import adapter from "@sveltejs/adapter-static";
+import preprocess from "svelte-preprocess";
+import ViteYaml from "@modyfi/vite-plugin-yaml";
+
+import stripper from "./plugins/translationStripper.js";
+import processor from "./plugins/docsProcessor.js";
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	preprocess: preprocess(),
+    preprocess: [
+        preprocess({
+            less: {
+                paths: ["."]
+            }
+        }),
+    ],
 
-	kit: {
-		adapter: adapter(),
+    kit: {
+        adapter: adapter(),
 
-		paths: {
-			base: "/figs"
-		},
+        paths: {
+            base: "/figs",
+        },
 
-		prerender: {
-			default: true,
-			crawl: true
-		},
+        prerender: {
+            default: true,
+            crawl: true,
+        },
 
-		trailingSlash: 'always',
+        trailingSlash: "always",
 
-		vite: {
-			optimizeDeps: ["markdown"],
+        vite: {
+            ptimizeDeps: ["markdown", "matter-js"],
 
-			plugins: [ViteYaml()]
-		},
-	},
+            plugins: [ViteYaml(), stripper(), processor()],
+            build: {
+                assetsInlineLimit: 0
+            }
+        },
+    },
 };
 
 export default config;

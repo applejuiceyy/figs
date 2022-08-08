@@ -1,8 +1,11 @@
 <script type="ts">
-    import { tick } from "svelte";
-import type { SvelteComponent } from "svelte/internal";
+    import type DocsInterface from "$lib/docs/statistics";
+
+    import type { SvelteComponent } from "svelte/internal";
 
     import { activePopups } from "./Hint.svelte";
+
+    export let classi: DocsInterface | null;
 
     let brutePopupComponents = import.meta.globEager("./popups/*.svelte");
 
@@ -103,7 +106,7 @@ import type { SvelteComponent } from "svelte/internal";
     {#each popups as popup (popup.id)}
         <div class="popup">
             <div class="popup-content">
-                <svelte:component this={popupComponents[popup.type]} name={popup.name}/>
+                <svelte:component this={popupComponents[popup.type]} name={popup.name} classi={classi}/>
             </div>
         </div>
     {/each}

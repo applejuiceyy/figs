@@ -1,8 +1,9 @@
 <script type="ts">
     export let forceFilled: boolean = false;
+    export let percentage: number = 0.5;
 </script>
 
-<div class="partial-background" class:force-filled={forceFilled}>
+<div class="partial-background" class:force-filled={forceFilled} style:--width={percentage * 100 + "%"}>
     <slot/>
 </div>
 
@@ -36,7 +37,7 @@
 
     @media only screen and (min-width: 1000px) {
         .partial-background:not(.force-filled)::before {
-            width: 50%;
+            width: var(--width);
         }
     }
 </style>

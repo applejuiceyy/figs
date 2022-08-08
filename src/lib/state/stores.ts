@@ -1,23 +1,29 @@
 import { writable } from "svelte/store";
 
 let favourites: string[] = [];
-if (!import.meta.env.SSR) {
-    let stored = localStorage.getItem("favourites");
+let locale = "en_us";
 
-    if (stored !== null) {
-        favourites = stored === ""? [] : stored.split(";");
+if (!import.meta.env.SSR) {
+    let fav = localStorage.getItem("favourites");
+
+    if (fav !== null) {
+        favourites = fav === ""? [] : fav.split(";");
     }
+
+    locale = localStorage.getItem("locale") ?? "en_us";
 }
 
 let write = writable({
     readerEnabled: false,
-    favourites: favourites
+    favourites: favourites,
+    language: locale
 })
 
 
 if (!import.meta.env.SSR) {
     write.subscribe(val => {
-        localStorage.setItem("favourites", val.favourites.join(";"))
+        localStorage.setItem("favourites", val.favourites.join(";"));
+        localStorage.setItem("locale", val.language);
     })
 }
 

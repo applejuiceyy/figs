@@ -11,6 +11,24 @@
 
     import HintOverlay from "$lib/highlighter/HintOverlay.svelte";
 
+    import state from "$lib/state/stores";
+
+    import versions from "docs:all";
+
+    import stats from "$lib/docs/statistics";
+    import type DocsInterface from "$lib/docs/statistics";
+
+    import NavBar from "$lib/content/navbar/NavBar.svelte";
+    import NavBarDropdown from "$lib/content/navbar/NavBarDropdown.svelte";
+    import NavBarLink from "$lib/content/navbar/NavBarLink.svelte";
+    import NavBarButton from "$lib/content/navbar/NavBarButton.svelte";
+import NavBarFloater from "$lib/content/navbar/NavBarFloater.svelte";
+import NavBarExpandButton from "$lib/content/navbar/NavBarExpandButton.svelte";
+import NavBarSearcher from "$lib/content/navbar/NavBarSearcher.svelte";
+import TranslatableKey from "$lib/language/TranslatableKey.svelte";
+import pool from "$lib/language/translator";
+import latest from "docs:latest";
+
     let interv: any = null;
 
     let cheeseFalling = false;
@@ -44,28 +62,97 @@
 
     let expanded: boolean = false;
 
-    let hashedNavigation: boolean;
-    $: hashedNavigation = ($page.stuff as {navigation: string}).navigation === "hashed";
+    let classi: DocsInterface | null;
+
+    $: {
+        let docs = ($page.stuff as any).docs;
+        if (docs === undefined) {
+            classi = null;
+        }
+        else {
+            classi = new stats(($page.stuff as any).docs);
+        }
+    }
+
+    let stuffs: any;
+
+    $: stuffs = ($page.stuff as any);
 </script>
 
 <div class="root">
-    <nav class:expanded class="figura-background">
-        <a class="nav-item" href={base + "/"}>FIGS!!</a>
-        <a class="nav-item" href={base + "/fav"}>Favourites</a>
-        <a class="nav-item expander" href="javascript:;" aria-label="Expand" on:click={()=>expanded = !expanded}>{expanded? "Hide Table" : "Show Table"}</a>
-        <a class="nav-item better-reader-button" href="javascript:;" style:margin-left="auto" on:click={()=>$stores.readerEnabled = !$stores.readerEnabled}>{$stores.readerEnabled ? "Disable" : "Enable"} Better Reader</a>
-        <a class="nav-item" href="javascript:;"  on:click={increaseStamina} style:font-size={(Math.max(stamina, 10) - 9) + "em"} style:opacity="0.5">{version}</a>
-    </nav>
+    <NavBar>
+        <NavBarLink inline href={base + "/"}>FIGS!!</NavBarLink>
 
-    <div class="category figura-background" class:expanded>
-        <div class="category-inner">
+        <NavBarSearcher destination="{base}{stuffs.base}search"/>
 
 
-            <SidebarView everything={hashedNavigation} path={hashedNavigation ? '/all#' : '/'}/>
+        <NavBarFloater>
+            <NavBarExpandButton>
+                <TranslatableKey key="content"/>
+            </NavBarExpandButton>
+        </NavBarFloater>
 
-            <footer>
-                Made by applejuice
-            </footer>
+        <svelte:fragment slot="expanded">
+            {#if stuffs.version}
+                <NavBarLink href="{base}{stuffs.base}fav">
+                    <TranslatableKey key="favourites"/>
+                </NavBarLink>
+            {/if}
+            
+            <div class="table-toggle">
+                <NavBarButton on:click={()=>expanded = !expanded}>
+                    <TranslatableKey key={expanded? "hide-table" : "show-table"}/>
+                </NavBarButton>
+            </div>
+
+            <NavBarButton on:click={()=>$stores.readerEnabled = !$stores.readerEnabled}>
+                <TranslatableKey key={$stores.readerEnabled ? "disable-focus" : "enable-focus"} />
+            </NavBarButton>
+
+            <NavBarDropdown>
+                {(stuffs.version ?? "Version").toUpperCase()}
+
+                <svelte:fragment slot="dropdown">
+                    <NavBarLink href="{base}/latest">LATEST ({latest})</NavBarLink>
+                    {#each Object.keys(versions) as version}
+                        <NavBarLink href="{base}/{version}">
+                            {version.toUpperCase()}
+                        </NavBarLink>
+                    {/each}
+                </svelte:fragment>
+            </NavBarDropdown>
+
+            {#if stuffs.version}
+                <NavBarDropdown>
+                    {$state.language.toUpperCase()}
+
+                    <svelte:fragment slot="dropdown">
+                        {#each pool.getAvailableLanguages() as lang}
+                            <NavBarButton on:click={() => {$state.language = lang;}}>{lang.toUpperCase()}</NavBarButton>
+                        {/each}
+                    </svelte:fragment>
+                </NavBarDropdown>
+            {/if}
+            {#if !stuffs.version}
+                <button class="nav-item" on:click={increaseStamina} style:font-size={(Math.max(stamina, 10) - 9) + "em"} style:opacity="0.5">No version selected</button>
+            {/if}
+        </svelte:fragment>
+    </NavBar>
+
+    <div class="category" class:expanded>
+        <div class="category-flyover">
+            <div class="category-sticker">
+                {#if classi === null}
+                    <span style:padding="10px">A version isn't selected</span>
+                {:else}
+                    <SidebarView classi={classi} everythingSwitch={stuffs.everythingSwitcher} everything={!!stuffs.showingEverything} path={stuffs.base ?? "/"} on:select={() => expanded = false}/>
+                {/if}
+
+
+                <footer>
+                    Made by applejuice
+                </footer>
+            </div>
         </div>
     </div>
 
@@ -80,11 +167,25 @@
 
 <svg id="root-glasspane" class="glasspane" width="100%" height="100%" style:z-index="99999"></svg>
 
-<HintOverlay/>
+<HintOverlay classi={classi}/>
 
 
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+<style lang="less">
+    :global(:root) {
+        --background: #000000;
+        --window-background: #222222;
+        --landmark-in-window: #aaaaaa;
+        --color: #aaaaaa;
+        --color-in-landmark: black;
+
+        @media (prefers-color-scheme: light) {
+            --background: #ffffff;
+            --window-background: #cccccc;
+            --landmark-in-window: #aaaaaa;
+            --color: black;
+            --color-in-landmark: black;
+        }
+    }
 
     footer {
         margin-top: auto;
@@ -92,7 +193,12 @@
         padding-bottom: 20px;
         text-align: center;
 
-        background-color: #bbbbbb;
+        background-color: var(--landmark-in-window);
+        color: var(--color-in-landmark);
+    }
+
+    .root>:global(*):first-child {
+        grid-column: 1 / 3;
     }
 
     .glasspane {
@@ -102,54 +208,48 @@
         pointer-events: none;
     }
 
-    .category-inner {
-        height: 100vh;
-        width: 250px;
-        display: flex;
-        flex-direction: column;
-
-        position: sticky;
-        top: 0;
-
-        overflow-y: auto;
-    }
-
-    .figura-background {
-        background-image: url("$lib/resource/background.png");
-        background-size: calc(64px * 4) calc(64px * 4);
-        image-rendering: crisp-edges;
-        background-attachment: fixed;
-
-        animation: brew 60s linear 0s infinite;
-    }
-
     .root {
         display: grid;
-        grid-template-rows: min-content 1fr;
-        grid-template-columns: 250px 1fr;
+        grid-template-rows: min-content 1fr auto;
+        grid-template-columns: auto 1fr;
 
         min-height: 100vh;
         width: calc(100vw - (100vw - 100%));
     }
 
-    nav {
-        display: flex;
-        position: sticky;
+    @keyframes navbar {
+        from {
+            transform: translate(0, 0);
+        }
 
-        top: 0;
-        left: 0;
-        right: 0;
-
-        color: white;
-
-        height: max-content;
-        grid-column: 1 / 3;
+        to {
+            transform: translate(0, -100%);
+        }
     }
 
-    nav>* {
+    @keyframes zIndex {
+        from {
+            z-index: 3;
+        }
+
+        to {
+            z-index: 1;
+        }
+    }
+
+    .nav-item {
         padding: 10px;
-        text-decoration: none;
-        color: white;
+        display: block;
+
+        background-color: transparent;
+        cursor:pointer;
+
+        color: inherit;
+        margin: 0;
+
+        border: 0px;
+
+        font-family: inherit;
     }
 
     @keyframes brew {
@@ -162,22 +262,20 @@
         }
     }
 
-    .expander {
-        display: none;
-    }
-
     .content {
         word-wrap: anywhere;
 
-        background-color: white;
         padding: 5px;
 
         position: relative;
         isolation: isolate;
 
-        overflow: hidden;
+        overflow-x: clip;
 
         padding-bottom: 0;
+
+        grid-row: 2 / 4;
+        grid-column: 2;
     }
 
     .cheese-svg {
@@ -185,28 +283,54 @@
         inset: 0;
     }
 
-    @media (prefers-color-scheme: dark) {
-        .content {
-            background-color: black;
-            color: #bbbbbb;
+    .category-flyover {
+        background-color: var(--window-background);
+    }
+
+    @media only screen and (min-width: 800.5px) {
+        .category {
+            width: 250px;
+
+            position: relative;
+
+            margin: 5px;
+
+            border-radius: 5px;
         }
 
-        :global(body) {
-            background-color: #111111;
+        .category-flyover {
+            position: absolute;
+            inset: 0;
+
+            z-index: 2;
+        }
+
+
+        .category-sticker {
+            position: sticky;
+            top: 0;
+
+            display: flex;
+            flex-direction: column;
+            
+            overflow-y: auto;
+
+            height: 100vh;
+            max-height: 100%;
         }
     }
 
+    .table-toggle {
+        display: none;
+    }
+
     @media only screen and (max-width: 800px) {
+        .table-toggle {
+            display: contents;
+        }
         .content {
             background-image: initial;
-        }
-
-        .expander {
-            display: block;
-        }
-
-        .category {
-            display: none;
+            grid-column: 1 / 3;
         }
 
         .root {
@@ -221,26 +345,21 @@
             display: none;
         }
 
-        nav {
-            border-radius: 0 0 15px 15px;
-            z-index: 1;
-        }
+        .category {
+            display: none;
 
-        nav.expanded {
-            border-radius: initial;
-        }
-
-        .category-inner {
             width: auto;
             position:initial;
             top: 0;
 
             overflow-y: visible;
+
+            z-index: 0;
         }
     }
 
     @media (pointer: coarse) {
-        .category-inner :global(a) {
+        .category :global(a) {
             padding: 20px;
             box-sizing: border-box;
             outline: 1px #777777 solid;
@@ -251,22 +370,13 @@
         margin: 0;
         overflow-x: hidden;
         overflow-y: auto;
-        font-family: Roboto;
+        font-family: Roboto, Arial, Helvetica, sans-serif;
 
-        
+        color: var(--color);
+        background-color: var(--background);
     }
 
     :global(html) {
         scroll-behavior: smooth;
-    }
-
-    @media (hover: none) {
-        .better-reader-button {
-            visibility: hidden;
-        }
-
-        nav>* {
-            padding: 20px;
-        }
     }
 </style>

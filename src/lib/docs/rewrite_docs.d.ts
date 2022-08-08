@@ -1,7 +1,9 @@
 export interface Docs {
-    [category: string]: Class[];
-    lists: Enum[]
+    types: {[item: string]: Class}
+    lists: {[item: string]: Enum}
+    languages: LanguageData
 }
+
 export interface Class {
     name: string;
     description: string;
@@ -13,6 +15,7 @@ export interface Class {
 export interface Method {
     name: string;
     description: string;
+    static: boolean;
     parameters: Parameter[][];
     returns: string[];
 }
@@ -34,4 +37,13 @@ export interface Enum {
     name: string,
     description: string,
     entries: string[]
+}
+
+export interface LanguageData {
+    en_us: Language
+    [item: string]: () => Promise<Language>
+}
+
+export interface Language {
+    [item: string]: string
 }

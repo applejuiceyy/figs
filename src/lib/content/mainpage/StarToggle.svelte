@@ -7,6 +7,8 @@
     import {starglint} from "$lib/actions/starglint"
 
     export let forceSmall: boolean = false;
+    export let percentage: number = 0.5;
+
     export let favouriteId: string | null = null;
 
     let enabled: boolean = false;
@@ -37,7 +39,7 @@
     }
 </script>
 
-<button class="favourite-button" on:click={changeFavourite} class:force-small={forceSmall}>
+<button class="favourite-button" on:click={changeFavourite} class:force-small={forceSmall} style:--width={(1 - percentage) * 100 + "%"}>
     <div class="svg-wrapper" on:mouseenter={() => stop = true} on:mouseleave={() => stop = false}>
         <img src={unlit_star} aria-hidden="true" alt=""/>
 
@@ -93,7 +95,7 @@
 
     @media only screen and (min-width: 1000px) {
         .favourite-button:not(.force-small) {
-            right: calc(10px + 50%);
+            right: calc(10px + var(--width));
         }
     }
 

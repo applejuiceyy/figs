@@ -11,7 +11,10 @@
 		"strict": true,
 
 		"types": [
-			"@modyfi/vite-plugin-yaml/modules"
-		]
+			"@modyfi/vite-plugin-yaml/modules",
+            "./src/lib/docs"
+		],
+
+        "outDir": ""
 	}
 }

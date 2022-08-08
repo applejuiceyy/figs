@@ -8,6 +8,10 @@ interface Binding<D> {
 
 type ElementBinding = Binding<{x: number, y: number, ym: number, scale: number, angle: number, anglem: number}>;
 
+function r(v: number, w: number = 100) {
+    return v * (Math.random() > 0.99 ? w : 1)
+}
+
 export function cheeseSvg(node: Element, shouldDo: boolean) {
     let data: ElementBinding [] = [];
     let bounds = node.getBoundingClientRect();
@@ -32,18 +36,20 @@ export function cheeseSvg(node: Element, shouldDo: boolean) {
             let element = document.createElementNS(namespace, "image");
 
             element.setAttributeNS(null, "href", cheese);
+            element.setAttributeNS(null, "transform-origin", "28px 28px");
             node.appendChild(element);
 
+            let scale = r(Math.random() + 1, 10);
             data.push({
                 element,
 
                 data: {
                     x: Math.random() * node.clientWidth,
-                    y: -50,
-                    ym: Math.random() * 0.1 + 1,
-                    scale: Math.random() + (Math.random() > 0.99? 5 : 1),
+                    y: -scale * 56,
+                    ym: r(Math.random() * 0.1 + 1),
+                    scale: scale,
                     angle: Math.random() * 360,
-                    anglem: (Math.random() - 0.5) * 0.1
+                    anglem: r(Math.random() - 0.5)
                 }
             });
         }
@@ -53,12 +59,12 @@ export function cheeseSvg(node: Element, shouldDo: boolean) {
             element.data.y += element.data.ym;
             element.data.angle += element.data.anglem;
 
-            if(element.data.y > node.clientHeight) {
+            sync(element.element, element);
+            
+            if(element.data.y > node.clientHeight + element.data.scale * 56) {
                 data.splice(i, 1);
                 element.element.remove();
             }
-
-            sync(element.element, element);
         }
 
         if(shouldDo || data.length > 0) {

@@ -1,16 +1,54 @@
 <script type="ts">
-    import star from "$lib/resource/unlit_star.svg";
-import StarToggle from "./StarToggle.svelte";
+    import Code from "$lib/Code.svelte";
+
+    import examples from "$lib/docs/examples.yaml";
+
+    import type { Example } from "$lib/docs/examples_typings";
+    import Highlight from "$lib/highlighter/Highlight.svelte";
+
+    import Background from "./Background.svelte";
+    import StarToggle from "./StarToggle.svelte";
 
 
     export let forceSmall: boolean;
 
+    export let id: string | null = null;
 
+    let example: Example;
+
+    // @ts-ignore: keeps erroring for some reason and I don't wanna deal with it
+    $: example = id in examples ? examples[id] : null;
 </script>
 
-<div class="method-root" class:force-small={forceSmall}>
-    <slot/>
-</div>
+<Background forceFilled={forceSmall} percentage={0.7}>
+    <div class="method-root" class:force-small={forceSmall}>
+        <div>
+            <slot name="title" />
+        </div>
+
+        {#if id !== null}
+            <StarToggle percentage={0.7} favouriteId={id} forceSmall={forceSmall}/>
+        {/if}
+
+        {#if example !== null}
+            <div tabindex="0" class="code-example" class:force-small={forceSmall}>
+                <div class="code-displace">
+                    <div class="code-correction">
+                        <Code>
+                            <Highlight code={example.content} hoverHighlight={example.hints}></Highlight>
+                        </Code>
+                    </div>
+                </div>
+            </div>
+        {:else}
+            <div></div>
+        {/if}
+
+        <div style:margin="5px">
+            <slot />
+        </div>
+    </div>
+</Background>
 
 <style>
     .method-root {
@@ -20,11 +58,42 @@ import StarToggle from "./StarToggle.svelte";
         position: relative;
     }
 
+    .code-example {
+        margin: 10px;
+        padding: 10px;
+    }
+
     @media only screen and (min-width: 1000px) {
         .method-root:not(.force-small) {
             display: grid;
-            grid-template-columns: calc(50% - 5px) 50%;
+            grid-template-columns: calc(70% - 5px) 30%;
             padding-right: 0px;
+        }
+
+        .code-example:not(.force-small)  {
+            margin: 0px;
+            padding: 0px;
+            grid-row: 1 / 3;
+            grid-column: 2;
+        }
+
+        .code-displace {
+            transition: width 0.5s, transform 0.5s;
+            width: 100%;
+
+            position: sticky;
+            top: 200px;
+
+            z-index: 1;
+        }
+
+        .code-example:hover>.code-displace, .code-example:focus-visible>.code-displace {
+            width: 200%;
+            transform: translate(-50%, 0%);
+        }
+
+        .code-example:focus-visible {
+            outline: 0;
         }
     }
 </style>

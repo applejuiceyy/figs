@@ -1,28 +1,26 @@
 <script type="ts">
     import {page} from "$app/stores";
-import ClassDescribe from "$lib/content/mainpage/ClassDescribe.svelte";
-import MethodDescribe from "$lib/content/mainpage/MethodDescribe.svelte";
-import { findFromQualifiedName, globalFunctions } from "$lib/docs/processor/processed";
+    import DescribeAny from "$lib/content/mainpage/DescribeAny.svelte";
+    import type DocsInterface from "$lib/docs/statistics";
 
 
     export let name: string;
+    export let classi: DocsInterface | null;
 
-    let indexedDoc: ReturnType<typeof findFromQualifiedName>;
+    let indexedDoc: ReturnType<DocsInterface["findFromQualifiedName"]> | undefined;
 
     $: {
-        indexedDoc = findFromQualifiedName(name);
+        indexedDoc = classi?.findFromQualifiedName(name);
     }
 
     let hashedNavigation: boolean;
     $: hashedNavigation = ($page.stuff as {navigation: string}).navigation === "hashed";
 </script>
 
-{#if indexedDoc !== null}
-    {#if indexedDoc.type === "class"}
-        <ClassDescribe klass={indexedDoc.value} forceSmall={true} path={hashedNavigation ? '/all#' : '/'}/>
-    {:else if indexedDoc.type === "method"}
-        <MethodDescribe hostClass={indexedDoc.klass} method={indexedDoc.value} forceSmall={true} path={hashedNavigation ? '/all#' : '/'}/>
-    {/if}
+{#if classi === null}
+    Version is not selected
+{:else if indexedDoc !== null && indexedDoc !== undefined}
+    <DescribeAny classi={classi} what={indexedDoc} path={hashedNavigation ? '/all#' : '/'}/>
 {:else}
     Not Found
 {/if}

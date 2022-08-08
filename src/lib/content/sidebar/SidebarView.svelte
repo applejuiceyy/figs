@@ -1,61 +1,78 @@
 <script type="ts">
     import {base} from "$app/paths";
 
-    import * as processed from "$lib/docs/processor/processed";
-    import ClassViewer from "./ClassViewer.svelte";
+    import type DocsInterface from "$lib/docs/statistics";
     import StyledItem from "./StyledItem.svelte";
 
     import klass_src from "$lib/resource/class.webp";
-    import type { Class, Enum } from "$lib/docs/rewrite_docs_typings";
-    import { comparer } from "$lib/docs/processor/processed";
+    import method_src from "$lib/resource/method.webp";
+    import field_src from "$lib/resource/field.webp";
+
+    import type { Class, Enum, Field, Method } from "$lib/docs/rewrite_docs";
+
+    import { createEventDispatcher } from "svelte";
+    import { fade } from "svelte/transition";
+    import {flip} from "svelte/animate"
+import TranslatableKey from "$lib/language/TranslatableKey.svelte";
 
     let sortedClasses: Class[];
     let sortedEnums: Enum[];
 
-    $: sortedClasses = Object.values(processed.relevantTypes).sort(comparer);
-    $: sortedEnums = Object.values(processed.enums).sort(comparer);
+    let sortedMethods: Method[];
+    let sortedFields: Field[];
+
+    export let classi: DocsInterface;
+
+    $: sortedClasses = Object.values(classi.nonSingletonClasses).sort(classi.comparer);
+    $: sortedEnums = Object.values(classi.enums).sort(classi.comparer);
+
+    $: sortedMethods = Object.values(classi.globalType.methods).sort(classi.comparer);
+    $: sortedFields = Object.values(classi.globalType.fields).sort(classi.comparer);
+
+    let everythingArray: any[];
+
+    $: {
+        everythingArray = [
+            {type: "disclaimer", value: "global-objects", id: "gl"},
+            ...sortedMethods.map(val => ({type: "link", value: val.name, link: base + path + val.name, src: method_src, id: val.name})),
+            ...sortedFields.map(val => ({type: "link", value: val.name, link: base + path + val.name, src: field_src, id: val.name})),
+            {type: "disclaimer", value: "misc-types", id: "types"},
+            ...sortedClasses.map(val => ({type: "link", value: val.name, link: base + path + val.name, src: klass_src, id: val.name})),
+            {type: "disclaimer", value: "misc-enums", id: "enums"},
+            ...sortedEnums.map(val => ({type: "link", value: val.name, link: base + path + val.name, src: klass_src, id: val.name}))
+        ]
+    }
 
     export let path: string;
     export let everything: boolean;
+    export let everythingSwitch: string;
 
+    let dispatcher = createEventDispatcher();
+
+    const transitionDuration = 500;
 </script>
 
 <div class="sidebar-viewer">
     <div class="fields-container">
-        {#if everything}
-            <StyledItem href={base} src={klass_src}>Show not everything</StyledItem>
-        {:else}
-            <StyledItem href="{base}/all" src={klass_src}>Show everything</StyledItem>
-        {/if}
+        <StyledItem on:click={() => dispatcher("select")} href="{base}{everythingSwitch}" src={klass_src}>Show{everything ? " not" : ""} everything</StyledItem>
     </div>
 
-    <span class="tab">Global Objects</span>
-
-    <div class="fields-container">
-        <ClassViewer klass={processed.globalType} path={path}/>
-    </div>
-
-    <span class="tab">Miscellaneous Types</span>
-
-    <div class="fields-container">
-        {#each sortedClasses as value}
-            <StyledItem href={base + path + value.name} src={klass_src}>{value.name}</StyledItem>
-        {/each}
-    </div>
-
-    <span class="tab">Miscellaneous Enums</span>
-
-    <div class="fields-container">
-        {#each sortedEnums as value}
-            <StyledItem href={base + path + value.name} src={klass_src}>{value.name}</StyledItem>
-        {/each}
-    </div>
+    {#each everythingArray as what (what.id)}
+        <div transition:fade|local={{ duration: transitionDuration }} animate:flip={{duration: transitionDuration}}>
+            {#if what.type === "disclaimer"}
+                <span class="tab">
+                    <TranslatableKey key={what.value}/>
+                </span>
+            {:else if what.type === "link"}
+                <StyledItem on:click={() => dispatcher("select")} href={what.link} src={what.src}>{what.value}</StyledItem>
+            {/if}
+        </div>
+    {/each}
 </div>
 
 <style>
     .fields-container {
         padding: 5px;
-        background-color: #eeeeee;
     }
 
     .sidebar-viewer {
@@ -73,11 +90,6 @@
     }
 
     @media (prefers-color-scheme: dark) {
-        .fields-container {
-            padding: 5px;
-            background-color: #222222;
-        }
-
         .tab {
             background-color: #999999;
         }

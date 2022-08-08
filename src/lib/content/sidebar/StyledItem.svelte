@@ -11,7 +11,7 @@
     export let style = "";
 </script>
 
-<a id={id ?? ""} class:flex={wrap === null} href={href} class:dark={color === "dark"}>
+<a id={id ?? ""} class:flex={wrap === null} href={href} class:dark={color === "dark"} on:click>
     {#if wrap === null}
         <img src={src} style:object-fit="contain" style:height="1em" style:width="auto" aria-hidden="true" alt=""/>
         <slot/>
