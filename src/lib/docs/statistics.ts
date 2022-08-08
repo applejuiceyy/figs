@@ -8,24 +8,24 @@ import pool from "$lib/language/translator";
 import FieldDescribe from "$lib/content/mainpage/describer/FieldDescribe.svelte";
 
 
-let classOrEnum = (keys: string[], values: any[]) => {
+let classOrEnum = (h: string) => (keys: string[], values: any[]) => {
     if (keys[0] === "types") {
-        return { this: ClassDescribe, klass: values[1] }
+        return { this: ClassDescribe, klass: values[1], highlight: [h] }
     } else {
-        return { this: EnumDescribe, enum_: values[1] }
+        return { this: EnumDescribe, enum_: values[1], highlight: [h] }
     }
 }
 
 const spots = [
     {
         position: ["*", "*", "name"],
-        resolve: classOrEnum,
+        resolve: classOrEnum("title"),
         id: (keys: string[], values: any[]) => values[1].name
     },
 
     {
         position: ["*", "*", "description"],
-        resolve: classOrEnum,
+        resolve: classOrEnum("description"),
         id: (keys: string[], values: any[]) => values[1].name,
         transform: (val: string) => pool.getPresentableValue(val)
     },
@@ -35,7 +35,7 @@ const spots = [
     {
         position: ["types", "*", "methods", "*", "name"],
         resolve: (keys: string[], values: any[]) => {
-            return {this: MethodDescribe, hostClass: values[1], method: values[3]}
+            return {this: MethodDescribe, hostClass: values[1], method: values[3], highlight: ["title"]}
         },
         id: (keys: string[], values: any[]) => `${values[1].name}.${values[3].name}`
     },
@@ -43,7 +43,7 @@ const spots = [
     {
         position: ["types", "*", "methods", "*", "description"],
         resolve: (keys: string[], values: any[]) => {
-            return {this: MethodDescribe, hostClass: values[1], method: values[3]}
+            return {this: MethodDescribe, hostClass: values[1], method: values[3], highlight: ["description"]}
         },
         id: (keys: string[], values: any[]) => `${values[1].name}.${values[3].name}`,
         transform: (val: string) => pool.getPresentableValue(val)
@@ -54,7 +54,7 @@ const spots = [
     {
         position: ["types", "*", "fields", "*", "name"],
         resolve: (keys: string[], values: any[]) => {
-            return {this: FieldDescribe, hostClass: values[1], field: values[3], inlineTypeDocs: values[1].name === "globals"}
+            return {this: FieldDescribe, hostClass: values[1], field: values[3], inlineTypeDocs: values[1].name === "globals", highlight: ["title"]}
         },
         id: (keys: string[], values: any[]) => `${values[1].name}.${values[3].name}`
     },
@@ -62,7 +62,7 @@ const spots = [
     {
         position: ["types", "*", "fields", "*", "description"],
         resolve: (keys: string[], values: any[]) => {
-            return {this: FieldDescribe, hostClass: values[1], field: values[3], inlineTypeDocs: values[1].name === "globals"}
+            return {this: FieldDescribe, hostClass: values[1], field: values[3], inlineTypeDocs: values[1].name === "globals", highlight: ["description"]}
         },
         id: (keys: string[], values: any[]) => `${values[1].name}.${values[3].name}`,
         transform: (val: string) => pool.getPresentableValue(val)

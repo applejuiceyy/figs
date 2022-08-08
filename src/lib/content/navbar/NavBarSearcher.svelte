@@ -1,4 +1,6 @@
 <script type="ts">
+    import SlottedTranslatableKey from "$lib/language/SlottedTranslatableKey.svelte";
+import pool from "$lib/language/translator";
     export let destination: string;
 
     export function focus() {
@@ -10,7 +12,10 @@
 
 <div class="search-root" style:flex-grow="1">
     <form class="sizer" action={destination} method="get">
-        <input bind:this={input} required name="q" style:min-width="0" style:flex-grow="1" style:flex-shrink="1"><input type="submit" value="Search">
+        <input bind:this={input} required name="q" style:min-width="0" style:flex-grow="1" style:flex-shrink="1">
+        <SlottedTranslatableKey key="search" let:value={value}>
+            <input type="submit" value={pool.getPresentableValueFromResult(value, "search")}>
+        </SlottedTranslatableKey>
     </form>
 </div>
 

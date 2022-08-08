@@ -34,14 +34,18 @@ import type DocsInterface from "$lib/docs/statistics";
 
     export let path: string;
     export let classi: DocsInterface;
+
+    export let highlight: string[] = [];
 </script>
 
-<DescribeRoot forceSmall={forceSmall}>
+<DescribeRoot forceSmall={forceSmall} highlightTitle={highlight.includes("title")}>
     <StyledItem slot="title" src={field_src} href={base + path + qualifiedName} wrap="h1" color="dark" id={setId ? qualifiedName : null}>
         {qualifiedName}
     </StyledItem>
 
-    <TranslatableKey key={field.description} warn focus/>
+    <div class:highlight={highlight.includes("description")}>
+        <TranslatableKey key={field.description} warn focus/>
+    </div>
 
     <div class="code-example filled" style:margin-top="50px">
         <Code>
@@ -63,7 +67,7 @@ import type DocsInterface from "$lib/docs/statistics";
     </div>
 </DescribeRoot>
 
-<style>
+<style lang="less">
     .code-example.filled {
         margin: 10px;
         padding: 10px;
@@ -76,5 +80,11 @@ import type DocsInterface from "$lib/docs/statistics";
             grid-row: 1 / 3;
             grid-column: 2;
         }
+    }
+
+        @import "src/app";
+
+    .highlight {
+        .highlig();
     }
 </style>

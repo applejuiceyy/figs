@@ -135,6 +135,10 @@ export class TranslatorPool {
     getPresentableValue(key: string): string {
         let ret = this.getStoreValue(key);
 
+        return this.getPresentableValueFromResult(ret, key);
+    }
+
+    getPresentableValueFromResult(ret: TranslationResult, key: string): string {
         if (ret.type === "RESULT") {
             return ret.result;
         };

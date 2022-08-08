@@ -13,6 +13,7 @@
     export let forceSmall: boolean;
 
     export let id: string | null = null;
+    export let highlightTitle: boolean = false;
 
     let example: Example;
 
@@ -22,7 +23,7 @@
 
 <Background forceFilled={forceSmall} percentage={0.7}>
     <div class="method-root" class:force-small={forceSmall}>
-        <div>
+        <div class:highlight={highlightTitle}>
             <slot name="title" />
         </div>
 
@@ -50,7 +51,7 @@
     </div>
 </Background>
 
-<style>
+<style lang="less">
     .method-root {
         padding: 10px;
         margin-bottom: 10px;
@@ -61,6 +62,12 @@
     .code-example {
         margin: 10px;
         padding: 10px;
+    }
+
+    @import "src/app";
+
+    .highlight {
+        .highlig();
     }
 
     @media only screen and (min-width: 1000px) {

@@ -88,9 +88,11 @@
     $: superclass = classi.isFromSuperClass(hostClass, method);
     
     export let path: string;
+
+    export let highlight: string[] = [];
 </script>
 
-<DescribeRoot forceSmall={forceSmall} id={qualifiedName}>
+<DescribeRoot forceSmall={forceSmall} id={qualifiedName} highlightTitle={highlight.includes("title")}>
     <svelte:fragment slot="title">
         <StyledItem src={method_src} href={base + path + qualifiedName} wrap="h1" color="dark" id={setId ? qualifiedName : null} style={superclass === null ? "" : "margin-bottom: 0px;"}>
             {qualifiedName}
@@ -100,7 +102,9 @@
         {/if}
     </svelte:fragment>
 
-    <TranslatableKey key={method.description} warn focus/>
+    <div class:highlight={highlight.includes("description")}>
+        <TranslatableKey key={method.description} warn focus/>
+    </div>
 
     <div class="code-example filled" style:margin-top="50px">
         {#each method.parameters as overload, idx}
@@ -112,7 +116,7 @@
     </div>
 </DescribeRoot>
 
-<style>
+<style lang="less">
     .code-example.filled {
         margin: 10px;
         padding: 10px;
@@ -126,5 +130,11 @@
             grid-row: 1 / 3;
             grid-column: 2;
         }
+    }
+
+    @import "src/app";
+
+    .highlight {
+        .highlig();
     }
 </style>

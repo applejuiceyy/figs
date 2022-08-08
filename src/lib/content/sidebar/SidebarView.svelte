@@ -11,7 +11,8 @@
     import type { Class, Enum, Field, Method } from "$lib/docs/rewrite_docs";
 
     import { createEventDispatcher } from "svelte";
-    import { fade } from "svelte/transition";
+    import { fly } from "svelte/transition";
+    import {cubicOut} from "svelte/easing";
     import {flip} from "svelte/animate"
 import TranslatableKey from "$lib/language/TranslatableKey.svelte";
 
@@ -49,7 +50,7 @@ import TranslatableKey from "$lib/language/TranslatableKey.svelte";
 
     let dispatcher = createEventDispatcher();
 
-    const transitionDuration = 500;
+    const transitionDuration = 1000;
 </script>
 
 <div class="sidebar-viewer">
@@ -58,7 +59,7 @@ import TranslatableKey from "$lib/language/TranslatableKey.svelte";
     </div>
 
     {#each everythingArray as what (what.id)}
-        <div transition:fade|local={{ duration: transitionDuration }} animate:flip={{duration: transitionDuration}}>
+        <div in:fly|local={{x: 200, duration: transitionDuration, easing: cubicOut }} out:fly|local={{x: -200, duration: transitionDuration, easing: cubicOut }} animate:flip={{duration: transitionDuration, easing: cubicOut}}>
             {#if what.type === "disclaimer"}
                 <span class="tab">
                     <TranslatableKey key={what.value}/>
@@ -77,6 +78,7 @@ import TranslatableKey from "$lib/language/TranslatableKey.svelte";
 
     .sidebar-viewer {
         color: black;
+        overflow-x: clip;
     }
 
     .tab {

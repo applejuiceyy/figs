@@ -15,12 +15,16 @@
     export let setId: boolean = true;
 
     export let path: string;
+
+    export let highlight: string[] = [];
 </script>
 
-<DescribeRoot forceSmall={forceSmall} id={enum_.name}>
+<DescribeRoot forceSmall={forceSmall} id={enum_.name} highlightTitle={highlight.includes("title")}>
     <StyledItem slot="title" src={klass_src} href={base + path + enum_.name} wrap="h1" color="dark" id={setId ? enum_.name : null}>{enum_.name}</StyledItem>
 
-    <TranslatableKey key={enum_.description} warn focus/>
+    <div class:highlight={highlight.includes("description")}>
+        <TranslatableKey key={enum_.description} warn focus/>
+    </div>
 
     <div class="entry-list">
         {#each enum_.entries as entry}
@@ -31,9 +35,15 @@
     </div>
 </DescribeRoot>
 
-<style>
+<style lang="less">
     .entry-list {
         margin-left: 10px;
         display: grid;
+    }
+
+    @import "src/app";
+
+    .highlight {
+        .highlig();
     }
 </style>

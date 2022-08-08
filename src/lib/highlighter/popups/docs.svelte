@@ -12,15 +12,15 @@
     $: {
         indexedDoc = classi?.findFromQualifiedName(name);
     }
+    let base: string;
 
-    let hashedNavigation: boolean;
-    $: hashedNavigation = ($page.stuff as {navigation: string}).navigation === "hashed";
+    $: base = ($page.stuff as any).base;
 </script>
 
 {#if classi === null}
     Version is not selected
 {:else if indexedDoc !== null && indexedDoc !== undefined}
-    <DescribeAny classi={classi} what={indexedDoc} path={hashedNavigation ? '/all#' : '/'}/>
+    <DescribeAny classi={classi} what={indexedDoc} path={base}/>
 {:else}
     Not Found
 {/if}
