@@ -1,3 +1,16 @@
+<script context="module" type="ts">
+
+    let load: import('./__layout').Load = async function ({ params }) {
+        return {
+            stuff: {
+                base: `/latest/`
+            },
+        };
+    }
+
+    export {load}
+</script>
+
 <script type="ts">
     import {base} from "$app/paths";
     import version from "$lib/docs/rewrite_version.txt?raw";
@@ -22,12 +35,15 @@
     import NavBarDropdown from "$lib/content/navbar/NavBarDropdown.svelte";
     import NavBarLink from "$lib/content/navbar/NavBarLink.svelte";
     import NavBarButton from "$lib/content/navbar/NavBarButton.svelte";
-import NavBarFloater from "$lib/content/navbar/NavBarFloater.svelte";
-import NavBarExpandButton from "$lib/content/navbar/NavBarExpandButton.svelte";
-import NavBarSearcher from "$lib/content/navbar/NavBarSearcher.svelte";
-import TranslatableKey from "$lib/language/TranslatableKey.svelte";
-import pool from "$lib/language/translator";
-import latest from "docs:latest";
+    import NavBarFloater from "$lib/content/navbar/NavBarFloater.svelte";
+    import NavBarExpandButton from "$lib/content/navbar/NavBarExpandButton.svelte";
+    import NavBarSearcher from "$lib/content/navbar/NavBarSearcher.svelte";
+    import TranslatableKey from "$lib/language/TranslatableKey.svelte";
+    import pool from "$lib/language/translator";
+    import latest from "docs:latest";
+
+    import eh from "$lib/resource/status/eh.png";
+    import ok from "$lib/resource/status/ok.png";
 
     let interv: any = null;
 
@@ -77,13 +93,22 @@ import latest from "docs:latest";
     let stuffs: any;
 
     $: stuffs = ($page.stuff as any);
+
+    let searcher: NavBarSearcher;
+
+    function handleKeyDown (ev: KeyboardEvent) {
+        // https://stackoverflow.com/questions/34687895/determine-if-a-letter-or-a-number-was-pressed-javascript
+        if (ev.keyCode >= 48 && ev.keyCode <= 57 || ev.keyCode >= 65 && ev.keyCode <= 90 || ev.keyCode >= 97 && ev.keyCode <= 122) {
+            searcher.focus();
+        }
+    }
 </script>
 
 <div class="root">
     <NavBar>
         <NavBarLink inline href={base + "/"}>FIGS!!</NavBarLink>
 
-        <NavBarSearcher destination="{base}{stuffs.base}search"/>
+        <NavBarSearcher bind:this={searcher} destination="{base}{stuffs.base}search"/>
 
 
         <NavBarFloater>
@@ -122,17 +147,22 @@ import latest from "docs:latest";
                 </svelte:fragment>
             </NavBarDropdown>
 
-            {#if stuffs.version}
-                <NavBarDropdown>
-                    {$state.language.toUpperCase()}
+            <NavBarDropdown>
+                {$state.language.toUpperCase()}
 
-                    <svelte:fragment slot="dropdown">
-                        {#each pool.getAvailableLanguages() as lang}
-                            <NavBarButton on:click={() => {$state.language = lang;}}>{lang.toUpperCase()}</NavBarButton>
-                        {/each}
-                    </svelte:fragment>
-                </NavBarDropdown>
-            {/if}
+                <svelte:fragment slot="dropdown">
+                    {@const stat = pool.getProviderStatistics()}
+                    {#each Object.entries(stat.languages) as lang}
+                        <div class="button-wrapper" style:width="100%" title={lang[1].length < stat.providers.length ? `There is ${stat.providers.length} language providers registered (${stat.providers.join(", ")}) however only ${lang[1].length} of them (${lang[1].join(", ")}) can provide keys for the ${lang[0]} language` : ""}>
+                            <NavBarButton on:click={() => $state.language = lang[0]}>
+                                {lang[0].toUpperCase()}
+                                <img style:position="absolute" style:right="10px" style:top="50%" style:transform="translate(0%, -50%)" src={lang[1].length < stat.providers.length ? eh : ok} alt="">
+                            </NavBarButton>
+                        </div>
+                    {/each}
+                </svelte:fragment>
+            </NavBarDropdown>
+
             {#if !stuffs.version}
                 <button class="nav-item" on:click={increaseStamina} style:font-size={(Math.max(stamina, 10) - 9) + "em"} style:opacity="0.5">No version selected</button>
             {/if}
@@ -169,8 +199,13 @@ import latest from "docs:latest";
 
 <HintOverlay classi={classi}/>
 
+<svelte:body on:keydown={handleKeyDown}/>
+
 
 <style lang="less">
+    // can't $lib
+    @import "src/lib/content/navbar/constants.less";
+
     :global(:root) {
         --background: #000000;
         --window-background: #222222;
@@ -185,6 +220,10 @@ import latest from "docs:latest";
             --color: black;
             --color-in-landmark: black;
         }
+    }
+
+    .button-wrapper {
+        .inline-flex();
     }
 
     footer {

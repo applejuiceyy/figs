@@ -176,26 +176,29 @@ export class TranslatorPool {
         return store;
     }
 
-    getAvailableLanguages() {
-        let ret: string[] = [];
+    getProviderStatistics() {
+        let ret: {providers: string[], languages: {[item: string]: string[]}} = {providers: Object.keys(this.providers), languages: {}};
 
-        let providers = Object.values(this.providers);
+        let providers = Object.entries(this.providers);
 
         for (let i = 0; i < providers.length; i++) {
             let provider = providers[i];
 
-            let languages = Object.keys(provider);
+            let languages = Object.keys(provider[1]);
 
             for (let j = 0; j < languages.length; j++) {
-                if (!ret.includes(languages[j])) {
-                    ret.push(languages[j]);
+                if (!(languages[j] in ret.languages)) {
+                    ret.languages[languages[j]] = [];
                 }
+
+                ret.languages[languages[j]].push(provider[0]);
             }
         }
 
         return ret;
     }
 }
+
 let pool = new TranslatorPool(derived(state, (v) => v.language));
 pool.addProvider(transformed, "figs");
 export default pool

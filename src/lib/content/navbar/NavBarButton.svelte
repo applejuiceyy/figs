@@ -7,5 +7,6 @@
 
     button {
         .nav-item();
+        position: relative;
     }
 </style>

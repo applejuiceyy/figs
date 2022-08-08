@@ -8,12 +8,16 @@ import NavBarButton from "./NavBarButton.svelte";
     export let checked = false;
 
     function handleClick() {
+        let state = checked;
         reset();
 
-        checked = !checked;
+        if (state === checked)
+        {
+            checked = !checked;
 
-        if (checked) {
-            reset = () => checked = false;
+            if (checked) {
+                reset = () => checked = false;
+            }
         }
     }
 </script>

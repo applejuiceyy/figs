@@ -21,7 +21,8 @@
     import stats from "$lib/docs/statistics";
     import type { Docs } from "$lib/docs/rewrite_docs";
     import { onDestroy, onMount } from "svelte";
-import pool from "$lib/language/translator";
+    import pool from "$lib/language/translator";
+    import state from "$lib/state/stores";
 
     export let query: string | null;
     export let docs: Docs;
@@ -34,12 +35,17 @@ import pool from "$lib/language/translator";
     let entries: any = [];
     let waitingFetch: boolean = false;
 
-    $: {
-        searcher = null;
-        entries = [];
+    let lang = "";
 
-        if (query !== null) {
-            searcher = s.search(query);
+    $: {
+        if (lang !== $state.language) {
+            searcher = null;
+            entries = [];
+            lang = $state.language;
+
+            if (query !== null) {
+                searcher = s.search(query);
+            }
         }
     }
 

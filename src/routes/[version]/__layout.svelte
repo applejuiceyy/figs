@@ -1,8 +1,6 @@
 <script context="module" type="ts">
     import versions from "docs:all";
-import { setContext } from "svelte";
-import { writable, type Writable } from "svelte/store";
-import latest from "docs:latest";
+    import latest from "docs:latest";
 
     let load: import('./__layout').Load = async function ({ params }) {
         if (params.version in versions || params.version === "latest") {
@@ -38,6 +36,7 @@ import latest from "docs:latest";
     import type { Docs } from "$lib/docs/rewrite_docs";
     import pool from "$lib/language/translator";
     import {base as b} from "$app/paths";
+import { onDestroy } from "svelte";
 
     export let docs: Docs;
     export let version: string;
@@ -51,6 +50,10 @@ import latest from "docs:latest";
 
         unsub = pool.addProvider(docs.languages, version);
     };
+
+    onDestroy(() => {
+        if (unsub !== null) unsub();
+    })
 
 </script>
 
