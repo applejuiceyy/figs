@@ -1,5 +1,5 @@
 const build = [
-  "/figs/_app/start-beb2a05d.js",
+  "/figs/_app/start-9321f224.js",
   "/figs/_app/pages/__layout.svelte-a28f9c3d.js",
   "/figs/_app/assets/pages/__layout.svelte-c5b39a1b.css",
   "/figs/_app/assets/cheese-9bdf176f.png",
@@ -2359,7 +2359,7 @@ const prerendered = [
   "/figs/pre-6/math.lerpAngle/",
   "/figs/pre-6/math.clamp/"
 ];
-const version = "1660000368559";
+const version = "1660057340906";
 const worker = self;
 const CACHE_NAME = `A;static-cache-${version}`;
 const to_cache = build.concat(files).concat(prerendered);
