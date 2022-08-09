@@ -13,7 +13,6 @@
 
 <script type="ts">
     import {base} from "$app/paths";
-    import version from "$lib/docs/rewrite_version.txt?raw";
     import { cheeseSvg } from "$lib/actions/cheese";
     import { onDestroy, onMount } from "svelte";
 
@@ -48,6 +47,8 @@
     let interv: any = null;
 
     let cheeseFalling = false;
+
+    let holdingCtrl: boolean = false;
 
     onMount(()=> {
         let v = ()=>{
@@ -97,10 +98,15 @@
     let searcher: NavBarSearcher;
 
     function handleKeyDown (ev: KeyboardEvent) {
+        holdingCtrl = ev.ctrlKey;
         // https://stackoverflow.com/questions/34687895/determine-if-a-letter-or-a-number-was-pressed-javascript
         if (ev.keyCode >= 48 && ev.keyCode <= 57 || ev.keyCode >= 65 && ev.keyCode <= 90 || ev.keyCode >= 97 && ev.keyCode <= 122) {
             searcher.focus();
         }
+    }
+
+    function handleKeyUp (ev: KeyboardEvent) {
+        holdingCtrl = ev.ctrlKey;
     }
 </script>
 
@@ -153,12 +159,14 @@
                 <svelte:fragment slot="dropdown">
                     {@const stat = pool.getProviderStatistics()}
                     {#each Object.entries(stat.languages) as lang}
-                        <div class="button-wrapper" style:width="100%" title={lang[1].length < stat.providers.length ? `There is ${stat.providers.length} language providers registered (${stat.providers.join(", ")}) however only ${lang[1].length} of them (${lang[1].join(", ")}) can provide keys for the ${lang[0]} language` : ""}>
-                            <NavBarButton on:click={() => $state.language = lang[0]}>
-                                {lang[0].toUpperCase()}
-                                <img style:position="absolute" style:right="10px" style:top="50%" style:transform="translate(0%, -50%)" src={lang[1].length < stat.providers.length ? eh : ok} alt="">
-                            </NavBarButton>
-                        </div>
+                        {#if holdingCtrl || lang[0] !== "en_uwu"}
+                            <div class="button-wrapper" style:width="100%" title={lang[1].length < stat.providers.length ? `There is ${stat.providers.length} language providers registered (${stat.providers.join(", ")}) however only ${lang[1].length} of them (${lang[1].join(", ")}) can provide keys for the ${lang[0]} language` : ""}>
+                                <NavBarButton on:click={() => $state.language = lang[0]}>
+                                    {lang[0].toUpperCase()}
+                                    <img style:position="absolute" style:right="10px" style:top="50%" style:transform="translate(0%, -50%)" src={lang[1].length < stat.providers.length ? eh : ok} alt="">
+                                </NavBarButton>
+                            </div>
+                        {/if}
                     {/each}
                 </svelte:fragment>
             </NavBarDropdown>
@@ -199,7 +207,7 @@
 
 <HintOverlay classi={classi}/>
 
-<svelte:body on:keydown={handleKeyDown}/>
+<svelte:body on:keydown={handleKeyDown} on:keyup={handleKeyUp}/>
 
 
 <style lang="less">

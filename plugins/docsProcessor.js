@@ -12,6 +12,10 @@ async function maybePromise(what) {
     return what;
 }
 
+function transformContent(str) {
+    return str.replaceAll("u", "uwu").replaceAll("d", "w").replaceAll("b", "w").replaceAll("g", "w").replaceAll("t", "w") + (Math.random() > 0.8 ? " >w<" : " :3");
+}
+
 export default function docsProcessor() {
     const moduleNamespace = "docs:"
 
@@ -82,6 +86,8 @@ export default function docsProcessor() {
 
                             result = result.substring(1, result.length - 1); // take off {}
 
+                            transformed.languages.push("en_uwu");
+
                             if (!transformed.languages.includes("en_us")) {
                                 throw "Docs has no \"en_us\" language, which is mandatory"
                             }
@@ -101,6 +107,16 @@ export default function docsProcessor() {
                             return `export default {${result},languages:{${entries.join(",")}}}`;
                         }
                         else {
+                            if (language === "en_uwu") {
+                                let transformed = await maybePromise(transformer.language(docsJson, "en_us", folder));
+                                
+                                let entries = Object.entries(transformed);
+                                for (let i = 0; i < entries.length; i++) {
+                                    transformed[entries[i][0]] = transformContent(entries[i][1]);
+                                }
+
+                                return `export default ${JSON.stringify(transformed)}`;
+                            }
                             let transformed = await maybePromise(transformer.language(docsJson, language, folder));
 
                             return `export default ${JSON.stringify(transformed)}`;

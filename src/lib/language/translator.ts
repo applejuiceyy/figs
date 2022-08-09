@@ -19,6 +19,18 @@ entries.forEach(val => {
     }
 })
 
+function transformContent(str: string) {
+    return str.replaceAll("u", "uwu").replaceAll("d", "w").replaceAll("b", "w").replaceAll("g", "w").replaceAll("t", "w") + (Math.random() > 0.8 ? " >w<" : " :3");
+}
+
+let en_uwu: Language = {};
+
+Object.entries(en_us).forEach(val => {
+    en_uwu[val[0]] = transformContent(val[1])
+})
+
+transformed.en_uwu = () => new Promise(res => res(en_uwu))
+
 type TranslationResult = {type: "PROCESSING"} | {type: "RESULT", result: string} | {type: "FALLBACK", result: string} | {type: "NOTFOUND"}
 
 function cacheId(id: string, language: string) {
