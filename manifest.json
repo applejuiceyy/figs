@@ -1,0 +1,18 @@
+{
+    "short_name": "figs",
+    "name": "FIGS!!!",
+    "start_url": "/figs/",
+    "icons": [
+      {
+        "src": "favicon.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ],
+    "background_color": "#D157E2",
+    "display": "standalone",
+    "scope": "/figs/",
+    "theme_color": "#D157E2",
+    "shortcuts": [],
+    "description": "figura docs but in a website"
+}
