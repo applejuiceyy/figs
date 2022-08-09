@@ -143,7 +143,7 @@
         padding-bottom: 50px;
         background-color: black;
 
-        border-left: purple 5px solid;
+        border-left: #D157E2 5px solid;
         border-radius: 5px;
 
         color: white;
