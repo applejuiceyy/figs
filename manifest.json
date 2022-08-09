@@ -6,7 +6,8 @@
       {
         "src": "favicon.png",
         "type": "image/png",
-        "sizes": "512x512"
+        "sizes": "512x512",
+        "purpose": "maskable"
       }
     ],
     "background_color": "#D157E2",
