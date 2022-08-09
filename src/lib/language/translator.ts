@@ -81,7 +81,14 @@ export class TranslatorPool {
         let l = this.providers[id][lang];
 
         if (typeof l === "function") {
-            t = await l();
+            try {
+                t = await l();
+            }
+            catch (e) {
+                console.error(e);
+                this.activeTransfers.splice(this.activeTransfers.findIndex(val => val == cid), 1);
+                return;
+            }
         }
         else {
             t = l;
