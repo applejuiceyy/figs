@@ -70,7 +70,13 @@
         mask-size: 0% 0%;
         mask-repeat: no-repeat;
 
-        transition: mask-size 0.5s;
+        -webkit-mask: url($lib/resource/star.svg);
+        -webkit-mask-position: 50% 50%;
+
+        -webkit-mask-size: 0% 0%;
+        -webkit-mask-repeat: no-repeat;
+
+        transition: mask-size 0.5s, -webkit-mask-size 0.5s;
 
         display: block;
     }
@@ -91,6 +97,7 @@
         background-color: transparent;
 
         mask: url($lib/resource/star.svg);
+        -webkit-mask: url($lib/resource/star.svg);
     }
 
     @media only screen and (min-width: 1000px) {
@@ -101,5 +108,6 @@
 
     .enabled {
         mask-size: 100% 100%;
+        -webkit-mask-size: 100% 100%;
     }
 </style>
