@@ -1,6 +1,6 @@
 const build = [
-  "/figs/_app/start-99dc6797.js",
-  "/figs/_app/pages/__layout.svelte-cee8a5d8.js",
+  "/figs/_app/start-5de2be2e.js",
+  "/figs/_app/pages/__layout.svelte-903ea6c2.js",
   "/figs/_app/assets/pages/__layout.svelte-282b4db7.css",
   "/figs/_app/assets/cheese-9bdf176f.png",
   "/figs/_app/assets/class-9795478b.webp",
@@ -9,26 +9,26 @@ const build = [
   "/figs/_app/assets/eh-6b23cd84.png",
   "/figs/_app/assets/ok-56d3dd37.png",
   "/figs/_app/error.svelte-3d11daca.js",
-  "/figs/_app/pages/_version_/__layout.svelte-b09143a7.js",
+  "/figs/_app/pages/_version_/__layout.svelte-a5329b30.js",
   "/figs/_app/assets/pages/_version_/__layout.svelte-20d77389.css",
-  "/figs/_app/pages/_version_/_location_.svelte-56ffd54c.js",
-  "/figs/_app/pages/_version_/all.svelte-a60704ed.js",
+  "/figs/_app/pages/_version_/_location_.svelte-954cebe3.js",
+  "/figs/_app/pages/_version_/all.svelte-f9787cef.js",
   "/figs/_app/assets/pages/_version_/all.svelte-c1572228.css",
   "/figs/_app/assets/dirt-fb045025.png",
   "/figs/_app/assets/grass_block-dedaa017.png",
   "/figs/_app/assets/stone-0096954e.png",
   "/figs/_app/assets/sun-d66e4fcc.png",
   "/figs/_app/assets/sign-c804ceb9.png",
-  "/figs/_app/pages/_version_/fav.svelte-fb83b8b0.js",
+  "/figs/_app/pages/_version_/fav.svelte-1688191c.js",
   "/figs/_app/pages/_version_/index.svelte-0454c745.js",
-  "/figs/_app/pages/_version_/search.svelte-c59d7120.js",
-  "/figs/_app/pages/index.svelte-1600167f.js",
+  "/figs/_app/pages/_version_/search.svelte-258d0c4c.js",
+  "/figs/_app/pages/index.svelte-cbcba1c2.js",
   "/figs/_app/assets/pages/index.svelte-4d8bf406.css",
   "/figs/_app/chunks/index-291ebab7.js",
   "/figs/_app/chunks/preload-helper-dfa869de.js",
-  "/figs/_app/chunks/_docs_all-98d77fb0.js",
+  "/figs/_app/chunks/_docs_all-5abe0072.js",
   "/figs/_app/chunks/translator-6d388499.js",
-  "/figs/_app/chunks/statistics-5eb9d5bb.js",
+  "/figs/_app/chunks/statistics-0903060f.js",
   "/figs/_app/assets/statistics-39eedee9.css",
   "/figs/_app/assets/stone1-97f2a8a7.ogg",
   "/figs/_app/assets/stone2-98a5c319.ogg",
@@ -55,14 +55,14 @@ const build = [
   "/figs/_app/assets/star-150d3691.svg",
   "/figs/_app/chunks/TranslatableKey-5db92918.js",
   "/figs/_app/assets/TranslatableKey-539c3d15.css",
-  "/figs/_app/chunks/DescribeAny-fffb1afc.js",
+  "/figs/_app/chunks/DescribeAny-c6a81028.js",
   "/figs/_app/chunks/MetaTags-6b47c5c8.js",
-  "/figs/_app/chunks/_docs_v-pre-5-4671cfdf.js",
-  "/figs/_app/chunks/_docs_v-pre-6-fbe85210.js",
+  "/figs/_app/chunks/_docs_v-pre-5-3eef0486.js",
+  "/figs/_app/chunks/_docs_v-pre-6-a0309d42.js",
   "/figs/_app/chunks/pt_pt-ba6b27db.js",
-  "/figs/_app/chunks/gravity-12eb6188.js",
-  "/figs/_app/chunks/_docs_v-pre-5_en_uwu-0f033e58.js",
-  "/figs/_app/chunks/_docs_v-pre-6_en_uwu-f994f489.js"
+  "/figs/_app/chunks/gravity-0f0d3d00.js",
+  "/figs/_app/chunks/_docs_v-pre-5_en_uwu-340779e2.js",
+  "/figs/_app/chunks/_docs_v-pre-6_en_uwu-6460f27b.js"
 ];
 const files = [
   "/figs/favicon.png",
@@ -2363,7 +2363,7 @@ const prerendered = [
   "/figs/pre-6/math.lerpAngle/",
   "/figs/pre-6/math.clamp/"
 ];
-const version = "1660157512351";
+const version = "1660160547549";
 const worker = self;
 const CACHE_NAME = `A;static-cache-${version}`;
 const to_cache = build.concat(files).concat(prerendered);

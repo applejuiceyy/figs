@@ -1,4 +1,4 @@
-import{c as ie,n as re}from"./statistics-5eb9d5bb.js";import"./index-291ebab7.js";import"./preload-helper-dfa869de.js";import"./translator-6d388499.js";import"./TranslatableKey-5db92918.js";var V={exports:{}};/*!
+import{c as ie,n as re}from"./statistics-0903060f.js";import"./index-291ebab7.js";import"./preload-helper-dfa869de.js";import"./translator-6d388499.js";import"./TranslatableKey-5db92918.js";var V={exports:{}};/*!
  * matter-js 0.18.0 by @liabru
  * http://brm.io/matter-js/
  * License MIT
