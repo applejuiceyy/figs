@@ -1,4 +1,17 @@
 
+function getSupers(types, name) {
+    let klass = types[name];
+
+    if (klass === undefined) {
+        return [name];
+    }
+    if (klass.parent) {
+        return [klass.name, ...getSupers(types, klass.parent)];
+    }
+    else {
+        return [name];
+    }
+}
 
 export function transform(json) {
     let result = {
@@ -19,6 +32,19 @@ export function transform(json) {
 
             val.methods.forEach(c => c.description = "docs." + val.name.toLowerCase() + "." + c.name.toLowerCase());
             val.fields.forEach(c => c.description = "docs." + val.name.toLowerCase() + "." + c.name.toLowerCase());
+        })
+    })
+
+    Object.values(result.types).forEach(val => {
+        let supers = getSupers(result.types, val.name);
+        val.methods.forEach(val => {
+            val.static = val.parameters.filter(params => {
+                return !(params.length > 0 && (supers.includes(params[0].type) || params[0].type === val.name))
+            }).length === 0;
+            
+            if (val.static) {
+                val.parameters.forEach(params => params.shift());
+            }
         })
     })
 

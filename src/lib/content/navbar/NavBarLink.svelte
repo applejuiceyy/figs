@@ -4,7 +4,7 @@
     export let inline: boolean = false;
 </script>
 
-<a href={href} class:inline>
+<a href={href} class:inline on:click>
     <slot/>
 </a>
 

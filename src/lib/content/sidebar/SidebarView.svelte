@@ -55,7 +55,7 @@ import TranslatableKey from "$lib/language/TranslatableKey.svelte";
 
 <div class="sidebar-viewer">
     <div class="fields-container">
-        <StyledItem on:click={() => dispatcher("select")} href="{base}{everythingSwitch}" src={klass_src}>Show{everything ? " not" : ""} everything</StyledItem>
+        <StyledItem on:click={() => dispatcher("select")} href="{base}{everythingSwitch}" src={klass_src}><TranslatableKey key="show-{everything ? "not." : ""}everything"/></StyledItem>
     </div>
 
     {#each everythingArray as what (what.id)}

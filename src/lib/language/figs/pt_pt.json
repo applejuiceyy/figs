@@ -8,5 +8,10 @@
     "global-objects": "Objetos globais",
     "misc-types": "Outras Classes",
     "misc-enums": "Outras Listas",
-    "search": "Pesquisar"
+    "search": "Pesquisar",
+    "pick-a-version": "Selecione uma versão",
+    "version-not-selected": "Versão não selecionada",
+    "made-by-applejuice": "Feito por Applejuice",
+    "show-everything": "Mostrar tudo",
+    "show-not-everything": "Não mostrar tudo"
 }

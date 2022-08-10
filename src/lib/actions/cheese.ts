@@ -32,7 +32,7 @@ export function cheeseSvg(node: Element, shouldDo: boolean) {
 	let execute = () => {
         bounds = node.getBoundingClientRect();
 
-        if(Math.random() > 0.99 && shouldDo) {
+        if(Math.random() > Math.pow(0.9999, bounds.width) && shouldDo) {
             let element = document.createElementNS(namespace, "image");
 
             element.setAttributeNS(null, "href", cheese);

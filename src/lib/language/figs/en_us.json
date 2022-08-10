@@ -8,5 +8,10 @@
     "global-objects": "Global Objects",
     "misc-types": "Miscellaneous Types",
     "misc-enums": "Miscellaneous Enums",
-    "search": "Search"
+    "search": "Search",
+    "pick-a-version": "Pick a version",
+    "version-not-selected": "Version not selected",
+    "made-by-applejuice": "Made by applejuice",
+    "show-everything": "Show everything",
+    "show-not-everything": "Show not everything"
 }

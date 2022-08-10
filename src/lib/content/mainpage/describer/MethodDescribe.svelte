@@ -36,9 +36,9 @@
         // dirty fix, here's what's blocking a permanent thing:
         //   the docs transformer plugin, as it needs to convert older docs to include this field
         //   however the plugin needs to access the statistics class to get info about the method
-        let shouldUseColon = ("static" in method && !method.static) || shouldShowClass && overload.length > 0 && (classi.getSupers(hostClass.name).includes(overload[0].type) || overload[0].type === hostClass.name);
+        let shouldUseColon = method.static;
 
-        if (shouldUseColon && !("static" in method)) {
+        if (shouldUseColon) {
             overload = [...overload];
             overload.shift();
         }

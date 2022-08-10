@@ -1,9 +1,16 @@
 <script context="module" type="ts">
+    import latest from "docs:latest";
 
     let load: import('./__layout').Load = async function ({ params }) {
+        let docs = await versions[latest]();
+
         return {
             stuff: {
-                base: `/latest/`
+                docs: docs,
+                base: `/latest/`,
+                showingEverything: false,
+                everythingSwitcher: `/latest/all`,
+                version: "latest"
             },
         };
     }
@@ -39,7 +46,6 @@
     import NavBarSearcher from "$lib/content/navbar/NavBarSearcher.svelte";
     import TranslatableKey from "$lib/language/TranslatableKey.svelte";
     import pool from "$lib/language/translator";
-    import latest from "docs:latest";
 
     import eh from "$lib/resource/status/eh.png";
     import ok from "$lib/resource/status/ok.png";
@@ -112,7 +118,7 @@
 
 <div class="root">
     <NavBar>
-        <NavBarLink inline href={base + "/"}>FIGS!!</NavBarLink>
+        <NavBarLink on:click={increaseStamina} inline href={base + "/"}><span style:font-size={(Math.max(stamina, 10) - 9) + "em"}>FIGS!!</span></NavBarLink>
 
         <NavBarSearcher bind:this={searcher} destination="{base}{stuffs.base}search"/>
 
@@ -124,11 +130,9 @@
         </NavBarFloater>
 
         <svelte:fragment slot="expanded">
-            {#if stuffs.version}
-                <NavBarLink href="{base}{stuffs.base}fav">
-                    <TranslatableKey key="favourites"/>
-                </NavBarLink>
-            {/if}
+            <NavBarLink href="{base}{stuffs.base}fav">
+                <TranslatableKey key="favourites"/>
+            </NavBarLink>
             
             <div class="table-toggle">
                 <NavBarButton on:click={()=>expanded = !expanded}>
@@ -170,10 +174,6 @@
                     {/each}
                 </svelte:fragment>
             </NavBarDropdown>
-
-            {#if !stuffs.version}
-                <button class="nav-item" on:click={increaseStamina} style:font-size={(Math.max(stamina, 10) - 9) + "em"} style:opacity="0.5">No version selected</button>
-            {/if}
         </svelte:fragment>
     </NavBar>
 
@@ -181,14 +181,14 @@
         <div class="category-flyover">
             <div class="category-sticker">
                 {#if classi === null}
-                    <span style:padding="10px">A version isn't selected</span>
+                    <span style:padding="10px"><TranslatableKey key="version-not-selected"/></span>
                 {:else}
                     <SidebarView classi={classi} everythingSwitch={stuffs.everythingSwitcher} everything={!!stuffs.showingEverything} path={stuffs.base ?? "/"} on:select={() => expanded = false}/>
                 {/if}
 
 
                 <footer>
-                    Made by applejuice
+                    <TranslatableKey key="made-by-applejuice"/>
                 </footer>
             </div>
         </div>
@@ -282,21 +282,6 @@
         to {
             z-index: 1;
         }
-    }
-
-    .nav-item {
-        padding: 10px;
-        display: block;
-
-        background-color: transparent;
-        cursor:pointer;
-
-        color: inherit;
-        margin: 0;
-
-        border: 0px;
-
-        font-family: inherit;
     }
 
     @keyframes brew {

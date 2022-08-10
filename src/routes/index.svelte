@@ -1,5 +1,6 @@
 <script>
 import { base } from "$app/paths";
+import TranslatableKey from "$lib/language/TranslatableKey.svelte";
 
     import versions from "docs:all";
     import latest from "docs:latest";
@@ -8,7 +9,7 @@ import { base } from "$app/paths";
 <div class="version-picker">
     <div class="version-picker-content">
         <div class="version-picker-title">
-            Pick a version >:/
+            <TranslatableKey key="pick-a-version"/>
         </div>
         <div class="version-picker-list">
             <a href="{base}/latest">latest ({latest})</a>
