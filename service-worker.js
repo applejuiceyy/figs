@@ -1,6 +1,6 @@
 const build = [
-  "/figs/_app/start-de4ca681.js",
-  "/figs/_app/pages/__layout.svelte-3428c780.js",
+  "/figs/_app/start-99dc6797.js",
+  "/figs/_app/pages/__layout.svelte-cee8a5d8.js",
   "/figs/_app/assets/pages/__layout.svelte-282b4db7.css",
   "/figs/_app/assets/cheese-9bdf176f.png",
   "/figs/_app/assets/class-9795478b.webp",
@@ -9,7 +9,7 @@ const build = [
   "/figs/_app/assets/eh-6b23cd84.png",
   "/figs/_app/assets/ok-56d3dd37.png",
   "/figs/_app/error.svelte-3d11daca.js",
-  "/figs/_app/pages/_version_/__layout.svelte-d93ae7da.js",
+  "/figs/_app/pages/_version_/__layout.svelte-b09143a7.js",
   "/figs/_app/assets/pages/_version_/__layout.svelte-20d77389.css",
   "/figs/_app/pages/_version_/_location_.svelte-56ffd54c.js",
   "/figs/_app/pages/_version_/all.svelte-a60704ed.js",
@@ -22,11 +22,11 @@ const build = [
   "/figs/_app/pages/_version_/fav.svelte-fb83b8b0.js",
   "/figs/_app/pages/_version_/index.svelte-0454c745.js",
   "/figs/_app/pages/_version_/search.svelte-c59d7120.js",
-  "/figs/_app/pages/index.svelte-7bc6a369.js",
+  "/figs/_app/pages/index.svelte-1600167f.js",
   "/figs/_app/assets/pages/index.svelte-4d8bf406.css",
   "/figs/_app/chunks/index-291ebab7.js",
   "/figs/_app/chunks/preload-helper-dfa869de.js",
-  "/figs/_app/chunks/_docs_all-65b4e64a.js",
+  "/figs/_app/chunks/_docs_all-98d77fb0.js",
   "/figs/_app/chunks/translator-6d388499.js",
   "/figs/_app/chunks/statistics-5eb9d5bb.js",
   "/figs/_app/assets/statistics-39eedee9.css",
@@ -57,12 +57,12 @@ const build = [
   "/figs/_app/assets/TranslatableKey-539c3d15.css",
   "/figs/_app/chunks/DescribeAny-fffb1afc.js",
   "/figs/_app/chunks/MetaTags-6b47c5c8.js",
-  "/figs/_app/chunks/_docs_v-pre-5-cf78f45f.js",
-  "/figs/_app/chunks/_docs_v-pre-6-51a5de2f.js",
+  "/figs/_app/chunks/_docs_v-pre-5-4671cfdf.js",
+  "/figs/_app/chunks/_docs_v-pre-6-fbe85210.js",
   "/figs/_app/chunks/pt_pt-ba6b27db.js",
   "/figs/_app/chunks/gravity-12eb6188.js",
-  "/figs/_app/chunks/_docs_v-pre-5_en_uwu-131dce1f.js",
-  "/figs/_app/chunks/_docs_v-pre-6_en_uwu-79131909.js"
+  "/figs/_app/chunks/_docs_v-pre-5_en_uwu-0f033e58.js",
+  "/figs/_app/chunks/_docs_v-pre-6_en_uwu-f994f489.js"
 ];
 const files = [
   "/figs/favicon.png",
@@ -2363,7 +2363,7 @@ const prerendered = [
   "/figs/pre-6/math.lerpAngle/",
   "/figs/pre-6/math.clamp/"
 ];
-const version = "1660144860719";
+const version = "1660157512351";
 const worker = self;
 const CACHE_NAME = `A;static-cache-${version}`;
 const to_cache = build.concat(files).concat(prerendered);
