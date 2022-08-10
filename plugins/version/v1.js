@@ -39,10 +39,10 @@ export function transform(json) {
         let supers = getSupers(result.types, val.name);
         val.methods.forEach(val => {
             val.static = val.parameters.filter(params => {
-                return !(params.length > 0 && (supers.includes(params[0].type) || params[0].type === val.name))
-            }).length === 0;
+                return params.length > 0 && (supers.includes(params[0].type) || params[0].type === val.name)
+            }).length !== val.parameters.length;
             
-            if (val.static) {
+            if (!val.static) {
                 val.parameters.forEach(params => params.shift());
             }
         })

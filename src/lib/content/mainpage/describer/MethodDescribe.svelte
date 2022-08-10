@@ -33,15 +33,7 @@
         let ret = "";
         let hints: Hint[] = [];
 
-        // dirty fix, here's what's blocking a permanent thing:
-        //   the docs transformer plugin, as it needs to convert older docs to include this field
-        //   however the plugin needs to access the statistics class to get info about the method
-        let shouldUseColon = method.static;
-
-        if (shouldUseColon) {
-            overload = [...overload];
-            overload.shift();
-        }
+        let shouldUseColon = !method.static;
 
         if (shouldShowClass) {
             ret += hostClass.name + (shouldUseColon ? ":" : ".");
