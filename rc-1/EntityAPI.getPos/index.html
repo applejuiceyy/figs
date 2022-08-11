@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/figs/favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="manifest" crossorigin="use-credentials" href="/figs/manifest.json" />
+		<meta http-equiv="content-security-policy" content=""><title>getPos</title><meta name="robots" content="index,follow" data-svelte="svelte-1v2a5gq"><meta name="googlebot" content="index,follow" data-svelte="svelte-1v2a5gq"><meta name="description" content="Gets the position of the entity in the world. If delta is passed in, then it will be used to linearly interpolate the position of the entity between the previous tick and the current tick. The default value of delta is 1." data-svelte="svelte-1v2a5gq">
+	<link rel="stylesheet" href="/figs/_app/assets/pages/__layout.svelte-282b4db7.css">
+	<link rel="stylesheet" href="/figs/_app/assets/statistics-39eedee9.css">
+	<link rel="stylesheet" href="/figs/_app/assets/TranslatableKey-539c3d15.css">
+	<link rel="stylesheet" href="/figs/_app/assets/pages/_version_/__layout.svelte-20d77389.css">
+	<link rel="modulepreload" href="/figs/_app/start-b5f973ea.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/index-291ebab7.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/preload-helper-dfa869de.js">
+	<link rel="modulepreload" href="/figs/_app/pages/__layout.svelte-c24476bc.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/_docs_all-801baeb4.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/statistics-0903060f.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/translator-6d388499.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/TranslatableKey-5db92918.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/DescribeAny-c6a81028.js">
+	<link rel="modulepreload" href="/figs/_app/pages/_version_/__layout.svelte-82ac91d8.js">
+	<link rel="modulepreload" href="/figs/_app/pages/_version_/_location_.svelte-954cebe3.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/MetaTags-6b47c5c8.js">
+				<script>
+		if ('serviceWorker' in navigator) {
+			navigator.serviceWorker.register('/figs/service-worker.js');
+		}
+	</script>
+	</head>
+	<body>
+		<div>
+
+
+<div class="root svelte-51252h"><nav class="svelte-tnu6kn"><div class="desizer svelte-tnu6kn"><div class="nav-stick svelte-tnu6kn"><a href="/figs/" class="svelte-si639d inline"><span style="font-size: 1em;">FIGS!!</span>
+</a>
+
+        <div class="search-root svelte-18dbo91" style="flex-grow: 1;"><form class="sizer svelte-18dbo91" action="/figs/rc-1/search" method="get"><input required name="q" style="min-width: 0; flex-grow: 1; flex-shrink: 1;">
+        <input type="submit" value="Search"></form>
+</div>
+
+
+        <div class="nav-floater svelte-1p9s1io"><div class="expand-button svelte-hgqmf9"><button class="svelte-cyzf2a">Content
+</button>
+</div>
+</div></div>
+
+        <div class="nav-expanded svelte-tnu6kn"><a href="/figs/rc-1/fav" class="svelte-si639d">Favourites
+</a>
+            
+            <div class="table-toggle svelte-51252h"><button class="svelte-cyzf2a">Show Table
+</button></div>
+
+            <button class="svelte-cyzf2a">Enable Focus
+</button>
+
+            <div class="nav-dropdown svelte-5q9th4"><button class="svelte-cyzf2a">RC-1
+</button>
+
+    </div>
+
+
+
+            <div class="nav-dropdown svelte-5q9th4"><button class="svelte-cyzf2a">EN_US
+</button>
+
+    </div>
+
+
+        </div></div>
+</nav>
+
+    <div class="category svelte-51252h"><div class="category-flyover svelte-51252h"><div class="category-sticker svelte-51252h"><div class="sidebar-viewer svelte-1relmqa"><div class="fields-container svelte-1relmqa"><a id="" href="/figs/rc-1/all" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        Show everything
+</a></div>
+
+    <div><span class="tab svelte-1relmqa">Global Objects
+                </span>
+        </div><div><a id="" href="/figs/rc-1/log" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        log
+</a>
+        </div><div><a id="" href="/figs/rc-1/logJson" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        logJson
+</a>
+        </div><div><a id="" href="/figs/rc-1/logTable" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        logTable
+</a>
+        </div><div><a id="" href="/figs/rc-1/print" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        print
+</a>
+        </div><div><a id="" href="/figs/rc-1/printJson" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        printJson
+</a>
+        </div><div><a id="" href="/figs/rc-1/printTable" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        printTable
+</a>
+        </div><div><a id="" href="/figs/rc-1/require" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        require
+</a>
+        </div><div><a id="" href="/figs/rc-1/action_wheel" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        action_wheel
+</a>
+        </div><div><a id="" href="/figs/rc-1/animations" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        animations
+</a>
+        </div><div><a id="" href="/figs/rc-1/avatar" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        avatar
+</a>
+        </div><div><a id="" href="/figs/rc-1/client" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        client
+</a>
+        </div><div><a id="" href="/figs/rc-1/events" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        events
+</a>
+        </div><div><a id="" href="/figs/rc-1/figuraMetatables" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        figuraMetatables
+</a>
+        </div><div><a id="" href="/figs/rc-1/host" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        host
+</a>
+        </div><div><a id="" href="/figs/rc-1/keybind" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        keybind
+</a>
+        </div><div><a id="" href="/figs/rc-1/matrices" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        matrices
+</a>
+        </div><div><a id="" href="/figs/rc-1/models" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        models
+</a>
+        </div><div><a id="" href="/figs/rc-1/nameplate" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        nameplate
+</a>
+        </div><div><a id="" href="/figs/rc-1/particles" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        particles
+</a>
+        </div><div><a id="" href="/figs/rc-1/pings" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        pings
+</a>
+        </div><div><a id="" href="/figs/rc-1/player" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        player
+</a>
+        </div><div><a id="" href="/figs/rc-1/renderer" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        renderer
+</a>
+        </div><div><a id="" href="/figs/rc-1/sounds" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        sounds
+</a>
+        </div><div><a id="" href="/figs/rc-1/type" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        type
+</a>
+        </div><div><a id="" href="/figs/rc-1/user" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        user
+</a>
+        </div><div><a id="" href="/figs/rc-1/vanilla_model" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        vanilla_model
+</a>
+        </div><div><a id="" href="/figs/rc-1/vec" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        vec
+</a>
+        </div><div><a id="" href="/figs/rc-1/vectors" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        vectors
+</a>
+        </div><div><a id="" href="/figs/rc-1/world" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        world
+</a>
+        </div><div><span class="tab svelte-1relmqa">Miscellaneous Types
+                </span>
+        </div><div><a id="" href="/figs/rc-1/Action" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        Action
+</a>
+        </div><div><a id="" href="/figs/rc-1/Animation" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        Animation
+</a>
+        </div><div><a id="" href="/figs/rc-1/Biome" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        Biome
+</a>
+        </div><div><a id="" href="/figs/rc-1/BlockState" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        BlockState
+</a>
+        </div><div><a id="" href="/figs/rc-1/BlockTask" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        BlockTask
+</a>
+        </div><div><a id="" href="/figs/rc-1/ClickAction" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        ClickAction
+</a>
+        </div><div><a id="" href="/figs/rc-1/EntityNameplateCustomization" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        EntityNameplateCustomization
+</a>
+        </div><div><a id="" href="/figs/rc-1/Event" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        Event
+</a>
+        </div><div><a id="" href="/figs/rc-1/ItemStack" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        ItemStack
+</a>
+        </div><div><a id="" href="/figs/rc-1/ItemTask" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        ItemTask
+</a>
+        </div><div><a id="" href="/figs/rc-1/Keybind" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        Keybind
+</a>
+        </div><div><a id="" href="/figs/rc-1/LivingEntityAPI" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        LivingEntityAPI
+</a>
+        </div><div><a id="" href="/figs/rc-1/Matrix2" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        Matrix2
+</a>
+        </div><div><a id="" href="/figs/rc-1/Matrix3" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        Matrix3
+</a>
+        </div><div><a id="" href="/figs/rc-1/Matrix4" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        Matrix4
+</a>
+        </div><div><a id="" href="/figs/rc-1/NameplateCustomization" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        NameplateCustomization
+</a>
+        </div><div><a id="" href="/figs/rc-1/NameplateCustomizationGroup" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        NameplateCustomizationGroup
+</a>
+        </div><div><a id="" href="/figs/rc-1/Page" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        Page
+</a>
+        </div><div><a id="" href="/figs/rc-1/PingFunction" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        PingFunction
+</a>
+        </div><div><a id="" href="/figs/rc-1/RenderTask" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        RenderTask
+</a>
+        </div><div><a id="" href="/figs/rc-1/ScrollAction" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        ScrollAction
+</a>
+        </div><div><a id="" href="/figs/rc-1/Sound" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        Sound
+</a>
+        </div><div><a id="" href="/figs/rc-1/TextTask" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        TextTask
+</a>
+        </div><div><a id="" href="/figs/rc-1/ToggleAction" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        ToggleAction
+</a>
+        </div><div><a id="" href="/figs/rc-1/VanillaModelGroup" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        VanillaModelGroup
+</a>
+        </div><div><a id="" href="/figs/rc-1/VanillaModelPart" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        VanillaModelPart
+</a>
+        </div><div><a id="" href="/figs/rc-1/Vector2" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        Vector2
+</a>
+        </div><div><a id="" href="/figs/rc-1/Vector3" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        Vector3
+</a>
+        </div><div><a id="" href="/figs/rc-1/Vector4" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        Vector4
+</a>
+        </div><div><a id="" href="/figs/rc-1/Vector5" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        Vector5
+</a>
+        </div><div><a id="" href="/figs/rc-1/Vector6" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        Vector6
+</a>
+        </div><div><a id="" href="/figs/rc-1/math" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        math
+</a>
+        </div><div><span class="tab svelte-1relmqa">Miscellaneous Enums
+                </span>
+        </div><div><a id="" href="/figs/rc-1/EntityPoses" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        EntityPoses
+</a>
+        </div><div><a id="" href="/figs/rc-1/ItemRenderTypes" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        ItemRenderTypes
+</a>
+        </div><div><a id="" href="/figs/rc-1/KeyIDs" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        KeyIDs
+</a>
+        </div><div><a id="" href="/figs/rc-1/Keybinds" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        Keybinds
+</a>
+        </div><div><a id="" href="/figs/rc-1/LoopModes" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        LoopModes
+</a>
+        </div><div><a id="" href="/figs/rc-1/ParentTypes" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        ParentTypes
+</a>
+        </div><div><a id="" href="/figs/rc-1/PlayStates" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        PlayStates
+</a>
+        </div><div><a id="" href="/figs/rc-1/PostEffects" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        PostEffects
+</a>
+        </div><div><a id="" href="/figs/rc-1/RenderTypes" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        RenderTypes
+</a>
+        </div><div><a id="" href="/figs/rc-1/TextureTypes" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        TextureTypes
+</a>
+        </div>
+</div>
+
+
+                <footer class="svelte-51252h">Made by applejuice</footer></div></div></div>
+
+    <div class="content svelte-51252h">
+
+
+<div class="partial-background svelte-19rvqsi" style="--width: 70%;"><div class="method-root svelte-1mo3ogu"><div class="svelte-1mo3ogu"><a id="" href="/figs/rc-1/EntityAPI.getPos" class="svelte-yl6yu4  dark"><h1 class="flex svelte-yl6yu4" style=""><img src="/figs/_app/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">EntityAPI.getPos</h1>
+</a>
+        
+    </div>
+
+        <button class="favourite-button svelte-1p5n4fl" style="--width: 30.000000000000004%;"><div class="svg-wrapper svelte-1p5n4fl"><img src="/figs/_app/assets/unlit_star-44b7d610.svg" aria-hidden="true" alt="">
+
+        <img class="posrel svelte-1p5n4fl" src="/figs/_app/assets/star-150d3691.svg" aria-hidden="true" alt="">
+            <svg class="posrel svelte-1p5n4fl" width="100%" height="100%"></svg></div>
+</button>
+
+        <div></div>
+
+        <div style="margin: 5px;"><div class="svelte-1c4djgu"><span class="svelte-demb7k">Gets the position of the entity in the world. If delta is passed in, then it will be used to linearly interpolate the position of the entity between the previous tick and the current tick. The default value of delta is 1.</span></div>
+
+    <div class="code-example filled svelte-1c4djgu" style="margin-top: 50px;">
+            <code class="svelte-ub178e">
+<span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->EntityAPI<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="function svelte-sbfse9 token"><!-- HTML_TAG_START -->getPos<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->(<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->)<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->&nbsp;<!-- HTML_TAG_END --></span><span class="hint svelte-b0lxte"><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->Vector3<!-- HTML_TAG_END --></span></span>
+            
+
+        <button tabindex="-1" aria-hidden="true" class="hammer-button svelte-ub178e"><svg href="/figs/_app/assets/hammer-ccd8d2cd.svg" width="16" height="16" style="color: white; touch-action: none; user-select: none;"></svg></button></code>
+
+
+
+            <code class="svelte-ub178e">
+<span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->EntityAPI<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="function svelte-sbfse9 token"><!-- HTML_TAG_START -->getPos<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->(<!-- HTML_TAG_END --></span><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->delta<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->&nbsp;<!-- HTML_TAG_END --></span><span class="hint svelte-b0lxte"><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->Number<!-- HTML_TAG_END --></span></span><span class="hint svelte-b0lxte"><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START --><!-- HTML_TAG_END --></span></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->)<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->&nbsp;<!-- HTML_TAG_END --></span><span class="hint svelte-b0lxte"><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->Vector3<!-- HTML_TAG_END --></span></span>
+            
+
+        <button tabindex="-1" aria-hidden="true" class="hammer-button svelte-ub178e"><svg href="/figs/_app/assets/hammer-ccd8d2cd.svg" width="16" height="16" style="color: white; touch-action: none; user-select: none;"></svg></button></code>
+
+
+</div></div></div>
+</div>
+
+<div class="corner-flyer svelte-17jg4l9"><button class="top-jumper svelte-17jg4l9">Jump to top
+    </button>
+    <noscript class="svelte-17jg4l9">Warning: most things in this website won&#39;t work without javascript</noscript></div>
+
+
+<a href="/figs/rc-1/search" style="display: none;">dummy</a>
+
+        <svg class="cheese-svg svelte-51252h" width="100%" height="100%" aria-hidden="true" style="pointer-events: none; touch-action: none;"></svg></div></div>
+
+<svg id="root-glasspane" class="glasspane svelte-51252h" width="100%" height="100%" style="z-index: 99999;"></svg>
+
+
+<div class="hint-overlay svelte-2rv4ee"></div>
+
+
+
+
+
+
+		<script type="module" data-hydrate="1xyjrfr">
+		import { start } from "/figs/_app/start-b5f973ea.js";
+		start({
+			target: document.querySelector('[data-hydrate="1xyjrfr"]').parentNode,
+			paths: {"base":"/figs","assets":"/figs"},
+			session: {},
+			route: true,
+			spa: false,
+			trailing_slash: "always",
+			hydrate: {
+				status: 200,
+				error: null,
+				nodes: [
+					import("/figs/_app/pages/__layout.svelte-c24476bc.js"),
+						import("/figs/_app/pages/_version_/__layout.svelte-82ac91d8.js"),
+						import("/figs/_app/pages/_version_/_location_.svelte-954cebe3.js")
+				],
+				params: {version:"rc-1",location:"EntityAPI.getPos"},
+				routeId: "[version]/[location]"
+			}
+		});
+	</script></div>
+	</body>
+</html>
