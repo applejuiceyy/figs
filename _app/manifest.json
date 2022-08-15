@@ -1,6 +1,6 @@
 {
   ".svelte-kit/runtime/client/start.js": {
-    "file": "start-e139ede6.js",
+    "file": "start-c4af2f65.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
@@ -20,13 +20,13 @@
     ]
   },
   "src/routes/__layout.svelte": {
-    "file": "pages/__layout.svelte-e9ccc6fe.js",
+    "file": "pages/__layout.svelte-f28dbf6d.js",
     "src": "src/routes/__layout.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_index-291ebab7.js",
-      "__docs_all-460bd170.js",
+      "__docs_all-d19ed728.js",
       "_preload-helper-dfa869de.js",
       "_statistics-0903060f.js",
       "_translator-6d388499.js",
@@ -55,13 +55,13 @@
     ]
   },
   "src/routes/[version]/__layout.svelte": {
-    "file": "pages/_version_/__layout.svelte-df33cda8.js",
+    "file": "pages/_version_/__layout.svelte-8032e95b.js",
     "src": "src/routes/[version]/__layout.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_index-291ebab7.js",
-      "__docs_all-460bd170.js",
+      "__docs_all-d19ed728.js",
       "_translator-6d388499.js",
       "_preload-helper-dfa869de.js"
     ],
@@ -145,7 +145,7 @@
     ]
   },
   "src/routes/index.svelte": {
-    "file": "pages/index.svelte-a378c34f.js",
+    "file": "pages/index.svelte-35e70545.js",
     "src": "src/routes/index.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -153,7 +153,7 @@
       "_index-291ebab7.js",
       "_preload-helper-dfa869de.js",
       "_TranslatableKey-5db92918.js",
-      "__docs_all-460bd170.js",
+      "__docs_all-d19ed728.js",
       "_translator-6d388499.js"
     ],
     "css": [
@@ -169,8 +169,8 @@
       "_index-291ebab7.js"
     ]
   },
-  "__docs_all-460bd170.js": {
-    "file": "chunks/_docs_all-460bd170.js",
+  "__docs_all-d19ed728.js": {
+    "file": "chunks/_docs_all-d19ed728.js",
     "imports": [
       "_preload-helper-dfa869de.js"
     ],
@@ -178,7 +178,8 @@
       "docs:v-pre-5",
       "docs:v-pre-6",
       "docs:v-rc-1",
-      "docs:v-rc-2"
+      "docs:v-rc-2",
+      "docs:v-rc-3"
     ]
   },
   "_translator-6d388499.js": {
@@ -257,7 +258,7 @@
     ]
   },
   "docs:v-pre-5": {
-    "file": "chunks/_docs_v-pre-5-c2608b8b.js",
+    "file": "chunks/_docs_v-pre-5-6fff37a5.js",
     "src": "docs:v-pre-5",
     "isDynamicEntry": true,
     "imports": [
@@ -269,7 +270,7 @@
     ]
   },
   "docs:v-pre-6": {
-    "file": "chunks/_docs_v-pre-6-4bb96be7.js",
+    "file": "chunks/_docs_v-pre-6-92b6056f.js",
     "src": "docs:v-pre-6",
     "isDynamicEntry": true,
     "imports": [
@@ -281,7 +282,7 @@
     ]
   },
   "docs:v-rc-1": {
-    "file": "chunks/_docs_v-rc-1-3c8769f9.js",
+    "file": "chunks/_docs_v-rc-1-c71a161c.js",
     "src": "docs:v-rc-1",
     "isDynamicEntry": true,
     "imports": [
@@ -294,7 +295,7 @@
     ]
   },
   "docs:v-rc-2": {
-    "file": "chunks/_docs_v-rc-2-6db4ffa1.js",
+    "file": "chunks/_docs_v-rc-2-2bdb4087.js",
     "src": "docs:v-rc-2",
     "isDynamicEntry": true,
     "imports": [
@@ -304,6 +305,19 @@
     "dynamicImports": [
       "docs:v-rc-2:ru_ru",
       "docs:v-rc-2:en_uwu"
+    ]
+  },
+  "docs:v-rc-3": {
+    "file": "chunks/_docs_v-rc-3-f2969886.js",
+    "src": "docs:v-rc-3",
+    "isDynamicEntry": true,
+    "imports": [
+      "_preload-helper-dfa869de.js",
+      "_index-291ebab7.js"
+    ],
+    "dynamicImports": [
+      "docs:v-rc-3:ru_ru",
+      "docs:v-rc-3:en_uwu"
     ]
   },
   "src/lib/language/figs/pt_pt.json": {
@@ -324,33 +338,43 @@
     ]
   },
   "docs:v-pre-5:en_uwu": {
-    "file": "chunks/_docs_v-pre-5_en_uwu-359323c4.js",
+    "file": "chunks/_docs_v-pre-5_en_uwu-c1cf191f.js",
     "src": "docs:v-pre-5:en_uwu",
     "isDynamicEntry": true
   },
   "docs:v-pre-6:en_uwu": {
-    "file": "chunks/_docs_v-pre-6_en_uwu-060ad266.js",
+    "file": "chunks/_docs_v-pre-6_en_uwu-234e07ef.js",
     "src": "docs:v-pre-6:en_uwu",
     "isDynamicEntry": true
   },
   "docs:v-rc-1:ru_ru": {
-    "file": "chunks/_docs_v-rc-1_ru_ru-d47da175.js",
+    "file": "chunks/_docs_v-rc-1_ru_ru-e4c4d0cf.js",
     "src": "docs:v-rc-1:ru_ru",
     "isDynamicEntry": true
   },
   "docs:v-rc-1:en_uwu": {
-    "file": "chunks/_docs_v-rc-1_en_uwu-b544cca0.js",
+    "file": "chunks/_docs_v-rc-1_en_uwu-38519452.js",
     "src": "docs:v-rc-1:en_uwu",
     "isDynamicEntry": true
   },
   "docs:v-rc-2:ru_ru": {
-    "file": "chunks/_docs_v-rc-2_ru_ru-bd7b0e90.js",
+    "file": "chunks/_docs_v-rc-2_ru_ru-5c4f7418.js",
     "src": "docs:v-rc-2:ru_ru",
     "isDynamicEntry": true
   },
   "docs:v-rc-2:en_uwu": {
-    "file": "chunks/_docs_v-rc-2_en_uwu-9c5d1fee.js",
+    "file": "chunks/_docs_v-rc-2_en_uwu-c07e84a8.js",
     "src": "docs:v-rc-2:en_uwu",
+    "isDynamicEntry": true
+  },
+  "docs:v-rc-3:ru_ru": {
+    "file": "chunks/_docs_v-rc-3_ru_ru-70693c3b.js",
+    "src": "docs:v-rc-3:ru_ru",
+    "isDynamicEntry": true
+  },
+  "docs:v-rc-3:en_uwu": {
+    "file": "chunks/_docs_v-rc-3_en_uwu-fedd0f14.js",
+    "src": "docs:v-rc-3:en_uwu",
     "isDynamicEntry": true
   }
 }
