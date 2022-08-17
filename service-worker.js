@@ -1,7 +1,7 @@
 const build = [
-  "/figs/_app/start-dc0f6494.js",
-  "/figs/_app/pages/__layout.svelte-f547efb7.js",
-  "/figs/_app/assets/pages/__layout.svelte-06b8c508.css",
+  "/figs/_app/start-44a097d1.js",
+  "/figs/_app/pages/__layout.svelte-274c411d.js",
+  "/figs/_app/assets/pages/__layout.svelte-8d97b974.css",
   "/figs/_app/assets/cheese-9bdf176f.png",
   "/figs/_app/assets/class-9795478b.webp",
   "/figs/_app/assets/method-e780cc87.webp",
@@ -9,7 +9,7 @@ const build = [
   "/figs/_app/assets/eh-6b23cd84.png",
   "/figs/_app/assets/ok-56d3dd37.png",
   "/figs/_app/error.svelte-b07cd6f7.js",
-  "/figs/_app/pages/_version_/__layout.svelte-b65415d4.js",
+  "/figs/_app/pages/_version_/__layout.svelte-f11175c4.js",
   "/figs/_app/assets/pages/_version_/__layout.svelte-20d77389.css",
   "/figs/_app/pages/_version_/_location_.svelte-d7389876.js",
   "/figs/_app/pages/_version_/all.svelte-4663e548.js",
@@ -22,11 +22,11 @@ const build = [
   "/figs/_app/pages/_version_/fav.svelte-7df91b20.js",
   "/figs/_app/pages/_version_/index.svelte-b6b0d7f1.js",
   "/figs/_app/pages/_version_/search.svelte-0fa08661.js",
-  "/figs/_app/pages/index.svelte-f156ae3b.js",
+  "/figs/_app/pages/index.svelte-4be0b23f.js",
   "/figs/_app/assets/pages/index.svelte-4d8bf406.css",
   "/figs/_app/chunks/index-06c54a84.js",
   "/figs/_app/chunks/preload-helper-657f1be1.js",
-  "/figs/_app/chunks/_docs_all-3fb91dc2.js",
+  "/figs/_app/chunks/_docs_all-2d1b773e.js",
   "/figs/_app/chunks/translator-173f9b36.js",
   "/figs/_app/chunks/statistics-199a6d23.js",
   "/figs/_app/assets/statistics-39eedee9.css",
@@ -57,21 +57,21 @@ const build = [
   "/figs/_app/assets/TranslatableKey-539c3d15.css",
   "/figs/_app/chunks/DescribeAny-0f4587f7.js",
   "/figs/_app/chunks/MetaTags-a948ce3b.js",
-  "/figs/_app/chunks/_docs_v-pre-5-9ce1e5bb.js",
-  "/figs/_app/chunks/_docs_v-pre-6-297c5efb.js",
-  "/figs/_app/chunks/_docs_v-rc-1-92320489.js",
-  "/figs/_app/chunks/_docs_v-rc-2-40e64787.js",
-  "/figs/_app/chunks/_docs_v-rc-3-50f1639f.js",
+  "/figs/_app/chunks/_docs_v-pre-5-41a204fb.js",
+  "/figs/_app/chunks/_docs_v-pre-6-ef623ded.js",
+  "/figs/_app/chunks/_docs_v-rc-1-4bb18b15.js",
+  "/figs/_app/chunks/_docs_v-rc-2-744e62fd.js",
+  "/figs/_app/chunks/_docs_v-rc-3-00ed7e9f.js",
   "/figs/_app/chunks/pt_pt-a11316ab.js",
   "/figs/_app/chunks/gravity-ff7f30e5.js",
-  "/figs/_app/chunks/_docs_v-pre-5_en_uwu-c28acb5f.js",
-  "/figs/_app/chunks/_docs_v-pre-6_en_uwu-1b583a3f.js",
+  "/figs/_app/chunks/_docs_v-pre-5_en_uwu-719d6a0e.js",
+  "/figs/_app/chunks/_docs_v-pre-6_en_uwu-27c1244b.js",
   "/figs/_app/chunks/_docs_v-rc-1_ru_ru-e4c4d0cf.js",
-  "/figs/_app/chunks/_docs_v-rc-1_en_uwu-35cea3f4.js",
+  "/figs/_app/chunks/_docs_v-rc-1_en_uwu-955a81d3.js",
   "/figs/_app/chunks/_docs_v-rc-2_ru_ru-5c4f7418.js",
-  "/figs/_app/chunks/_docs_v-rc-2_en_uwu-65b55860.js",
+  "/figs/_app/chunks/_docs_v-rc-2_en_uwu-183327a1.js",
   "/figs/_app/chunks/_docs_v-rc-3_ru_ru-70693c3b.js",
-  "/figs/_app/chunks/_docs_v-rc-3_en_uwu-f7ec2b6d.js"
+  "/figs/_app/chunks/_docs_v-rc-3_en_uwu-265da82b.js"
 ];
 const files = [
   "/figs/favicon.png",
@@ -2225,7 +2225,7 @@ const prerendered = [
   "/figs/rc-3/WorldAPI.playerVars/",
   "/figs/rc-3/WorldAPI.getStrongRedstonePower/"
 ];
-const version = "1660761350253";
+const version = "1660762216755";
 const worker = self;
 const CACHE_NAME = `A;static-cache-${version}`;
 const to_cache = build.concat(files).concat(prerendered);
