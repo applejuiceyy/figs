@@ -14,6 +14,7 @@
 
     export let id: string | null = null;
     export let highlightTitle: boolean = false;
+    export let path: string;
 
     let example: Example;
 
@@ -36,7 +37,7 @@
                 <div class="code-displace">
                     <div class="code-correction">
                         <Code>
-                            <Highlight code={example.content} hoverHighlight={example.hints}></Highlight>
+                            <Highlight path={path} code={example.content} hoverHighlight={example.hints}></Highlight>
                         </Code>
                     </div>
                 </div>

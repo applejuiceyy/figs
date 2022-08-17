@@ -42,7 +42,7 @@ import { writable, type Writable } from "svelte/store";
     function noop(){return}
 </script>
 
-<svelte:element href="{base}{path}{travel}" this={travel === undefined ? "span" : "a"} bind:this={span} class="hint" on:mouseover={handleMouseOver} on:mouseout={handleMouseOut} on:blur={noop} on:focus={noop}><slot/></svelte:element>
+<svelte:element href={travel === undefined ? undefined : `${base}${path}${travel}`} this={travel === undefined ? "span" : "a"} bind:this={span} class="hint" on:mouseover={handleMouseOver} on:mouseout={handleMouseOut} on:blur={noop} on:focus={noop}><slot/></svelte:element>
 
 <style>
     .hint :global(.token) {

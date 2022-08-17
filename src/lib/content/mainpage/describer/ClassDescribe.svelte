@@ -27,11 +27,11 @@ import type DocsInterface from "$lib/docs/statistics";
 </script>
 
 <div class="joiner">
-    <DescribeRoot forceSmall={forceSmall} id={klass.name} highlightTitle={highlight.includes("title")}>
+    <DescribeRoot forceSmall={forceSmall} id={klass.name} highlightTitle={highlight.includes("title")} path={path}>
         <svelte:fragment slot="title">
             <StyledItem src={klass_src} href={base + path + klass.name} wrap="h1" color="dark" id={setId ? klass.name : null} style={klass.parent === undefined ? "" : "margin-bottom: 0px;"}>{klass.name}</StyledItem>
             {#if klass.parent !== undefined}
-                <p style:padding-bottom="5px" style:margin-top="0" style:margin-bottom="25px">subclasses <Code style="display: inline;"><Highlight code={klass.parent} hoverHighlight={[{range: [0, klass.parent.length], type: "docs", name: klass.parent}]}></Highlight></Code></p>
+                <p style:padding-bottom="5px" style:margin-top="0" style:margin-bottom="25px">subclasses <Code style="display: inline;"><Highlight path={path} code={klass.parent} hoverHighlight={[{range: [0, klass.parent.length], type: "docs", name: klass.parent}]}></Highlight></Code></p>
             {/if}
         </svelte:fragment>
         
