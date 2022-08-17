@@ -99,7 +99,9 @@ import SidebarCategory from "./SidebarCategory.svelte";
     }
 
     .tab {
-        background-color: #bbbbbb;
+        background-color: var(--landmark-in-window);
+        color: var(--color-in-landmark);
+        
         padding: 5px;
         display: block;
 
@@ -108,9 +110,4 @@ import SidebarCategory from "./SidebarCategory.svelte";
         margin: 0;
     }
 
-    @media (prefers-color-scheme: dark) {
-        .tab {
-            background-color: #999999;
-        }
-    }
 </style>

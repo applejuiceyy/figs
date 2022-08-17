@@ -34,32 +34,24 @@
     @import "src/app.less";
 
     .tab {
-        background-color: #bbbbbb;
         padding: 5px;
         display: block;
 
         text-align: center;
 
         margin: 0;
+
+        background-color: var(--landmark-in-window);
+        color: var(--color-in-landmark);
     }
 
     .category {
-        border: 2px black solid;
+        border: 2px var(--landmark-in-window) solid;
         margin: 5px;
         margin-left: 10px;
         margin-right: 10px;
     }
 
-    @media (prefers-color-scheme: dark) {
-        .tab {
-            background-color: #999999;
-        }
-
-        .category {
-            border: 2px #999 solid;
-        }
-    }
-    
     button {
         .resetButton();
         width: 100%;

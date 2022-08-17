@@ -223,9 +223,9 @@
     :global(:root) {
         --background: #000000;
         --window-background: #222222;
-        --landmark-in-window: #aaaaaa;
+        --landmark-in-window: #52585C;
         --color: #aaaaaa;
-        --color-in-landmark: black;
+        --color-in-landmark: white;
 
         @media (prefers-color-scheme: light) {
             --background: #ffffff;
