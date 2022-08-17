@@ -86,18 +86,12 @@
         }
 
         .code-displace {
-            transition: width 0.5s, transform 0.5s;
             width: 100%;
 
             position: sticky;
             top: 200px;
 
             z-index: 1;
-        }
-
-        .code-example:hover>.code-displace, .code-example:focus-visible>.code-displace {
-            width: 200%;
-            transform: translate(-50%, 0%);
         }
 
         .code-example:focus-visible {
