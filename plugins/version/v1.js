@@ -25,9 +25,11 @@ export function transform(json) {
     });
     delete json.lists;
 
-    Object.values(json).forEach((val) => {
+    Object.entries(json).forEach(([category, val]) => {
         val.forEach(val => {
             result.types[val.name] = val;
+            val.category = category;
+
             val.description = "docs." + val.name.toLowerCase();
 
             val.methods.forEach(c => c.description = "docs." + val.name.toLowerCase() + "." + c.name.toLowerCase());

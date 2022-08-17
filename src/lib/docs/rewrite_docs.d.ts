@@ -10,6 +10,7 @@ export interface Class {
     methods: Method[];
     fields: Field[];
     parent?: string;
+    category?: string;
 }
 
 export interface Method {

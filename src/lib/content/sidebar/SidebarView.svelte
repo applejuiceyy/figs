@@ -11,37 +11,37 @@
     import type { Class, Enum, Field, Method } from "$lib/docs/rewrite_docs";
 
     import { createEventDispatcher } from "svelte";
-    import { fly } from "svelte/transition";
-    import {cubicOut} from "svelte/easing";
-    import {flip} from "svelte/animate"
-import TranslatableKey from "$lib/language/TranslatableKey.svelte";
+    import TranslatableKey from "$lib/language/TranslatableKey.svelte";
+import SidebarCategory from "./SidebarCategory.svelte";
+    export let classi: DocsInterface;
 
-    let sortedClasses: Class[];
     let sortedEnums: Enum[];
 
     let sortedMethods: Method[];
     let sortedFields: Field[];
 
-    export let classi: DocsInterface;
-
-    $: sortedClasses = Object.values(classi.nonSingletonClasses).sort(classi.comparer);
-    $: sortedEnums = Object.values(classi.enums).sort(classi.comparer);
-
-    $: sortedMethods = Object.values(classi.globalType.methods).sort(classi.comparer);
-    $: sortedFields = Object.values(classi.globalType.fields).sort(classi.comparer);
-
-    let everythingArray: any[];
+    let groupedClasses: [string, Class[]][] = [];
 
     $: {
-        everythingArray = [
-            {type: "disclaimer", value: "global-objects", id: "gl"},
-            ...sortedMethods.map(val => ({type: "link", value: val.name, link: base + path + val.name, src: method_src, id: val.name})),
-            ...sortedFields.map(val => ({type: "link", value: val.name, link: base + path + val.name, src: field_src, id: val.name})),
-            {type: "disclaimer", value: "misc-types", id: "types"},
-            ...sortedClasses.map(val => ({type: "link", value: val.name, link: base + path + val.name, src: klass_src, id: val.name})),
-            {type: "disclaimer", value: "misc-enums", id: "enums"},
-            ...sortedEnums.map(val => ({type: "link", value: val.name, link: base + path + val.name, src: klass_src, id: val.name}))
-        ]
+        sortedEnums = Object.values(classi.enums).sort(classi.comparer);
+
+        sortedMethods = Object.values(classi.globalType.methods).sort(classi.comparer);
+        sortedFields = Object.values(classi.globalType.fields).sort(classi.comparer);
+
+        Object.values(classi.nonSingletonClasses).forEach(cls => {
+            const category = cls.category ?? "Miscelanous";
+
+            let catObject = groupedClasses.find(v => v[0] === category);
+
+            if (catObject === undefined) {
+                groupedClasses.push([category, [cls]])
+            }
+            else{
+                catObject[1].push(cls);
+            }
+        });
+
+        groupedClasses.forEach((v) => v[1] = v[1].sort(classi.comparer))
     }
 
     export let path: string;
@@ -49,8 +49,6 @@ import TranslatableKey from "$lib/language/TranslatableKey.svelte";
     export let everythingSwitch: string;
 
     let dispatcher = createEventDispatcher();
-
-    const transitionDuration = 1000;
 </script>
 
 <div class="sidebar-viewer">
@@ -58,17 +56,36 @@ import TranslatableKey from "$lib/language/TranslatableKey.svelte";
         <StyledItem on:click={() => dispatcher("select")} href="{base}{everythingSwitch}" src={klass_src}><TranslatableKey key="show-{everything ? "not-" : ""}everything"/></StyledItem>
     </div>
 
-    {#each everythingArray as what (what.id)}
-        <div in:fly|local={{x: 200, duration: transitionDuration, easing: cubicOut }} out:fly|local={{x: -200, duration: transitionDuration, easing: cubicOut }} animate:flip={{duration: transitionDuration, easing: cubicOut}}>
-            {#if what.type === "disclaimer"}
-                <span class="tab">
-                    <TranslatableKey key={what.value}/>
-                </span>
-            {:else if what.type === "link"}
-                <StyledItem on:click={() => dispatcher("select")} href={what.link} src={what.src}>{what.value}</StyledItem>
-            {/if}
-        </div>
-    {/each}
+    <article>
+        <h1 class="tab">
+            <TranslatableKey key="global-objects"/>
+        </h1>
+
+        {#each sortedMethods as method}
+            <StyledItem on:click={() => dispatcher("select")} href="{base}{path}{method.name}" src={method_src}>{method.name}</StyledItem>
+        {/each}
+        {#each sortedFields as field}
+            <StyledItem on:click={() => dispatcher("select")} href="{base}{path}{field.name}" src={field_src}>{field.name}</StyledItem>
+        {/each}
+    </article>
+
+    <article>
+        <h1 class="tab">
+            <TranslatableKey key="misc-types"/>
+        </h1>
+        {#each groupedClasses as [name, clss]}
+            <SidebarCategory name={name} clss={clss} path={path}/>
+        {/each}
+    </article>
+
+    <article>
+        <h1 class="tab">
+            <TranslatableKey key="misc-enums"/>
+        </h1>
+        {#each sortedEnums as en}
+            <StyledItem on:click={() => dispatcher("select")} href="{base}{path}{en.name}" src={klass_src}>{en.name}</StyledItem>
+        {/each}
+    </article>
 </div>
 
 <style>
@@ -82,13 +99,13 @@ import TranslatableKey from "$lib/language/TranslatableKey.svelte";
     }
 
     .tab {
-        background-color: #cccccc;
+        background-color: #bbbbbb;
         padding: 5px;
         display: block;
 
         text-align: center;
 
-        font-weight: 800;
+        margin: 0;
     }
 
     @media (prefers-color-scheme: dark) {

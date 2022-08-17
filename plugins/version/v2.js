@@ -27,9 +27,10 @@ export async function transform(json, folder) {
     let globals = json.globals;
 
 
-    globals.fields.forEach(element => {
-        element.children.forEach(element => {
+    globals.fields.forEach(field => {
+        field.children.forEach(element => {
             result.types[element.name] = element;
+            element.category = field.name
 
             removeChildrenTags(element);
         });

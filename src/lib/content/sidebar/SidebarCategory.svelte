@@ -1,0 +1,73 @@
+<script type="ts">
+    import type { Class } from "$lib/docs/rewrite_docs";
+    import { createEventDispatcher } from "svelte";
+
+    import {base} from "$app/paths";
+
+    import StyledItem from "./StyledItem.svelte";
+    
+    import klass_src from "$lib/resource/class.webp";
+
+
+    export let name: string;
+    export let clss: Class[];
+    export let path: string;
+
+    let dispatcher = createEventDispatcher();
+
+    let show = false;
+</script>
+
+<section class="category">
+    <button style:margin-bottom={show ? "5px" : ""} on:click={() => show = !show}><h1 class="tab">{name}</h1></button>
+
+    {#if show}
+        <div>
+            {#each clss as cls}
+                <StyledItem on:click={() => dispatcher("select")} href="{base}{path}{cls.name}" src={klass_src}>{cls.name}</StyledItem>
+            {/each}
+        </div>
+    {/if}
+</section>
+
+<style lang="less">
+    @import "src/app.less";
+
+    .tab {
+        background-color: #bbbbbb;
+        padding: 5px;
+        display: block;
+
+        text-align: center;
+
+        margin: 0;
+    }
+
+    .category {
+        border: 2px black solid;
+        margin: 5px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .tab {
+            background-color: #999999;
+        }
+
+        .category {
+            border: 2px #999 solid;
+        }
+    }
+    
+    button {
+        .resetButton();
+        width: 100%;
+
+        &:focus-visible {
+            outline: 5px grey solid;
+        }
+
+        cursor: pointer;
+    }
+</style>

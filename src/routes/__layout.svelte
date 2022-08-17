@@ -133,16 +133,22 @@
             <NavBarLink href="{base}{stuffs.base}fav">
                 <TranslatableKey key="favourites"/>
             </NavBarLink>
-            
-            <div class="table-toggle">
-                <NavBarButton on:click={()=>expanded = !expanded}>
-                    <TranslatableKey key={expanded? "hide-table" : "show-table"}/>
-                </NavBarButton>
-            </div>
 
-            <NavBarButton on:click={()=>$stores.readerEnabled = !$stores.readerEnabled}>
-                <TranslatableKey key={$stores.readerEnabled ? "disable-focus" : "enable-focus"} />
-            </NavBarButton>
+            <NavBarDropdown>
+                <TranslatableKey key="preferences"/>
+
+                <svelte:fragment slot="dropdown">
+                    <div class="table-toggle">
+                        <NavBarButton on:click={()=>expanded = !expanded}>
+                            <TranslatableKey key={expanded? "hide-table" : "show-table"}/>
+                        </NavBarButton>
+                    </div>
+        
+                    <NavBarButton on:click={()=>$stores.readerEnabled = !$stores.readerEnabled}>
+                        <TranslatableKey key={$stores.readerEnabled ? "disable-focus" : "enable-focus"} />
+                    </NavBarButton>
+                </svelte:fragment>
+            </NavBarDropdown>
 
             <NavBarDropdown>
                 {(stuffs.version ?? "Version").toUpperCase()}
@@ -321,7 +327,7 @@
 
     @media only screen and (min-width: 800.5px) {
         .category {
-            width: 250px;
+            width: 300px;
 
             position: relative;
 
