@@ -1,6 +1,6 @@
 {
   ".svelte-kit/runtime/client/start.js": {
-    "file": "start-44a097d1.js",
+    "file": "start-809baea2.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
@@ -20,21 +20,21 @@
     ]
   },
   "src/routes/__layout.svelte": {
-    "file": "pages/__layout.svelte-274c411d.js",
+    "file": "pages/__layout.svelte-9bd5d7b8.js",
     "src": "src/routes/__layout.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_index-06c54a84.js",
-      "__docs_all-2d1b773e.js",
+      "__docs_all-ade95422.js",
       "_preload-helper-657f1be1.js",
-      "_statistics-199a6d23.js",
+      "_statistics-edd84029.js",
       "_translator-173f9b36.js",
       "_TranslatableKey-2df4563c.js",
-      "_DescribeAny-0f4587f7.js"
+      "_DescribeAny-c1029716.js"
     ],
     "css": [
-      "assets/pages/__layout.svelte-8d97b974.css"
+      "assets/pages/__layout.svelte-70a4d4b4.css"
     ],
     "assets": [
       "assets/cheese-9bdf176f.png",
@@ -55,13 +55,13 @@
     ]
   },
   "src/routes/[version]/__layout.svelte": {
-    "file": "pages/_version_/__layout.svelte-f11175c4.js",
+    "file": "pages/_version_/__layout.svelte-ecd5e8c4.js",
     "src": "src/routes/[version]/__layout.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_index-06c54a84.js",
-      "__docs_all-2d1b773e.js",
+      "__docs_all-ade95422.js",
       "_translator-173f9b36.js",
       "_preload-helper-657f1be1.js"
     ],
@@ -70,29 +70,29 @@
     ]
   },
   "src/routes/[version]/[location].svelte": {
-    "file": "pages/_version_/_location_.svelte-d7389876.js",
+    "file": "pages/_version_/_location_.svelte-2af584bf.js",
     "src": "src/routes/[version]/[location].svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_index-06c54a84.js",
-      "_statistics-199a6d23.js",
+      "_statistics-edd84029.js",
       "_MetaTags-a948ce3b.js",
-      "_DescribeAny-0f4587f7.js",
+      "_DescribeAny-c1029716.js",
       "_translator-173f9b36.js",
       "_preload-helper-657f1be1.js",
       "_TranslatableKey-2df4563c.js"
     ]
   },
   "src/routes/[version]/all.svelte": {
-    "file": "pages/_version_/all.svelte-4663e548.js",
+    "file": "pages/_version_/all.svelte-f258a18f.js",
     "src": "src/routes/[version]/all.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_index-06c54a84.js",
       "_MetaTags-a948ce3b.js",
-      "_statistics-199a6d23.js",
+      "_statistics-edd84029.js",
       "_preload-helper-657f1be1.js",
       "_translator-173f9b36.js",
       "_TranslatableKey-2df4563c.js"
@@ -109,15 +109,15 @@
     ]
   },
   "src/routes/[version]/fav.svelte": {
-    "file": "pages/_version_/fav.svelte-7df91b20.js",
+    "file": "pages/_version_/fav.svelte-49528794.js",
     "src": "src/routes/[version]/fav.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_index-06c54a84.js",
-      "_DescribeAny-0f4587f7.js",
+      "_DescribeAny-c1029716.js",
       "_translator-173f9b36.js",
-      "_statistics-199a6d23.js",
+      "_statistics-edd84029.js",
       "_preload-helper-657f1be1.js",
       "_TranslatableKey-2df4563c.js"
     ]
@@ -132,20 +132,20 @@
     ]
   },
   "src/routes/[version]/search.svelte": {
-    "file": "pages/_version_/search.svelte-0fa08661.js",
+    "file": "pages/_version_/search.svelte-86fa4b9e.js",
     "src": "src/routes/[version]/search.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_index-06c54a84.js",
-      "_statistics-199a6d23.js",
+      "_statistics-edd84029.js",
       "_translator-173f9b36.js",
       "_preload-helper-657f1be1.js",
       "_TranslatableKey-2df4563c.js"
     ]
   },
   "src/routes/index.svelte": {
-    "file": "pages/index.svelte-4be0b23f.js",
+    "file": "pages/index.svelte-57943311.js",
     "src": "src/routes/index.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -153,7 +153,7 @@
       "_index-06c54a84.js",
       "_preload-helper-657f1be1.js",
       "_TranslatableKey-2df4563c.js",
-      "__docs_all-2d1b773e.js",
+      "__docs_all-ade95422.js",
       "_translator-173f9b36.js"
     ],
     "css": [
@@ -169,8 +169,8 @@
       "_index-06c54a84.js"
     ]
   },
-  "__docs_all-2d1b773e.js": {
-    "file": "chunks/_docs_all-2d1b773e.js",
+  "__docs_all-ade95422.js": {
+    "file": "chunks/_docs_all-ade95422.js",
     "imports": [
       "_preload-helper-657f1be1.js"
     ],
@@ -191,8 +191,8 @@
       "src/lib/language/figs/pt_pt.json"
     ]
   },
-  "_statistics-199a6d23.js": {
-    "file": "chunks/statistics-199a6d23.js",
+  "_statistics-edd84029.js": {
+    "file": "chunks/statistics-edd84029.js",
     "imports": [
       "_index-06c54a84.js",
       "_preload-helper-657f1be1.js",
@@ -203,7 +203,7 @@
       "src/lib/actions/gravity.ts"
     ],
     "css": [
-      "assets/statistics-39eedee9.css"
+      "assets/statistics-e41a1c71.css"
     ],
     "assets": [
       "assets/class-9795478b.webp",
@@ -244,11 +244,11 @@
       "assets/TranslatableKey-539c3d15.css"
     ]
   },
-  "_DescribeAny-0f4587f7.js": {
-    "file": "chunks/DescribeAny-0f4587f7.js",
+  "_DescribeAny-c1029716.js": {
+    "file": "chunks/DescribeAny-c1029716.js",
     "imports": [
       "_index-06c54a84.js",
-      "_statistics-199a6d23.js"
+      "_statistics-edd84029.js"
     ]
   },
   "_MetaTags-a948ce3b.js": {
@@ -258,7 +258,7 @@
     ]
   },
   "docs:v-pre-5": {
-    "file": "chunks/_docs_v-pre-5-41a204fb.js",
+    "file": "chunks/_docs_v-pre-5-4b9d7880.js",
     "src": "docs:v-pre-5",
     "isDynamicEntry": true,
     "imports": [
@@ -270,7 +270,7 @@
     ]
   },
   "docs:v-pre-6": {
-    "file": "chunks/_docs_v-pre-6-ef623ded.js",
+    "file": "chunks/_docs_v-pre-6-504eb98d.js",
     "src": "docs:v-pre-6",
     "isDynamicEntry": true,
     "imports": [
@@ -282,7 +282,7 @@
     ]
   },
   "docs:v-rc-1": {
-    "file": "chunks/_docs_v-rc-1-4bb18b15.js",
+    "file": "chunks/_docs_v-rc-1-80942a21.js",
     "src": "docs:v-rc-1",
     "isDynamicEntry": true,
     "imports": [
@@ -295,7 +295,7 @@
     ]
   },
   "docs:v-rc-2": {
-    "file": "chunks/_docs_v-rc-2-744e62fd.js",
+    "file": "chunks/_docs_v-rc-2-dc0bec60.js",
     "src": "docs:v-rc-2",
     "isDynamicEntry": true,
     "imports": [
@@ -308,7 +308,7 @@
     ]
   },
   "docs:v-rc-3": {
-    "file": "chunks/_docs_v-rc-3-00ed7e9f.js",
+    "file": "chunks/_docs_v-rc-3-0a813236.js",
     "src": "docs:v-rc-3",
     "isDynamicEntry": true,
     "imports": [
@@ -326,11 +326,11 @@
     "isDynamicEntry": true
   },
   "src/lib/actions/gravity.ts": {
-    "file": "chunks/gravity-ff7f30e5.js",
+    "file": "chunks/gravity-fe21430e.js",
     "src": "src/lib/actions/gravity.ts",
     "isDynamicEntry": true,
     "imports": [
-      "_statistics-199a6d23.js",
+      "_statistics-edd84029.js",
       "_index-06c54a84.js",
       "_preload-helper-657f1be1.js",
       "_translator-173f9b36.js",
@@ -338,12 +338,12 @@
     ]
   },
   "docs:v-pre-5:en_uwu": {
-    "file": "chunks/_docs_v-pre-5_en_uwu-719d6a0e.js",
+    "file": "chunks/_docs_v-pre-5_en_uwu-841ef589.js",
     "src": "docs:v-pre-5:en_uwu",
     "isDynamicEntry": true
   },
   "docs:v-pre-6:en_uwu": {
-    "file": "chunks/_docs_v-pre-6_en_uwu-27c1244b.js",
+    "file": "chunks/_docs_v-pre-6_en_uwu-6ed701ba.js",
     "src": "docs:v-pre-6:en_uwu",
     "isDynamicEntry": true
   },
@@ -353,7 +353,7 @@
     "isDynamicEntry": true
   },
   "docs:v-rc-1:en_uwu": {
-    "file": "chunks/_docs_v-rc-1_en_uwu-955a81d3.js",
+    "file": "chunks/_docs_v-rc-1_en_uwu-52bd6ee8.js",
     "src": "docs:v-rc-1:en_uwu",
     "isDynamicEntry": true
   },
@@ -363,7 +363,7 @@
     "isDynamicEntry": true
   },
   "docs:v-rc-2:en_uwu": {
-    "file": "chunks/_docs_v-rc-2_en_uwu-183327a1.js",
+    "file": "chunks/_docs_v-rc-2_en_uwu-147597d9.js",
     "src": "docs:v-rc-2:en_uwu",
     "isDynamicEntry": true
   },
@@ -373,7 +373,7 @@
     "isDynamicEntry": true
   },
   "docs:v-rc-3:en_uwu": {
-    "file": "chunks/_docs_v-rc-3_en_uwu-265da82b.js",
+    "file": "chunks/_docs_v-rc-3_en_uwu-166b1f0f.js",
     "src": "docs:v-rc-3:en_uwu",
     "isDynamicEntry": true
   }

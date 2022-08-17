@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/figs/favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="manifest" crossorigin="use-credentials" href="/figs/manifest.json" />
+		<meta http-equiv="content-security-policy" content=""><title>BlockState</title><meta name="robots" content="index,follow" data-svelte="svelte-1v2a5gq"><meta name="googlebot" content="index,follow" data-svelte="svelte-1v2a5gq"><meta name="description" content="A proxy for a block state from Minecraft. Instances are obtained through the WorldAPI. This proxy also contains a saved position for the BlockState." data-svelte="svelte-1v2a5gq">
+	<link rel="stylesheet" href="/figs/_app/assets/pages/__layout.svelte-70a4d4b4.css">
+	<link rel="stylesheet" href="/figs/_app/assets/statistics-e41a1c71.css">
+	<link rel="stylesheet" href="/figs/_app/assets/TranslatableKey-539c3d15.css">
+	<link rel="stylesheet" href="/figs/_app/assets/pages/_version_/__layout.svelte-20d77389.css">
+	<link rel="modulepreload" href="/figs/_app/start-809baea2.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/index-06c54a84.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/preload-helper-657f1be1.js">
+	<link rel="modulepreload" href="/figs/_app/pages/__layout.svelte-9bd5d7b8.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/_docs_all-ade95422.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/statistics-edd84029.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/translator-173f9b36.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/TranslatableKey-2df4563c.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/DescribeAny-c1029716.js">
+	<link rel="modulepreload" href="/figs/_app/pages/_version_/__layout.svelte-ecd5e8c4.js">
+	<link rel="modulepreload" href="/figs/_app/pages/_version_/_location_.svelte-2af584bf.js">
+	<link rel="modulepreload" href="/figs/_app/chunks/MetaTags-a948ce3b.js">
+				<script>
+		if ('serviceWorker' in navigator) {
+			navigator.serviceWorker.register('/figs/service-worker.js');
+		}
+	</script>
+	</head>
+	<body>
+		<div>
+
+
+<div class="root svelte-12bum4d"><nav class="svelte-tnu6kn"><div class="desizer svelte-tnu6kn"><div class="nav-stick svelte-tnu6kn"><a href="/figs/" class="svelte-si639d inline"><span style="font-size: 1em;">FIGS!!</span>
+</a>
+
+        <div class="search-root svelte-18dbo91" style="flex-grow: 1;"><form class="sizer svelte-18dbo91" action="/figs/latest/search" method="get"><input required name="q" style="min-width: 0; flex-grow: 1; flex-shrink: 1;">
+        <input type="submit" value="Search"></form>
+</div>
+
+
+        <div class="nav-floater svelte-1p9s1io"><div class="expand-button svelte-hgqmf9"><button class="svelte-cyzf2a">Content
+</button>
+</div>
+</div></div>
+
+        <div class="nav-expanded svelte-tnu6kn"><a href="/figs/latest/fav" class="svelte-si639d">Favourites
+</a>
+
+            <div class="nav-dropdown svelte-5q9th4"><button class="svelte-cyzf2a">Preferences
+</button>
+
+    </div>
+
+
+
+            <div class="nav-dropdown svelte-5q9th4"><button class="svelte-cyzf2a">LATEST
+</button>
+
+    </div>
+
+
+
+            <div class="nav-dropdown svelte-5q9th4"><button class="svelte-cyzf2a">EN_US
+</button>
+
+    </div>
+
+
+        </div></div>
+</nav>
+
+    <div class="category svelte-12bum4d"><div class="category-flyover svelte-12bum4d"><div class="category-sticker svelte-12bum4d"><div class="sidebar-viewer svelte-1njuenp"><div class="fields-container svelte-1njuenp"><a id="" href="/figs/latest/all" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        Show everything
+</a></div>
+
+    <article><h1 class="tab svelte-1njuenp">Global Objects</h1>
+
+        <a id="" href="/figs/latest/log" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        log
+</a><a id="" href="/figs/latest/logJson" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        logJson
+</a><a id="" href="/figs/latest/logTable" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        logTable
+</a><a id="" href="/figs/latest/print" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        print
+</a><a id="" href="/figs/latest/printJson" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        printJson
+</a><a id="" href="/figs/latest/printTable" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        printTable
+</a><a id="" href="/figs/latest/require" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        require
+</a>
+        <a id="" href="/figs/latest/action_wheel" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        action_wheel
+</a><a id="" href="/figs/latest/animations" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        animations
+</a><a id="" href="/figs/latest/avatar" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        avatar
+</a><a id="" href="/figs/latest/client" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        client
+</a><a id="" href="/figs/latest/events" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        events
+</a><a id="" href="/figs/latest/figuraMetatables" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        figuraMetatables
+</a><a id="" href="/figs/latest/host" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        host
+</a><a id="" href="/figs/latest/keybind" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        keybind
+</a><a id="" href="/figs/latest/matrices" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        matrices
+</a><a id="" href="/figs/latest/models" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        models
+</a><a id="" href="/figs/latest/nameplate" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        nameplate
+</a><a id="" href="/figs/latest/particles" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        particles
+</a><a id="" href="/figs/latest/pings" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        pings
+</a><a id="" href="/figs/latest/player" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        player
+</a><a id="" href="/figs/latest/renderer" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        renderer
+</a><a id="" href="/figs/latest/sounds" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        sounds
+</a><a id="" href="/figs/latest/type" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        type
+</a><a id="" href="/figs/latest/user" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        user
+</a><a id="" href="/figs/latest/vanilla_model" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        vanilla_model
+</a><a id="" href="/figs/latest/vec" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        vec
+</a><a id="" href="/figs/latest/vectors" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        vectors
+</a><a id="" href="/figs/latest/world" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        world
+</a></article>
+
+    <article><h1 class="tab svelte-1njuenp">Miscellaneous Types</h1>
+        <section class="category svelte-174nb8"><button class="svelte-174nb8"><h1 class="tab svelte-174nb8">Miscelanous</h1></button>
+
+    
+</section><section class="category svelte-174nb8"><button class="svelte-174nb8"><h1 class="tab svelte-174nb8">action_wheel</h1></button>
+
+    
+</section><section class="category svelte-174nb8"><button class="svelte-174nb8"><h1 class="tab svelte-174nb8">animations</h1></button>
+
+    
+</section><section class="category svelte-174nb8"><button class="svelte-174nb8"><h1 class="tab svelte-174nb8">nameplate</h1></button>
+
+    
+</section><section class="category svelte-174nb8"><button class="svelte-174nb8"><h1 class="tab svelte-174nb8">world</h1></button>
+
+    
+</section><section class="category svelte-174nb8"><button class="svelte-174nb8"><h1 class="tab svelte-174nb8">vanilla_model</h1></button>
+
+    
+</section><section class="category svelte-174nb8"><button class="svelte-174nb8"><h1 class="tab svelte-174nb8">models</h1></button>
+
+    
+</section><section class="category svelte-174nb8"><button class="svelte-174nb8"><h1 class="tab svelte-174nb8">player</h1></button>
+
+    
+</section><section class="category svelte-174nb8"><button class="svelte-174nb8"><h1 class="tab svelte-174nb8">events</h1></button>
+
+    
+</section><section class="category svelte-174nb8"><button class="svelte-174nb8"><h1 class="tab svelte-174nb8">keybind</h1></button>
+
+    
+</section><section class="category svelte-174nb8"><button class="svelte-174nb8"><h1 class="tab svelte-174nb8">vectors</h1></button>
+
+    
+</section><section class="category svelte-174nb8"><button class="svelte-174nb8"><h1 class="tab svelte-174nb8">matrices</h1></button>
+
+    
+</section><section class="category svelte-174nb8"><button class="svelte-174nb8"><h1 class="tab svelte-174nb8">sounds</h1></button>
+
+    
+</section><section class="category svelte-174nb8"><button class="svelte-174nb8"><h1 class="tab svelte-174nb8">pings</h1></button>
+
+    
+</section></article>
+
+    <article><h1 class="tab svelte-1njuenp">Miscellaneous Enums</h1>
+        <a id="" href="/figs/latest/EntityPoses" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        EntityPoses
+</a><a id="" href="/figs/latest/ItemRenderTypes" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        ItemRenderTypes
+</a><a id="" href="/figs/latest/KeyIDs" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        KeyIDs
+</a><a id="" href="/figs/latest/Keybinds" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        Keybinds
+</a><a id="" href="/figs/latest/LoopModes" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        LoopModes
+</a><a id="" href="/figs/latest/ParentTypes" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        ParentTypes
+</a><a id="" href="/figs/latest/PlayStates" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        PlayStates
+</a><a id="" href="/figs/latest/PostEffects" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        PostEffects
+</a><a id="" href="/figs/latest/RenderTypes" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        RenderTypes
+</a><a id="" href="/figs/latest/TextureTypes" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        TextureTypes
+</a></article>
+</div>
+
+
+                <footer class="svelte-12bum4d">Made by applejuice</footer></div></div></div>
+
+    <div class="content svelte-12bum4d">
+
+
+<div class="joiner svelte-5sgqyy"><div class="partial-background svelte-19rvqsi" style="--width: 70%;"><div class="method-root svelte-1mo3ogu"><div class="svelte-1mo3ogu"><a id="" href="/figs/latest/BlockState" class="svelte-yl6yu4  dark"><h1 class="flex svelte-yl6yu4" style=""><img src="/figs/_app/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">BlockState</h1>
+</a>
+            
+        </div>
+
+        <button class="favourite-button svelte-1p5n4fl" style="--width: 30.000000000000004%;"><div class="svg-wrapper svelte-1p5n4fl"><img src="/figs/_app/assets/unlit_star-44b7d610.svg" aria-hidden="true" alt="">
+
+        <img class="posrel svelte-1p5n4fl" src="/figs/_app/assets/star-150d3691.svg" aria-hidden="true" alt="">
+            <svg class="posrel svelte-1p5n4fl" width="100%" height="100%"></svg></div>
+</button>
+
+        <div></div>
+
+        <div style="margin: 5px;"><div class="svelte-5sgqyy"><span class="svelte-1ifvv27">A proxy for a block state from Minecraft. </span><span class="svelte-1ifvv27">Instances are obtained through the WorldAPI. </span><span class="svelte-1ifvv27">This proxy also contains a saved position for the BlockState.</span></div></div></div>
+</div>
+
+    <div class="partial-background svelte-19rvqsi" style="--width: 70%;"><div class="method-root svelte-1mo3ogu"><div class="svelte-1mo3ogu"><a id="BlockState.isOpaque" href="/figs/latest/BlockState.isOpaque" class="svelte-yl6yu4  dark"><h1 class="flex svelte-yl6yu4" style=""><img src="/figs/_app/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">BlockState.isOpaque</h1>
+</a>
+        
+    </div>
+
+        <button class="favourite-button svelte-1p5n4fl" style="--width: 30.000000000000004%;"><div class="svg-wrapper svelte-1p5n4fl"><img src="/figs/_app/assets/unlit_star-44b7d610.svg" aria-hidden="true" alt="">
+
+        <img class="posrel svelte-1p5n4fl" src="/figs/_app/assets/star-150d3691.svg" aria-hidden="true" alt="">
+            <svg class="posrel svelte-1p5n4fl" width="100%" height="100%"></svg></div>
+</button>
+
+        <div></div>
+
+        <div style="margin: 5px;"><div class="svelte-1c4djgu"><span class="svelte-1ifvv27">Gets whether or not this BlockState is opaque.</span></div>
+
+    <div class="code-example filled svelte-1c4djgu" style="margin-top: 50px;">
+            <code class="svelte-ub178e">
+<span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->BlockState<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="function svelte-sbfse9 token"><!-- HTML_TAG_START -->isOpaque<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->(<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->)<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->&nbsp;<!-- HTML_TAG_END --></span><span class="hint svelte-xswbo7"><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->Boolean<!-- HTML_TAG_END --></span></span>
+            
+
+        <button tabindex="-1" aria-hidden="true" class="hammer-button svelte-ub178e"><svg href="/figs/_app/assets/hammer-ccd8d2cd.svg" width="16" height="16" style="color: white; touch-action: none; user-select: none;"></svg></button></code>
+
+
+</div></div></div>
+</div><div class="partial-background svelte-19rvqsi" style="--width: 70%;"><div class="method-root svelte-1mo3ogu"><div class="svelte-1mo3ogu"><a id="BlockState.getPos" href="/figs/latest/BlockState.getPos" class="svelte-yl6yu4  dark"><h1 class="flex svelte-yl6yu4" style=""><img src="/figs/_app/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">BlockState.getPos</h1>
+</a>
+        
+    </div>
+
+        <button class="favourite-button svelte-1p5n4fl" style="--width: 30.000000000000004%;"><div class="svg-wrapper svelte-1p5n4fl"><img src="/figs/_app/assets/unlit_star-44b7d610.svg" aria-hidden="true" alt="">
+
+        <img class="posrel svelte-1p5n4fl" src="/figs/_app/assets/star-150d3691.svg" aria-hidden="true" alt="">
+            <svg class="posrel svelte-1p5n4fl" width="100%" height="100%"></svg></div>
+</button>
+
+        <div></div>
+
+        <div style="margin: 5px;"><div class="svelte-1c4djgu"><span class="svelte-1ifvv27">Returns the saved position for this BlockState proxy. </span><span class="svelte-1ifvv27">The saved position is used in BlockState functions that require a position.</span></div>
+
+    <div class="code-example filled svelte-1c4djgu" style="margin-top: 50px;">
+            <code class="svelte-ub178e">
+<span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->BlockState<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="function svelte-sbfse9 token"><!-- HTML_TAG_START -->getPos<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->(<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->)<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->&nbsp;<!-- HTML_TAG_END --></span><a href="/figs/latest/Vector3" class="hint svelte-xswbo7"><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->Vector3<!-- HTML_TAG_END --></span></a>
+            
+
+        <button tabindex="-1" aria-hidden="true" class="hammer-button svelte-ub178e"><svg href="/figs/_app/assets/hammer-ccd8d2cd.svg" width="16" height="16" style="color: white; touch-action: none; user-select: none;"></svg></button></code>
+
+
+</div></div></div>
+</div><div class="partial-background svelte-19rvqsi" style="--width: 70%;"><div class="method-root svelte-1mo3ogu"><div class="svelte-1mo3ogu"><a id="BlockState.setPos" href="/figs/latest/BlockState.setPos" class="svelte-yl6yu4  dark"><h1 class="flex svelte-yl6yu4" style=""><img src="/figs/_app/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">BlockState.setPos</h1>
+</a>
+        
+    </div>
+
+        <button class="favourite-button svelte-1p5n4fl" style="--width: 30.000000000000004%;"><div class="svg-wrapper svelte-1p5n4fl"><img src="/figs/_app/assets/unlit_star-44b7d610.svg" aria-hidden="true" alt="">
+
+        <img class="posrel svelte-1p5n4fl" src="/figs/_app/assets/star-150d3691.svg" aria-hidden="true" alt="">
+            <svg class="posrel svelte-1p5n4fl" width="100%" height="100%"></svg></div>
+</button>
+
+        <div></div>
+
+        <div style="margin: 5px;"><div class="svelte-1c4djgu"><span class="svelte-1ifvv27">Sets the saved position for this BlockState proxy. </span><span class="svelte-1ifvv27">The saved position is used in BlockState functions that require a position.</span></div>
+
+    <div class="code-example filled svelte-1c4djgu" style="margin-top: 50px;">
+            <code class="svelte-ub178e">
+<span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->BlockState<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="function svelte-sbfse9 token"><!-- HTML_TAG_START -->setPos<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->(<!-- HTML_TAG_END --></span><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->pos<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->&nbsp;<!-- HTML_TAG_END --></span><a href="/figs/latest/Vector3" class="hint svelte-xswbo7"><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->Vector3<!-- HTML_TAG_END --></span></a><a href="/figs/latest/Vector3" class="hint svelte-xswbo7"><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START --><!-- HTML_TAG_END --></span></a><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->)<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->&nbsp;<!-- HTML_TAG_END --></span><span class="hint svelte-xswbo7"><span class="svelte-sbfse9 token"><!-- HTML_TAG_START --><!-- HTML_TAG_END --></span></span><span class="hint svelte-xswbo7"><span class="keyword svelte-sbfse9 token"><!-- HTML_TAG_START -->nil<!-- HTML_TAG_END --></span></span>
+            
+
+        <button tabindex="-1" aria-hidden="true" class="hammer-button svelte-ub178e"><svg href="/figs/_app/assets/hammer-ccd8d2cd.svg" width="16" height="16" style="color: white; touch-action: none; user-select: none;"></svg></button></code>
+
+
+
+            <code class="svelte-ub178e">
+<span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->BlockState<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="function svelte-sbfse9 token"><!-- HTML_TAG_START -->setPos<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->(<!-- HTML_TAG_END --></span><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->x<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->&nbsp;<!-- HTML_TAG_END --></span><span class="hint svelte-xswbo7"><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->Number<!-- HTML_TAG_END --></span></span><span class="hint svelte-xswbo7"><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START --><!-- HTML_TAG_END --></span></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->,<!-- HTML_TAG_END --></span><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->&nbsp;y<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->&nbsp;<!-- HTML_TAG_END --></span><span class="hint svelte-xswbo7"><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->Number<!-- HTML_TAG_END --></span></span><span class="hint svelte-xswbo7"><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START --><!-- HTML_TAG_END --></span></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->,<!-- HTML_TAG_END --></span><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->&nbsp;z<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->&nbsp;<!-- HTML_TAG_END --></span><span class="hint svelte-xswbo7"><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->Number<!-- HTML_TAG_END --></span></span><span class="hint svelte-xswbo7"><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START --><!-- HTML_TAG_END --></span></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->)<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->&nbsp;<!-- HTML_TAG_END --></span><span class="hint svelte-xswbo7"><span class="svelte-sbfse9 token"><!-- HTML_TAG_START --><!-- HTML_TAG_END --></span></span><span class="hint svelte-xswbo7"><span class="keyword svelte-sbfse9 token"><!-- HTML_TAG_START -->nil<!-- HTML_TAG_END --></span></span>
+            
+
+        <button tabindex="-1" aria-hidden="true" class="hammer-button svelte-ub178e"><svg href="/figs/_app/assets/hammer-ccd8d2cd.svg" width="16" height="16" style="color: white; touch-action: none; user-select: none;"></svg></button></code>
+
+
+</div></div></div>
+</div><div class="partial-background svelte-19rvqsi" style="--width: 70%;"><div class="method-root svelte-1mo3ogu"><div class="svelte-1mo3ogu"><a id="BlockState.getOpacity" href="/figs/latest/BlockState.getOpacity" class="svelte-yl6yu4  dark"><h1 class="flex svelte-yl6yu4" style=""><img src="/figs/_app/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">BlockState.getOpacity</h1>
+</a>
+        
+    </div>
+
+        <button class="favourite-button svelte-1p5n4fl" style="--width: 30.000000000000004%;"><div class="svg-wrapper svelte-1p5n4fl"><img src="/figs/_app/assets/unlit_star-44b7d610.svg" aria-hidden="true" alt="">
+
+        <img class="posrel svelte-1p5n4fl" src="/figs/_app/assets/star-150d3691.svg" aria-hidden="true" alt="">
+            <svg class="posrel svelte-1p5n4fl" width="100%" height="100%"></svg></div>
+</button>
+
+        <div></div>
+
+        <div style="margin: 5px;"><div class="svelte-1c4djgu"><span class="svelte-1ifvv27">Gets the opacity of the BlockState,</span><span class="svelte-1ifvv27"> in terms of how much it affects light levels.</span></div>
+
+    <div class="code-example filled svelte-1c4djgu" style="margin-top: 50px;">
+            <code class="svelte-ub178e">
+<span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->BlockState<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="function svelte-sbfse9 token"><!-- HTML_TAG_START -->getOpacity<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->(<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->)<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->&nbsp;<!-- HTML_TAG_END --></span><span class="hint svelte-xswbo7"><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->Integer<!-- HTML_TAG_END --></span></span>
+            
+
+        <button tabindex="-1" aria-hidden="true" class="hammer-button svelte-ub178e"><svg href="/figs/_app/assets/hammer-ccd8d2cd.svg" width="16" height="16" style="color: white; touch-action: none; user-select: none;"></svg></button></code>
+
+
+</div></div></div>
+</div><div class="partial-background svelte-19rvqsi" style="--width: 70%;"><div class="method-root svelte-1mo3ogu"><div class="svelte-1mo3ogu"><a id="BlockState.isFullCube" href="/figs/latest/BlockState.isFullCube" class="svelte-yl6yu4  dark"><h1 class="flex svelte-yl6yu4" style=""><img src="/figs/_app/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">BlockState.isFullCube</h1>
+</a>
+        
+    </div>
+
+        <button class="favourite-button svelte-1p5n4fl" style="--width: 30.000000000000004%;"><div class="svg-wrapper svelte-1p5n4fl"><img src="/figs/_app/assets/unlit_star-44b7d610.svg" aria-hidden="true" alt="">
+
+        <img class="posrel svelte-1p5n4fl" src="/figs/_app/assets/star-150d3691.svg" aria-hidden="true" alt="">
+            <svg class="posrel svelte-1p5n4fl" width="100%" height="100%"></svg></div>
+</button>
+
+        <div></div>
+
+        <div style="margin: 5px;"><div class="svelte-1c4djgu"><span class="svelte-1ifvv27">Gets whether or not the BlockState has a full cube as its collision hitbox.</span></div>
+
+    <div class="code-example filled svelte-1c4djgu" style="margin-top: 50px;">
+            <code class="svelte-ub178e">
+<span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->BlockState<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="function svelte-sbfse9 token"><!-- HTML_TAG_START -->isFullCube<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->(<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->)<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->&nbsp;<!-- HTML_TAG_END --></span><span class="hint svelte-xswbo7"><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->Boolean<!-- HTML_TAG_END --></span></span>
+            
+
+        <button tabindex="-1" aria-hidden="true" class="hammer-button svelte-ub178e"><svg href="/figs/_app/assets/hammer-ccd8d2cd.svg" width="16" height="16" style="color: white; touch-action: none; user-select: none;"></svg></button></code>
+
+
+</div></div></div>
+</div><div class="partial-background svelte-19rvqsi" style="--width: 70%;"><div class="method-root svelte-1mo3ogu"><div class="svelte-1mo3ogu"><a id="BlockState.isSolidBlock" href="/figs/latest/BlockState.isSolidBlock" class="svelte-yl6yu4  dark"><h1 class="flex svelte-yl6yu4" style=""><img src="/figs/_app/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">BlockState.isSolidBlock</h1>
+</a>
+        
+    </div>
+
+        <button class="favourite-button svelte-1p5n4fl" style="--width: 30.000000000000004%;"><div class="svg-wrapper svelte-1p5n4fl"><img src="/figs/_app/assets/unlit_star-44b7d610.svg" aria-hidden="true" alt="">
+
+        <img class="posrel svelte-1p5n4fl" src="/figs/_app/assets/star-150d3691.svg" aria-hidden="true" alt="">
+            <svg class="posrel svelte-1p5n4fl" width="100%" height="100%"></svg></div>
+</button>
+
+        <div></div>
+
+        <div style="margin: 5px;"><div class="svelte-1c4djgu"><span class="svelte-1ifvv27">Gets whether or not the BlockState is considered a "solid" block by Minecraft.</span></div>
+
+    <div class="code-example filled svelte-1c4djgu" style="margin-top: 50px;">
+            <code class="svelte-ub178e">
+<span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->BlockState<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="function svelte-sbfse9 token"><!-- HTML_TAG_START -->isSolidBlock<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->(<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->)<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->&nbsp;<!-- HTML_TAG_END --></span><span class="hint svelte-xswbo7"><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->Boolean<!-- HTML_TAG_END --></span></span>
+            
+
+        <button tabindex="-1" aria-hidden="true" class="hammer-button svelte-ub178e"><svg href="/figs/_app/assets/hammer-ccd8d2cd.svg" width="16" height="16" style="color: white; touch-action: none; user-select: none;"></svg></button></code>
+
+
+</div></div></div>
+</div><div class="partial-background svelte-19rvqsi" style="--width: 70%;"><div class="method-root svelte-1mo3ogu"><div class="svelte-1mo3ogu"><a id="BlockState.getMapColor" href="/figs/latest/BlockState.getMapColor" class="svelte-yl6yu4  dark"><h1 class="flex svelte-yl6yu4" style=""><img src="/figs/_app/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">BlockState.getMapColor</h1>
+</a>
+        
+    </div>
+
+        <button class="favourite-button svelte-1p5n4fl" style="--width: 30.000000000000004%;"><div class="svg-wrapper svelte-1p5n4fl"><img src="/figs/_app/assets/unlit_star-44b7d610.svg" aria-hidden="true" alt="">
+
+        <img class="posrel svelte-1p5n4fl" src="/figs/_app/assets/star-150d3691.svg" aria-hidden="true" alt="">
+            <svg class="posrel svelte-1p5n4fl" width="100%" height="100%"></svg></div>
+</button>
+
+        <div></div>
+
+        <div style="margin: 5px;"><div class="svelte-1c4djgu"><span class="svelte-1ifvv27">Gets the map color of this BlockState,</span><span class="svelte-1ifvv27"> as a Vector3 with R,</span><span class="svelte-1ifvv27">G,</span><span class="svelte-1ifvv27">B ranging 0 to 1.</span></div>
+
+    <div class="code-example filled svelte-1c4djgu" style="margin-top: 50px;">
+            <code class="svelte-ub178e">
+<span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->BlockState<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="function svelte-sbfse9 token"><!-- HTML_TAG_START -->getMapColor<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->(<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->)<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->&nbsp;<!-- HTML_TAG_END --></span><a href="/figs/latest/Vector3" class="hint svelte-xswbo7"><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->Vector3<!-- HTML_TAG_END --></span></a>
+            
+
+        <button tabindex="-1" aria-hidden="true" class="hammer-button svelte-ub178e"><svg href="/figs/_app/assets/hammer-ccd8d2cd.svg" width="16" height="16" style="color: white; touch-action: none; user-select: none;"></svg></button></code>
+
+
+</div></div></div>
+</div><div class="partial-background svelte-19rvqsi" style="--width: 70%;"><div class="method-root svelte-1mo3ogu"><div class="svelte-1mo3ogu"><a id="BlockState.isTranslucent" href="/figs/latest/BlockState.isTranslucent" class="svelte-yl6yu4  dark"><h1 class="flex svelte-yl6yu4" style=""><img src="/figs/_app/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">BlockState.isTranslucent</h1>
+</a>
+        
+    </div>
+
+        <button class="favourite-button svelte-1p5n4fl" style="--width: 30.000000000000004%;"><div class="svg-wrapper svelte-1p5n4fl"><img src="/figs/_app/assets/unlit_star-44b7d610.svg" aria-hidden="true" alt="">
+
+        <img class="posrel svelte-1p5n4fl" src="/figs/_app/assets/star-150d3691.svg" aria-hidden="true" alt="">
+            <svg class="posrel svelte-1p5n4fl" width="100%" height="100%"></svg></div>
+</button>
+
+        <div></div>
+
+        <div style="margin: 5px;"><div class="svelte-1c4djgu"><span class="svelte-1ifvv27">Gets whether or not the BlockState would propagate sky light downwards.</span></div>
+
+    <div class="code-example filled svelte-1c4djgu" style="margin-top: 50px;">
+            <code class="svelte-ub178e">
+<span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->BlockState<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="function svelte-sbfse9 token"><!-- HTML_TAG_START -->isTranslucent<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->(<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->)<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->&nbsp;<!-- HTML_TAG_END --></span><span class="hint svelte-xswbo7"><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->Boolean<!-- HTML_TAG_END --></span></span>
+            
+
+        <button tabindex="-1" aria-hidden="true" class="hammer-button svelte-ub178e"><svg href="/figs/_app/assets/hammer-ccd8d2cd.svg" width="16" height="16" style="color: white; touch-action: none; user-select: none;"></svg></button></code>
+
+
+</div></div></div>
+</div><div class="partial-background svelte-19rvqsi" style="--width: 70%;"><div class="method-root svelte-1mo3ogu"><div class="svelte-1mo3ogu"><a id="BlockState.getCollisionShape" href="/figs/latest/BlockState.getCollisionShape" class="svelte-yl6yu4  dark"><h1 class="flex svelte-yl6yu4" style=""><img src="/figs/_app/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">BlockState.getCollisionShape</h1>
+</a>
+        
+    </div>
+
+        <button class="favourite-button svelte-1p5n4fl" style="--width: 30.000000000000004%;"><div class="svg-wrapper svelte-1p5n4fl"><img src="/figs/_app/assets/unlit_star-44b7d610.svg" aria-hidden="true" alt="">
+
+        <img class="posrel svelte-1p5n4fl" src="/figs/_app/assets/star-150d3691.svg" aria-hidden="true" alt="">
+            <svg class="posrel svelte-1p5n4fl" width="100%" height="100%"></svg></div>
+</button>
+
+        <div></div>
+
+        <div style="margin: 5px;"><div class="svelte-1c4djgu"><span class="svelte-1ifvv27">Returns a table representing the bounding boxes of the collision shape. </span><span class="svelte-1ifvv27">The table a list of Vector6,</span><span class="svelte-1ifvv27"> where the first 3 coordinates are one corner of the box and the last 3 are the other corner.</span></div>
+
+    <div class="code-example filled svelte-1c4djgu" style="margin-top: 50px;">
+            <code class="svelte-ub178e">
+<span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->BlockState<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="function svelte-sbfse9 token"><!-- HTML_TAG_START -->getCollisionShape<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->(<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->)<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->&nbsp;<!-- HTML_TAG_END --></span><span class="hint svelte-xswbo7"><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->Table<!-- HTML_TAG_END --></span></span>
+            
+
+        <button tabindex="-1" aria-hidden="true" class="hammer-button svelte-ub178e"><svg href="/figs/_app/assets/hammer-ccd8d2cd.svg" width="16" height="16" style="color: white; touch-action: none; user-select: none;"></svg></button></code>
+
+
+</div></div></div>
+</div><div class="partial-background svelte-19rvqsi" style="--width: 70%;"><div class="method-root svelte-1mo3ogu"><div class="svelte-1mo3ogu"><a id="BlockState.toStateString" href="/figs/latest/BlockState.toStateString" class="svelte-yl6yu4  dark"><h1 class="flex svelte-yl6yu4" style=""><img src="/figs/_app/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">BlockState.toStateString</h1>
+</a>
+        
+    </div>
+
+        <button class="favourite-button svelte-1p5n4fl" style="--width: 30.000000000000004%;"><div class="svg-wrapper svelte-1p5n4fl"><img src="/figs/_app/assets/unlit_star-44b7d610.svg" aria-hidden="true" alt="">
+
+        <img class="posrel svelte-1p5n4fl" src="/figs/_app/assets/star-150d3691.svg" aria-hidden="true" alt="">
+            <svg class="posrel svelte-1p5n4fl" width="100%" height="100%"></svg></div>
+</button>
+
+        <div></div>
+
+        <div style="margin: 5px;"><div class="svelte-1c4djgu"><span class="svelte-1ifvv27">Converts this BlockState into a string,</span><span class="svelte-1ifvv27"> like you'd see in a Minecraft command.</span></div>
+
+    <div class="code-example filled svelte-1c4djgu" style="margin-top: 50px;">
+            <code class="svelte-ub178e">
+<span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->BlockState<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="function svelte-sbfse9 token"><!-- HTML_TAG_START -->toStateString<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->(<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->)<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->&nbsp;<!-- HTML_TAG_END --></span><span class="hint svelte-xswbo7"><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->String<!-- HTML_TAG_END --></span></span>
+            
+
+        <button tabindex="-1" aria-hidden="true" class="hammer-button svelte-ub178e"><svg href="/figs/_app/assets/hammer-ccd8d2cd.svg" width="16" height="16" style="color: white; touch-action: none; user-select: none;"></svg></button></code>
+
+
+</div></div></div>
+</div><div class="partial-background svelte-19rvqsi" style="--width: 70%;"><div class="method-root svelte-1mo3ogu"><div class="svelte-1mo3ogu"><a id="BlockState.getFluidTags" href="/figs/latest/BlockState.getFluidTags" class="svelte-yl6yu4  dark"><h1 class="flex svelte-yl6yu4" style=""><img src="/figs/_app/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">BlockState.getFluidTags</h1>
+</a>
+        
+    </div>
+
+        <button class="favourite-button svelte-1p5n4fl" style="--width: 30.000000000000004%;"><div class="svg-wrapper svelte-1p5n4fl"><img src="/figs/_app/assets/unlit_star-44b7d610.svg" aria-hidden="true" alt="">
+
+        <img class="posrel svelte-1p5n4fl" src="/figs/_app/assets/star-150d3691.svg" aria-hidden="true" alt="">
+            <svg class="posrel svelte-1p5n4fl" width="100%" height="100%"></svg></div>
+</button>
+
+        <div></div>
+
+        <div style="margin: 5px;"><div class="svelte-1c4djgu"><span class="svelte-1ifvv27">Returns a table containing all the fluid tags of this block,</span><span class="svelte-1ifvv27"> as strings.</span></div>
+
+    <div class="code-example filled svelte-1c4djgu" style="margin-top: 50px;">
+            <code class="svelte-ub178e">
+<span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->BlockState<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="function svelte-sbfse9 token"><!-- HTML_TAG_START -->getFluidTags<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->(<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->)<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->&nbsp;<!-- HTML_TAG_END --></span><span class="hint svelte-xswbo7"><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->Table<!-- HTML_TAG_END --></span></span>
+            
+
+        <button tabindex="-1" aria-hidden="true" class="hammer-button svelte-ub178e"><svg href="/figs/_app/assets/hammer-ccd8d2cd.svg" width="16" height="16" style="color: white; touch-action: none; user-select: none;"></svg></button></code>
+
+
+</div></div></div>
+</div><div class="partial-background svelte-19rvqsi" style="--width: 70%;"><div class="method-root svelte-1mo3ogu"><div class="svelte-1mo3ogu"><a id="BlockState.hasBlockEntity" href="/figs/latest/BlockState.hasBlockEntity" class="svelte-yl6yu4  dark"><h1 class="flex svelte-yl6yu4" style=""><img src="/figs/_app/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">BlockState.hasBlockEntity</h1>
+</a>
+        
+    </div>
+
+        <button class="favourite-button svelte-1p5n4fl" style="--width: 30.000000000000004%;"><div class="svg-wrapper svelte-1p5n4fl"><img src="/figs/_app/assets/unlit_star-44b7d610.svg" aria-hidden="true" alt="">
+
+        <img class="posrel svelte-1p5n4fl" src="/figs/_app/assets/star-150d3691.svg" aria-hidden="true" alt="">
+            <svg class="posrel svelte-1p5n4fl" width="100%" height="100%"></svg></div>
+</button>
+
+        <div></div>
+
+        <div style="margin: 5px;"><div class="svelte-1c4djgu"><span class="svelte-1ifvv27">Gets whether or not this BlockState has an associated block entity.</span></div>
+
+    <div class="code-example filled svelte-1c4djgu" style="margin-top: 50px;">
+            <code class="svelte-ub178e">
+<span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->BlockState<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="function svelte-sbfse9 token"><!-- HTML_TAG_START -->hasBlockEntity<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->(<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->)<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->&nbsp;<!-- HTML_TAG_END --></span><span class="hint svelte-xswbo7"><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->Boolean<!-- HTML_TAG_END --></span></span>
+            
+
+        <button tabindex="-1" aria-hidden="true" class="hammer-button svelte-ub178e"><svg href="/figs/_app/assets/hammer-ccd8d2cd.svg" width="16" height="16" style="color: white; touch-action: none; user-select: none;"></svg></button></code>
+
+
+</div></div></div>
+</div><div class="partial-background svelte-19rvqsi" style="--width: 70%;"><div class="method-root svelte-1mo3ogu"><div class="svelte-1mo3ogu"><a id="BlockState.emitsRedstonePower" href="/figs/latest/BlockState.emitsRedstonePower" class="svelte-yl6yu4  dark"><h1 class="flex svelte-yl6yu4" style=""><img src="/figs/_app/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">BlockState.emitsRedstonePower</h1>
+</a>
+        
+    </div>
+
+        <button class="favourite-button svelte-1p5n4fl" style="--width: 30.000000000000004%;"><div class="svg-wrapper svelte-1p5n4fl"><img src="/figs/_app/assets/unlit_star-44b7d610.svg" aria-hidden="true" alt="">
+
+        <img class="posrel svelte-1p5n4fl" src="/figs/_app/assets/star-150d3691.svg" aria-hidden="true" alt="">
+            <svg class="posrel svelte-1p5n4fl" width="100%" height="100%"></svg></div>
+</button>
+
+        <div></div>
+
+        <div style="margin: 5px;"><div class="svelte-1c4djgu"><span class="svelte-1ifvv27">Gets whether or not this BlockState emits redstone power.</span></div>
+
+    <div class="code-example filled svelte-1c4djgu" style="margin-top: 50px;">
+            <code class="svelte-ub178e">
+<span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->BlockState<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="function svelte-sbfse9 token"><!-- HTML_TAG_START -->emitsRedstonePower<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->(<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->)<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->&nbsp;<!-- HTML_TAG_END --></span><span class="hint svelte-xswbo7"><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->Boolean<!-- HTML_TAG_END --></span></span>
+            
+
+        <button tabindex="-1" aria-hidden="true" class="hammer-button svelte-ub178e"><svg href="/figs/_app/assets/hammer-ccd8d2cd.svg" width="16" height="16" style="color: white; touch-action: none; user-select: none;"></svg></button></code>
+
+
+</div></div></div>
+</div><div class="partial-background svelte-19rvqsi" style="--width: 70%;"><div class="method-root svelte-1mo3ogu"><div class="svelte-1mo3ogu"><a id="BlockState.asItem" href="/figs/latest/BlockState.asItem" class="svelte-yl6yu4  dark"><h1 class="flex svelte-yl6yu4" style=""><img src="/figs/_app/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">BlockState.asItem</h1>
+</a>
+        
+    </div>
+
+        <button class="favourite-button svelte-1p5n4fl" style="--width: 30.000000000000004%;"><div class="svg-wrapper svelte-1p5n4fl"><img src="/figs/_app/assets/unlit_star-44b7d610.svg" aria-hidden="true" alt="">
+
+        <img class="posrel svelte-1p5n4fl" src="/figs/_app/assets/star-150d3691.svg" aria-hidden="true" alt="">
+            <svg class="posrel svelte-1p5n4fl" width="100%" height="100%"></svg></div>
+</button>
+
+        <div></div>
+
+        <div style="margin: 5px;"><div class="svelte-1c4djgu"><span class="svelte-1ifvv27">Returns an ItemStack representing this block in item form,</span><span class="svelte-1ifvv27"> whatever Minecraft deems that to be. </span><span class="svelte-1ifvv27">If it cannot find an item for this block,</span><span class="svelte-1ifvv27"> it will return nil.</span></div>
+
+    <div class="code-example filled svelte-1c4djgu" style="margin-top: 50px;">
+            <code class="svelte-ub178e">
+<span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->BlockState<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="function svelte-sbfse9 token"><!-- HTML_TAG_START -->asItem<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->(<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->)<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->&nbsp;<!-- HTML_TAG_END --></span><a href="/figs/latest/ItemStack" class="hint svelte-xswbo7"><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->ItemStack<!-- HTML_TAG_END --></span></a>
+            
+
+        <button tabindex="-1" aria-hidden="true" class="hammer-button svelte-ub178e"><svg href="/figs/_app/assets/hammer-ccd8d2cd.svg" width="16" height="16" style="color: white; touch-action: none; user-select: none;"></svg></button></code>
+
+
+</div></div></div>
+</div><div class="partial-background svelte-19rvqsi" style="--width: 70%;"><div class="method-root svelte-1mo3ogu"><div class="svelte-1mo3ogu"><a id="BlockState.getBlastResistance" href="/figs/latest/BlockState.getBlastResistance" class="svelte-yl6yu4  dark"><h1 class="flex svelte-yl6yu4" style=""><img src="/figs/_app/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">BlockState.getBlastResistance</h1>
+</a>
+        
+    </div>
+
+        <button class="favourite-button svelte-1p5n4fl" style="--width: 30.000000000000004%;"><div class="svg-wrapper svelte-1p5n4fl"><img src="/figs/_app/assets/unlit_star-44b7d610.svg" aria-hidden="true" alt="">
+
+        <img class="posrel svelte-1p5n4fl" src="/figs/_app/assets/star-150d3691.svg" aria-hidden="true" alt="">
+            <svg class="posrel svelte-1p5n4fl" width="100%" height="100%"></svg></div>
+</button>
+
+        <div></div>
+
+        <div style="margin: 5px;"><div class="svelte-1c4djgu"><span class="svelte-1ifvv27">Gets the blast resistance of this BlockState.</span></div>
+
+    <div class="code-example filled svelte-1c4djgu" style="margin-top: 50px;">
+            <code class="svelte-ub178e">
+<span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->BlockState<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="function svelte-sbfse9 token"><!-- HTML_TAG_START -->getBlastResistance<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->(<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->)<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->&nbsp;<!-- HTML_TAG_END --></span><span class="hint svelte-xswbo7"><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->Number<!-- HTML_TAG_END --></span></span>
+            
+
+        <button tabindex="-1" aria-hidden="true" class="hammer-button svelte-ub178e"><svg href="/figs/_app/assets/hammer-ccd8d2cd.svg" width="16" height="16" style="color: white; touch-action: none; user-select: none;"></svg></button></code>
+
+
+</div></div></div>
+</div><div class="partial-background svelte-19rvqsi" style="--width: 70%;"><div class="method-root svelte-1mo3ogu"><div class="svelte-1mo3ogu"><a id="BlockState.getSounds" href="/figs/latest/BlockState.getSounds" class="svelte-yl6yu4  dark"><h1 class="flex svelte-yl6yu4" style=""><img src="/figs/_app/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">BlockState.getSounds</h1>
+</a>
+        
+    </div>
+
+        <button class="favourite-button svelte-1p5n4fl" style="--width: 30.000000000000004%;"><div class="svg-wrapper svelte-1p5n4fl"><img src="/figs/_app/assets/unlit_star-44b7d610.svg" aria-hidden="true" alt="">
+
+        <img class="posrel svelte-1p5n4fl" src="/figs/_app/assets/star-150d3691.svg" aria-hidden="true" alt="">
+            <svg class="posrel svelte-1p5n4fl" width="100%" height="100%"></svg></div>
+</button>
+
+        <div></div>
+
+        <div style="margin: 5px;"><div class="svelte-1c4djgu"><span class="svelte-1ifvv27">Gets the names of all the sounds which can play from this BlockState,</span><span class="svelte-1ifvv27"> as well as their pitch and volume. </span><span class="svelte-1ifvv27">Stored in a table.</span></div>
+
+    <div class="code-example filled svelte-1c4djgu" style="margin-top: 50px;">
+            <code class="svelte-ub178e">
+<span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->BlockState<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="function svelte-sbfse9 token"><!-- HTML_TAG_START -->getSounds<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->(<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->)<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->&nbsp;<!-- HTML_TAG_END --></span><span class="hint svelte-xswbo7"><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->Table<!-- HTML_TAG_END --></span></span>
+            
+
+        <button tabindex="-1" aria-hidden="true" class="hammer-button svelte-ub178e"><svg href="/figs/_app/assets/hammer-ccd8d2cd.svg" width="16" height="16" style="color: white; touch-action: none; user-select: none;"></svg></button></code>
+
+
+</div></div></div>
+</div><div class="partial-background svelte-19rvqsi" style="--width: 70%;"><div class="method-root svelte-1mo3ogu"><div class="svelte-1mo3ogu"><a id="BlockState.getEntityData" href="/figs/latest/BlockState.getEntityData" class="svelte-yl6yu4  dark"><h1 class="flex svelte-yl6yu4" style=""><img src="/figs/_app/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">BlockState.getEntityData</h1>
+</a>
+        
+    </div>
+
+        <button class="favourite-button svelte-1p5n4fl" style="--width: 30.000000000000004%;"><div class="svg-wrapper svelte-1p5n4fl"><img src="/figs/_app/assets/unlit_star-44b7d610.svg" aria-hidden="true" alt="">
+
+        <img class="posrel svelte-1p5n4fl" src="/figs/_app/assets/star-150d3691.svg" aria-hidden="true" alt="">
+            <svg class="posrel svelte-1p5n4fl" width="100%" height="100%"></svg></div>
+</button>
+
+        <div></div>
+
+        <div style="margin: 5px;"><div class="svelte-1c4djgu"><span class="svelte-1ifvv27">Returns the nbt of the Block Entity associated with this BlockState,</span><span class="svelte-1ifvv27"> at its position,</span><span class="svelte-1ifvv27"> as a table. </span><span class="svelte-1ifvv27">Since the mod is only on client side,</span><span class="svelte-1ifvv27"> this NBT might not actually contain the real nbt,</span><span class="svelte-1ifvv27"> which is stored server-side.</span></div>
+
+    <div class="code-example filled svelte-1c4djgu" style="margin-top: 50px;">
+            <code class="svelte-ub178e">
+<span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->BlockState<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="function svelte-sbfse9 token"><!-- HTML_TAG_START -->getEntityData<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->(<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->)<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->&nbsp;<!-- HTML_TAG_END --></span><span class="hint svelte-xswbo7"><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->Table<!-- HTML_TAG_END --></span></span>
+            
+
+        <button tabindex="-1" aria-hidden="true" class="hammer-button svelte-ub178e"><svg href="/figs/_app/assets/hammer-ccd8d2cd.svg" width="16" height="16" style="color: white; touch-action: none; user-select: none;"></svg></button></code>
+
+
+</div></div></div>
+</div><div class="partial-background svelte-19rvqsi" style="--width: 70%;"><div class="method-root svelte-1mo3ogu"><div class="svelte-1mo3ogu"><a id="BlockState.getFriction" href="/figs/latest/BlockState.getFriction" class="svelte-yl6yu4  dark"><h1 class="flex svelte-yl6yu4" style=""><img src="/figs/_app/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">BlockState.getFriction</h1>
+</a>
+        
+    </div>
+
+        <button class="favourite-button svelte-1p5n4fl" style="--width: 30.000000000000004%;"><div class="svg-wrapper svelte-1p5n4fl"><img src="/figs/_app/assets/unlit_star-44b7d610.svg" aria-hidden="true" alt="">
+
+        <img class="posrel svelte-1p5n4fl" src="/figs/_app/assets/star-150d3691.svg" aria-hidden="true" alt="">
+            <svg class="posrel svelte-1p5n4fl" width="100%" height="100%"></svg></div>
+</button>
+
+        <div></div>
+
+        <div style="margin: 5px;"><div class="svelte-1c4djgu"><span class="svelte-1ifvv27">Gets the friction of this BlockState. </span><span class="svelte-1ifvv27">(Slime blocks and ice in vanilla)</span></div>
+
+    <div class="code-example filled svelte-1c4djgu" style="margin-top: 50px;">
+            <code class="svelte-ub178e">
+<span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->BlockState<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="function svelte-sbfse9 token"><!-- HTML_TAG_START -->getFriction<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->(<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->)<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->&nbsp;<!-- HTML_TAG_END --></span><span class="hint svelte-xswbo7"><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->Number<!-- HTML_TAG_END --></span></span>
+            
+
+        <button tabindex="-1" aria-hidden="true" class="hammer-button svelte-ub178e"><svg href="/figs/_app/assets/hammer-ccd8d2cd.svg" width="16" height="16" style="color: white; touch-action: none; user-select: none;"></svg></button></code>
+
+
+</div></div></div>
+</div><div class="partial-background svelte-19rvqsi" style="--width: 70%;"><div class="method-root svelte-1mo3ogu"><div class="svelte-1mo3ogu"><a id="BlockState.getTags" href="/figs/latest/BlockState.getTags" class="svelte-yl6yu4  dark"><h1 class="flex svelte-yl6yu4" style=""><img src="/figs/_app/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">BlockState.getTags</h1>
+</a>
+        
+    </div>
+
+        <button class="favourite-button svelte-1p5n4fl" style="--width: 30.000000000000004%;"><div class="svg-wrapper svelte-1p5n4fl"><img src="/figs/_app/assets/unlit_star-44b7d610.svg" aria-hidden="true" alt="">
+
+        <img class="posrel svelte-1p5n4fl" src="/figs/_app/assets/star-150d3691.svg" aria-hidden="true" alt="">
+            <svg class="posrel svelte-1p5n4fl" width="100%" height="100%"></svg></div>
+</button>
+
+        <div></div>
+
+        <div style="margin: 5px;"><div class="svelte-1c4djgu"><span class="svelte-1ifvv27">Returns a table containing all the tags of this block,</span><span class="svelte-1ifvv27"> as strings.</span></div>
+
+    <div class="code-example filled svelte-1c4djgu" style="margin-top: 50px;">
+            <code class="svelte-ub178e">
+<span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->BlockState<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="function svelte-sbfse9 token"><!-- HTML_TAG_START -->getTags<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->(<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->)<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->&nbsp;<!-- HTML_TAG_END --></span><span class="hint svelte-xswbo7"><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->Table<!-- HTML_TAG_END --></span></span>
+            
+
+        <button tabindex="-1" aria-hidden="true" class="hammer-button svelte-ub178e"><svg href="/figs/_app/assets/hammer-ccd8d2cd.svg" width="16" height="16" style="color: white; touch-action: none; user-select: none;"></svg></button></code>
+
+
+</div></div></div>
+</div><div class="partial-background svelte-19rvqsi" style="--width: 70%;"><div class="method-root svelte-1mo3ogu"><div class="svelte-1mo3ogu"><a id="BlockState.getOutlineShape" href="/figs/latest/BlockState.getOutlineShape" class="svelte-yl6yu4  dark"><h1 class="flex svelte-yl6yu4" style=""><img src="/figs/_app/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">BlockState.getOutlineShape</h1>
+</a>
+        
+    </div>
+
+        <button class="favourite-button svelte-1p5n4fl" style="--width: 30.000000000000004%;"><div class="svg-wrapper svelte-1p5n4fl"><img src="/figs/_app/assets/unlit_star-44b7d610.svg" aria-hidden="true" alt="">
+
+        <img class="posrel svelte-1p5n4fl" src="/figs/_app/assets/star-150d3691.svg" aria-hidden="true" alt="">
+            <svg class="posrel svelte-1p5n4fl" width="100%" height="100%"></svg></div>
+</button>
+
+        <div></div>
+
+        <div style="margin: 5px;"><div class="svelte-1c4djgu"><span class="svelte-1ifvv27">Returns a table representing the bounding boxes of the outline shape. </span><span class="svelte-1ifvv27">The table a list of Vector6,</span><span class="svelte-1ifvv27"> where the first 3 coordinates are one corner of the box and the last 3 are the other corner.</span></div>
+
+    <div class="code-example filled svelte-1c4djgu" style="margin-top: 50px;">
+            <code class="svelte-ub178e">
+<span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->BlockState<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="function svelte-sbfse9 token"><!-- HTML_TAG_START -->getOutlineShape<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->(<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->)<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->&nbsp;<!-- HTML_TAG_END --></span><span class="hint svelte-xswbo7"><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->Table<!-- HTML_TAG_END --></span></span>
+            
+
+        <button tabindex="-1" aria-hidden="true" class="hammer-button svelte-ub178e"><svg href="/figs/_app/assets/hammer-ccd8d2cd.svg" width="16" height="16" style="color: white; touch-action: none; user-select: none;"></svg></button></code>
+
+
+</div></div></div>
+</div><div class="partial-background svelte-19rvqsi" style="--width: 70%;"><div class="method-root svelte-1mo3ogu"><div class="svelte-1mo3ogu"><a id="BlockState.getJumpVelocityMultiplier" href="/figs/latest/BlockState.getJumpVelocityMultiplier" class="svelte-yl6yu4  dark"><h1 class="flex svelte-yl6yu4" style=""><img src="/figs/_app/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">BlockState.getJumpVelocityMultiplier</h1>
+</a>
+        
+    </div>
+
+        <button class="favourite-button svelte-1p5n4fl" style="--width: 30.000000000000004%;"><div class="svg-wrapper svelte-1p5n4fl"><img src="/figs/_app/assets/unlit_star-44b7d610.svg" aria-hidden="true" alt="">
+
+        <img class="posrel svelte-1p5n4fl" src="/figs/_app/assets/star-150d3691.svg" aria-hidden="true" alt="">
+            <svg class="posrel svelte-1p5n4fl" width="100%" height="100%"></svg></div>
+</button>
+
+        <div></div>
+
+        <div style="margin: 5px;"><div class="svelte-1c4djgu"><span class="svelte-1ifvv27">Gets the jump velocity multiplier of this BlockState. </span><span class="svelte-1ifvv27">(Literally just honey blocks in vanilla)</span></div>
+
+    <div class="code-example filled svelte-1c4djgu" style="margin-top: 50px;">
+            <code class="svelte-ub178e">
+<span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->BlockState<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="function svelte-sbfse9 token"><!-- HTML_TAG_START -->getJumpVelocityMultiplier<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->(<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->)<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->&nbsp;<!-- HTML_TAG_END --></span><span class="hint svelte-xswbo7"><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->Number<!-- HTML_TAG_END --></span></span>
+            
+
+        <button tabindex="-1" aria-hidden="true" class="hammer-button svelte-ub178e"><svg href="/figs/_app/assets/hammer-ccd8d2cd.svg" width="16" height="16" style="color: white; touch-action: none; user-select: none;"></svg></button></code>
+
+
+</div></div></div>
+</div><div class="partial-background svelte-19rvqsi" style="--width: 70%;"><div class="method-root svelte-1mo3ogu"><div class="svelte-1mo3ogu"><a id="BlockState.getVelocityMultiplier" href="/figs/latest/BlockState.getVelocityMultiplier" class="svelte-yl6yu4  dark"><h1 class="flex svelte-yl6yu4" style=""><img src="/figs/_app/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">BlockState.getVelocityMultiplier</h1>
+</a>
+        
+    </div>
+
+        <button class="favourite-button svelte-1p5n4fl" style="--width: 30.000000000000004%;"><div class="svg-wrapper svelte-1p5n4fl"><img src="/figs/_app/assets/unlit_star-44b7d610.svg" aria-hidden="true" alt="">
+
+        <img class="posrel svelte-1p5n4fl" src="/figs/_app/assets/star-150d3691.svg" aria-hidden="true" alt="">
+            <svg class="posrel svelte-1p5n4fl" width="100%" height="100%"></svg></div>
+</button>
+
+        <div></div>
+
+        <div style="margin: 5px;"><div class="svelte-1c4djgu"><span class="svelte-1ifvv27">Gets the velocity multiplier of this BlockState. </span><span class="svelte-1ifvv27">(Only Soul sand,</span><span class="svelte-1ifvv27"> honey blocks in vanilla)</span></div>
+
+    <div class="code-example filled svelte-1c4djgu" style="margin-top: 50px;">
+            <code class="svelte-ub178e">
+<span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->BlockState<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="function svelte-sbfse9 token"><!-- HTML_TAG_START -->getVelocityMultiplier<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->(<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->)<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->&nbsp;<!-- HTML_TAG_END --></span><span class="hint svelte-xswbo7"><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->Number<!-- HTML_TAG_END --></span></span>
+            
+
+        <button tabindex="-1" aria-hidden="true" class="hammer-button svelte-ub178e"><svg href="/figs/_app/assets/hammer-ccd8d2cd.svg" width="16" height="16" style="color: white; touch-action: none; user-select: none;"></svg></button></code>
+
+
+</div></div></div>
+</div><div class="partial-background svelte-19rvqsi" style="--width: 70%;"><div class="method-root svelte-1mo3ogu"><div class="svelte-1mo3ogu"><a id="BlockState.hasCollision" href="/figs/latest/BlockState.hasCollision" class="svelte-yl6yu4  dark"><h1 class="flex svelte-yl6yu4" style=""><img src="/figs/_app/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">BlockState.hasCollision</h1>
+</a>
+        
+    </div>
+
+        <button class="favourite-button svelte-1p5n4fl" style="--width: 30.000000000000004%;"><div class="svg-wrapper svelte-1p5n4fl"><img src="/figs/_app/assets/unlit_star-44b7d610.svg" aria-hidden="true" alt="">
+
+        <img class="posrel svelte-1p5n4fl" src="/figs/_app/assets/star-150d3691.svg" aria-hidden="true" alt="">
+            <svg class="posrel svelte-1p5n4fl" width="100%" height="100%"></svg></div>
+</button>
+
+        <div></div>
+
+        <div style="margin: 5px;"><div class="svelte-1c4djgu"><span class="svelte-1ifvv27">Returns true if this block has collision.</span></div>
+
+    <div class="code-example filled svelte-1c4djgu" style="margin-top: 50px;">
+            <code class="svelte-ub178e">
+<span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->BlockState<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="function svelte-sbfse9 token"><!-- HTML_TAG_START -->hasCollision<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->(<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->)<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->&nbsp;<!-- HTML_TAG_END --></span><span class="hint svelte-xswbo7"><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->Boolean<!-- HTML_TAG_END --></span></span>
+            
+
+        <button tabindex="-1" aria-hidden="true" class="hammer-button svelte-ub178e"><svg href="/figs/_app/assets/hammer-ccd8d2cd.svg" width="16" height="16" style="color: white; touch-action: none; user-select: none;"></svg></button></code>
+
+
+</div></div></div>
+</div><div class="partial-background svelte-19rvqsi" style="--width: 70%;"><div class="method-root svelte-1mo3ogu"><div class="svelte-1mo3ogu"><a id="BlockState.hasEmissiveLighting" href="/figs/latest/BlockState.hasEmissiveLighting" class="svelte-yl6yu4  dark"><h1 class="flex svelte-yl6yu4" style=""><img src="/figs/_app/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">BlockState.hasEmissiveLighting</h1>
+</a>
+        
+    </div>
+
+        <button class="favourite-button svelte-1p5n4fl" style="--width: 30.000000000000004%;"><div class="svg-wrapper svelte-1p5n4fl"><img src="/figs/_app/assets/unlit_star-44b7d610.svg" aria-hidden="true" alt="">
+
+        <img class="posrel svelte-1p5n4fl" src="/figs/_app/assets/star-150d3691.svg" aria-hidden="true" alt="">
+            <svg class="posrel svelte-1p5n4fl" width="100%" height="100%"></svg></div>
+</button>
+
+        <div></div>
+
+        <div style="margin: 5px;"><div class="svelte-1c4djgu"><span class="svelte-1ifvv27">Gets whether or not the BlockState uses emissive lighting.</span></div>
+
+    <div class="code-example filled svelte-1c4djgu" style="margin-top: 50px;">
+            <code class="svelte-ub178e">
+<span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->BlockState<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="function svelte-sbfse9 token"><!-- HTML_TAG_START -->hasEmissiveLighting<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->(<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->)<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->&nbsp;<!-- HTML_TAG_END --></span><span class="hint svelte-xswbo7"><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->Boolean<!-- HTML_TAG_END --></span></span>
+            
+
+        <button tabindex="-1" aria-hidden="true" class="hammer-button svelte-ub178e"><svg href="/figs/_app/assets/hammer-ccd8d2cd.svg" width="16" height="16" style="color: white; touch-action: none; user-select: none;"></svg></button></code>
+
+
+</div></div></div>
+</div><div class="partial-background svelte-19rvqsi" style="--width: 70%;"><div class="method-root svelte-1mo3ogu"><div class="svelte-1mo3ogu"><a id="BlockState.getComparatorOutput" href="/figs/latest/BlockState.getComparatorOutput" class="svelte-yl6yu4  dark"><h1 class="flex svelte-yl6yu4" style=""><img src="/figs/_app/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">BlockState.getComparatorOutput</h1>
+</a>
+        
+    </div>
+
+        <button class="favourite-button svelte-1p5n4fl" style="--width: 30.000000000000004%;"><div class="svg-wrapper svelte-1p5n4fl"><img src="/figs/_app/assets/unlit_star-44b7d610.svg" aria-hidden="true" alt="">
+
+        <img class="posrel svelte-1p5n4fl" src="/figs/_app/assets/star-150d3691.svg" aria-hidden="true" alt="">
+            <svg class="posrel svelte-1p5n4fl" width="100%" height="100%"></svg></div>
+</button>
+
+        <div></div>
+
+        <div style="margin: 5px;"><div class="svelte-1c4djgu"><span class="svelte-1ifvv27">Gets the amount of signal strength a comparator would get from this BlockState.</span></div>
+
+    <div class="code-example filled svelte-1c4djgu" style="margin-top: 50px;">
+            <code class="svelte-ub178e">
+<span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->BlockState<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="function svelte-sbfse9 token"><!-- HTML_TAG_START -->getComparatorOutput<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->(<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->)<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->&nbsp;<!-- HTML_TAG_END --></span><span class="hint svelte-xswbo7"><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->Integer<!-- HTML_TAG_END --></span></span>
+            
+
+        <button tabindex="-1" aria-hidden="true" class="hammer-button svelte-ub178e"><svg href="/figs/_app/assets/hammer-ccd8d2cd.svg" width="16" height="16" style="color: white; touch-action: none; user-select: none;"></svg></button></code>
+
+
+</div></div></div>
+</div><div class="partial-background svelte-19rvqsi" style="--width: 70%;"><div class="method-root svelte-1mo3ogu"><div class="svelte-1mo3ogu"><a id="BlockState.getMaterial" href="/figs/latest/BlockState.getMaterial" class="svelte-yl6yu4  dark"><h1 class="flex svelte-yl6yu4" style=""><img src="/figs/_app/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">BlockState.getMaterial</h1>
+</a>
+        
+    </div>
+
+        <button class="favourite-button svelte-1p5n4fl" style="--width: 30.000000000000004%;"><div class="svg-wrapper svelte-1p5n4fl"><img src="/figs/_app/assets/unlit_star-44b7d610.svg" aria-hidden="true" alt="">
+
+        <img class="posrel svelte-1p5n4fl" src="/figs/_app/assets/star-150d3691.svg" aria-hidden="true" alt="">
+            <svg class="posrel svelte-1p5n4fl" width="100%" height="100%"></svg></div>
+</button>
+
+        <div></div>
+
+        <div style="margin: 5px;"><div class="svelte-1c4djgu"><span class="svelte-1ifvv27">Gets the name of the material this block is made of.</span></div>
+
+    <div class="code-example filled svelte-1c4djgu" style="margin-top: 50px;">
+            <code class="svelte-ub178e">
+<span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->BlockState<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="function svelte-sbfse9 token"><!-- HTML_TAG_START -->getMaterial<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->(<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->)<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->&nbsp;<!-- HTML_TAG_END --></span><span class="hint svelte-xswbo7"><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->String<!-- HTML_TAG_END --></span></span>
+            
+
+        <button tabindex="-1" aria-hidden="true" class="hammer-button svelte-ub178e"><svg href="/figs/_app/assets/hammer-ccd8d2cd.svg" width="16" height="16" style="color: white; touch-action: none; user-select: none;"></svg></button></code>
+
+
+</div></div></div>
+</div><div class="partial-background svelte-19rvqsi" style="--width: 70%;"><div class="method-root svelte-1mo3ogu"><div class="svelte-1mo3ogu"><a id="BlockState.getLuminance" href="/figs/latest/BlockState.getLuminance" class="svelte-yl6yu4  dark"><h1 class="flex svelte-yl6yu4" style=""><img src="/figs/_app/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">BlockState.getLuminance</h1>
+</a>
+        
+    </div>
+
+        <button class="favourite-button svelte-1p5n4fl" style="--width: 30.000000000000004%;"><div class="svg-wrapper svelte-1p5n4fl"><img src="/figs/_app/assets/unlit_star-44b7d610.svg" aria-hidden="true" alt="">
+
+        <img class="posrel svelte-1p5n4fl" src="/figs/_app/assets/star-150d3691.svg" aria-hidden="true" alt="">
+            <svg class="posrel svelte-1p5n4fl" width="100%" height="100%"></svg></div>
+</button>
+
+        <div></div>
+
+        <div style="margin: 5px;"><div class="svelte-1c4djgu"><span class="svelte-1ifvv27">Gets the emission light level of this BlockState.</span></div>
+
+    <div class="code-example filled svelte-1c4djgu" style="margin-top: 50px;">
+            <code class="svelte-ub178e">
+<span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->BlockState<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="function svelte-sbfse9 token"><!-- HTML_TAG_START -->getLuminance<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->(<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->)<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->&nbsp;<!-- HTML_TAG_END --></span><span class="hint svelte-xswbo7"><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->Integer<!-- HTML_TAG_END --></span></span>
+            
+
+        <button tabindex="-1" aria-hidden="true" class="hammer-button svelte-ub178e"><svg href="/figs/_app/assets/hammer-ccd8d2cd.svg" width="16" height="16" style="color: white; touch-action: none; user-select: none;"></svg></button></code>
+
+
+</div></div></div>
+</div><div class="partial-background svelte-19rvqsi" style="--width: 70%;"><div class="method-root svelte-1mo3ogu"><div class="svelte-1mo3ogu"><a id="BlockState.getHardness" href="/figs/latest/BlockState.getHardness" class="svelte-yl6yu4  dark"><h1 class="flex svelte-yl6yu4" style=""><img src="/figs/_app/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">BlockState.getHardness</h1>
+</a>
+        
+    </div>
+
+        <button class="favourite-button svelte-1p5n4fl" style="--width: 30.000000000000004%;"><div class="svg-wrapper svelte-1p5n4fl"><img src="/figs/_app/assets/unlit_star-44b7d610.svg" aria-hidden="true" alt="">
+
+        <img class="posrel svelte-1p5n4fl" src="/figs/_app/assets/star-150d3691.svg" aria-hidden="true" alt="">
+            <svg class="posrel svelte-1p5n4fl" width="100%" height="100%"></svg></div>
+</button>
+
+        <div></div>
+
+        <div style="margin: 5px;"><div class="svelte-1c4djgu"><span class="svelte-1ifvv27">Gets the hardness of the BlockState.</span></div>
+
+    <div class="code-example filled svelte-1c4djgu" style="margin-top: 50px;">
+            <code class="svelte-ub178e">
+<span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->BlockState<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="function svelte-sbfse9 token"><!-- HTML_TAG_START -->getHardness<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->(<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->)<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->&nbsp;<!-- HTML_TAG_END --></span><span class="hint svelte-xswbo7"><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->Number<!-- HTML_TAG_END --></span></span>
+            
+
+        <button tabindex="-1" aria-hidden="true" class="hammer-button svelte-ub178e"><svg href="/figs/_app/assets/hammer-ccd8d2cd.svg" width="16" height="16" style="color: white; touch-action: none; user-select: none;"></svg></button></code>
+
+
+</div></div></div>
+</div>
+
+    <div class="partial-background svelte-19rvqsi" style="--width: 70%;"><div class="method-root svelte-1mo3ogu"><div class="svelte-1mo3ogu"><a id="BlockState.id" href="/figs/latest/BlockState.id" class="svelte-yl6yu4  dark"><h1 class="flex svelte-yl6yu4" style=""><img src="/figs/_app/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">BlockState.id</h1>
+</a></div>
+
+        
+
+        <div></div>
+
+        <div style="margin: 5px;"><div class="svelte-1ul3cab"><span class="svelte-1ifvv27">The identifier of the block this BlockState comes from.</span></div>
+
+    <div class="code-example filled svelte-1ul3cab" style="margin-top: 50px;"><code class="svelte-ub178e">
+<span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->id<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->&nbsp;<!-- HTML_TAG_END --></span><span class="hint svelte-xswbo7"><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->String<!-- HTML_TAG_END --></span></span>
+
+        <button tabindex="-1" aria-hidden="true" class="hammer-button svelte-ub178e"><svg href="/figs/_app/assets/hammer-ccd8d2cd.svg" width="16" height="16" style="color: white; touch-action: none; user-select: none;"></svg></button></code>
+
+
+
+
+        </div></div></div>
+</div><div class="partial-background svelte-19rvqsi" style="--width: 70%;"><div class="method-root svelte-1mo3ogu"><div class="svelte-1mo3ogu"><a id="BlockState.properties" href="/figs/latest/BlockState.properties" class="svelte-yl6yu4  dark"><h1 class="flex svelte-yl6yu4" style=""><img src="/figs/_app/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">BlockState.properties</h1>
+</a></div>
+
+        
+
+        <div></div>
+
+        <div style="margin: 5px;"><div class="svelte-1ul3cab"><span class="svelte-1ifvv27">A table containing the properties of this BlockState. </span><span class="svelte-1ifvv27">If this BlockState has no properties,</span><span class="svelte-1ifvv27"> it is nil.</span></div>
+
+    <div class="code-example filled svelte-1ul3cab" style="margin-top: 50px;"><code class="svelte-ub178e">
+<span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->properties<!-- HTML_TAG_END --></span><span class="punctuation svelte-sbfse9 token"><!-- HTML_TAG_START -->:<!-- HTML_TAG_END --></span><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->&nbsp;<!-- HTML_TAG_END --></span><span class="hint svelte-xswbo7"><span class="svelte-sbfse9 token"><!-- HTML_TAG_START -->Table<!-- HTML_TAG_END --></span></span>
+
+        <button tabindex="-1" aria-hidden="true" class="hammer-button svelte-ub178e"><svg href="/figs/_app/assets/hammer-ccd8d2cd.svg" width="16" height="16" style="color: white; touch-action: none; user-select: none;"></svg></button></code>
+
+
+
+
+        </div></div></div>
+</div>
+</div>
+
+<div class="corner-flyer svelte-17jg4l9"><button class="top-jumper svelte-17jg4l9">Jump to top
+    </button>
+    <noscript class="svelte-17jg4l9">Warning: most things in this website won&#39;t work without javascript</noscript></div>
+
+
+<a href="/figs/latest/search" style="display: none;">dummy</a>
+
+        <svg class="cheese-svg svelte-12bum4d" width="100%" height="100%" aria-hidden="true" style="pointer-events: none; touch-action: none;"></svg></div></div>
+
+<svg id="root-glasspane" class="glasspane svelte-12bum4d" width="100%" height="100%" style="z-index: 99999;"></svg>
+
+
+<div class="hint-overlay svelte-2rv4ee"></div>
+
+
+
+
+
+
+		<script type="module" data-hydrate="69ihsm">
+		import { start } from "/figs/_app/start-809baea2.js";
+		start({
+			target: document.querySelector('[data-hydrate="69ihsm"]').parentNode,
+			paths: {"base":"/figs","assets":"/figs"},
+			session: {},
+			route: true,
+			spa: false,
+			trailing_slash: "always",
+			hydrate: {
+				status: 200,
+				error: null,
+				nodes: [
+					import("/figs/_app/pages/__layout.svelte-9bd5d7b8.js"),
+						import("/figs/_app/pages/_version_/__layout.svelte-ecd5e8c4.js"),
+						import("/figs/_app/pages/_version_/_location_.svelte-2af584bf.js")
+				],
+				params: {version:"latest",location:"BlockState"},
+				routeId: "[version]/[location]"
+			}
+		});
+	</script></div>
+	</body>
+</html>
