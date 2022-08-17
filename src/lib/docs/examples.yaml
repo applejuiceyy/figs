@@ -92,3 +92,7 @@ ClickAction.onRightClick:
           log("Heheh I got Right Clicked!")
       end)
     hints: []
+    
+Animation.play:
+    content: animations.bbmodelName.animationName.play()
+    hints: []
