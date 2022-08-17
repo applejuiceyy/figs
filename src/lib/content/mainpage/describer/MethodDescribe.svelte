@@ -50,7 +50,8 @@
                 {
                     range: [ret.length, ret.length + overload[i].type.length - 1],
                     type: pickType(overload[i].type),
-                    name: overload[i].type
+                    name: overload[i].type,
+                    travel: pickType(overload[i].type) === "docs" && classi.findFromQualifiedName(overload[i].type) !== null ? overload[i].type : undefined
                 }
             )
             ret += overload[i].type;
@@ -66,7 +67,8 @@
             {
                 range: [ret.length, ret.length + returns.length],
                 type: pickType(returns),
-                name: returns
+                name: returns,
+                travel: pickType(returns) === "docs" && classi.findFromQualifiedName(returns) !== null ? returns : undefined
             }
         )
 
@@ -90,7 +92,7 @@
             {qualifiedName}
         </StyledItem>
         {#if superclass !== null}
-            <p style:margin-left="5px" style:padding-bottom="5px" style:margin-top="0" style:margin-bottom="25px">Inherited from <Code style="display: inline;"><Highlight code={superclass} hoverHighlight={[{range: [0, superclass.length], type: "docs", name: superclass}]}></Highlight></Code></p>
+            <p style:margin-left="5px" style:padding-bottom="5px" style:margin-top="0" style:margin-bottom="25px">Inherited from <Code style="display: inline;"><Highlight path={path} code={superclass} hoverHighlight={[{range: [0, superclass.length], type: "docs", name: superclass}]}></Highlight></Code></p>
         {/if}
     </svelte:fragment>
 
@@ -102,7 +104,7 @@
         {#each method.parameters as overload, idx}
         {@const processed = processOverload(overload, method.returns[idx])}
             <Code>
-                <Highlight code={processed[0]} hoverHighlight={processed[1]}></Highlight>
+                <Highlight path={path} code={processed[0]} hoverHighlight={processed[1]}></Highlight>
             </Code>
         {/each}
     </div>

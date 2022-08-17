@@ -28,6 +28,8 @@ import SidebarCategory from "./SidebarCategory.svelte";
         sortedMethods = Object.values(classi.globalType.methods).sort(classi.comparer);
         sortedFields = Object.values(classi.globalType.fields).sort(classi.comparer);
 
+        groupedClasses = [];
+
         Object.values(classi.nonSingletonClasses).forEach(cls => {
             const category = cls.category ?? "Miscelanous";
 
@@ -101,7 +103,7 @@ import SidebarCategory from "./SidebarCategory.svelte";
     .tab {
         background-color: var(--landmark-in-window);
         color: var(--color-in-landmark);
-        
+
         padding: 5px;
         display: block;
 

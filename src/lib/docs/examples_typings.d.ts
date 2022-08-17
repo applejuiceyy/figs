@@ -9,7 +9,8 @@ interface Example {
 
 export interface HintContent {
     type: "docs" | "primitive" | "inherent",
-    name: string
+    name: string,
+    travel?: string
 }
 
 interface Hint extends HintContent {

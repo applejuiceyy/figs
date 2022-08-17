@@ -49,7 +49,7 @@ import type DocsInterface from "$lib/docs/statistics";
 
     <div class="code-example filled" style:margin-top="50px">
         <Code>
-            <Highlight code={field.name + ": " + field.type} hoverHighlight={(inlineTypeDocs && field.type in classi.types) ? [] : [{range: [field.name.length + 2, field.name.length + 2 + field.type.length], type: pickType(field.type), name: field.type}]}></Highlight>
+            <Highlight path={path} code={field.name + ": " + field.type} hoverHighlight={(inlineTypeDocs && field.type in classi.types) ? [] : [{range: [field.name.length + 2, field.name.length + 2 + field.type.length], type: pickType(field.type), name: field.type, travel: pickType(field.type) === "docs" && classi.findFromQualifiedName(field.type) !== null ? field.type : undefined}]}></Highlight>
         </Code>
 
         {#if inlineTypeDocs && field.type in classi.types}
