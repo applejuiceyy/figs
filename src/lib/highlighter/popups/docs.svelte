@@ -10,6 +10,7 @@
     let indexedDoc: ReturnType<DocsInterface["findFromQualifiedName"]> | undefined;
 
     $: {
+        console.log(name);
         indexedDoc = classi?.findFromQualifiedName(name);
     }
     let base: string;
@@ -20,7 +21,7 @@
 {#if classi === null}
     Version is not selected
 {:else if indexedDoc !== null && indexedDoc !== undefined}
-    <DescribeAny classi={classi} what={indexedDoc} path={base}/>
+    <DescribeAny forceSmall classi={classi} what={indexedDoc} path={base}/>
 {:else}
     Not Found
 {/if}

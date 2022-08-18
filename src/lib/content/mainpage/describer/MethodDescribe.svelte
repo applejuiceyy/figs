@@ -7,7 +7,7 @@
     
     import Highlight from "$lib/highlighter/Highlight.svelte";
     import Code from "$lib/Code.svelte";
-    import type { Hint } from "$lib/docs/examples_typings";
+    import type { Hint } from "$lib/typings/examples_typings";
     import type DocsInterface from "$lib/docs/statistics";
 
     import { pickType } from "../typePicker";
@@ -86,7 +86,7 @@
     export let highlight: string[] = [];
 </script>
 
-<DescribeRoot forceSmall={forceSmall} id={qualifiedName} highlightTitle={highlight.includes("title")} path={path}>
+<DescribeRoot classi={classi} forceSmall={forceSmall} id={qualifiedName} highlightTitle={highlight.includes("title")} path={path}>
     <svelte:fragment slot="title">
         <StyledItem src={method_src} href={base + path + qualifiedName} wrap="h1" color="dark" id={setId ? qualifiedName : null} style={superclass === null ? "" : "margin-bottom: 0px;"}>
             {qualifiedName}

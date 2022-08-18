@@ -139,8 +139,6 @@
         height: fit-content;
 
         padding: 15px;
-        padding-right: 50px;
-        padding-bottom: 50px;
         background-color: black;
 
         border-left: #D157E2 5px solid;

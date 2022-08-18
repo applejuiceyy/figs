@@ -1,4 +1,4 @@
-import type { Hint } from "$lib/docs/examples_typings";
+import type { Hint } from "$lib/typings/examples_typings";
 import type prism from "prismjs";
 
 export default function transform(tokens: ReturnType<typeof prism.tokenize>, hints: Hint[]) {

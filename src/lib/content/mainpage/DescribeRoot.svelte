@@ -3,11 +3,13 @@
 
     import examples from "$lib/docs/examples.yaml";
 
-    import type { Example } from "$lib/docs/examples_typings";
+    import type { Example } from "$lib/typings/examples_typings";
     import Highlight from "$lib/highlighter/Highlight.svelte";
 
     import Background from "./Background.svelte";
     import StarToggle from "./StarToggle.svelte";
+import { generateHints } from "$lib/docs/parse";
+import type DocsInterface from "$lib/docs/statistics";
 
 
     export let forceSmall: boolean;
@@ -15,11 +17,13 @@
     export let id: string | null = null;
     export let highlightTitle: boolean = false;
     export let path: string;
+    export let classi: DocsInterface;
 
     let example: Example;
 
     // @ts-ignore: keeps erroring for some reason and I don't wanna deal with it
     $: example = id in examples ? examples[id] : null;
+
 </script>
 
 <Background forceFilled={forceSmall} percentage={0.7}>
@@ -37,7 +41,7 @@
                 <div class="code-displace">
                     <div class="code-correction">
                         <Code>
-                            <Highlight path={path} code={example.content} hoverHighlight={example.hints}></Highlight>
+                            <Highlight path={path} code={example.content} hoverHighlight={[...example.hints, ...generateHints(example.content, classi)]}></Highlight>
                         </Code>
                     </div>
                 </div>

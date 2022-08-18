@@ -1,7 +1,5 @@
 <script type="ts">
-import type DocsInterface from "$lib/docs/statistics";
-
-    import type * as processed from "$lib/docs/statistics";
+    import type DocsInterface from "$lib/docs/statistics";
 
     import ClassDescribe from "./describer/ClassDescribe.svelte";
     import EnumDescribe from "./describer/EnumDescribe.svelte";
@@ -13,14 +11,15 @@ import type DocsInterface from "$lib/docs/statistics";
     export let what: Pluck<ReturnType<DocsInterface["findFromQualifiedName"]>, null>;
     export let path: string;
     export let classi: DocsInterface;
+    export let forceSmall: boolean = false;
 </script>
 
 {#if what.type === "class"}
-    <ClassDescribe classi={classi} klass={what.value} path={path} {...$$restProps}/>
+    <ClassDescribe forceSmall={forceSmall} classi={classi} klass={what.value} path={path} {...$$restProps}/>
 {:else if what.type === "method"}
-    <MethodDescribe classi={classi} hostClass={what.klass} method={what.value} path={path} {...$$restProps}/>
+    <MethodDescribe forceSmall={forceSmall} classi={classi} hostClass={what.klass} method={what.value} path={path} {...$$restProps}/>
 {:else if what.type === "field"}
-    <FieldDescribe classi={classi} hostClass={what.klass} field={what.value} inlineTypeDocs={what.klass.name === "globals"} path={path} {...$$restProps}/>
+    <FieldDescribe forceSmall={forceSmall} classi={classi} hostClass={what.klass} field={what.value} inlineTypeDocs={what.klass.name === "globals"} path={path} {...$$restProps}/>
 {:else}
-    <EnumDescribe enum_={what.value} path={path} {...$$restProps}/>
+    <EnumDescribe forceSmall={forceSmall} classi={classi} enum_={what.value} path={path} {...$$restProps}/>
 {/if}

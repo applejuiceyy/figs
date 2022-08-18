@@ -32,7 +32,7 @@ const config = {
         trailingSlash: "always",
 
         vite: {
-            ptimizeDeps: ["markdown", "matter-js"],
+            ptimizeDeps: ["markdown", "matter-js", "luaparse"],
 
             plugins: [ViteYaml(), stripper(), processor()],
             build: {

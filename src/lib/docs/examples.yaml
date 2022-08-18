@@ -16,81 +16,44 @@ d:
 
 log:
     content: log(60, "abc")
-    hints:
-    - range:
-          - 0
-          - 2
-      type: docs
-      name: log
-    - range:
-          - 4
-          - 5
-      type: primitive
-      name: number
-    - range:
-          - 8
-          - 12
-      type: primitive
-      name: string
+    hints: []
 
 
 
 require:
     content: local library = require("lib.parser") -- this will import a file
-    hints:
-    - range:
-          - 0
-          - 4
-      type: inherent
-      name: *is_local
-
-    - range:
-          - 16
-          - 22
-      type: docs
-      name: require
-
-    - range:
-          - 24
-          - 35
-      type: primitive
-      name: string
-
-    - range:
-          - 38
-          - 63
-      type: inherent
-      name: *is_comment
+    hints: []
 
 
 
 Page.getAction:
     content: local action = myPage:getAction(1)
-    hints:
-    - range:
-          - 0
-          - 4
-      type: inherent
-      name: *is_local
-
-    - range:
-          - 22
-          - 30
-      type: docs
-      name: Page.getAction
-
-    - range:
-          - 32
-          - 32
-      type: primitive
-      name: number
+    hints: []
 
 
 ClickAction.onRightClick:
     content: |-
-      action:onRightClick(function()
+      local myAction = myPage:newAction()
+
+      myAction:onRightClick(function()
           log("Heheh I got Right Clicked!")
       end)
+    hints: []
+
+ClickAction.onLeftClick:
+    content: |-
+      local myAction = myPage:newAction()
+
+      myAction:onLeftClick(function()
+          log("Heheh I got Left Clicked!")
+      end)
+    hints: []
+
+ActionWheelAPI.setPage:
+    content: |-
+      local myPage = action_wheel:createPage()
+
+      action_wheel:setPage(myPage)
     hints: []
     
 Animation.play:

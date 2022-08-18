@@ -5,7 +5,7 @@
 
 <script type="ts">
     import transform from "./injectHighlights";
-    import type { Hint } from "$lib/docs/examples_typings";
+    import type { Hint } from "$lib/typings/examples_typings";
     import ScaffoldingHint from "./ScaffoldingHint.svelte";
 
     import "prismjs/themes/prism-dark.css"

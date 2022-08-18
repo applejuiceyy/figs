@@ -63,7 +63,7 @@
 
 <div style:margin-top="100px"></div>
 {#each sortedEnums as enum_}
-    <EnumDescribe enum_={enum_} path={base}/>
+    <EnumDescribe classi={s} enum_={enum_} path={base}/>
 {/each}
 
 <ImageFooter/>

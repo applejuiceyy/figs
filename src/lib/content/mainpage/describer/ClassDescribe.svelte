@@ -27,7 +27,7 @@ import type DocsInterface from "$lib/docs/statistics";
 </script>
 
 <div class="joiner">
-    <DescribeRoot forceSmall={forceSmall} id={klass.name} highlightTitle={highlight.includes("title")} path={path}>
+    <DescribeRoot classi={classi} forceSmall={forceSmall} id={klass.name} highlightTitle={highlight.includes("title")} path={path}>
         <svelte:fragment slot="title">
             <StyledItem src={klass_src} href={base + path + klass.name} wrap="h1" color="dark" id={setId ? klass.name : null} style={klass.parent === undefined ? "" : "margin-bottom: 0px;"}>{klass.name}</StyledItem>
             {#if klass.parent !== undefined}

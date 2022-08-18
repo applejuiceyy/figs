@@ -1,6 +1,6 @@
 <script context="module" type="ts">
-    import type { HintContent } from "$lib/docs/examples_typings";
-import { onDestroy } from "svelte";
+    import type { HintContent } from "$lib/typings/examples_typings";
+    import { onDestroy } from "svelte";
 
     export const activePopups: Writable<(HintContent & {id: number, span: Element})[]> = writable([]);
 </script>
@@ -15,8 +15,6 @@ import { writable, type Writable } from "svelte/store";
     export let travel: string | undefined;
     export let path: string;
 
-    console.log(travel);
-
     let currentID: number | null = null;
     let span: HTMLSpanElement;
 
@@ -26,7 +24,7 @@ import { writable, type Writable } from "svelte/store";
             handleMouseOut();
         }
 
-        currentID = new Date().getUTCMilliseconds();
+        currentID = Math.random();
         $activePopups = [...$activePopups, {type, name, id: currentID, span}]
     }
 

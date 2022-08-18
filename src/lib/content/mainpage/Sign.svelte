@@ -7,7 +7,7 @@
         Thanks for enjoying this website :)
     </div>
 
-    <img src={sign} style:width="100%">
+    <img src={sign} style:width="100%" alt="">
 </div>
 
 <style>
