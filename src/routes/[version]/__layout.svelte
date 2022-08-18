@@ -33,7 +33,7 @@
 </script>
 
 <script type="ts">
-    import type { Docs } from "$lib/docs/rewrite_docs";
+    import type { Docs } from "$lib/typings/rewrite_docs";
     import pool from "$lib/language/translator";
     import {base as b} from "$app/paths";
 import { onDestroy } from "svelte";

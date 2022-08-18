@@ -19,7 +19,7 @@
     import write from "$lib/state/stores";
 
     import stats from "$lib/docs/statistics";
-    import type { Docs } from "$lib/docs/rewrite_docs";
+    import type { Docs } from "$lib/typings/rewrite_docs";
 
     export let docs: Docs;
     export let base: string;

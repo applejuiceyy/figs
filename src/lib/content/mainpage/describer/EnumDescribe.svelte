@@ -2,7 +2,7 @@
     import { base } from "$app/paths";
     import Code from "$lib/Code.svelte";
 
-    import type { Enum } from "$lib/docs/rewrite_docs";
+    import type { Enum } from "$lib/typings/rewrite_docs";
     import TranslatableKey from "$lib/language/TranslatableKey.svelte";
 
     import klass_src from "$lib/resource/class.webp?url";

@@ -1,5 +1,5 @@
 <script type="ts">
-    import type { Class } from "$lib/docs/rewrite_docs";
+    import type { Class } from "$lib/typings/rewrite_docs";
     import { createEventDispatcher } from "svelte";
 
     import {base} from "$app/paths";

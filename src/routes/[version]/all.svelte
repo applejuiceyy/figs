@@ -26,7 +26,7 @@
     import EnumDescribe from '$lib/content/mainpage/describer/EnumDescribe.svelte';
 
     import ImageFooter from '$lib/content/mainpage/ImageFooter.svelte';
-    import type { Class, Docs, Enum, Field, Method } from '$lib/docs/rewrite_docs';
+    import type { Class, Docs, Enum, Field, Method } from '$lib/typings/rewrite_docs';
 
     import stats from "$lib/docs/statistics";
 

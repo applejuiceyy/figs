@@ -1,7 +1,7 @@
 <script type="ts">
     import { base } from "$app/paths";
 
-    import type { Class } from "$lib/docs/rewrite_docs"
+    import type { Class } from "$lib/typings/rewrite_docs"
     import StyledItem from "$lib/content/sidebar/StyledItem.svelte";
 
     import klass_src from "$lib/resource/class.webp?url"

@@ -1,14 +1,14 @@
 
 
 declare module "docs:all" {
-    import type { Docs } from "./docs/rewrite_docs";
+    import type { Docs } from "./rewrite_docs";
 
     const value: Record<string, () => Promise<Docs>>;
     export default value;
 }
 
 declare module "docs:v-*" {
-    import { Docs } from "./docs/rewrite_docs";
+    import { Docs } from "./rewrite_docs";
 
     export default Docs;
 }

@@ -1,4 +1,4 @@
-import type { Docs, Class, Method, Enum, Field } from "./rewrite_docs";
+import type { Docs, Class, Method, Enum, Field } from "../typings/rewrite_docs";
 
 import ClassDescribe from "$lib/content/mainpage/describer/ClassDescribe.svelte";
 import EnumDescribe from "$lib/content/mainpage/describer/EnumDescribe.svelte";

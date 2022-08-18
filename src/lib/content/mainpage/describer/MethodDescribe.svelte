@@ -1,5 +1,5 @@
 <script type="ts">
-    import type { Class, Method, Parameter } from "$lib/docs/rewrite_docs";
+    import type { Class, Method, Parameter } from "$lib/typings/rewrite_docs";
 
     import method_src from "$lib/resource/method.webp?url";
     import StyledItem from "$lib/content/sidebar/StyledItem.svelte";

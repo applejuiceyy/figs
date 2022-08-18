@@ -19,7 +19,7 @@
 
 <script type="ts">
     import stats from "$lib/docs/statistics";
-    import type { Docs } from "$lib/docs/rewrite_docs";
+    import type { Docs } from "$lib/typings/rewrite_docs";
     import { onDestroy, onMount } from "svelte";
     import pool from "$lib/language/translator";
     import state from "$lib/state/stores";

@@ -12,7 +12,7 @@
 
 		"types": [
 			"@modyfi/vite-plugin-yaml/modules",
-            "./src/lib/docs"
+            "./src/lib/typings/docs"
 		],
 
         "outDir": ""

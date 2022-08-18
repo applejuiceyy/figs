@@ -1,4 +1,4 @@
-import type { Docs, Language, LanguageData } from "$lib/docs/rewrite_docs";
+import type { Docs, Language, LanguageData } from "$lib/typings/rewrite_docs";
 import state from "$lib/state/stores";
 import { derived, writable, type Readable, type Writable } from "svelte/store";
 

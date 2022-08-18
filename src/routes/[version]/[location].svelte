@@ -30,7 +30,7 @@
 <script type="ts">
     import { MetaTags } from "svelte-meta-tags";
     import DescribeAny from "$lib/content/mainpage/DescribeAny.svelte";
-    import type { Docs } from "$lib/docs/rewrite_docs";
+    import type { Docs } from "$lib/typings/rewrite_docs";
 import { onMount } from "svelte";
 import pool from "$lib/language/translator";
 

@@ -1,5 +1,5 @@
 <script type="ts">
-    import type { Class, Field } from "$lib/docs/rewrite_docs";
+    import type { Class, Field } from "$lib/typings/rewrite_docs";
 
     import StyledItem from "$lib/content/sidebar/StyledItem.svelte";
 

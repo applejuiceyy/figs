@@ -8,7 +8,7 @@
     import method_src from "$lib/resource/method.webp";
     import field_src from "$lib/resource/field.webp";
 
-    import type { Class, Enum, Field, Method } from "$lib/docs/rewrite_docs";
+    import type { Class, Enum, Field, Method } from "$lib/typings/rewrite_docs";
 
     import { createEventDispatcher } from "svelte";
     import TranslatableKey from "$lib/language/TranslatableKey.svelte";
