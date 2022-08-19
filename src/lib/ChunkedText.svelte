@@ -14,7 +14,7 @@
             let len = 0;
 
             for (let c = 0; c < characters.length; c++) {
-                let candidate = value.indexOf(characters[c], pos + 100);
+                let candidate = value.indexOf(characters[c], pos + 50);
 
                 if (candidate !== -1 && (candidate < found || found === -1)) {
                     found = candidate;

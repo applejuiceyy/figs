@@ -30,14 +30,20 @@ import type DocsInterface from "$lib/docs/statistics";
     let exampleElement: HTMLDivElement;
 
     $: {
-        if (!import.meta.env.SSR && exampleContainer !== undefined && exampleElement !== undefined && example !== null && !forceSmall && matchMedia("only screen and (min-width: 1000px)").matches) {
-            let bound = exampleContainer.getBoundingClientRect();
-            let innerbound = exampleElement.getBoundingClientRect();
-            scroll;
-            let available = bound.height - innerbound.height;
-            let scrollPercentage = 1 - bound.top / height;
-            exampleElement.style.top = (Math.min(scrollPercentage, 1) * available) + "px";
-            exampleElement.style.position = "absolute";
+        if (!import.meta.env.SSR && exampleContainer !== undefined && exampleElement !== undefined && example !== null) {
+            if (!forceSmall && matchMedia("only screen and (min-width: 1000px)").matches) {
+                let bound = exampleContainer.getBoundingClientRect();
+                let innerbound = exampleElement.getBoundingClientRect();
+                scroll;
+                let available = bound.height - innerbound.height;
+                let scrollPercentage = 1 - bound.top / height;
+                exampleElement.style.top = (Math.min(scrollPercentage, 1) * available) + "px";
+                exampleElement.style.position = "absolute";
+            }
+            else {
+                exampleElement.style.top = "";
+                exampleElement.style.position = "";
+            }
         }
     }
 </script>
