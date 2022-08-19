@@ -24,6 +24,22 @@ import type DocsInterface from "$lib/docs/statistics";
     // @ts-ignore: keeps erroring for some reason and I don't wanna deal with it
     $: example = id in examples ? examples[id] : null;
 
+    let scroll: number;
+    let height: number;
+    let exampleContainer: HTMLDivElement;
+    let exampleElement: HTMLDivElement;
+
+    $: {
+        if (!import.meta.env.SSR && exampleContainer !== undefined && exampleElement !== undefined && example !== null && !forceSmall && matchMedia("only screen and (min-width: 1000px)").matches) {
+            let bound = exampleContainer.getBoundingClientRect();
+            let innerbound = exampleElement.getBoundingClientRect();
+            scroll;
+            let available = bound.height - innerbound.height;
+            let scrollPercentage = 1 - bound.top / height;
+            exampleElement.style.top = (Math.min(scrollPercentage, 1) * available) + "px";
+            exampleElement.style.position = "absolute";
+        }
+    }
 </script>
 
 <Background forceFilled={forceSmall} percentage={0.7}>
@@ -37,13 +53,11 @@ import type DocsInterface from "$lib/docs/statistics";
         {/if}
 
         {#if example !== null}
-            <div tabindex="0" class="code-example" class:force-small={forceSmall}>
-                <div class="code-displace">
-                    <div class="code-correction">
-                        <Code>
-                            <Highlight path={path} code={example.content} hoverHighlight={[...example.hints, ...generateHints(example.content, classi)]}></Highlight>
-                        </Code>
-                    </div>
+            <div tabindex="0" class="code-example" class:force-small={forceSmall} bind:this={exampleContainer}>
+                <div class="code-displace" bind:this={exampleElement}>
+                    <Code>
+                        <Highlight path={path} code={example.content} hoverHighlight={[...example.hints, ...generateHints(example.content, classi)]}></Highlight>
+                    </Code>
                 </div>
             </div>
         {:else}
@@ -67,6 +81,8 @@ import type DocsInterface from "$lib/docs/statistics";
     .code-example {
         margin: 10px;
         padding: 10px;
+
+        box-sizing: border-box;
     }
 
     @import "src/app";
@@ -87,14 +103,16 @@ import type DocsInterface from "$lib/docs/statistics";
             padding: 0px;
             grid-row: 1 / 3;
             grid-column: 2;
+
+            display: flex;
+            align-items: center;
+
+            position: relative;
         }
 
         .code-displace {
             width: 100%;
-
-            position: sticky;
-            top: 200px;
-
+            
             z-index: 1;
         }
 
@@ -103,3 +121,5 @@ import type DocsInterface from "$lib/docs/statistics";
         }
     }
 </style>
+
+<svelte:window bind:scrollY={scroll} bind:innerHeight={height}/>

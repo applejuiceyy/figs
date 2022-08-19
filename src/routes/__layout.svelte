@@ -10,7 +10,8 @@
                 base: `/latest/`,
                 showingEverything: false,
                 everythingSwitcher: `/latest/all`,
-                version: "latest"
+                version: "latest",
+                forceShowTable: false
             },
         };
     }
@@ -122,8 +123,13 @@
 
         <NavBarSearcher bind:this={searcher} destination="{base}{stuffs.base}search"/>
 
-
         <NavBarFloater>
+            <div class="table-toggle" style:display={stuffs.forceShowTable ? "none" : ""}>
+                <NavBarButton on:click={()=>expanded = !expanded}>
+                    <TranslatableKey key={expanded? "hide-table" : "show-table"}/>
+                </NavBarButton>
+            </div>
+
             <NavBarExpandButton>
                 <TranslatableKey key="content"/>
             </NavBarExpandButton>
@@ -138,12 +144,6 @@
                 <TranslatableKey key="preferences"/>
 
                 <svelte:fragment slot="dropdown">
-                    <div class="table-toggle">
-                        <NavBarButton on:click={()=>expanded = !expanded}>
-                            <TranslatableKey key={expanded? "hide-table" : "show-table"}/>
-                        </NavBarButton>
-                    </div>
-        
                     <NavBarButton on:click={()=>$stores.readerEnabled = !$stores.readerEnabled}>
                         <TranslatableKey key={$stores.readerEnabled ? "disable-focus" : "enable-focus"} />
                     </NavBarButton>
@@ -183,7 +183,7 @@
         </svelte:fragment>
     </NavBar>
 
-    <div class="category" class:expanded>
+    <div class="category" class:expanded={expanded || stuffs.forceShowTable}>
         <div class="category-flyover">
             <div class="category-sticker">
                 {#if classi === null}

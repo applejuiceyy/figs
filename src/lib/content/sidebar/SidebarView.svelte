@@ -76,7 +76,7 @@ import SidebarCategory from "./SidebarCategory.svelte";
             <TranslatableKey key="misc-types"/>
         </h1>
         {#each groupedClasses as [name, clss]}
-            <SidebarCategory name={name} clss={clss} path={path}/>
+            <SidebarCategory on:select={() => dispatcher("select")} name={name} clss={clss} path={path}/>
         {/each}
     </article>
 

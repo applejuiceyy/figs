@@ -2,8 +2,11 @@
     <slot/>
 </div>
 
-<style>
+<style lang="less">
+    @import "./constants.less";
+
     .nav-floater {
         margin-left: auto;
+        .inline-flex();
     }
 </style>

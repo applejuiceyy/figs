@@ -3,34 +3,33 @@
     
     export let value: string;
 
-    let processed: string[] = [""];
+    let processed: string[] = [];
     $: {
         let characters = [",", ". "];
-        processed = [value];
+        processed = [];
 
-        for (let i = 0; i < characters.length; i++) {
-            let finding = characters[i];
-            let next = [];
+        let pos = 0;
+        while (true) {
+            let found = -1;
+            let len = 0;
 
-            for (let p = 0; p < processed.length; p++) {
-                let text = processed[p];
-                let pos = 0;
+            for (let c = 0; c < characters.length; c++) {
+                let candidate = value.indexOf(characters[c], pos + 100);
 
-                while (true) {
-                    let found = text.indexOf(finding, pos);
-
-                    if (found === -1) {
-                        next.push(text.substring(pos));
-                        break;
-                    }
-                    else {
-                        next.push(text.substring(pos, found + finding.length));
-                        pos = found + finding.length;
-                    }
+                if (candidate !== -1 && (candidate < found || found === -1)) {
+                    found = candidate;
+                    len = characters[c].length;
                 }
             }
 
-            processed = next;
+            if (found === -1) {
+                processed.push(value.substring(pos));
+                break;
+            }
+            else {
+                processed.push(value.substring(pos, found + len));
+                pos = found + len;
+            }
         }
     }
 </script>
