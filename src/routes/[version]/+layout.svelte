@@ -37,6 +37,7 @@
     import pool from "$lib/language/translator";
     import {base as b} from "$app/paths";
 import { onDestroy } from "svelte";
+import TranslatableKey from "$lib/language/TranslatableKey.svelte";
 
     export let docs: Docs;
     export let version: string;
@@ -61,7 +62,7 @@ import { onDestroy } from "svelte";
 
 <div class="corner-flyer">
     <button class="top-jumper" on:click={() => window.scrollTo(0, 0)}>
-        Jump to top
+        <TranslatableKey key="jump-to-top"/>
     </button>
     <noscript>Warning: most things in this website won't work without javascript</noscript>
 </div>
