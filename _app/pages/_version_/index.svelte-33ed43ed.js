@@ -1,1 +1,0 @@
-import{S as t,i as s,s as n}from"../../chunks/index-06c54a84.js";let l=async function(){return{stuff:{forceShowTable:!0}}};class r extends t{constructor(e){super(),s(this,e,null,null,n,{})}}export{r as default,l as load};

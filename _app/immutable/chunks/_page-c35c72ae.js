@@ -1,0 +1,1 @@
+let t=function({params:e}){return{base:`/${e.version}/all#`,showingEverything:!0,everythingSwitcher:`/${e.version}/`}};const o=Object.freeze(Object.defineProperty({__proto__:null,load:t},Symbol.toStringTag,{value:"Module"}));export{o as _,t as l};

@@ -6,23 +6,29 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="manifest" crossorigin="use-credentials" href="/figs/manifest.json" />
 		<meta http-equiv="content-security-policy" content="">
-	<link rel="modulepreload" href="/figs/_app/start-c3964819.js">
-	<link rel="modulepreload" href="/figs/_app/chunks/index-06c54a84.js">
-	<link rel="modulepreload" href="/figs/_app/chunks/preload-helper-657f1be1.js">
-				<script>
+	<link rel="modulepreload" href="/figs/_app/immutable/start-93468934.js">
+	<link rel="modulepreload" href="/figs/_app/immutable/chunks/index-087a81d1.js">
+	<link rel="modulepreload" href="/figs/_app/immutable/chunks/paths-fcd7ce4f.js">
+	<link rel="modulepreload" href="/figs/_app/immutable/chunks/index-d6fabef0.js">
+	<link rel="modulepreload" href="/figs/_app/immutable/chunks/preload-helper-aa6bc0ce.js">
+			<script>
 		if ('serviceWorker' in navigator) {
-			navigator.serviceWorker.register('/figs/service-worker.js');
+			addEventListener('load', function () {
+				navigator.serviceWorker.register('/figs/service-worker.js');
+			});
 		}
 	</script>
 	</head>
 	<body>
 		<div>
-		<script type="module" data-hydrate="45h">
-		import { start } from "/figs/_app/start-c3964819.js";
+		<script type="module" data-sveltekit-hydrate="45h">
+		import { set_public_env, start } from "/figs/_app/immutable/start-93468934.js";
+
+		set_public_env({});
+
 		start({
-			target: document.querySelector('[data-hydrate="45h"]').parentNode,
+			target: document.querySelector('[data-sveltekit-hydrate="45h"]').parentNode,
 			paths: {"base":"/figs","assets":"/figs"},
-			session: {},
 			route: true,
 			spa: true,
 			trailing_slash: "always",
