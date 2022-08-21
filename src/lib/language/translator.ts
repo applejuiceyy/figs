@@ -3,7 +3,7 @@ import state from "$lib/state/stores";
 import { derived, writable, type Readable, type Writable } from "svelte/store";
 
 import en_us from "./figs/en_us.json";
-let json = import.meta.glob('./figs/*.json');
+let json = import.meta.glob('./figs/*.json', {import: "default"});
 
 let transformed: LanguageData = {en_us: en_us as Language} as LanguageData;
 
@@ -15,7 +15,7 @@ entries.forEach(val => {
 
     if (!(key in transformed))
     {
-        transformed[key] = async () => (await val[1]()).default;
+        transformed[key] = val[1] as any;
     }
 })
 

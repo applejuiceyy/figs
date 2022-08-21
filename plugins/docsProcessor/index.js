@@ -1,8 +1,16 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import { ExampleExtractor } from "./examples.js";
+import yaml from "yaml";
 
 const docsPath = "./docs";
-const folders = (await fs.readdir(docsPath)).filter(val => val !== "latest.txt");
+
+async function filter(arr, callback) {
+    const fail = Symbol()
+    return (await Promise.all(arr.map(async item => (await callback(item)) ? item : fail))).filter(i=>i!==fail)
+}
+
+const folders = await fs.readdir(path.join(docsPath, "versions"));
 
 async function maybePromise(what) {
     if ("then" in what && typeof what.then === "function") {
@@ -17,7 +25,7 @@ function transformContent(str) {
 }
 
 export default function docsProcessor() {
-    const moduleNamespace = "docs:"
+    const moduleNamespace = "docs:";
 
     return {
         name: 'vite-plugin-docs-processor',
@@ -71,7 +79,7 @@ export default function docsProcessor() {
                     }
 
                     if (folders.includes(version)) {
-                        let folder = path.join(docsPath, version);
+                        let folder = path.join(docsPath, "versions", version);
 
                         let docsContent = await fs.readFile(path.join(folder, "docs.json"), {encoding: "utf-8"});
                         let docsVersion = await fs.readFile(path.join(folder, "version.txt"), {encoding: "utf-8"});
@@ -82,6 +90,13 @@ export default function docsProcessor() {
 
                         if (language === null) {
                             let transformed = await maybePromise(transformer.transform(JSON.parse(docsContent), folder));
+                            
+                            let examples = yaml.parse(await fs.readFile(path.join(docsPath, "examples.yaml"), {encoding: "utf-8"}));
+                            
+                            let extractor = new ExampleExtractor(examples);
+                            let extractedExamples = extractor.getExamples(version);
+                            extractor.injectExamples(transformed.result, extractedExamples);
+                            
                             let result = JSON.stringify(transformed.result);
 
                             result = result.substring(1, result.length - 1); // take off {}

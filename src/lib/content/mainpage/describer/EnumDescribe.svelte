@@ -22,7 +22,7 @@ import type DocsInterface from "$lib/docs/statistics";
     export let highlight: string[] = [];
 </script>
 
-<DescribeRoot classi={classi} forceSmall={forceSmall} id={enum_.name} highlightTitle={highlight.includes("title")} path={path}>
+<DescribeRoot example={enum_.example ?? null} classi={classi} forceSmall={forceSmall} id={enum_.name} highlightTitle={highlight.includes("title")} path={path}>
     <StyledItem slot="title" src={klass_src} href={base + path + enum_.name} wrap="h1" color="dark" id={setId ? enum_.name : null}>{enum_.name}</StyledItem>
 
     <div class:highlight={highlight.includes("description")}>

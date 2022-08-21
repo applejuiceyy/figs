@@ -1,6 +1,6 @@
 <script>
-import { base } from "$app/paths";
-import TranslatableKey from "$lib/language/TranslatableKey.svelte";
+    import { base } from "$app/paths";
+    import TranslatableKey from "$lib/language/TranslatableKey.svelte";
 
     import versions from "docs:all";
     import latest from "docs:latest";

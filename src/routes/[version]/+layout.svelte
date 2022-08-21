@@ -1,47 +1,16 @@
-<script context="module" type="ts">
-    import versions from "docs:all";
-    import latest from "docs:latest";
-
-    let load: import('./__layout').Load = async function ({ params }) {
-        if (params.version in versions || params.version === "latest") {
-            let docs = await versions[params.version === "latest" ? latest : params.version]();
-
-            return {
-                stuff: {
-                    docs: docs,
-                    base: `/${params.version}/`,
-                    showingEverything: false,
-                    everythingSwitcher: `/${params.version}/all`,
-                    version: params.version
-                },
-
-                props: {
-                    docs: docs,
-                    version: params.version,
-                    base: `/${params.version}/`
-                }
-            };
-        }
-
-        return {
-            status: 404,
-            error: "Version not found",
-        }
-    }
-
-    export {load}
-</script>
-
 <script type="ts">
-    import type { Docs } from "$lib/typings/rewrite_docs";
+    // Suggestion (check code before using, and possibly convert to data.X access later):
+    // /** @type {import('./$types').LayoutData} */
+    // export let data;
+    // $: ({ docs, version, base } = data);
+
     import pool from "$lib/language/translator";
     import {base as b} from "$app/paths";
-import { onDestroy } from "svelte";
-import TranslatableKey from "$lib/language/TranslatableKey.svelte";
+    import { onDestroy } from "svelte";
+    import TranslatableKey from "$lib/language/TranslatableKey.svelte";
 
-    export let docs: Docs;
-    export let version: string;
-    export let base: string;
+
+    export let data: import('./$types').LayoutData;
 
     let unsub: (() => void) | null = null;
     $: {
@@ -49,7 +18,7 @@ import TranslatableKey from "$lib/language/TranslatableKey.svelte";
             unsub();
         }
 
-        unsub = pool.addProvider(docs.languages, version);
+        unsub = pool.addProvider(data.docs.languages, data.version);
     };
 
     onDestroy(() => {
@@ -68,7 +37,7 @@ import TranslatableKey from "$lib/language/TranslatableKey.svelte";
 </div>
 
 <!-- required for the prerenderer crawler -->
-<a href="{b}{base}search" style:display="none">dummy</a>
+<a href="{b}{data.base}search" style:display="none">dummy</a>
 
 <style>
     .corner-flyer {

@@ -6,9 +6,9 @@
     import hammer from "$lib/resource/hammer.svg";
     import RandomisedPlayer from "./RandomisedPlayer.svelte";
 
-    let breakStages = import.meta.globEager("./resource/breaking/*.png");
-    let breakingSounds = import.meta.globEager("./resource/audio_breaking/*.ogg");
-    let brokeSounds = import.meta.globEager("./resource/break/*.ogg");
+    let breakStages = import.meta.glob("./resource/breaking/*.png", {eager: true}) as {[item: string]: string};
+    let breakingSounds = import.meta.glob("./resource/audio_breaking/*.ogg", {eager: true}) as {[item: string]: string};
+    let brokeSounds = import.meta.glob("./resource/break/*.ogg", {eager: true}) as {[item: string]: string};
 
     let gravityAction: (typeof import("./actions/gravity"))["gravity"] | null = null;
     let fell = false;
@@ -67,7 +67,7 @@
 </script>
 
 {#key gravityAction}
-    <code style={style} style:outline={gravityAction !== null && fell ? '1px solid black' : ''} style:margin={gravityAction !== null && fell ? '0' : ''} style:background-image={breaking === -1 ? "" : "url(" + breakStages["./resource/breaking/destroy_stage_" + breaking + ".png"].default + ")"} use:conditionalAction={{action: gravityAction, params: {active: true, shadowElement: true}, condition: gravityAction !== null && fell}}>
+    <code style={style} style:outline={gravityAction !== null && fell ? '1px solid black' : ''} style:margin={gravityAction !== null && fell ? '0' : ''} style:background-image={breaking === -1 ? "" : "url(" + breakStages["./resource/breaking/destroy_stage_" + breaking + ".png"] + ")"} use:conditionalAction={{action: gravityAction, params: {active: true, shadowElement: true}, condition: gravityAction !== null && fell}}>
         <slot/>
 
         <button tabindex="-1" aria-hidden="true" on:mousedown={handleMouseDown} on:mouseup={handleMouseUp} on:mouseleave={handleMouseUp} class="hammer-button">
@@ -76,8 +76,8 @@
     </code>
 {/key}
 
-<RandomisedPlayer bind:this={breakingAudioPlayer} sounds={Object.values(breakingSounds).map(v => v.default)} loop={digging} loopSize={300} volume={0.5}/>
-<RandomisedPlayer bind:this={brokeAudioPlayer} sounds={Object.values(brokeSounds).map(v => v.default)} />
+<RandomisedPlayer bind:this={breakingAudioPlayer} sounds={Object.values(breakingSounds).map(v => v)} loop={digging} loopSize={300} volume={0.5}/>
+<RandomisedPlayer bind:this={brokeAudioPlayer} sounds={Object.values(brokeSounds).map(v => v)} />
 
 <style>
     code {

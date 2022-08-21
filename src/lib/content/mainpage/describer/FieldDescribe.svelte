@@ -38,7 +38,7 @@ import type DocsInterface from "$lib/docs/statistics";
     export let highlight: string[] = [];
 </script>
 
-<DescribeRoot classi={classi} forceSmall={forceSmall} highlightTitle={highlight.includes("title")} path={path}>
+<DescribeRoot example={field.example ?? null} classi={classi} forceSmall={forceSmall} highlightTitle={highlight.includes("title")} path={path}>
     <StyledItem slot="title" src={field_src} href={base + path + qualifiedName} wrap="h1" color="dark" id={setId ? qualifiedName : null}>
         {qualifiedName}
     </StyledItem>

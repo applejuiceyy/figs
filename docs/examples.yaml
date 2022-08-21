@@ -1,34 +1,18 @@
 ---
-d:
-    - &is_comment |-
-        # This is a comment
-        Everything written in it is completely ignored by the lua parser
-    
-    - &is_local |-
-        # This is the local keyword
-        Lua allows you to declare a variable without this, however it's recommended to use this, because:
-
-        - It eases readibility
-        - It prevents you from polluting the global scope
-        - It prevents you from changing variables you didn't want to change
-
-
 
 log:
     content: log(60, "abc")
-    hints: []
 
 
 
 require:
     content: local library = require("lib.parser") -- this will import a file
-    hints: []
 
 
 
 Page.getAction:
     content: local action = myPage:getAction(1)
-    hints: []
+
 
 
 ClickAction.onRightClick:
@@ -38,7 +22,8 @@ ClickAction.onRightClick:
       myAction:onRightClick(function()
           log("Heheh I got Right Clicked!")
       end)
-    hints: []
+
+
 
 ClickAction.onLeftClick:
     content: |-
@@ -47,15 +32,16 @@ ClickAction.onLeftClick:
       myAction:onLeftClick(function()
           log("Heheh I got Left Clicked!")
       end)
-    hints: []
+
+
 
 ActionWheelAPI.setPage:
     content: |-
       local myPage = action_wheel:createPage()
 
       action_wheel:setPage(myPage)
-    hints: []
-    
+
+
+
 Animation.play:
     content: animations.bbmodelName.animationName.play()
-    hints: []

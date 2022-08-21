@@ -7,13 +7,13 @@
 
     export let classi: DocsInterface | null;
 
-    let brutePopupComponents = import.meta.globEager("./popups/*.svelte");
+    let brutePopupComponents = import.meta.glob("./popups/*.svelte", {eager: true, import: "default"});
 
     let popupComponents: {[item: string]: SvelteComponent} = {};
 
     Object.entries(brutePopupComponents).forEach(([key, val]) => {
         let chunks = key.split("/");
-        popupComponents[chunks[chunks.length - 1].split(".")[0]] = val.default;
+        popupComponents[chunks[chunks.length - 1].split(".")[0]] = val as any;
     })
 
     let root: HTMLDivElement;

@@ -15,7 +15,7 @@
     }
     let base: string;
 
-    $: base = ($page.stuff as any).base;
+    $: base = $page.data.base;
 </script>
 
 {#if classi === null}

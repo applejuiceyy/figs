@@ -1,15 +1,14 @@
 <script type="ts">
     import Code from "$lib/Code.svelte";
 
-    import examples from "$lib/docs/examples.yaml";
 
     import type { Example } from "$lib/typings/examples_typings";
     import Highlight from "$lib/highlighter/Highlight.svelte";
 
     import Background from "./Background.svelte";
     import StarToggle from "./StarToggle.svelte";
-import { generateHints } from "$lib/docs/parse";
-import type DocsInterface from "$lib/docs/statistics";
+    import { generateHints } from "$lib/docs/parse";
+    import type DocsInterface from "$lib/docs/statistics";
 
 
     export let forceSmall: boolean;
@@ -18,19 +17,15 @@ import type DocsInterface from "$lib/docs/statistics";
     export let highlightTitle: boolean = false;
     export let path: string;
     export let classi: DocsInterface;
-
-    let example: Example;
-
-    // @ts-ignore: keeps erroring for some reason and I don't wanna deal with it
-    $: example = id in examples ? examples[id] : null;
+    export let example: string | null = null;
 
     let scroll: number;
     let height: number;
-    let exampleContainer: HTMLDivElement;
-    let exampleElement: HTMLDivElement;
+    let exampleContainer: HTMLDivElement | null = null;
+    let exampleElement: HTMLDivElement | null = null;
 
     $: {
-        if (!import.meta.env.SSR && exampleContainer !== undefined && exampleElement !== undefined && example !== null) {
+        if (!import.meta.env.SSR && exampleContainer !== null && exampleElement !== null && example !== null) {
             if (!forceSmall && matchMedia("only screen and (min-width: 1000px)").matches) {
                 let bound = exampleContainer.getBoundingClientRect();
                 let innerbound = exampleElement.getBoundingClientRect();
@@ -62,7 +57,7 @@ import type DocsInterface from "$lib/docs/statistics";
             <div tabindex="0" class="code-example" class:force-small={forceSmall} bind:this={exampleContainer}>
                 <div class="code-displace" bind:this={exampleElement}>
                     <Code>
-                        <Highlight path={path} code={example.content} hoverHighlight={[...example.hints, ...generateHints(example.content, classi)]}></Highlight>
+                        <Highlight path={path} code={example} hoverHighlight={[...generateHints(example, classi)]}></Highlight>
                     </Code>
                 </div>
             </div>

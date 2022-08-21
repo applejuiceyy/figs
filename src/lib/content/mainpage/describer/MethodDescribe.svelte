@@ -86,7 +86,7 @@
     export let highlight: string[] = [];
 </script>
 
-<DescribeRoot classi={classi} forceSmall={forceSmall} id={qualifiedName} highlightTitle={highlight.includes("title")} path={path}>
+<DescribeRoot example={method.example ?? null} classi={classi} forceSmall={forceSmall} id={qualifiedName} highlightTitle={highlight.includes("title")} path={path}>
     <svelte:fragment slot="title">
         <StyledItem src={method_src} href={base + path + qualifiedName} wrap="h1" color="dark" id={setId ? qualifiedName : null} style={superclass === null ? "" : "margin-bottom: 0px;"}>
             {qualifiedName}

@@ -1,24 +1,5 @@
-<script context="module" type="ts">
-    import type { Load } from "./all";
-
-    let load: Load = function ({params, stuff}) {
-        return {
-            stuff: {
-                base: `/${params.version}/all#`,
-                showingEverything: true,
-                everythingSwitcher: `/${params.version}/`
-            },
-            props: {
-                docs: (stuff as any).docs,
-                base: `/${params.version}/all#`
-            }
-        };
-    };
-
-    export { load };
-</script>
-
 <script type="ts">
+
     import { MetaTags } from 'svelte-meta-tags';
     import ClassDescribe from '$lib/content/mainpage/describer/ClassDescribe.svelte';
     import MethodDescribe from "$lib/content/mainpage/describer/MethodDescribe.svelte";
@@ -30,10 +11,9 @@
 
     import stats from "$lib/docs/statistics";
 
-    export let docs: Docs;
-    export let base: string;
+    export let data: import('./$types').PageData;
 
-    let s = new stats(docs);
+    let s = new stats(data.docs);
 
     let sortedMethods: Method[];
     let sortedFields: Field[];
@@ -50,20 +30,20 @@
 
 
 {#each sortedMethods as func}
-    <MethodDescribe classi={s} method={func} hostClass={s.globalType} path={base}/>
+    <MethodDescribe classi={s} method={func} hostClass={s.globalType} path={data.base}/>
 {/each}
 
 {#each sortedFields as var_}
-    <FieldDescribe classi={s} field={var_} hostClass={s.globalType} inlineTypeDocs={true} path={base}/>
+    <FieldDescribe classi={s} field={var_} hostClass={s.globalType} inlineTypeDocs={true} path={data.base}/>
 {/each}
 
 {#each sortedClasses as klass}
-    <ClassDescribe classi={s} klass={klass} path={base}/>
+    <ClassDescribe classi={s} klass={klass} path={data.base}/>
 {/each}
 
 <div style:margin-top="100px"></div>
 {#each sortedEnums as enum_}
-    <EnumDescribe classi={s} enum_={enum_} path={base}/>
+    <EnumDescribe classi={s} enum_={enum_} path={data.base}/>
 {/each}
 
 <ImageFooter/>

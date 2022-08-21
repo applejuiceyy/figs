@@ -1,34 +1,12 @@
-<script context="module" type="ts">
-    import type { Load } from "./fav";
-    import { prerendering } from '$app/env';
-
-    let load: Load = function ({stuff, url}) {
-        let docs = (stuff as any).docs;
-        import.meta.env.MODE
-        return {
-            props: {
-                query: prerendering ? null : url.searchParams.get("q"),
-                docs,
-                base: (stuff as any).base
-            }
-        };
-    };
-
-    export { load };
-</script>
-
 <script type="ts">
     import stats from "$lib/docs/statistics";
-    import type { Docs } from "$lib/typings/rewrite_docs";
     import { onDestroy, onMount } from "svelte";
     import pool from "$lib/language/translator";
     import state from "$lib/state/stores";
 
-    export let query: string | null;
-    export let docs: Docs;
-    export let base: string;
+    export let data: import('./$types').PageData;
 
-    let s = new stats(docs);
+    let s = new stats(data.docs);
     let searcher: ReturnType<stats["search"]> | null = null;
     let interval: ReturnType<typeof setInterval> | null = null;
     
@@ -43,8 +21,8 @@
             entries = [];
             lang = $state.language;
 
-            if (query !== null) {
-                searcher = s.search(query);
+            if (data.query !== null) {
+                searcher = s.search(data.query);
             }
         }
     }
@@ -84,5 +62,5 @@
     Waiting for the pool to finish fetching languages
 {/if}
 {#each entries as entry}
-    <svelte:component this={entry.this} {...entry} classi={s} setId={false} path={base}></svelte:component>
+    <svelte:component this={entry.this} {...entry} classi={s} setId={false} path={data.base}></svelte:component>
 {/each}

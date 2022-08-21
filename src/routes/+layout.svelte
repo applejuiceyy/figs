@@ -1,22 +1,5 @@
 <script context="module" type="ts">
     import latest from "docs:latest";
-
-    let load: import('./__layout').Load = async function ({ params }) {
-        let docs = await versions[latest]();
-
-        return {
-            stuff: {
-                docs: docs,
-                base: `/latest/`,
-                showingEverything: false,
-                everythingSwitcher: `/latest/all`,
-                version: "latest",
-                forceShowTable: false
-            },
-        };
-    }
-
-    export {load}
 </script>
 
 <script type="ts">
@@ -89,18 +72,18 @@
     let classi: DocsInterface | null;
 
     $: {
-        let docs = ($page.stuff as any).docs;
+        let docs = ($page.data as any).docs;
         if (docs === undefined) {
             classi = null;
         }
         else {
-            classi = new stats(($page.stuff as any).docs);
+            classi = new stats(($page.data as any).docs);
         }
     }
 
     let stuffs: any;
 
-    $: stuffs = ($page.stuff as any);
+    $: stuffs = ($page.data as any);
 
     let searcher: NavBarSearcher;
 
