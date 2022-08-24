@@ -21,13 +21,11 @@
 <section class="category">
     <button style:margin-bottom={show ? "5px" : ""} on:click={() => show = !show}><h1 class="tab">{name}</h1></button>
 
-    {#if show}
-        <div>
-            {#each clss as cls}
-                <StyledItem on:click={() => dispatcher("select")} href="{base}{path}{cls.name}" src={klass_src}>{cls.name}</StyledItem>
-            {/each}
-        </div>
-    {/if}
+    <div class="category-items" class:active={show}>
+        {#each clss as cls}
+            <StyledItem on:click={() => dispatcher("select")} href="{base}{path}{cls.name}" src={klass_src}>{cls.name}</StyledItem>
+        {/each}
+    </div>
 </section>
 
 <style lang="less">
@@ -61,5 +59,13 @@
         }
 
         cursor: pointer;
+    }
+
+    .category-items {
+        display: none;
+    }
+
+    .category-items.active {
+        display: block;
     }
 </style>
