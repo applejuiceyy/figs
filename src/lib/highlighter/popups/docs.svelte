@@ -10,7 +10,6 @@
     let indexedDoc: ReturnType<DocsInterface["findFromQualifiedName"]> | undefined;
 
     $: {
-        console.log(name);
         indexedDoc = classi?.findFromQualifiedName(name);
     }
     let base: string;

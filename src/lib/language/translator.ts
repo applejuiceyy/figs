@@ -3,6 +3,8 @@ import state from "$lib/state/stores";
 import { derived, writable, type Readable, type Writable } from "svelte/store";
 
 import en_us from "./figs/en_us.json";
+import load from "$lib/state/loading";
+
 let json = import.meta.glob('./figs/*.json', {import: "default"});
 
 let transformed: LanguageData = {en_us: en_us as Language} as LanguageData;
@@ -48,6 +50,8 @@ export class TranslatorPool {
 
     activeTransfers: string[];
 
+    loadCancel: () => any;
+
     constructor (language: Readable<string>) {
         this.cachedTranslations = {};
         this.providers = {};
@@ -57,6 +61,8 @@ export class TranslatorPool {
 
         this.currentLanguage = "";  // overriden by the subscriber
         this.activeTransfers = [];
+
+        this.loadCancel = () => {};
 
         this.languageStore.subscribe(async (val) => {
             if (val !== this.currentLanguage) {
@@ -87,6 +93,9 @@ export class TranslatorPool {
     async transfer(id: string) {
         let lang = this.currentLanguage;
         let cid = cacheId(id, lang);
+
+        let canceller = load.request(`Fetching language with a cache id of "${cid}"`);
+
         this.activeTransfers.push(cid);
 
         let t;
@@ -99,6 +108,7 @@ export class TranslatorPool {
             catch (e) {
                 console.error(e);
                 this.activeTransfers.splice(this.activeTransfers.findIndex(val => val == cid), 1);
+                canceller();
                 return;
             }
         }
@@ -113,6 +123,8 @@ export class TranslatorPool {
         if (lang === this.currentLanguage) {
             this.updateStores();
         }
+
+        canceller();
     }
 
     updateStores() {

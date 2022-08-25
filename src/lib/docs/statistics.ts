@@ -2,11 +2,10 @@ import type { Docs, Class, Method, Enum, Field } from "../typings/rewrite_docs";
 
 import ClassDescribe from "$lib/content/mainpage/describer/ClassDescribe.svelte";
 import EnumDescribe from "$lib/content/mainpage/describer/EnumDescribe.svelte";
-import FieldDescribeSvelte from "$lib/content/mainpage/describer/FieldDescribe.svelte";
-import MethodDescribe from "$lib/content/mainpage/describer/MethodDescribe.svelte";
-import pool from "$lib/language/translator";
 import FieldDescribe from "$lib/content/mainpage/describer/FieldDescribe.svelte";
+import MethodDescribe from "$lib/content/mainpage/describer/MethodDescribe.svelte";
 
+import pool from "$lib/language/translator";
 
 let classOrEnum = (h: string) => (keys: string[], values: any[]) => {
     if (keys[0] === "types") {
@@ -239,7 +238,7 @@ export default class DocsInterface {
                     
                     let id = spot.id(result.keys, result.values);
 
-                    if ((!ids.has(id)) && typeof result.value === "string" && output.includes(what)) {
+                    if ((!ids.has(id)) && typeof result.value === "string" && output.toLowerCase().includes(what.toLowerCase())) {
                         ids.add(id);
                         yield spot.resolve(result.keys, result.values);
                     }

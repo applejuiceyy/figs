@@ -5,7 +5,7 @@
 <script type="ts">
     import {base} from "$app/paths";
     import { cheeseSvg } from "$lib/actions/cheese";
-    import { onDestroy, onMount } from "svelte";
+    import { onDestroy, onMount, setContext } from "svelte";
 
     import { page } from "$app/stores";
 
@@ -15,6 +15,7 @@
     import HintOverlay from "$lib/highlighter/HintOverlay.svelte";
 
     import state from "$lib/state/stores";
+    import load from "$lib/state/loading";
 
     import versions from "docs:all";
 
@@ -33,6 +34,8 @@
 
     import eh from "$lib/resource/status/eh.png";
     import ok from "$lib/resource/status/ok.png";
+
+    import {beforeNavigate, afterNavigate} from "$app/navigation";
 
     let interv: any = null;
 
@@ -90,13 +93,46 @@
     function handleKeyDown (ev: KeyboardEvent) {
         holdingCtrl = ev.ctrlKey;
         // https://stackoverflow.com/questions/34687895/determine-if-a-letter-or-a-number-was-pressed-javascript
-        if (ev.keyCode >= 48 && ev.keyCode <= 57 || ev.keyCode >= 65 && ev.keyCode <= 90 || ev.keyCode >= 97 && ev.keyCode <= 122) {
+        if (!ev.altKey && !ev.ctrlKey && (ev.keyCode >= 48 && ev.keyCode <= 57 || ev.keyCode >= 65 && ev.keyCode <= 90 || ev.keyCode >= 97 && ev.keyCode <= 122)) {
             searcher.focus();
         }
     }
 
     function handleKeyUp (ev: KeyboardEvent) {
         holdingCtrl = ev.ctrlKey;
+    }
+
+    let finishLoad = () => {}
+    beforeNavigate(() => {
+        finishLoad();
+        finishLoad = load.request("Navigation");
+    })
+
+    afterNavigate(() => finishLoad())
+
+    onDestroy(() => finishLoad())
+
+    let showStatus = false;
+    let showStatusTimer: ReturnType<typeof setTimeout> | null = null;
+
+    $: {
+        if ($load.length > 0) {
+            if (showStatusTimer === null && !showStatus) {
+                showStatusTimer = setTimeout(() => {
+                    showStatusTimer = null;
+                    showStatus = true;
+                }, 1000)
+            }
+        }
+        else
+        {
+            showStatus = false;
+
+            if (showStatusTimer !== null) {
+                clearTimeout(showStatusTimer);
+                showStatusTimer = null;
+            }
+        }
     }
 </script>
 
@@ -196,6 +232,47 @@
 
 <HintOverlay classi={classi}/>
 
+<div class="corner-flyer">
+    <button class="flyer-section" on:click={() => window.scrollTo(0, 0)}>
+        <TranslatableKey key="jump-to-top"/>
+    </button>
+    <noscript class="flyer-section">Warning: most things in this website won't work without javascript</noscript>
+
+    <div class="load-div flyer-section" class:active={showStatus}>
+        <div style:width="20px" style:height="20px" style:margin-right="10px" style:position="relative">
+            <div class="loader" style:--l="0px" style:--b="#ffffff" style:--v="10">
+                <div class="loader-lit" />
+                <div class="loader-lit" />
+                <div class="loader-lit" />
+                <div class="loader-lit" />
+                <div class="loader-lit" style:--b="#000000"/>
+                <div class="loader-lit" />
+                <div class="loader-lit" />
+                <div class="loader-lit" />
+                <div class="loader-lit" />
+            </div>
+        
+            <div class="loader" style:--l="5px" style:--b="#7700ff" style:--v="9">
+                <div class="loader-lit" />
+                <div class="loader-lit" />
+                <div class="loader-lit" />
+                <div class="loader-lit" />
+                <div />
+                <div class="loader-lit" />
+                <div class="loader-lit" />
+                <div class="loader-lit" />
+                <div class="loader-lit" />
+            </div>
+        </div>
+
+        <div style:display="flex" style:flex-direction="column">
+            {#each $load as l}
+                <span>{l}</span>
+            {/each}
+        </div>
+    </div>
+</div>
+
 <svelte:body on:keydown={handleKeyDown} on:keyup={handleKeyUp}/>
 
 
@@ -216,6 +293,67 @@
             --landmark-in-window: #aaaaaa;
             --color: black;
             --color-in-landmark: black;
+        }
+    }
+
+    .load-div.active {
+        display: flex;
+    }
+
+    .corner-flyer {
+        position: fixed;
+        bottom: 5px;
+        right: 5px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .flyer-section {
+        padding: 5px;
+        border-radius: 5px;
+
+        margin: 5px;
+
+        background-color: #444444;
+        color: #eeeeee;
+
+        border: 0;
+
+        display: block;
+    }
+
+    .load-div {
+        display: none;
+        align-items: center;
+    }
+
+    .loader {
+        display: grid;
+
+        position: absolute;
+        inset: 0;
+
+        z-index: var(--v);
+        grid-template-columns: repeat(3, 1fr);
+
+        animation: spin 1s linear infinite;
+
+        outline: black 1px solid;
+    }
+
+    .loader-lit {
+        background-color: var(--b);
+    }
+
+    @keyframes spin {
+        from {
+            transform: translate(var(--l), 0) rotate(0deg);
+        }
+
+        to {
+            transform: translate(var(--l), 0) rotate(360deg);
         }
     }
 

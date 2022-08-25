@@ -13,7 +13,5 @@
 		"types": [
             "./src/lib/typings/docs"
 		],
-
-        "outDir": "."
 	}
 }
