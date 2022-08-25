@@ -33,12 +33,12 @@ const _ = [
   "/figs/_app/immutable/assets/hammer-ccd8d2cd.svg",
   "/figs/_app/immutable/assets/unlit_star-44b7d610.svg",
   "/figs/_app/immutable/assets/star-150d3691.svg",
-  "/figs/_app/immutable/start-1f425961.js",
-  "/figs/_app/immutable/components/pages/_layout.svelte-a734fd1b.js",
+  "/figs/_app/immutable/start-48768083.js",
+  "/figs/_app/immutable/components/pages/_layout.svelte-f5173970.js",
   "/figs/_app/immutable/assets/+layout-3952b423.css",
   "/figs/_app/immutable/components/error.svelte-6e2972b5.js",
   "/figs/_app/immutable/components/pages/_version_/_layout.svelte-44d52b96.js",
-  "/figs/_app/immutable/components/pages/_page.svelte-9a3746c3.js",
+  "/figs/_app/immutable/components/pages/_page.svelte-b12f99eb.js",
   "/figs/_app/immutable/assets/+page-d730451b.css",
   "/figs/_app/immutable/components/pages/_version_/_page.svelte-597233a4.js",
   "/figs/_app/immutable/components/pages/_version_/_location_/_page.svelte-5eca70d0.js",
@@ -46,8 +46,8 @@ const _ = [
   "/figs/_app/immutable/assets/+page-7408eda2.css",
   "/figs/_app/immutable/components/pages/_version_/fav/_page.svelte-0b134c22.js",
   "/figs/_app/immutable/components/pages/_version_/search/_page.svelte-423644e7.js",
-  "/figs/_app/immutable/modules/pages/_layout.ts-392db690.js",
-  "/figs/_app/immutable/modules/pages/_version_/_layout.ts-7c4d50ec.js",
+  "/figs/_app/immutable/modules/pages/_layout.ts-5e62b9fc.js",
+  "/figs/_app/immutable/modules/pages/_version_/_layout.ts-326f6b47.js",
   "/figs/_app/immutable/modules/pages/_version_/_page.ts-c17779f8.js",
   "/figs/_app/immutable/modules/pages/_version_/_location_/_page.ts-169319d8.js",
   "/figs/_app/immutable/modules/pages/_version_/all/_page.ts-7a3fd73b.js",
@@ -58,7 +58,7 @@ const _ = [
   "/figs/_app/immutable/chunks/index-473d5c5c.js",
   "/figs/_app/immutable/chunks/index-d6fabef0.js",
   "/figs/_app/immutable/chunks/preload-helper-aa6bc0ce.js",
-  "/figs/_app/immutable/chunks/_docs_all-66b9710e.js",
+  "/figs/_app/immutable/chunks/_docs_all-89d949d2.js",
   "/figs/_app/immutable/chunks/stores-d171989f.js",
   "/figs/_app/immutable/chunks/translator-0859b5fb.js",
   "/figs/_app/immutable/chunks/loading-d3ce8bfb.js",
@@ -67,51 +67,54 @@ const _ = [
   "/figs/_app/immutable/chunks/TranslatableKey-c3651ca3.js",
   "/figs/_app/immutable/assets/TranslatableKey-8ab6aa89.css",
   "/figs/_app/immutable/chunks/DescribeAny-8156e71b.js",
-  "/figs/_app/immutable/chunks/_layout-452a32f5.js",
-  "/figs/_app/immutable/chunks/_layout-b19ed43a.js",
+  "/figs/_app/immutable/chunks/_layout-a8d3e54c.js",
+  "/figs/_app/immutable/chunks/_layout-aecf319f.js",
   "/figs/_app/immutable/chunks/_page-7d115858.js",
   "/figs/_app/immutable/chunks/MetaTags-20cf1dcd.js",
   "/figs/_app/immutable/chunks/_page-08e60533.js",
   "/figs/_app/immutable/chunks/_page-c35c72ae.js",
   "/figs/_app/immutable/chunks/_page-78090ecc.js",
-  "/figs/_app/immutable/chunks/0-65a0dc74.js",
+  "/figs/_app/immutable/chunks/0-ddab4d80.js",
   "/figs/_app/immutable/chunks/1-bcd465fb.js",
-  "/figs/_app/immutable/chunks/2-db199fb2.js",
-  "/figs/_app/immutable/chunks/3-4f74c563.js",
+  "/figs/_app/immutable/chunks/2-62bed168.js",
+  "/figs/_app/immutable/chunks/3-9e6f6411.js",
   "/figs/_app/immutable/chunks/4-a9152314.js",
   "/figs/_app/immutable/chunks/5-0a4c46aa.js",
   "/figs/_app/immutable/chunks/6-c3b580a5.js",
   "/figs/_app/immutable/chunks/7-5f5cbf9f.js",
   "/figs/_app/immutable/chunks/8-498da708.js",
-  "/figs/_app/immutable/chunks/_docs_v-pre-5-7fc28909.js",
-  "/figs/_app/immutable/chunks/_docs_v-pre-6-80ec8f27.js",
-  "/figs/_app/immutable/chunks/_docs_v-rc-1-517956ce.js",
-  "/figs/_app/immutable/chunks/_docs_v-rc-2-72ed327a.js",
-  "/figs/_app/immutable/chunks/_docs_v-rc-3-a17cda9d.js",
-  "/figs/_app/immutable/chunks/_docs_v-rc-4-e1a95929.js",
-  "/figs/_app/immutable/chunks/_docs_v-rc-5-e8e5d2e3.js",
+  "/figs/_app/immutable/chunks/_docs_v-pre-5-e2c8cae0.js",
+  "/figs/_app/immutable/chunks/_docs_v-pre-6-ffa4b444.js",
+  "/figs/_app/immutable/chunks/_docs_v-rc-1-e0147c75.js",
+  "/figs/_app/immutable/chunks/_docs_v-rc-2-c5c024e5.js",
+  "/figs/_app/immutable/chunks/_docs_v-rc-3-5f75dcde.js",
+  "/figs/_app/immutable/chunks/_docs_v-rc-4-78bcbc72.js",
+  "/figs/_app/immutable/chunks/_docs_v-rc-5-750ddf3e.js",
+  "/figs/_app/immutable/chunks/_docs_v-rc-6-8a4f8483.js",
   "/figs/_app/immutable/chunks/pt_pt-23182b15.js",
   "/figs/_app/immutable/chunks/gravity-86e1a259.js",
-  "/figs/_app/immutable/chunks/_docs_v-pre-5_en_uwu-deaae576.js",
-  "/figs/_app/immutable/chunks/_docs_v-pre-6_en_uwu-95e4d178.js",
+  "/figs/_app/immutable/chunks/_docs_v-pre-5_en_uwu-2ff57b13.js",
+  "/figs/_app/immutable/chunks/_docs_v-pre-6_en_uwu-c9b35c3a.js",
   "/figs/_app/immutable/chunks/_docs_v-rc-1_ru_ru-0d64cba3.js",
-  "/figs/_app/immutable/chunks/_docs_v-rc-1_en_uwu-61bb5dcd.js",
+  "/figs/_app/immutable/chunks/_docs_v-rc-1_en_uwu-032626b6.js",
   "/figs/_app/immutable/chunks/_docs_v-rc-2_ru_ru-9e6a2730.js",
-  "/figs/_app/immutable/chunks/_docs_v-rc-2_en_uwu-d6baf48d.js",
+  "/figs/_app/immutable/chunks/_docs_v-rc-2_en_uwu-cd3a0a97.js",
   "/figs/_app/immutable/chunks/_docs_v-rc-3_ru_ru-2daf46f2.js",
-  "/figs/_app/immutable/chunks/_docs_v-rc-3_en_uwu-c54f13a5.js",
+  "/figs/_app/immutable/chunks/_docs_v-rc-3_en_uwu-2c2d85df.js",
   "/figs/_app/immutable/chunks/_docs_v-rc-4_ru_ru-8a4ae1ac.js",
-  "/figs/_app/immutable/chunks/_docs_v-rc-4_en_uwu-d2edacaf.js",
+  "/figs/_app/immutable/chunks/_docs_v-rc-4_en_uwu-b73a1f3e.js",
   "/figs/_app/immutable/chunks/_docs_v-rc-5_ru_ru-54052de4.js",
-  "/figs/_app/immutable/chunks/_docs_v-rc-5_en_uwu-1e7adbb0.js"
+  "/figs/_app/immutable/chunks/_docs_v-rc-5_en_uwu-d53ad938.js",
+  "/figs/_app/immutable/chunks/_docs_v-rc-6_ru_ru-5edcff6c.js",
+  "/figs/_app/immutable/chunks/_docs_v-rc-6_en_uwu-3b447330.js"
 ], m = [
   "/figs/favicon.png",
   "/figs/manifest.json"
-], c = "1661445334114", e = self, t = `A;static-cache-${c}`, i = _.concat(m);
-console.log(i);
+], c = "1661449778718", e = self, i = `A;static-cache-${c}`, t = _.concat(m);
+console.log(t);
 e.addEventListener("install", (s) => {
   console.log("[ServiceWorker] Install"), s.waitUntil(
-    caches.open(t).then((a) => (console.log("[ServiceWorker] Pre-caching offline page"), a.addAll(i).then(() => {
+    caches.open(i).then((a) => (console.log("[ServiceWorker] Pre-caching offline page"), a.addAll(t).then(() => {
       e.skipWaiting();
     })))
   );
@@ -121,7 +124,7 @@ e.addEventListener("activate", (s) => {
     caches.keys().then(
       async (a) => Promise.all(
         a.map((p) => {
-          if (p !== t)
+          if (p !== i)
             return console.log("[ServiceWorker] Removing old cache", p), caches.delete(p);
         })
       )
@@ -130,6 +133,6 @@ e.addEventListener("activate", (s) => {
 });
 self.addEventListener("fetch", (s) => {
   console.log("[ServiceWorker] Fetch", s.request.url), s.respondWith(
-    fetch(s.request).catch(() => caches.open(t).then((a) => (console.log(s.request), a.match(s.request.url))))
+    fetch(s.request).catch(() => caches.open(i).then((a) => (console.log(s.request), a.match(s.request.url))))
   );
 });
