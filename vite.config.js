@@ -4,7 +4,7 @@ import { sveltekit } from '@sveltejs/kit/vite';
 export default {
     optimizeDeps: ["markdown", "matter-js", "luaparse"],
 
-    plugins: [sveltekit(), processor()],
+    plugins: [sveltekit(), await processor()],
     build: {
         assetsInlineLimit: 0
     }

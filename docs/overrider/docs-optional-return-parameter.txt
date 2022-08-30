@@ -1,0 +1,11 @@
+---
+index "types".*>{"name":"ActionWheelAPI"}."methods".*>{"name":"getCurrentPage" | "getPage"}
+modify "returns"."0" ~ "Page | nil"
+
+---
+index "types".*>{"name":"WorldAPI"}."methods".*>{"name":"getEntity"}
+modify "returns"."0" ~ "EntityAPI | nil"
+
+---
+index "types".*>{"name":"ModelPart"}."methods".*>{"name":"getParent"}
+modify "returns"."0" ~ "ModelPart | nil"

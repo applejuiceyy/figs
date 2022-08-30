@@ -11,12 +11,13 @@
     import Code from "$lib/Code.svelte";
 
     import MethodDescribe from "./MethodDescribe.svelte";
-    import { pickType } from "../typePicker";
+    import { extractIdentifiers } from "../typePicker";
 
     import DescribeRoot from "../DescribeRoot.svelte";
 
     import TranslatableKey from "$lib/language/TranslatableKey.svelte";
-import type DocsInterface from "$lib/docs/statistics";
+    import type DocsInterface from "$lib/docs/statistics";
+
 
 
     export let forceSmall: boolean = false;
@@ -49,7 +50,7 @@ import type DocsInterface from "$lib/docs/statistics";
 
     <div class="code-example filled" style:margin-top="50px">
         <Code>
-            <Highlight path={path} code={field.name + ": " + field.type} hoverHighlight={(inlineTypeDocs && field.type in classi.types) ? [] : [{range: [field.name.length + 2, field.name.length + 2 + field.type.length], type: pickType(field.type), name: field.type, travel: pickType(field.type) === "docs" && classi.findFromQualifiedName(field.type) !== null ? field.type : undefined}]}></Highlight>
+            <Highlight path={path} code={field.name + ": " + field.type} hoverHighlight={(inlineTypeDocs && field.type in classi.types) ? [] : extractIdentifiers(classi, field.type, field.name.length + 2)}></Highlight>
         </Code>
 
         {#if inlineTypeDocs && field.type in classi.types}

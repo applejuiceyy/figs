@@ -1,15 +1,4 @@
-import semver from "semver";
-
-const semverSymbol = Symbol("semver");
-const versionSchemas = [/^rc-([0-9]+)$/, /^pre-([0-9]+)$/, semverSymbol]
-
-const comparators = {
-    ">": (a, b) => a > b,
-    "<": (a, b) => a < b,
-    "=": (a, b) => a === b,
-    ">=": (a, b) => a >= b,
-    "<=": (a, b) => a >= b
-}
+import includes from "./version";
 
 export class ExampleExtractor {
     /**
@@ -26,82 +15,10 @@ export class ExampleExtractor {
      * @param {string} requestedVersion 
      */
     getExamples(requestedVersion) {
-        let comparer = null;
-
-        for (let i = 0; i < versionSchemas.length; i++) {
-            let version = versionSchemas[i];
-
-            if (version === semverSymbol) {
-                let clean = semver.valid(requestedVersion);
-
-                if (clean !== null) {
-                    comparer = (version) => semver.satisfies(clean, version);
-                    break;
-                }
-            }
-            else {
-                let test = version.exec(requestedVersion);
-                let versionReg = version;
-
-                if (test) {
-                    let requestedVersion = test[1];
-
-                    comparer = (version) => {
-                        version = version.trim();
-                        let entries = Object.entries(comparators);
-
-                        for (let i = 0; i < entries.length; i++) {
-                            let [starter, comparator] = entries[i];
-
-                            if (version.startsWith(starter)) {
-                                let chopped = version.substring(starter.length);
-
-                                let chopTest = versionReg.exec(chopped.trim());
-
-                                if (chopTest !== null) {
-                                    let exampleVersion = chopTest[1];
-
-                                    if (comparator(requestedVersion, exampleVersion)) {
-                                        return true;
-                                    }
-                                }
-                            }
-                        }
-
-                        return false;
-                    };
-
-                    break;
-                }
-            }
-        }
-        
-        if (comparer === null) {
-            throw "Version has unknown schema"
-        }
-
-        let entries = Object.entries(this.examples);
         let filtered = {};
-
+        let entries = Object.entries(this.examples);
         for (let entryIdx = 0; entryIdx < entries.length; entryIdx++) {
-            let applies = false;
-
-            if ("versions" in entries[entryIdx][1]) {
-                for (let v = 0; v < entries[entryIdx][1].versions.length; v++) {
-                    let version = entries[entryIdx][1].versions[v];
-    
-                    if (version === "*" || comparer(version)) {
-                        applies = true;
-                        break;
-                    }
-                }
-            }
-            else {
-                applies = true;
-            }
-
-
-            if (applies) {
+            if (includes(entries[entryIdx][1].versions, requestedVersion)) {
                 filtered[entries[entryIdx][0]] = entries[entryIdx][1];
             }
         }

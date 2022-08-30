@@ -1,0 +1,4 @@
+use docs-enums-as-types
+use docs-optional-return-parameter
+use docs-vararg
+use docs-widen-type-info

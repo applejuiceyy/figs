@@ -1,0 +1,3 @@
+---
+index "types".*>{"name":"globals"}."methods".*>{"name":"print" | "log"}."parameters"."0"
+modify "0"."name" ~ "..."

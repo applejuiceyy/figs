@@ -10,7 +10,7 @@
     import type { Hint } from "$lib/typings/examples_typings";
     import type DocsInterface from "$lib/docs/statistics";
 
-    import { pickType } from "../typePicker";
+    import { extractIdentifiers } from "../typePicker";
     import DescribeRoot from "../DescribeRoot.svelte";
 
     import TranslatableKey from "$lib/language/TranslatableKey.svelte";
@@ -45,15 +45,8 @@
         for (let i = 0; i < overload.length; i++) {
             ret += overload[i].name;
             ret += ": ";
-
-            hints.push(
-                {
-                    range: [ret.length, ret.length + overload[i].type.length - 1],
-                    type: pickType(overload[i].type),
-                    name: overload[i].type,
-                    travel: pickType(overload[i].type) === "docs" && classi.findFromQualifiedName(overload[i].type) !== null ? overload[i].type : undefined
-                }
-            )
+            overload[i].type
+            hints = hints.concat(extractIdentifiers(classi, overload[i].type, ret.length))
             ret += overload[i].type;
 
             if (i !== overload.length - 1) {
@@ -63,14 +56,7 @@
 
         ret += "): "
 
-        hints.push(
-            {
-                range: [ret.length, ret.length + returns.length],
-                type: pickType(returns),
-                name: returns,
-                travel: pickType(returns) === "docs" && classi.findFromQualifiedName(returns) !== null ? returns : undefined
-            }
-        )
+        hints = hints.concat(extractIdentifiers(classi, returns, ret.length))
 
         ret += returns;
 

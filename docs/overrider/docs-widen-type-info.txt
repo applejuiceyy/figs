@@ -1,0 +1,11 @@
+---
+index "types".*>{"name":"WorldAPI"}."methods".*>{"name":"getPlayers"}
+modify "returns"."0" ~ "Table<String, PlayerAPI>"
+
+---
+index "types".*>{"name":"ModelPart"}."methods".*>{"name":"getChildren"}
+modify "returns"."0" ~ "ModelPart[]"
+
+---
+index "types".*>{"name":"ModelPart"}."methods".*>{"name":"getTask"}
+modify "returns"."0" ~ "Table<String, RenderTask>"
