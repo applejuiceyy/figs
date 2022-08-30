@@ -41,6 +41,7 @@ class FileExecutor {
 
     async run() {
         for (let i = 0; i < this.content.length; i++) {
+
             let {command, content} = this.content[i];
 
             switch(command) {
@@ -76,9 +77,20 @@ class FileExecutor {
                     l = this.performChunkPerContext(i, c, applies);
                 }
 
+                if (l === null) {
+                    for (; i < this.content.length; i++) {
+                        let {command} = this.content[i];
+
+                        if (command === "---") {
+                            return i;
+                        }
+                    }
+                }
+
                 return l;
             }
         }
+
 
         return this.content.length;
     }
