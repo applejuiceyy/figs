@@ -534,8 +534,4 @@
         color: var(--color);
         background-color: var(--background);
     }
-
-    :global(html) {
-        scroll-behavior: smooth;
-    }
 </style>

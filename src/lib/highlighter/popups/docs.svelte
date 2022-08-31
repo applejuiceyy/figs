@@ -20,7 +20,7 @@
 {#if classi === null}
     Version is not selected
 {:else if indexedDoc !== null && indexedDoc !== undefined}
-    <DescribeAny forceSmall classi={classi} what={indexedDoc} path={base}/>
+    <DescribeAny forceSmall classi={classi} what={indexedDoc} path={base} classesShowContent={false}/>
 {:else}
     Not Found
 {/if}

@@ -37,7 +37,7 @@ export class FieldAccessor extends Accessor {
     }
 
     set(obj, value) {
-        if (this.path in obj && this.validatorValid(obj[this.path])) {
+        if (this.validatorValid(obj[this.path])) {
             obj[this.path] = value;
         }
     }
@@ -58,7 +58,7 @@ export class WildCardAccessor extends Accessor {
     }
 
     set(obj, value) {
-        console.log(obj);
+
         Object.entries(obj).forEach(val => {
             if (this.validatorValid(val[1])) {
                 obj[val[0]] = value;

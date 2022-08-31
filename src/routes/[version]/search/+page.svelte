@@ -14,6 +14,7 @@
     let waitingFetch: boolean = false;
 
     let lang = "";
+    let visibility: HTMLDivElement;
 
     $: {
         if (lang !== $state.language) {
@@ -35,14 +36,17 @@
             }
 
             waitingFetch = false;
+            console.log(window.innerHeight);
+            if (visibility.getBoundingClientRect().top < window.innerHeight * 2)
+            {
+                let ret = searcher.next();
 
-            let ret = searcher.next();
-
-            if (ret.done) {
-                searcher = null;
-            }
-            else {
-                entries = [...entries, ret.value];
+                if (ret.done) {
+                    searcher = null;
+                }
+                else {
+                    entries = [...entries, ret.value];
+                }
             }
         }
     }
@@ -64,3 +68,9 @@
 {#each entries as entry}
     <svelte:component this={entry.this} {...entry} classi={s} setId={false} path={data.base}></svelte:component>
 {/each}
+
+{#if searcher !== null}
+    <div bind:this={visibility} class="visibility-notifier"></div>
+{/if}
+
+<style></style>

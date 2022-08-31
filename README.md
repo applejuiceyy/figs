@@ -1,18 +1,12 @@
-# create-svelte
+# figs
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+cool website with figura docs
 
-## Creating a project
+these docs have been supercharged with multiple language support, and hand-curated typing widening, with a path indexing language homegrown for this specific purpose, not seen in any other figura docs resource
 
-If you're seeing this, you've probably already done this step. Congrats!
 
-```bash
-# create a new project in the current directory
-npm init svelte
 
-# create a new project in my-app
-npm init svelte my-app
-```
+*everything bellow is from the template*
 
 ## Developing
 

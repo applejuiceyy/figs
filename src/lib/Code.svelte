@@ -6,9 +6,9 @@
     import hammer from "$lib/resource/hammer.svg";
     import RandomisedPlayer from "./RandomisedPlayer.svelte";
 
-    let breakStages = import.meta.glob("./resource/breaking/*.png", {eager: true}) as {[item: string]: string};
-    let breakingSounds = import.meta.glob("./resource/audio_breaking/*.ogg", {eager: true}) as {[item: string]: string};
-    let brokeSounds = import.meta.glob("./resource/break/*.ogg", {eager: true}) as {[item: string]: string};
+    let breakStages = import.meta.glob("./resource/breaking/*.png", {eager: true, import: "default"}) as {[item: string]: string};
+    let breakingSounds = import.meta.glob("./resource/audio_breaking/*.ogg", {eager: true, import: "default"}) as {[item: string]: string};
+    let brokeSounds = import.meta.glob("./resource/break/*.ogg", {eager: true, import: "default"}) as {[item: string]: string};
 
     let gravityAction: (typeof import("./actions/gravity"))["gravity"] | null = null;
     let fell = false;
@@ -76,8 +76,8 @@
     </code>
 {/key}
 
-<RandomisedPlayer bind:this={breakingAudioPlayer} sounds={Object.values(breakingSounds).map(v => v)} loop={digging} loopSize={300} volume={0.5}/>
-<RandomisedPlayer bind:this={brokeAudioPlayer} sounds={Object.values(brokeSounds).map(v => v)} />
+<RandomisedPlayer bind:this={breakingAudioPlayer} sounds={Object.values(breakingSounds)} loop={digging} loopSize={300} volume={0.5}/>
+<RandomisedPlayer bind:this={brokeAudioPlayer} sounds={Object.values(brokeSounds)} />
 
 <style>
     code {

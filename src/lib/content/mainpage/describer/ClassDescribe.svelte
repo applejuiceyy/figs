@@ -24,6 +24,8 @@ import type DocsInterface from "$lib/docs/statistics";
     export let classi: DocsInterface;
 
     export let highlight: string[] = [];
+
+    export let classesShowContent: boolean = true;
 </script>
 
 <div class="joiner">
@@ -40,13 +42,15 @@ import type DocsInterface from "$lib/docs/statistics";
         </div>
     </DescribeRoot>
 
-    {#each klass.methods as method}
-        <MethodDescribe classi={classi} hostClass={klass} method={method} forceSmall={forceSmall} path={path}></MethodDescribe>
-    {/each}
+    {#if classesShowContent}
+        {#each klass.methods as method}
+            <MethodDescribe classi={classi} hostClass={klass} method={method} forceSmall={forceSmall} path={path}></MethodDescribe>
+        {/each}
 
-    {#each klass.fields as field}
-        <FieldDescribe classi={classi} hostClass={klass} field={field} forceSmall={forceSmall} path={path}></FieldDescribe>
-    {/each}
+        {#each klass.fields as field}
+            <FieldDescribe classi={classi} hostClass={klass} field={field} forceSmall={forceSmall} path={path}></FieldDescribe>
+        {/each}
+    {/if}
 </div>
 
 <style lang="less">

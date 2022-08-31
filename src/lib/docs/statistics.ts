@@ -9,7 +9,7 @@ import pool from "$lib/language/translator";
 
 let classOrEnum = (h: string) => (keys: string[], values: any[]) => {
     if (keys[0] === "types") {
-        return { this: ClassDescribe, klass: values[1], highlight: [h] }
+        return { classesShowContent: false, this: ClassDescribe, klass: values[1], highlight: [h] }
     } else {
         return { this: EnumDescribe, enum_: values[1], highlight: [h] }
     }

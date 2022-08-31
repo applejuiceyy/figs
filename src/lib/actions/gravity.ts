@@ -310,7 +310,6 @@ export function gravity(node: HTMLElement, props: GravityActionProperties) {
         originalParent.appendChild(node);
 
         if(hasShadowElement) {
-            console.log("remove shadow")
             deleteShadowElement();
         }
     }
@@ -385,7 +384,6 @@ export function gravity(node: HTMLElement, props: GravityActionProperties) {
 
 
     function handleMouseDown(x: number, y: number) {
-        console.log(x, y);
 
         if(isActive) {
             mConstraint = Matter.Constraint.create({
@@ -462,7 +460,6 @@ export function gravity(node: HTMLElement, props: GravityActionProperties) {
 
         if(props.active !== isActive)
         {
-            console.log(props.active !== isActive);
 
             (props.active ? activate : deactivate)();
 
@@ -523,7 +520,6 @@ export function gravity(node: HTMLElement, props: GravityActionProperties) {
 
 	return {
 		destroy(){
-            console.log("destroying");
             events.forEach((val)=>val())
             events = [];
 

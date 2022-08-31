@@ -12,10 +12,12 @@
     export let path: string;
     export let classi: DocsInterface;
     export let forceSmall: boolean = false;
+
+    export let classesShowContent: boolean = true;
 </script>
 
 {#if what.type === "class"}
-    <ClassDescribe forceSmall={forceSmall} classi={classi} klass={what.value} path={path} {...$$restProps}/>
+    <ClassDescribe classesShowContent={classesShowContent} forceSmall={forceSmall} classi={classi} klass={what.value} path={path} {...$$restProps}/>
 {:else if what.type === "method"}
     <MethodDescribe forceSmall={forceSmall} classi={classi} hostClass={what.klass} method={what.value} path={path} {...$$restProps}/>
 {:else if what.type === "field"}
