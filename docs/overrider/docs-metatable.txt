@@ -24,6 +24,11 @@ append "metatable"."__div" ~ $name
 modify "metatable"."__mul" ~ ["Number"]
 append "metatable"."__mul" ~ $name
 
+modify "metatable"."__add" ~ ["Number"]
+append "metatable"."__add" ~ $name
+modify "metatable"."__sub" ~ ["Number"]
+append "metatable"."__sub" ~ $name
+
 
 ---
 index "types".*>{"name":"Vector2"}
@@ -46,6 +51,7 @@ append "metatable"."__mul" ~ "Matrix4"
 index "types".*>{"name":"Matrix2" | "Matrix3" | "Matrix4"}
 store "name" $name
 modify "metatable"."__le" ~ []
+append "metatable"."__le" ~ $name
 modify "metatable"."__eq" ~ []
 append "metatable"."__eq" ~ $name
 modify "metatable"."__mul" ~ ["Number"]
@@ -54,6 +60,7 @@ modify "metatable"."__add" ~ []
 append "metatable"."__add" ~ $name
 modify "metatable"."__sub" ~ []
 append "metatable"."__sub" ~ $name
+modify "metatable"."__len" ~ []
 
 ---
 index "types".*>{"name":"Matrix2"}

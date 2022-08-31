@@ -22,6 +22,12 @@ let v: {[item: string]: {format: string}} = {
     },
     __mul: {
         format: "x * y"
+    },
+    __add: {
+        format: "x + y"
+    },
+    __sub: {
+        format: "x - y"
     }
 }
 export default v
