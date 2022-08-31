@@ -4,7 +4,7 @@ import Path from "./path";
 
 let cache = Object.create(null);
 
-export default function parse(str) {
+export default function parse(str: string): Path {
     if (str in cache) {
         return cache[str];
     }

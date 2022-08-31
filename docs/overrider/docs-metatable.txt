@@ -1,0 +1,68 @@
+---
+index "types".*
+modify "metatable" ~ {}
+
+# vectors
+
+---
+index "types".*>{"name":"Vector2" | "Vector3" | "Vector4" | "Vector5" | "Vector6"}
+store "name" $name
+modify "metatable"."__le" ~ []
+append "metatable"."__le" ~ $name
+modify "metatable"."__lt" ~ []
+append "metatable"."__lt" ~ $name
+modify "metatable"."__len" ~ []
+modify "metatable"."__unm" ~ []
+modify "metatable"."__eq" ~ []
+append "metatable"."__eq" ~ $name
+
+
+modify "metatable"."__mod" ~ ["Number"]
+append "metatable"."__mod" ~ $name
+modify "metatable"."__div" ~ ["Number"]
+append "metatable"."__div" ~ $name
+modify "metatable"."__mul" ~ ["Number"]
+append "metatable"."__mul" ~ $name
+
+
+---
+index "types".*>{"name":"Vector2"}
+append "metatable"."__mul" ~ "Matrix2"
+
+
+---
+index "types".*>{"name":"Vector3"}
+append "metatable"."__mul" ~ "Matrix3"
+
+
+---
+index "types".*>{"name":"Vector4"}
+append "metatable"."__mul" ~ "Matrix4"
+
+
+# matrices
+
+---
+index "types".*>{"name":"Matrix2" | "Matrix3" | "Matrix4"}
+store "name" $name
+modify "metatable"."__le" ~ []
+modify "metatable"."__eq" ~ []
+append "metatable"."__eq" ~ $name
+modify "metatable"."__mul" ~ ["Number"]
+append "metatable"."__mul" ~ $name
+modify "metatable"."__add" ~ []
+append "metatable"."__add" ~ $name
+modify "metatable"."__sub" ~ []
+append "metatable"."__sub" ~ $name
+
+---
+index "types".*>{"name":"Matrix2"}
+append "metatable"."__mul" ~ "Vector2"
+
+---
+index "types".*>{"name":"Matrix3"}
+append "metatable"."__mul" ~ "Vector3"
+
+---
+index "types".*>{"name":"Matrix4"}
+append "metatable"."__mul" ~ "Vector4"

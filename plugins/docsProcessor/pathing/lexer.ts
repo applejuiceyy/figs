@@ -1,12 +1,14 @@
-import { BackwardsAccessor, FieldAccessor, WildCardAccessor } from "./accessor";
-import { AndValidator, GenericEqualityValidator, ObjValidator, OrValidator } from "./validator";
+import { Accessor, BackwardsAccessor, FieldAccessor, InPlaceAccessor, WildCardAccessor } from "./accessor";
+import { AndValidator, GenericEqualityValidator, ObjValidator, OrValidator, Validator } from "./validator";
 
-class AbstractQuerier {
+abstract class AbstractQuerier {
+    expects: string[];
+    abstract currentToken: any;
     constructor() {
         this.expects = [];
     }
 
-    expect(...types) {
+    expect(...types: string[]) {
         if (this.expectA(...types)) {
             this.accept();
             return true;
@@ -14,7 +16,7 @@ class AbstractQuerier {
         return false;
     }
 
-    expectA(...types) {
+    expectA(...types: string[]) {
         this.expects = this.expects.concat(types);
         for (let i = 0; i < types.length; i++) {
             
@@ -37,12 +39,14 @@ class AbstractQuerier {
         return this.currentToken;
     }
 
-    reject() {
+    reject(): never {
         throw `Expected ${this.expects.join(", ")}, got ${this.currentToken.type}`
     }
 }
 
 class ContextedQuerier extends AbstractQuerier {
+    currentToken: any;
+
     constructor(token) {
         super();
         this.currentToken = token;
@@ -50,6 +54,9 @@ class ContextedQuerier extends AbstractQuerier {
 }
 
 export default class Lex extends AbstractQuerier {
+    tokens: any;
+    current: number;
+
     constructor(tokens) {
         super();
         this.tokens = tokens;
@@ -82,7 +89,7 @@ export default class Lex extends AbstractQuerier {
 
 
     parse() {
-        let acessors = [];
+        let acessors: Accessor[] = [];
         while (!this.expectA("EOF")) {
             acessors.push(this.parseAccessor());
             
@@ -116,23 +123,26 @@ export default class Lex extends AbstractQuerier {
         else if (this.expect("GREATER_THAN")) {
             return new BackwardsAccessor();
         }
+        else if(this.expect("DOLLAR")) {
+            return new InPlaceAccessor();
+        }
 
         this.reject();
     }
 
-    parseJsonValidator() {
+    parseJsonValidator(): Validator {
         let inverted = false;
-        let validator = null;
+        let validator: Validator;
 
         while (this.expect("EXCLAMATION")) {
             inverted = !inverted;
         }
 
         if (this.expect("OPEN_PARENTHESIS")) {
-            let v = this.parseJsonValidator();
+            validator = this.parseJsonValidator();
             this.assert("CLOSE_PARENTHESIS");
             if (inverted) {
-                v.inverted = !v.inverted;
+                validator.inverted = !validator.inverted;
             }
         }
         else if (this.expectA("OPEN_BRACKETS", "DOLLAR")) {
@@ -161,7 +171,7 @@ export default class Lex extends AbstractQuerier {
             validator = new ObjValidator(inverted, obj, strict);
         }
         else if (this.expect("OPEN_SQUARE_BRACKETS")) {
-            let obj = [];
+            let obj: Validator[] = [];
 
             while (!this.expect("CLOSE_SQUARE_BRACKETS")) {
                 let value = this.parseJsonValidator();
@@ -172,7 +182,6 @@ export default class Lex extends AbstractQuerier {
                 }
             }
             throw "No arrays for now, cope"
-            validator = obj;
         }
         else if (this.expectA("STRING")) {
             validator = new GenericEqualityValidator(inverted, this.accept().value);

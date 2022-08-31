@@ -1,9 +1,9 @@
 import semver from "semver";
 
-const semverSymbol = Symbol("semver");
+const semverSymbol: unique symbol = Symbol("semver");
 const versionSchemas = [/^rc-([0-9]+)$/, /^pre-([0-9]+)$/, semverSymbol]
 
-const comparators = {
+const comparators: {[item: string]: (a: number, b: number) => boolean} = {
     ">": (a, b) => a > b,
     "<": (a, b) => a < b,
     "=": (a, b) => a === b,
@@ -12,7 +12,7 @@ const comparators = {
 }
 
 export default function includes(pattern, requestedVersion) {
-    let comparer = null;
+    let comparer: ((value: string) => boolean) | null = null;
 
     for (let i = 0; i < versionSchemas.length; i++) {
         let version = versionSchemas[i];
@@ -26,11 +26,11 @@ export default function includes(pattern, requestedVersion) {
             }
         }
         else {
-            let test = version.exec(requestedVersion);
-            let versionReg = version;
+            let versionReg = (version as RegExp);
+            let test = versionReg.exec(requestedVersion);
 
             if (test) {
-                let requestedVersion = test[1];
+                let requestedVersion = Number.parseInt(test[1]);
 
                 comparer = (version) => {
                     version = version.trim();
@@ -45,7 +45,7 @@ export default function includes(pattern, requestedVersion) {
                             let chopTest = versionReg.exec(chopped.trim());
 
                             if (chopTest !== null) {
-                                let exampleVersion = chopTest[1];
+                                let exampleVersion = Number.parseInt(chopTest[1]);
 
                                 if (comparator(requestedVersion, exampleVersion)) {
                                     return true;
@@ -78,4 +78,6 @@ export default function includes(pattern, requestedVersion) {
     else {
         return true;
     }
+
+    return false;
 }

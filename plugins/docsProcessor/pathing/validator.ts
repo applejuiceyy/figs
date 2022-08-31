@@ -1,4 +1,6 @@
-class Validator {
+export abstract class Validator {
+    inverted: any;
+
     constructor(inverted) {
         this.inverted = inverted;
     }
@@ -6,9 +8,14 @@ class Validator {
     validated (testing) {
         return this._validated(testing) !== this.inverted;
     }
+
+    abstract _validated(testing: any): boolean
 }
 
 export class ObjValidator extends Validator {
+    obj: {[item: string]: Validator};
+    tight: boolean;
+
     constructor(inverted, obj, tight=false) {
         super(inverted);
         this.obj = obj;
@@ -33,6 +40,7 @@ export class ObjValidator extends Validator {
 }
 
 export class GenericEqualityValidator extends Validator {
+    obj: any;
     constructor (inverted, obj) {
         super(inverted);
         this.obj = obj;
@@ -44,6 +52,7 @@ export class GenericEqualityValidator extends Validator {
 }
 
 export class TypeValidator extends Validator {
+    type: any;
     constructor (inverted, type) {
         super(inverted);
         this.type = type;
@@ -55,6 +64,7 @@ export class TypeValidator extends Validator {
 }
 
 export class AndValidator extends Validator {
+    validators: any[];
     constructor (inverted, ...validators) {
         super(inverted);
         this.validators = validators;
@@ -66,6 +76,7 @@ export class AndValidator extends Validator {
 }
 
 export class OrValidator extends Validator {
+    validators: any[];
     constructor (inverted, ...validators) {
         super(inverted);
         this.validators = validators;

@@ -13,6 +13,7 @@
     import DescribeRoot from "../DescribeRoot.svelte";
     import TranslatableKey from "$lib/language/TranslatableKey.svelte";
 import type DocsInterface from "$lib/docs/statistics";
+    import metainfo from "$lib/docs/metainfo";
 
 
     export let klass: Class;
@@ -40,6 +41,35 @@ import type DocsInterface from "$lib/docs/statistics";
         <div class:highlight={highlight.includes("description")}>
             <TranslatableKey key={klass.description} warn focus/>
         </div>
+
+        {#if Object.values(klass.metatable).length > 0}
+            <div style:display="flex" style:justify-content="center" style:margin-top="30px" style:margin-bottom="10px">
+                <table class="metatable-describe">
+                    <tr>
+                        <th>Meta name</th>
+                        <th>Allowed <i>other</i> parameters</th>
+                        <th>Meta execution method</th>
+                    </tr>
+                    {#each Object.entries(klass.metatable) as entry}
+                        <tr>
+                            <td><Code>{entry[0]}</Code></td>
+                            <td style:background-color={entry[1].length > 0 ? "" : "#ffffff55"}>
+                                {#if entry[1].length > 0}
+                                    <ul>
+                                        {#each entry[1] as k}
+                                            <li>{k}</li>
+                                        {/each}
+                                    </ul>
+                                {/if}
+                            </td>
+                            <td>
+                                <Code>{metainfo[entry[0]].format}</Code>
+                            </td>
+                        </tr>
+                    {/each}
+                </table>
+            </div>
+        {/if}
     </DescribeRoot>
 
     {#if classesShowContent}
@@ -78,5 +108,21 @@ import type DocsInterface from "$lib/docs/statistics";
         background-color: #222222;
         
         box-shadow: inset black 0 0 10px 0;
+    }
+
+    table, td, th, tr {
+        border: 1px solid #999;
+    }
+
+    td, th, tr {
+        padding: 5px;
+    }
+
+    li {
+        list-style-type: none;
+    }
+
+    ul {
+        padding-left: 10px;
     }
 </style>

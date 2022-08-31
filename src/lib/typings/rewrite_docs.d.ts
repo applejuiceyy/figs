@@ -15,6 +15,7 @@ export interface Class extends WithExample {
     fields: Field[];
     parent?: string;
     category?: string;
+    metatable: {[item: string]: string[]}
 }
 
 export interface Method extends WithExample {

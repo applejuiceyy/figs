@@ -2,10 +2,8 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { ExampleExtractor } from "./examples.js";
 import yaml from "yaml";
-import performOverrides from "./overrider.js";
-import parse from "./pathing";
-import Lex from "./pathing/lexer.js";
 import executeFile from "./overrider/interpreter.js";
+import util from "node:util"
 
 const docsPath = "./docs";
 
@@ -25,24 +23,6 @@ function transformContent(str) {
 export default async function docsProcessor() {
     const moduleNamespace = "docs:";
 
-    /** @type {import('vite').ViteDevServer | null} */
-    let server = null;
-
-    function watch(file) {
-        console.log(file);
-        server !== null && server.watcher.add(file);
-    }
-
-    function readFile(file) {
-        watch(file);
-        return fs.readFile(file, {encoding: "utf-8"});
-    }
-
-    function readDir(dir) {
-        watch(dir);
-        return fs.readdir(dir);
-    }
-
     return {
         name: 'vite-plugin-docs-processor',
 
@@ -56,18 +36,17 @@ export default async function docsProcessor() {
             }
         },
 
-        configureServer(_server) {
-            server = _server
-        },
-
         /**
          * 
          * @param {string} id 
          */
         async load(id) {
             const readFile = (file) => {
-                this.addWatchFile(file);
                 return fs.readFile(file, {encoding: "utf-8"});
+            }
+
+            const readDir = (file) => {
+                return fs.readdir(file);
             }
             
             if (id.startsWith("\0" + moduleNamespace)) {
@@ -125,7 +104,6 @@ export default async function docsProcessor() {
                             exampleExtractor.injectExamples(transformed.result, extractedExamples);
 
                             await executeFile(transformed.result, path.join(docsPath, "overrider"), "docs", version);
-
                             let result = JSON.stringify(transformed.result);
 
                             result = result.substring(1, result.length - 1); // take off {}
@@ -135,7 +113,7 @@ export default async function docsProcessor() {
                             if (!transformed.languages.includes("en_us")) {
                                 throw "Docs has no \"en_us\" language, which is mandatory"
                             }
-                            let entries = [];
+                            let entries: string[] = [];
                             
                             for (let i = 0; i < transformed.languages.length; i++) {
                                 let el = transformed.languages[i];

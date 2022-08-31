@@ -1,6 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import parse from "../pathing";
+import { HistoryTracker } from "../pathing/accessor";
 import includes from "../version";
 
 export default async function executeFile(obj, overrideFolder, name, version) {
@@ -8,6 +9,12 @@ export default async function executeFile(obj, overrideFolder, name, version) {
     await (new FileExecutor(content, obj, overrideFolder, name, version)).run();
 }
 class FileExecutor {
+    content: {command: string, content: string}[];
+    obj: any;
+    overrideFolder: string;
+    name: string;
+    version: string;
+
     constructor(content, obj, overrideFolder, name, version) {
         this.content = content.split("\n").map(val => {
             let pos = val.indexOf("#");
@@ -68,10 +75,10 @@ class FileExecutor {
             }
             else if (command === "index") {
                 let path = parse(content);
-                let context = path.getWithHistory([[this.obj]]);
-                let l = null;
+                let context = path.getWithHistory([{track: [], current: this.obj}]);
+                let l: number | null = null;
                 for (let v = 0; v < context.length; v++) {
-                    let c = context[v][context[v].length - 1];
+                    let c = context[v];
 
                     // l should not change, so it's safe to assign it here
                     l = this.performChunkPerContext(i, c, applies);
@@ -95,16 +102,19 @@ class FileExecutor {
         return this.content.length;
     }
 
-    performChunkPerContext(idx, context, applying) {
+    performChunkPerContext(idx: number, context: HistoryTracker, applying: boolean) {
         let storage = {};
+        let invalidated = false;
 
         for (let i = idx; i < this.content.length; i++) {
             let {command, content} = this.content[i];
-            let subpath; // hoisted outside of switch statement
 
             if (applying) {
                 switch(command) {
-                    case "store":
+                    case "store": {
+                        if (invalidated) {
+                            throw "Cannot perform a store operation because a modify operation has ocurred that potentially invalidates this path"
+                        }
                         let idx = content.lastIndexOf(" ");
                         let vname = content.substring(idx).trim();
 
@@ -112,14 +122,22 @@ class FileExecutor {
                             throw "Variable must start with $"
                         }
 
-                        subpath = parse(content.substring(0, idx));
+                        let storePath = parse(content.substring(0, idx));
 
-                        storage[vname.substring(1)] = subpath.getSingle(context);
+                        if (storePath.canBranch) {
+                            throw "Cannot store because this path can branch"
+                        }
+
+                        storage[vname.substring(1)] = storePath.getWithHistory([context])[0].current;
                         break;
+                    }
                     
-                    case "modify":
+                    case "modify": {
+                        if (invalidated) {
+                            throw "Cannot perform a modify operation because a modify operation has ocurred that potentially invalidates this path"
+                        }
                         let tildePos = content.indexOf("~");
-                        subpath = parse(content.substring(0, tildePos));
+                        let modifyPath = parse(content.substring(0, tildePos));
                         let val = content.substring(tildePos + 1).trim();
                         let value
                         if (val.startsWith("$")) {
@@ -129,7 +147,25 @@ class FileExecutor {
                             value = JSON.parse(content.substring(tildePos + 1));
                         }
 
-                        subpath.set(context, value);
+                        invalidated = modifyPath.setWithHistory([context], value);
+                        break;
+                    }
+
+                    case "append":
+                        let tildePos = content.indexOf("~");
+                        let appendPath = parse(content.substring(0, tildePos));
+                        let val = content.substring(tildePos + 1).trim();
+                        let value: any;
+                        if (val.startsWith("$")) {
+                            value = storage[val.substring(1)]
+                        }
+                        else {
+                            value = JSON.parse(content.substring(tildePos + 1));
+                        }
+
+                        appendPath.getWithHistory([context]).forEach(val => {
+                            val.current.push(value);
+                        })
                 }
             }
 

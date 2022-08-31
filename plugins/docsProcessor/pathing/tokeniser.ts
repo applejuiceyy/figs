@@ -1,4 +1,4 @@
-let tokens = [
+let tokens: [string | RegExp, string | null][] = [
     ["{", "OPEN_BRACKETS"],
     ["}", "CLOSE_BRACKETS"],
     ["[", "OPEN_SQUARE_BRACKETS"],
@@ -24,6 +24,8 @@ let tokens = [
     [/^\s/, null]
 ]
 
+export type Token = {value: string | null, type: string}
+
 /**
  * 
  * @param {string} text 
@@ -31,7 +33,7 @@ let tokens = [
  */
 export default function tokenise(text) {
     let pos = 0;
-    let ret = [];
+    let ret: Token[] = [];
     let i = 0;
 
     while (pos < text.length && i++ < 100) {

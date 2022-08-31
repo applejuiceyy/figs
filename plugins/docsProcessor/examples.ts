@@ -1,10 +1,8 @@
 import includes from "./version";
 
 export class ExampleExtractor {
-    /**
-     * 
-     * @param {{[item: string]: {versions: string[]}}} examples 
-     */
+    examples: {[item: string]: {versions: string[], content: string}}
+
     constructor (examples) {
 
         this.examples = examples;
@@ -26,7 +24,7 @@ export class ExampleExtractor {
         return filtered;
     }
 
-    injectExamples(docs, examples) {
+    injectExamples(docs: any, examples: ExampleExtractor["examples"]) {
         let entries = Object.entries(examples);
 
         for (let i = 0; i < entries.length; i++) {

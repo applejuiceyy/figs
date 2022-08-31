@@ -1,3 +1,5 @@
+use docs-metatable
+
 use docs-enums-as-types
 use docs-optionals
 use docs-vararg
