@@ -71,6 +71,7 @@ class FileExecutor {
 
             if (command === "version") {
                 let versions = content.split(",").map(val => val.trim());
+                console.log(includes(versions, this.version));
                 applies = applies && includes(versions, this.version);
             }
             else if (command === "index") {

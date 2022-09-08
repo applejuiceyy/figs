@@ -1,3 +1,7 @@
 ---
 index "types".*>{"name":"KeybindAPI"}."methods".*>{"name":"getVanillaKey"}."parameters".*."0"
 modify "type" ~ "KeyIDs"
+
+---
+index "types".*>{"name":"KeybindAPI"}."methods".*>{"name":"create"}."parameters".*."1"
+modify "type" ~ "Keybinds"

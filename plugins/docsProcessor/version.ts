@@ -56,7 +56,6 @@ export default function includes(pattern, requestedVersion) {
 
                     return false;
                 };
-
                 break;
             }
         }

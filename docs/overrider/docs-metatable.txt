@@ -24,11 +24,17 @@ append "metatable"."__div" ~ $name
 modify "metatable"."__mul" ~ ["Number"]
 append "metatable"."__mul" ~ $name
 
-modify "metatable"."__add" ~ ["Number"]
+modify "metatable"."__add" ~ []
 append "metatable"."__add" ~ $name
-modify "metatable"."__sub" ~ ["Number"]
+modify "metatable"."__sub" ~ []
 append "metatable"."__sub" ~ $name
 
+---
+version >=rc-5
+index "types".*>{"name":"Vector2" | "Vector3" | "Vector4" | "Vector5" | "Vector6"}
+
+append "metatable"."__add" ~ "Number"
+append "metatable"."__sub" ~ "Number"
 
 ---
 index "types".*>{"name":"Vector2"}
