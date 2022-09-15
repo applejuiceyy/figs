@@ -5,8 +5,134 @@ log:
 
 
 
+logJson:
+    content: logJson('{"text":"meow ^^","color":"#a672ef"}')
+
+
+
+logTable:
+    content: |-
+      local table = {'string',{'tableception'}}
+      
+      logTable(table,2)
+
+
+
+print:
+    content: print(60, "abc")
+
+
+
+printJson:
+    content: printJson('{"text":"meow ^^","color":"#a672ef"}')
+
+
+
+printTable:
+    content: |-
+      local table = {'string',{'tableception'}}
+      
+      printTable(table,2)
+
+
+
 require:
-    content: local library = require("lib.parser") -- this will import a file
+    content: |- 
+      local library = require("lib.parser") 
+      -- this will import a file
+
+
+
+ActionWheelAPI.execute:
+    content: |-
+      examplePage = action_wheel:createPage()
+      action_wheel:setPage(examplePage)
+      examplePage:newAction(1):onRightClick(function() log('chat spam :3') end)
+
+      events.TICK:register(function()
+        action_wheel:execute(1,true)
+      end)
+      -- this will only run if the action wheel is open
+
+
+
+ActionWheelAPI.isEnabled:
+    content: |-
+      examplePage = action_wheel:createPage()
+      action_wheel:setPage(examplePage)
+
+      events.TICK:register(function()
+        if action_wheel:isEnabled() then
+          log("action wheel's is open!")
+        end
+      end)
+
+
+
+ActionWheelAPI.getPage:
+    content: |-
+      action_wheel:createPage('examplePage')
+      log(action_wheel:getPage('examplePage'))
+
+
+
+ActionWheelAPI.createPage:
+    content: action_wheel:createPage('examplePage')
+
+
+
+ActionWheelAPI.getSelected:
+    content: |-
+      examplePage = action_wheel:createPage()
+      action_wheel:setPage(examplePage)
+      for slot = 1,8 do
+        examplePage:newAction(slot)
+      end
+
+      events.TICK:register(function()
+        log(action_wheel:getSelected())
+      end)
+      -- returns even if the action wheel is closed
+
+
+
+ActionWheelAPI.setPage:
+    content: |-
+      examplePage = action_wheel:createPage()
+      action_wheel:setPage(examplePage)
+
+
+
+ActionWheelAPI.leftClick:
+    content: |-
+      examplePage = action_wheel:createPage('pageName')
+        action_wheel:setPage(examplePage)
+  
+      function action_wheel.leftClick()
+        log('you just left clicked while in the action wheel!')
+      end
+
+
+
+ActionWheelAPI.rightClick:
+    content: |-
+      examplePage = action_wheel:createPage('pageName')
+        action_wheel:setPage(examplePage)
+  
+      function action_wheel.rightClick()
+        log('you just left clicked while in the action wheel!')
+      end
+
+
+
+ActionWheelAPI.scroll:
+    content: |-
+      examplePage = action_wheel:createPage('pageName')
+      action_wheel:setPage(examplePage)
+
+      function action_wheel.scroll(direction)
+        log(direction)
+      end
 
 
 
