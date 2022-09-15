@@ -160,14 +160,5 @@ ClickAction.onLeftClick:
       end)
 
 
-
-ActionWheelAPI.setPage:
-    content: |-
-      local myPage = action_wheel:createPage()
-
-      action_wheel:setPage(myPage)
-
-
-
 Animation.play:
     content: animations.bbmodelName.animationName.play()
