@@ -136,6 +136,218 @@ ActionWheelAPI.scroll:
 
 
 
+ClientAPI.getVersion:
+    content: log(client.getVersion())
+
+
+
+ClientAPI.getParticleCount:
+    content: |-
+      events.TICK:register(function()
+        log(client.getParticleCount())
+      end)
+
+
+
+ClientAPI.getJavaVersion:
+    content: log(client.getJavaVersion())
+
+
+
+ClientAPI.getAllocatedMemory:
+    content: |-
+      log(client.getAllocatedMemory())
+      -- returns memory in bytes
+
+
+
+ClientAPI.getVersionType:
+    content: log(client.getVersionType())
+
+
+
+ClientAPI.getCurrentEffect:
+    content: |-
+      events.TICK:register(function()
+        log(client.getCurrentEffect())
+      end)
+
+
+
+ClientAPI.getUsedMemory:
+    content: |-
+      events.TICK:register(function()
+        log(client.getUsedMemory())
+      end)
+      -- returns memory in bytes
+
+
+
+ClientAPI.isPaused:
+    content: |-
+      events.TICK:register(function()
+        log(client.isPaused())
+      end)
+
+
+
+ClientAPI.getMaxMemory:
+    content: |-
+      log(client.getMaxMemory())
+      -- returns memory in bytes
+
+
+
+ClientAPI.getServerBrand:
+    content: log(client.getServerBrand())
+
+
+
+ClientAPI.getEntityCount:
+    content: |-
+      events.TICK:register(function()
+        log(client.getEntityCount())
+      end)
+
+
+
+ClientAPI.getSoundStatistics:
+    content: |-
+      events.TICK:register(function()
+        log(client.getSoundStatistics())
+      end)
+      -- sounds playing / sounds limit + ambient sounds playing / ambient sounds limit
+
+
+
+ClientAPI.getChunkStatistics:
+    content: |-
+      log(client.getChunkStatistics())
+      -- Number of chunk sections rendered / the total number of chunk sections in the loaded area
+
+
+
+ClientAPI.getFPS:
+    content: |-
+      events.TICK:register(function()
+        log(client.getFPS())
+      end)
+
+
+
+ClientAPI.getFPSString:
+    content: |-
+      events.TICK:register(function()
+        log(client.getFPSString())
+      end)
+
+
+
+ClientAPI.getTextHeight:
+    content: log(client.getTextHeight('TEXT!'))
+
+
+
+ClientAPI.getSystemTime:
+    content: |-
+      events.TICK:register(function()
+        log(client.getSystemTime())
+      end)
+
+
+
+ClientAPI.getActiveLang:
+    content: log(client.getActiveLang())
+
+
+
+ClientAPI.isWindowFocused:
+    content: |-
+      events.TICK:register(function()
+        log(client.isWindowFocused())
+      end)
+
+
+
+ClientAPI.isHudEnabled:
+    content: |-
+      events.TICK:register(function()
+        log(client.isHudEnabled())
+      end)
+
+
+
+ClientAPI.getMousePos:
+    content: |-
+      events.TICK:register(function()
+        log(client.getMousePos())
+      end)
+
+
+
+ClientAPI.getTextWidth:
+    content: log(client.getTextWidth('TEXT!'))
+
+
+
+ClientAPI.getCameraPos:
+    content: |-
+      events.TICK:register(function()
+        log(client.getCameraPos())
+      end)
+
+
+
+ClientAPI.getFOV:
+    content: log(client.getFOV()))
+
+
+
+ClientAPI.getWindowSize:
+    content: |-
+      events.TICK:register(function()
+        log(client.getWindowSized())
+      end)
+
+
+
+ClientAPI.getCameraRot:
+    content: |-
+      events.TICK:register(function()
+        log(client.getCameraRot())
+      end)
+
+
+
+ClientAPI.getGuiScale:
+    content: log(client.getGuiScale()))
+
+
+
+ClientAPI.getEntityStatistics:
+    content: |- 
+      log(client.getEntityStatistics()))
+      -- Number of rendered entities / total entities, 0, simulation distance
+
+
+
+ClientAPI.isDebugOverlayEnabled:
+    content: |-
+      events.TICK:register(function()
+        log(client.isDebugOverlayEnabled())
+      end)
+
+
+
+ClientAPI.getScaledWindowSize:
+    content: |-
+      events.TICK:register(function()
+        log(client.getScaledWindowSize())
+      end)
+
+
+
+
 Page.getAction:
     content: local action = myPage:getAction(1)
 
