@@ -75,9 +75,16 @@ export class ExampleExtractor {
 
                     if (j !== undefined) {
                         subject = j;
+                        found = true;
                     }
                 }
+
+                if (!found) {
+                    continue
+                }
             }
+
+            console.log(subject, qualifiedName)
 
             subject.example = example.content;
         }
