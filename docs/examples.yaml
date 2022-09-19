@@ -299,7 +299,7 @@ ClientAPI.getCameraPos:
 
 
 ClientAPI.getFOV:
-    content: log(client.getFOV()))
+    content: log(client.getFOV())
 
 
 
@@ -320,13 +320,13 @@ ClientAPI.getCameraRot:
 
 
 ClientAPI.getGuiScale:
-    content: log(client.getGuiScale()))
+    content: log(client.getGuiScale())
 
 
 
 ClientAPI.getEntityStatistics:
     content: |- 
-      log(client.getEntityStatistics()))
+      log(client.getEntityStatistics())
       -- Number of rendered entities / total entities, 0, simulation distance
 
 

@@ -84,8 +84,6 @@ export class ExampleExtractor {
                 }
             }
 
-            console.log(subject, qualifiedName)
-
             subject.example = example.content;
         }
     }
