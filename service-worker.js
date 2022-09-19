@@ -33,12 +33,12 @@ const _ = [
   "/figs/_app/immutable/assets/hammer-ccd8d2cd.svg",
   "/figs/_app/immutable/assets/unlit_star-44b7d610.svg",
   "/figs/_app/immutable/assets/star-150d3691.svg",
-  "/figs/_app/immutable/start-f9f0bc96.js",
-  "/figs/_app/immutable/components/pages/_layout.svelte-7e95ecbc.js",
+  "/figs/_app/immutable/start-4d316037.js",
+  "/figs/_app/immutable/components/pages/_layout.svelte-d5f824b3.js",
   "/figs/_app/immutable/assets/+layout-21e99122.css",
   "/figs/_app/immutable/components/error.svelte-6e2972b5.js",
   "/figs/_app/immutable/components/pages/_version_/_layout.svelte-44d52b96.js",
-  "/figs/_app/immutable/components/pages/_page.svelte-aa5bdcf7.js",
+  "/figs/_app/immutable/components/pages/_page.svelte-8af32bfe.js",
   "/figs/_app/immutable/assets/+page-d730451b.css",
   "/figs/_app/immutable/components/pages/_version_/_page.svelte-597233a4.js",
   "/figs/_app/immutable/components/pages/_version_/_location_/_page.svelte-f20f0b86.js",
@@ -46,8 +46,8 @@ const _ = [
   "/figs/_app/immutable/assets/+page-7408eda2.css",
   "/figs/_app/immutable/components/pages/_version_/fav/_page.svelte-e6151283.js",
   "/figs/_app/immutable/components/pages/_version_/search/_page.svelte-df83af8b.js",
-  "/figs/_app/immutable/modules/pages/_layout.ts-e0023e54.js",
-  "/figs/_app/immutable/modules/pages/_version_/_layout.ts-6bd4ecda.js",
+  "/figs/_app/immutable/modules/pages/_layout.ts-1fd38f20.js",
+  "/figs/_app/immutable/modules/pages/_version_/_layout.ts-537f2b0a.js",
   "/figs/_app/immutable/modules/pages/_version_/_page.ts-c17779f8.js",
   "/figs/_app/immutable/modules/pages/_version_/_location_/_page.ts-f3ace252.js",
   "/figs/_app/immutable/modules/pages/_version_/all/_page.ts-7a3fd73b.js",
@@ -58,7 +58,7 @@ const _ = [
   "/figs/_app/immutable/chunks/index-473d5c5c.js",
   "/figs/_app/immutable/chunks/index-d6fabef0.js",
   "/figs/_app/immutable/chunks/preload-helper-aa6bc0ce.js",
-  "/figs/_app/immutable/chunks/_docs_all-e101c797.js",
+  "/figs/_app/immutable/chunks/_docs_all-675436a5.js",
   "/figs/_app/immutable/chunks/stores-d171989f.js",
   "/figs/_app/immutable/chunks/translator-0859b5fb.js",
   "/figs/_app/immutable/chunks/loading-d3ce8bfb.js",
@@ -67,75 +67,75 @@ const _ = [
   "/figs/_app/immutable/chunks/TranslatableKey-c3651ca3.js",
   "/figs/_app/immutable/assets/TranslatableKey-8ab6aa89.css",
   "/figs/_app/immutable/chunks/DescribeAny-27b2c012.js",
-  "/figs/_app/immutable/chunks/_layout-a511ea13.js",
-  "/figs/_app/immutable/chunks/_layout-923a0a11.js",
+  "/figs/_app/immutable/chunks/_layout-a34024af.js",
+  "/figs/_app/immutable/chunks/_layout-81827843.js",
   "/figs/_app/immutable/chunks/_page-7d115858.js",
   "/figs/_app/immutable/chunks/MetaTags-20cf1dcd.js",
   "/figs/_app/immutable/chunks/_page-6e97ec75.js",
   "/figs/_app/immutable/chunks/_page-c35c72ae.js",
   "/figs/_app/immutable/chunks/_page-78090ecc.js",
-  "/figs/_app/immutable/chunks/0-2c7e0d5a.js",
+  "/figs/_app/immutable/chunks/0-94536467.js",
   "/figs/_app/immutable/chunks/1-bcd465fb.js",
-  "/figs/_app/immutable/chunks/2-dee886ce.js",
-  "/figs/_app/immutable/chunks/3-e0bbe579.js",
+  "/figs/_app/immutable/chunks/2-07476313.js",
+  "/figs/_app/immutable/chunks/3-46c82268.js",
   "/figs/_app/immutable/chunks/4-a9152314.js",
   "/figs/_app/immutable/chunks/5-bc1fa494.js",
   "/figs/_app/immutable/chunks/6-e262868c.js",
   "/figs/_app/immutable/chunks/7-511bdd83.js",
   "/figs/_app/immutable/chunks/8-ebefb127.js",
-  "/figs/_app/immutable/chunks/_docs_v-pre-5-754ea447.js",
-  "/figs/_app/immutable/chunks/_docs_v-pre-6-265f143c.js",
-  "/figs/_app/immutable/chunks/_docs_v-rc-1-24731b2d.js",
-  "/figs/_app/immutable/chunks/_docs_v-rc-2-083fa3f2.js",
-  "/figs/_app/immutable/chunks/_docs_v-rc-3-e065bff7.js",
-  "/figs/_app/immutable/chunks/_docs_v-rc-4-ed4c0635.js",
-  "/figs/_app/immutable/chunks/_docs_v-rc-5-0f378314.js",
-  "/figs/_app/immutable/chunks/_docs_v-rc-6-089388a1.js",
-  "/figs/_app/immutable/chunks/_docs_v-rc-7-c4530a16.js",
+  "/figs/_app/immutable/chunks/_docs_v-pre-5-975b8c99.js",
+  "/figs/_app/immutable/chunks/_docs_v-pre-6-d8533dba.js",
+  "/figs/_app/immutable/chunks/_docs_v-rc-1-69323557.js",
+  "/figs/_app/immutable/chunks/_docs_v-rc-2-3d6e0d5f.js",
+  "/figs/_app/immutable/chunks/_docs_v-rc-3-b35e37a1.js",
+  "/figs/_app/immutable/chunks/_docs_v-rc-4-43b93d12.js",
+  "/figs/_app/immutable/chunks/_docs_v-rc-5-c69fd0ad.js",
+  "/figs/_app/immutable/chunks/_docs_v-rc-6-72177185.js",
+  "/figs/_app/immutable/chunks/_docs_v-rc-7-4906dda6.js",
   "/figs/_app/immutable/chunks/pt_pt-23182b15.js",
   "/figs/_app/immutable/chunks/gravity-1eb74a50.js",
-  "/figs/_app/immutable/chunks/_docs_v-pre-5_en_uwu-74f487ad.js",
-  "/figs/_app/immutable/chunks/_docs_v-pre-6_en_uwu-72423f38.js",
+  "/figs/_app/immutable/chunks/_docs_v-pre-5_en_uwu-4590b823.js",
+  "/figs/_app/immutable/chunks/_docs_v-pre-6_en_uwu-5003e06d.js",
   "/figs/_app/immutable/chunks/_docs_v-rc-1_ru_ru-0d64cba3.js",
-  "/figs/_app/immutable/chunks/_docs_v-rc-1_en_uwu-beb56ab2.js",
+  "/figs/_app/immutable/chunks/_docs_v-rc-1_en_uwu-10d2964e.js",
   "/figs/_app/immutable/chunks/_docs_v-rc-2_ru_ru-9e6a2730.js",
-  "/figs/_app/immutable/chunks/_docs_v-rc-2_en_uwu-3187e3ce.js",
+  "/figs/_app/immutable/chunks/_docs_v-rc-2_en_uwu-77305d67.js",
   "/figs/_app/immutable/chunks/_docs_v-rc-3_ru_ru-2daf46f2.js",
-  "/figs/_app/immutable/chunks/_docs_v-rc-3_en_uwu-52e91202.js",
+  "/figs/_app/immutable/chunks/_docs_v-rc-3_en_uwu-6159b306.js",
   "/figs/_app/immutable/chunks/_docs_v-rc-4_ru_ru-8a4ae1ac.js",
-  "/figs/_app/immutable/chunks/_docs_v-rc-4_en_uwu-cdf18431.js",
+  "/figs/_app/immutable/chunks/_docs_v-rc-4_en_uwu-5b9d7e9d.js",
   "/figs/_app/immutable/chunks/_docs_v-rc-5_ru_ru-54052de4.js",
-  "/figs/_app/immutable/chunks/_docs_v-rc-5_en_uwu-4c1c420c.js",
+  "/figs/_app/immutable/chunks/_docs_v-rc-5_en_uwu-ad560db1.js",
   "/figs/_app/immutable/chunks/_docs_v-rc-6_ru_ru-5edcff6c.js",
-  "/figs/_app/immutable/chunks/_docs_v-rc-6_en_uwu-79d68588.js",
+  "/figs/_app/immutable/chunks/_docs_v-rc-6_en_uwu-45916a26.js",
   "/figs/_app/immutable/chunks/_docs_v-rc-7_ru_ru-c29a4acf.js",
-  "/figs/_app/immutable/chunks/_docs_v-rc-7_en_uwu-8f58dfd6.js"
+  "/figs/_app/immutable/chunks/_docs_v-rc-7_en_uwu-7985463e.js"
 ], m = [
   "/figs/favicon.png",
   "/figs/manifest.json"
-], c = "1663259316204", a = self, i = `A;static-cache-${c}`, t = _.concat(m);
+], u = "1663611720171", e = self, i = `A;static-cache-${u}`, t = _.concat(m);
 console.log(t);
-a.addEventListener("install", (s) => {
+e.addEventListener("install", (s) => {
   console.log("[ServiceWorker] Install"), s.waitUntil(
-    caches.open(i).then((e) => (console.log("[ServiceWorker] Pre-caching offline page"), e.addAll(t).then(() => {
-      a.skipWaiting();
+    caches.open(i).then((a) => (console.log("[ServiceWorker] Pre-caching offline page"), a.addAll(t).then(() => {
+      e.skipWaiting();
     })))
   );
 });
-a.addEventListener("activate", (s) => {
+e.addEventListener("activate", (s) => {
   console.log("[ServiceWorker] Activate"), console.log(s), s.waitUntil(
     caches.keys().then(
-      async (e) => Promise.all(
-        e.map((p) => {
+      async (a) => Promise.all(
+        a.map((p) => {
           if (p !== i)
             return console.log("[ServiceWorker] Removing old cache", p), caches.delete(p);
         })
       )
     )
-  ), a.clients.claim();
+  ), e.clients.claim();
 });
 self.addEventListener("fetch", (s) => {
   console.log("[ServiceWorker] Fetch", s.request.url), s.respondWith(
-    fetch(s.request).catch(() => caches.open(i).then((e) => (console.log(s.request), e.match(s.request.url))))
+    fetch(s.request).catch(() => caches.open(i).then((a) => (console.log(s.request), a.match(s.request.url))))
   );
 });
