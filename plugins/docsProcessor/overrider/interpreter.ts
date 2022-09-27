@@ -93,6 +93,8 @@ class FileExecutor {
                             return i;
                         }
                     }
+
+                    return this.content.length - 1;
                 }
 
                 return l;
