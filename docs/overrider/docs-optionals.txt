@@ -9,3 +9,7 @@ modify "returns"."0" ~ "EntityAPI | nil"
 ---
 index "types".*>{"name":"ModelPart"}."methods".*>{"name":"getParent"}
 modify "returns"."0" ~ "ModelPart | nil"
+
+---
+index "types".*>{"name":"RendererAPI"}."methods".*>{"name":"getCameraPos"}
+modify "returns"."0" ~ "Vector3 | nil"
