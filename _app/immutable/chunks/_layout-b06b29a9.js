@@ -1,1 +1,0 @@
-import{v as e,l as t}from"./_docs_all-8563f3b3.js";let a=async function(){return{docs:await e[t](),base:"/latest/",showingEverything:!1,everythingSwitcher:"/latest/all",version:"latest",forceShowTable:!1}};const s=Object.freeze(Object.defineProperty({__proto__:null,load:a},Symbol.toStringTag,{value:"Module"}));export{s as _,a as l};
