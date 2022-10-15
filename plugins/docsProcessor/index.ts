@@ -101,7 +101,7 @@ export default async function docsProcessor() {
 
                             let exampleExtractor = new ExampleExtractor(examples);
                             let extractedExamples = exampleExtractor.getExamples(version);
-                            exampleExtractor.injectExamples(transformed.result, extractedExamples);
+                            exampleExtractor.injectExamples(transformed.result, extractedExamples, version);
 
                             await executeFile(transformed.result, path.join(docsPath, "overrider"), "docs", version);
                             let result = JSON.stringify(transformed.result);

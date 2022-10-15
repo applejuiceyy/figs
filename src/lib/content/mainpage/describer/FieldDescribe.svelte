@@ -7,16 +7,20 @@
 
     import { base } from "$app/paths";
 
-    import Highlight from "$lib/highlighter/Highlight.svelte";
     import Code from "$lib/Code.svelte";
 
     import MethodDescribe from "./MethodDescribe.svelte";
     import { extractIdentifiers } from "../typePicker";
 
     import DescribeRoot from "../DescribeRoot.svelte";
+    
+    import SlottedTranslatableKey from "$lib/language/SlottedTranslatableKey.svelte";
+    import Intertweener, { type Property } from "$lib/intertween/Intertweener.svelte";
+    import { generateChunks } from "$lib/intertween/chunker";
 
-    import TranslatableKey from "$lib/language/TranslatableKey.svelte";
     import type DocsInterface from "$lib/docs/statistics";
+    import Highlight from "$lib/intertween/highlight/Highlight.svelte";
+    import { generateHighlightChunks } from "$lib/intertween/tokenize/highlight";
 
 
 
@@ -36,21 +40,24 @@
     export let path: string;
     export let classi: DocsInterface;
 
-    export let highlight: string[] = [];
+    export let titleProperties: Property[] = [];
+    export let descriptionProperties: Property[] = [];
 </script>
 
-<DescribeRoot example={field.example ?? null} classi={classi} forceSmall={forceSmall} highlightTitle={highlight.includes("title")} path={path}>
+<DescribeRoot example={field.example ?? null} classi={classi} forceSmall={forceSmall}>
     <StyledItem slot="title" src={field_src} href={base + path + qualifiedName} wrap="h1" color="dark" id={setId ? qualifiedName : null}>
-        {qualifiedName}
+        <Intertweener text={qualifiedName} properties={titleProperties}/>
     </StyledItem>
 
-    <div class:highlight={highlight.includes("description")}>
-        <TranslatableKey key={field.description} warn focus/>
+    <div>
+        <SlottedTranslatableKey key={field.description} warn let:value={value}>
+            <Intertweener text={value} properties={[generateChunks(value), ...descriptionProperties]}/>
+        </SlottedTranslatableKey>
     </div>
 
     <div class="code-example filled" style:margin-top="50px">
         <Code>
-            <Highlight path={path} code={field.name + ": " + field.type} hoverHighlight={(inlineTypeDocs && field.type in classi.types) ? [] : extractIdentifiers(classi, field.type, field.name.length + 2)}></Highlight>
+            <Intertweener text={field.name + ": " + field.type} properties={[generateHighlightChunks(field.name + ": " + field.type), {component: Highlight, ranges: inlineTypeDocs ? [] : [...extractIdentifiers(classi, field.type, field.name.length + 2)]}]}/>
         </Code>
 
         {#if inlineTypeDocs && field.type in classi.types}
@@ -81,11 +88,5 @@
             grid-row: 1 / 3;
             grid-column: 2;
         }
-    }
-
-        @import "src/app";
-
-    .highlight {
-        .highlig();
     }
 </style>

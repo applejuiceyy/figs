@@ -1,15 +1,13 @@
 <script type="ts">
     import type DocsInterface from "$lib/docs/statistics";
 
-    import type { SvelteComponent } from "svelte/internal";
-
-    import { activePopups } from "./Hint.svelte";
+    import { activePopups } from "./Highlight.svelte";
 
     export let classi: DocsInterface | null;
 
     let brutePopupComponents = import.meta.glob("./popups/*.svelte", {eager: true, import: "default"});
 
-    let popupComponents: {[item: string]: SvelteComponent} = {};
+    let popupComponents: {[item: string]: ConstructorOfATypedSvelteComponent} = {};
 
     Object.entries(brutePopupComponents).forEach(([key, val]) => {
         let chunks = key.split("/");

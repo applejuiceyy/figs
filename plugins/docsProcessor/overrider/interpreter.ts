@@ -4,6 +4,8 @@ import parse from "../pathing";
 import { HistoryTracker } from "../pathing/accessor";
 import includes from "../version";
 
+// TODO: make something not abhorrent
+
 export default async function executeFile(obj, overrideFolder, name, version) {
     let content = await fs.readFile(path.join(overrideFolder, name + ".txt"), {encoding: "utf-8"});
     await (new FileExecutor(content, obj, overrideFolder, name, version)).run();
@@ -71,7 +73,6 @@ class FileExecutor {
 
             if (command === "version") {
                 let versions = content.split(",").map(val => val.trim());
-                console.log(includes(versions, this.version));
                 applies = applies && includes(versions, this.version);
             }
             else if (command === "index") {
@@ -86,6 +87,10 @@ class FileExecutor {
                 }
 
                 if (l === null) {
+                    if (applies) {
+                        console.warn(`Overrider at ${this.name}:${idx} does not have targets for ${this.version}`);
+                    }
+
                     for (; i < this.content.length; i++) {
                         let {command} = this.content[i];
 

@@ -11,7 +11,7 @@
     import type { Class, Enum, Field, Method } from "$lib/typings/rewrite_docs";
 
     import { createEventDispatcher } from "svelte";
-    import TranslatableKey from "$lib/language/TranslatableKey.svelte";
+    import SlottedTranslatableKey from "$lib/language/SlottedTranslatableKey.svelte";
 import SidebarCategory from "./SidebarCategory.svelte";
     export let classi: DocsInterface;
 
@@ -55,12 +55,18 @@ import SidebarCategory from "./SidebarCategory.svelte";
 
 <div class="sidebar-viewer">
     <div class="fields-container">
-        <StyledItem on:click={() => dispatcher("select")} href="{base}{everythingSwitch}" src={klass_src}><TranslatableKey key="show-{everything ? "not-" : ""}everything"/></StyledItem>
+        <StyledItem on:click={() => dispatcher("select")} href="{base}{everythingSwitch}" src={klass_src}>
+            <SlottedTranslatableKey key="show-{everything ? "not-" : ""}everything" let:value>
+                {value}
+            </SlottedTranslatableKey>
+        </StyledItem>
     </div>
 
     <article>
         <h1 class="tab">
-            <TranslatableKey key="global-objects"/>
+            <SlottedTranslatableKey key="global-objects" let:value>
+                {value}
+            </SlottedTranslatableKey>
         </h1>
 
         {#each sortedMethods as method}
@@ -73,7 +79,9 @@ import SidebarCategory from "./SidebarCategory.svelte";
 
     <article>
         <h1 class="tab">
-            <TranslatableKey key="misc-types"/>
+            <SlottedTranslatableKey key="misc-types" let:value>
+                {value}
+            </SlottedTranslatableKey>
         </h1>
         {#each groupedClasses as [name, clss]}
             <SidebarCategory on:select={() => dispatcher("select")} name={name} clss={clss} path={path}/>
@@ -82,7 +90,9 @@ import SidebarCategory from "./SidebarCategory.svelte";
 
     <article>
         <h1 class="tab">
-            <TranslatableKey key="misc-enums"/>
+            <SlottedTranslatableKey key="misc-enums" let:value>
+                {value}
+            </SlottedTranslatableKey>
         </h1>
         {#each sortedEnums as en}
             <StyledItem on:click={() => dispatcher("select")} href="{base}{path}{en.name}" src={klass_src}>{en.name}</StyledItem>

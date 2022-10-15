@@ -8,12 +8,14 @@
     
     import MethodDescribe from "./MethodDescribe.svelte";
     import FieldDescribe from "./FieldDescribe.svelte";
-    import Highlight from "$lib/highlighter/Highlight.svelte";
     import Code from "$lib/Code.svelte";
     import DescribeRoot from "../DescribeRoot.svelte";
-    import TranslatableKey from "$lib/language/TranslatableKey.svelte";
-import type DocsInterface from "$lib/docs/statistics";
+    import type DocsInterface from "$lib/docs/statistics";
     import metainfo from "$lib/docs/metainfo";
+    import SlottedTranslatableKey from "$lib/language/SlottedTranslatableKey.svelte";
+    import Intertweener, { type Property } from "$lib/intertween/Intertweener.svelte";
+    import { generateChunks } from "$lib/intertween/chunker";
+    import Highlight from "$lib/intertween/highlight/Highlight.svelte";
 
 
     export let klass: Class;
@@ -24,22 +26,31 @@ import type DocsInterface from "$lib/docs/statistics";
     export let path: string;
     export let classi: DocsInterface;
 
-    export let highlight: string[] = [];
-
+    export let titleProperties: Property[] = [];
+    export let descriptionProperties: Property[] = [];
+ 
     export let classesShowContent: boolean = true;
 </script>
 
 <div class="joiner">
-    <DescribeRoot example={klass.example ?? null} classi={classi} forceSmall={forceSmall} id={klass.name} highlightTitle={highlight.includes("title")} path={path}>
+    <DescribeRoot example={klass.example ?? null} classi={classi} forceSmall={forceSmall} id={klass.name}>
         <svelte:fragment slot="title">
-            <StyledItem src={klass_src} href={base + path + klass.name} wrap="h1" color="dark" id={setId ? klass.name : null} style={klass.parent === undefined ? "" : "margin-bottom: 0px;"}>{klass.name}</StyledItem>
+            <StyledItem src={klass_src} href={base + path + klass.name} wrap="h1" color="dark" id={setId ? klass.name : null} style={klass.parent === undefined ? "" : "margin-bottom: 0px;"}>
+                <Intertweener text={klass.name} properties={titleProperties}/>
+            </StyledItem>
             {#if klass.parent !== undefined}
-                <p style:padding-bottom="5px" style:margin-top="0" style:margin-bottom="25px">subclasses <Code style="display: inline;"><Highlight path={path} code={klass.parent} hoverHighlight={[{range: [0, klass.parent.length], type: "docs", name: klass.parent}]}></Highlight></Code></p>
+                <p style:padding-bottom="5px" style:margin-top="0" style:margin-bottom="25px">
+                    subclasses<Code style="display: inline;">
+                        <Intertweener text={klass.parent} properties={[{component: Highlight, ranges: [{start: 0, stop: klass.parent.length, props: {type: "docs", name: klass.parent}}]}]}/>
+                    </Code>
+                </p>
             {/if}
         </svelte:fragment>
         
-        <div class:highlight={highlight.includes("description")}>
-            <TranslatableKey key={klass.description} warn focus/>
+        <div>
+            <SlottedTranslatableKey key={klass.description} warn let:value={value}>
+                <Intertweener text={value} properties={[generateChunks(value), ...descriptionProperties]}/>
+            </SlottedTranslatableKey>
         </div>
 
         {#if Object.values(klass.metatable).length > 0}
@@ -84,12 +95,6 @@ import type DocsInterface from "$lib/docs/statistics";
 </div>
 
 <style lang="less">
-    @import "src/app";
-
-    .highlight {
-        .highlig();
-    }
-
     .joiner {
         position: relative;
         padding-top: 20px;

@@ -68,9 +68,8 @@
 
 {#key gravityAction}
     <code style={style} style:outline={gravityAction !== null && fell ? '1px solid black' : ''} style:margin={gravityAction !== null && fell ? '0' : ''} style:background-image={breaking === -1 ? "" : "url(" + breakStages["./resource/breaking/destroy_stage_" + breaking + ".png"] + ")"} use:conditionalAction={{action: gravityAction, params: {active: true, shadowElement: true}, condition: gravityAction !== null && fell}}>
-        <slot/>
-
-        <button tabindex="-1" aria-hidden="true" on:mousedown={handleMouseDown} on:mouseup={handleMouseUp} on:mouseleave={handleMouseUp} class="hammer-button">
+        
+        <slot/><button tabindex="-1" aria-hidden="true" on:mousedown={handleMouseDown} on:mouseup={handleMouseUp} on:mouseleave={handleMouseUp} class="hammer-button">
             <svg style:color="white" style:touch-action="none" style:user-select="none" href={hammer} width="16" height="16"/>
         </button>
     </code>
@@ -105,6 +104,8 @@
 
         image-rendering: crisp-edges;
         background-blend-mode: screen;
+        
+        white-space: pre-wrap;
     }
 
     .hammer-button {

@@ -1,6 +1,6 @@
 <script>
     import { base } from "$app/paths";
-    import TranslatableKey from "$lib/language/TranslatableKey.svelte";
+    import SlottedTranslatableKey from "$lib/language/SlottedTranslatableKey.svelte";
 
     import versions from "docs:all";
     import latest from "docs:latest";
@@ -9,7 +9,9 @@
 <div class="version-picker">
     <div class="version-picker-content">
         <div class="version-picker-title">
-            <TranslatableKey key="pick-a-version"/>
+            <SlottedTranslatableKey key="pick-a-version" let:value>
+                {value}
+            </SlottedTranslatableKey>
         </div>
         <div class="version-picker-list">
             <a href="{base}/latest">latest ({latest})</a>

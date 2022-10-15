@@ -1,30 +1,7 @@
-<script context="module">
-    import prism from "prismjs"
-    import lang from "./lua";
-</script>
-
 <script type="ts">
-    import transform from "./injectHighlights";
-    import type { Hint } from "$lib/typings/examples_typings";
-    import ScaffoldingHint from "./ScaffoldingHint.svelte";
-
-    import "prismjs/themes/prism-dark.css"
-
-    export let code: string;
-    export let hoverHighlight: Hint[];
-    export let path: string;
-
-    let tokens: ReturnType<typeof transform>;
-    let ready: string;
-
-    $: {
-        tokens = transform(prism.tokenize(code, lang), hoverHighlight);
-        
-    }
+    export let type: string;
 </script>
-
-<!-- html moment -->
-{#each tokens as token}{@const format = token.content.replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>")}<ScaffoldingHint path={path} hints={token.hints}><span class:token={true} class={token.type}>{@html format}</span></ScaffoldingHint>{/each}
+<span class="token {type}"><slot/></span>
 
 <style>
     /* These rules were taken from prismjs's sources except modified to fit dark and white themes */

@@ -12,7 +12,7 @@
     import stores from "$lib/state/stores";
     import SidebarView from "$lib/content/sidebar/SidebarView.svelte";
 
-    import HintOverlay from "$lib/highlighter/HintOverlay.svelte";
+    import HintOverlay from "$lib/intertween/highlight/HintOverlay.svelte";
 
     import state from "$lib/state/stores";
     import load from "$lib/state/loading";
@@ -29,7 +29,7 @@
     import NavBarFloater from "$lib/content/navbar/NavBarFloater.svelte";
     import NavBarExpandButton from "$lib/content/navbar/NavBarExpandButton.svelte";
     import NavBarSearcher from "$lib/content/navbar/NavBarSearcher.svelte";
-    import TranslatableKey from "$lib/language/TranslatableKey.svelte";
+    import SlottedTranslatableKey from "$lib/language/SlottedTranslatableKey.svelte";
     import pool from "$lib/language/translator";
 
     import eh from "$lib/resource/status/eh.png";
@@ -75,18 +75,14 @@
     let classi: DocsInterface | null;
 
     $: {
-        let docs = ($page.data as any).docs;
+        let docs = $page.data.docs;
         if (docs === undefined) {
             classi = null;
         }
         else {
-            classi = new stats(($page.data as any).docs);
+            classi = new stats(docs);
         }
     }
-
-    let stuffs: any;
-
-    $: stuffs = ($page.data as any);
 
     let searcher: NavBarSearcher;
 
@@ -102,6 +98,9 @@
         holdingCtrl = ev.ctrlKey;
     }
 
+
+
+    // loader indicator
     let finishLoad = () => {}
     beforeNavigate(() => {
         finishLoad();
@@ -140,37 +139,47 @@
     <NavBar>
         <NavBarLink on:click={increaseStamina} inline href={base + "/"}><span style:font-size={(Math.max(stamina, 10) - 9) + "em"}>FIGS!!</span></NavBarLink>
 
-        <NavBarSearcher bind:this={searcher} destination="{base}{stuffs.base}search"/>
+        <NavBarSearcher bind:this={searcher} destination="{base}{$page.data.base}search"/>
 
         <NavBarFloater>
-            <div class="table-toggle" style:display={stuffs.forceShowTable ? "none" : ""}>
+            <div class="table-toggle" style:display={$page.data.forceShowTable ? "none" : ""}>
                 <NavBarButton on:click={()=>expanded = !expanded}>
-                    <TranslatableKey key={expanded? "hide-table" : "show-table"}/>
+                    <SlottedTranslatableKey key={expanded? "hide-table" : "show-table"} let:value>
+                        {value}
+                    </SlottedTranslatableKey>
                 </NavBarButton>
             </div>
 
             <NavBarExpandButton>
-                <TranslatableKey key="content"/>
+                <SlottedTranslatableKey key="content" let:value>
+                    {value}
+                </SlottedTranslatableKey>
             </NavBarExpandButton>
         </NavBarFloater>
 
         <svelte:fragment slot="expanded">
-            <NavBarLink href="{base}{stuffs.base}fav">
-                <TranslatableKey key="favourites"/>
+            <NavBarLink href="{base}{$page.data.base}fav">
+                <SlottedTranslatableKey key="favourites" let:value>
+                    {value}
+                </SlottedTranslatableKey>
             </NavBarLink>
 
             <NavBarDropdown>
-                <TranslatableKey key="preferences"/>
+                <SlottedTranslatableKey key="preferences" let:value>
+                    {value}
+                </SlottedTranslatableKey>
 
                 <svelte:fragment slot="dropdown">
                     <NavBarButton on:click={()=>$stores.readerEnabled = !$stores.readerEnabled}>
-                        <TranslatableKey key={$stores.readerEnabled ? "disable-focus" : "enable-focus"} />
+                        <SlottedTranslatableKey key={$stores.readerEnabled ? "disable-focus" : "enable-focus"} let:value>
+                            {value}
+                        </SlottedTranslatableKey>
                     </NavBarButton>
                 </svelte:fragment>
             </NavBarDropdown>
 
             <NavBarDropdown>
-                {(stuffs.version ?? "Version").toUpperCase()}
+                {($page.data.version ?? "Version").toUpperCase()}
 
                 <svelte:fragment slot="dropdown">
                     <NavBarLink href="{base}/latest">LATEST ({latest})</NavBarLink>
@@ -202,18 +211,24 @@
         </svelte:fragment>
     </NavBar>
 
-    <div class="category" class:expanded={expanded || stuffs.forceShowTable}>
+    <div class="category" class:expanded={expanded || $page.data.forceShowTable}>
         <div class="category-flyover">
             <div class="category-sticker">
                 {#if classi === null}
-                    <span style:padding="10px"><TranslatableKey key="version-not-selected"/></span>
+                    <span style:padding="10px">
+                        <SlottedTranslatableKey key="version-not-selected" let:value>
+                            {value}
+                        </SlottedTranslatableKey>
+                    </span>
                 {:else}
-                    <SidebarView classi={classi} everythingSwitch={stuffs.everythingSwitcher} everything={!!stuffs.showingEverything} path={stuffs.base ?? "/"} on:select={() => expanded = false}/>
+                    <SidebarView classi={classi} everythingSwitch={$page.data.everythingSwitcher} everything={!!$page.data.showingEverything} path={$page.data.base ?? "/"} on:select={() => expanded = false}/>
                 {/if}
 
 
                 <footer>
-                    <TranslatableKey key="made-by-applejuice"/>
+                    <SlottedTranslatableKey key="made-by-applejuice" let:value>
+                        {value}
+                    </SlottedTranslatableKey>
                 </footer>
             </div>
         </div>
@@ -234,7 +249,9 @@
 
 <div class="corner-flyer">
     <button class="flyer-section" on:click={() => window.scrollTo(0, 0)}>
-        <TranslatableKey key="jump-to-top"/>
+        <SlottedTranslatableKey key="jump-to-top" let:value>
+            {value}
+        </SlottedTranslatableKey>
     </button>
     <noscript class="flyer-section">Warning: most things in this website won't work without javascript</noscript>
 

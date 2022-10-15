@@ -1,7 +1,8 @@
 //@ts-ignore: no typings
 import parser from "luaparse";
-import type { Hint } from "$lib/typings/examples_typings";
-import type DocsInterface from "./statistics";
+import type DocsInterface from "../../docs/statistics";
+import type {Property, Range} from "../Intertweener.svelte";
+import Highlight from "./Highlight.svelte";
 
 
 function walk(node: any, fn: (node: any) => boolean) {
@@ -32,30 +33,37 @@ function walkFor(node: any, entries: {[item: string]: (node: any) => boolean}) {
 }
 
 
-export function generateHints(code: string, classi: DocsInterface): Hint[] {
+export function generateHints(code: string, classi: DocsInterface): Property {
     let content = parser.parse(code, {
         comments: true,
         scope: true,
         ranges: true,
     })
 
-    return [...collectComments(content), ...collectLocals(content), ...collectIdentifier(content, classi), ...collectPrimitives(content)]
+    return {
+        ranges: [...collectComments(content), ...collectLocals(content), ...collectIdentifier(content, classi), ...collectPrimitives(content)].sort((a, b) => a.start - b.start),
+        component: Highlight
+    }
 }
 
-function collectComments(node: any): Hint[] {
-    return node.comments.map((element: any) => ({range: element.range, name: "comment", type: "inherent"}));
+function collectComments(node: any): Range[] {
+    return node.comments.map((element: any) => ({start: element.range[0], stop: element.range[1], props: {name: "comment", type: "inherent"}}));
 }
 
-function collectLocals(node: any): Hint[] {
-    let ret: Hint[] = [];
+function collectLocals(node: any): Range[] {
+    let ret: Range[] = [];
 
     walkFor(node.body, {
         Identifier: function(node: any) {
             if (node.isLocal) {
                 ret.push({
-                    name: `# ${node.name} is a local variable\nThere should be a variable declaration somewhere in this example`,
-                    type: "inherent",
-                    range: [node.range[0], node.range[1] - 1]
+                    start: node.range[0],
+                    stop: node.range[1],
+
+                    props: {
+                        name: `# ${node.name} is a local variable\nThere should be a variable declaration somewhere in this example`,
+                        type: "inherent",
+                    }
                 })
             }
 
@@ -66,7 +74,7 @@ function collectLocals(node: any): Hint[] {
     return ret
 }
 
-function getReferenceAndHints(node: any, classi: DocsInterface): [ReturnType<DocsInterface["searchInClass"]>, Hint[]] {
+function getReferenceAndHints(node: any, classi: DocsInterface): [ReturnType<DocsInterface["searchInClass"]>, Range[]] {
     if (node.type === "Identifier") {
         if (node.islocal) {
             return [null, []]
@@ -80,9 +88,13 @@ function getReferenceAndHints(node: any, classi: DocsInterface): [ReturnType<Doc
 
         return [ret, [
             {
-                range: [node.range[0], node.range[1] - 1],
-                type: "docs",
-                name: ret.value.name
+                start: node.range[0],
+                stop: node.range[1],
+
+                props: {
+                    type: "docs",
+                    name: ret.value.name
+                }
             }
         ]]
     }
@@ -114,9 +126,13 @@ function getReferenceAndHints(node: any, classi: DocsInterface): [ReturnType<Doc
         return [what, [
             ...prev[1],
             {
-                range: [node.identifier.range[0], node.identifier.range[1] - 1],
-                type: "docs",
-                name: `${cls.value.name}.${what.value.name}`
+                start: node.identifier.range[0],
+                stop: node.identifier.range[1],
+
+                props: {
+                    type: "docs",
+                    name: `${cls.value.name}.${what.value.name}`
+                }
             }
         ]]
     }
@@ -124,8 +140,8 @@ function getReferenceAndHints(node: any, classi: DocsInterface): [ReturnType<Doc
     return [null, []]
 }
 
-function collectIdentifier(node: any, classi: DocsInterface): Hint[] {
-    let ret: Hint[] = [];
+function collectIdentifier(node: any, classi: DocsInterface): Range[] {
+    let ret: Range[] = [];
 
     walkFor(node.body, {
         CallExpression: function(node: any) {
@@ -143,14 +159,18 @@ function collectIdentifier(node: any, classi: DocsInterface): Hint[] {
 }
 
 function collectPrimitives(node: any) {
-    let ret: Hint[] = [];
+    let ret: Range[] = [];
 
     walkFor(node.body, {
         NumericLiteral: function(node: any) {
             ret.push({
-                name: "Integer",
-                type: "primitive",
-                range: [node.range[0], node.range[1] - 1]
+                start: node.range[0],
+                stop: node.range[1],
+
+                props: {
+                    name: "Integer",
+                    type: "primitive"
+                }
             })
 
             return true;
@@ -158,9 +178,13 @@ function collectPrimitives(node: any) {
 
         BooleanLiteral: function(node: any) {
             ret.push({
-                name: "Boolean",
-                type: "primitive",
-                range: [node.range[0], node.range[1] - 1]
+                start: node.range[0],
+                stop: node.range[1],
+
+                props: {
+                    name: "Boolean",
+                    type: "primitive"
+                }
             })
 
             return true;
@@ -168,9 +192,13 @@ function collectPrimitives(node: any) {
 
         StringLiteral: function(node: any) {
             ret.push({
-                name: "String",
-                type: "primitive",
-                range: [node.range[0], node.range[1] - 1]
+                start: node.range[0],
+                stop: node.range[1],
+
+                props: {
+                    name: "String",
+                    type: "primitive"
+                }
             })
 
             return true;

@@ -1,46 +1,20 @@
 <script type="ts">
     import Code from "$lib/Code.svelte";
 
-
-    import type { Example } from "$lib/typings/examples_typings";
-    import Highlight from "$lib/highlighter/Highlight.svelte";
-
     import Background from "./Background.svelte";
     import StarToggle from "./StarToggle.svelte";
-    import { generateHints } from "$lib/docs/parse";
+    import { generateHints } from "$lib/intertween/highlight/parse";
     import type DocsInterface from "$lib/docs/statistics";
+    import Intertweener from "$lib/intertween/Intertweener.svelte";
+    import { generateHighlightChunks } from "$lib/intertween/tokenize/highlight";
 
 
     export let forceSmall: boolean;
 
     export let id: string | null = null;
     export let highlightTitle: boolean = false;
-    export let path: string;
     export let classi: DocsInterface;
     export let example: string | null = null;
-
-    let scroll: number;
-    let height: number;
-    let exampleContainer: HTMLDivElement | null = null;
-    let exampleElement: HTMLDivElement | null = null;
-
-    $: {
-        if (!import.meta.env.SSR && exampleContainer !== null && exampleElement !== null && example !== null) {
-            if (!forceSmall && matchMedia("only screen and (min-width: 1000px)").matches) {
-                let bound = exampleContainer.getBoundingClientRect();
-                let innerbound = exampleElement.getBoundingClientRect();
-                scroll;
-                let available = bound.height - innerbound.height;
-                let scrollPercentage = 1 - bound.top / height;
-                exampleElement.style.top = (Math.min(scrollPercentage, 1) * available) + "px";
-                exampleElement.style.position = "absolute";
-            }
-            else {
-                exampleElement.style.top = "";
-                exampleElement.style.position = "";
-            }
-        }
-    }
 </script>
 
 <Background forceFilled={forceSmall} percentage={0.7}>
@@ -54,11 +28,10 @@
         {/if}
 
         {#if example !== null}
-            <div tabindex="0" class="code-example" class:force-small={forceSmall} bind:this={exampleContainer}>
-                <div class="code-displace" bind:this={exampleElement}>
+            <div tabindex="0" class="code-example" class:force-small={forceSmall}>
+                <div class="code-displace">
                     <Code>
-                        <Highlight path={path} code={example} hoverHighlight={[...generateHints(example, classi)]}></Highlight>
-                    </Code>
+                        <Intertweener text={example} properties={[generateHighlightChunks(example), generateHints(example, classi)]}/></Code>
                 </div>
             </div>
         {:else}
@@ -122,5 +95,3 @@
         }
     }
 </style>
-
-<svelte:window bind:scrollY={scroll} bind:innerHeight={height}/>

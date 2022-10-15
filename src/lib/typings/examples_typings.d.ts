@@ -3,17 +3,5 @@ export default interface Examples {
 }
 
 interface Example {
-    content: string,
-    hints: Hint[]
+    content: string
 }
-
-export interface HintContent {
-    type: "docs" | "primitive" | "inherent",
-    name: string,
-    travel?: string
-}
-
-interface Hint extends HintContent {
-    range: [number, number]
-}
-

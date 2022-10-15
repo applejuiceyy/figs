@@ -5,15 +5,17 @@
     import StyledItem from "$lib/content/sidebar/StyledItem.svelte";
     import {base} from "$app/paths";
     
-    import Highlight from "$lib/highlighter/Highlight.svelte";
     import Code from "$lib/Code.svelte";
-    import type { Hint } from "$lib/typings/examples_typings";
     import type DocsInterface from "$lib/docs/statistics";
 
     import { extractIdentifiers } from "../typePicker";
     import DescribeRoot from "../DescribeRoot.svelte";
 
-    import TranslatableKey from "$lib/language/TranslatableKey.svelte";
+    import SlottedTranslatableKey from "$lib/language/SlottedTranslatableKey.svelte";
+    import Intertweener, { type Property, type Range } from "$lib/intertween/Intertweener.svelte";
+    import { generateChunks } from "$lib/intertween/chunker";
+    import Highlight from "$lib/intertween/highlight/Highlight.svelte";
+    import { generateHighlightChunks } from "$lib/intertween/tokenize/highlight";
 
     export let hostClass: Class;
     export let method: Method;
@@ -29,9 +31,9 @@
     $: shouldShowClass = hostClass.name !== "globals";
     $: qualifiedName = (shouldShowClass? hostClass.name + "." : "") + method.name;
 
-    function processOverload(overload: Parameter[], returns: string): [string, Hint[]] {
+    function processOverload(overload: Parameter[], returns: string): [string, Property] {
         let ret = "";
-        let hints: Hint[] = [];
+        let hints: Range[] = [];
 
         let shouldUseColon = !method.static;
 
@@ -60,7 +62,7 @@
 
         ret += returns;
 
-        return [ret, hints];
+        return [ret, {component:Highlight, ranges: hints}];
     }
 
     let superclass: string | null;
@@ -69,29 +71,34 @@
     
     export let path: string;
 
-    export let highlight: string[] = [];
+    export let titleProperties: Property[] = [];
+    export let descriptionProperties: Property[] = [];
 </script>
 
-<DescribeRoot example={method.example ?? null} classi={classi} forceSmall={forceSmall} id={qualifiedName} highlightTitle={highlight.includes("title")} path={path}>
+<DescribeRoot example={method.example ?? null} classi={classi} forceSmall={forceSmall} id={qualifiedName}>
     <svelte:fragment slot="title">
         <StyledItem src={method_src} href={base + path + qualifiedName} wrap="h1" color="dark" id={setId ? qualifiedName : null} style={superclass === null ? "" : "margin-bottom: 0px;"}>
-            {qualifiedName}
+            <Intertweener text={qualifiedName} properties={titleProperties}/>
         </StyledItem>
         {#if superclass !== null}
-            <p style:margin-left="5px" style:padding-bottom="5px" style:margin-top="0" style:margin-bottom="25px">Inherited from <Code style="display: inline;"><Highlight path={path} code={superclass} hoverHighlight={[{range: [0, superclass.length], type: "docs", name: superclass}]}></Highlight></Code></p>
+            <p style:margin-left="5px" style:padding-bottom="5px" style:margin-top="0" style:margin-bottom="25px">
+                Inherited from <Code style="display: inline;">
+                    <Intertweener text={superclass} properties={[{component: Highlight, ranges: [{start: 0, stop: superclass.length, props:{type: "docs", name: superclass}}]}]}/>
+                </Code>
+            </p>
         {/if}
     </svelte:fragment>
 
-    <div class:highlight={highlight.includes("description")}>
-        <TranslatableKey key={method.description} warn focus/>
+    <div>
+        <SlottedTranslatableKey key={method.description} warn let:value={value}>
+            <Intertweener text={value} properties={[generateChunks(value), ...descriptionProperties]}/>
+        </SlottedTranslatableKey>
     </div>
 
     <div class="code-example filled" style:margin-top="50px">
         {#each method.parameters as overload, idx}
         {@const processed = processOverload(overload, method.returns[idx])}
-            <Code>
-                <Highlight path={path} code={processed[0]} hoverHighlight={processed[1]}></Highlight>
-            </Code>
+            <Code><Intertweener text={processed[0]} properties={[generateHighlightChunks(processed[0]), processed[1]]}/></Code>
         {/each}
     </div>
 </DescribeRoot>
@@ -110,11 +117,5 @@
             grid-row: 1 / 3;
             grid-column: 2;
         }
-    }
-
-    @import "src/app";
-
-    .highlight {
-        .highlig();
     }
 </style>

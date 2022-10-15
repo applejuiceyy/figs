@@ -36,7 +36,6 @@
             }
 
             waitingFetch = false;
-            console.log(window.innerHeight);
             if (visibility.getBoundingClientRect().top < window.innerHeight * 2)
             {
                 let ret = searcher.next();

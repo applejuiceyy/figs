@@ -3,13 +3,16 @@
     import Code from "$lib/Code.svelte";
 
     import type { Enum } from "$lib/typings/rewrite_docs";
-    import TranslatableKey from "$lib/language/TranslatableKey.svelte";
 
     import klass_src from "$lib/resource/class.webp?url";
     import StyledItem from "$lib/content/sidebar/StyledItem.svelte";
     
     import DescribeRoot from "../DescribeRoot.svelte";
-import type DocsInterface from "$lib/docs/statistics";
+    import type DocsInterface from "$lib/docs/statistics";
+
+    import SlottedTranslatableKey from "$lib/language/SlottedTranslatableKey.svelte";
+    import Intertweener, { type Property } from "$lib/intertween/Intertweener.svelte";
+    import { generateChunks } from "$lib/intertween/chunker";
 
     export let enum_: Enum;
     export let forceSmall: boolean = false;
@@ -19,14 +22,19 @@ import type DocsInterface from "$lib/docs/statistics";
 
     export let path: string;
 
-    export let highlight: string[] = [];
+    export let titleProperties: Property[] = [];
+    export let descriptionProperties: Property[] = [];
 </script>
 
-<DescribeRoot example={enum_.example ?? null} classi={classi} forceSmall={forceSmall} id={enum_.name} highlightTitle={highlight.includes("title")} path={path}>
-    <StyledItem slot="title" src={klass_src} href={base + path + enum_.name} wrap="h1" color="dark" id={setId ? enum_.name : null}>{enum_.name}</StyledItem>
+<DescribeRoot example={enum_.example ?? null} classi={classi} forceSmall={forceSmall} id={enum_.name}>
+    <StyledItem slot="title" src={klass_src} href={base + path + enum_.name} wrap="h1" color="dark" id={setId ? enum_.name : null}>
+        <Intertweener text={enum_.name} properties={titleProperties}/>
+    </StyledItem>
 
-    <div class:highlight={highlight.includes("description")}>
-        <TranslatableKey key={enum_.description} warn focus/>
+    <div>
+        <SlottedTranslatableKey key={enum_.description} warn let:value={value}>
+            <Intertweener text={value} properties={[generateChunks(value), ...descriptionProperties]}/>
+        </SlottedTranslatableKey>
     </div>
 
     <div class="entry-list">
@@ -42,11 +50,5 @@ import type DocsInterface from "$lib/docs/statistics";
     .entry-list {
         margin-left: 10px;
         display: grid;
-    }
-
-    @import "src/app";
-
-    .highlight {
-        .highlig();
     }
 </style>

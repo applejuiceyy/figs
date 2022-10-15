@@ -1,19 +1,17 @@
 <script context="module" type="ts">
-    import type { HintContent } from "$lib/typings/examples_typings";
     import { onDestroy } from "svelte";
 
-    export const activePopups: Writable<(HintContent & {id: number, span: Element})[]> = writable([]);
+    export const activePopups: Writable<({type: string, name: string, id: number, span: Element})[]> = writable([]);
 </script>
 
 <script type="ts">
     import {base} from "$app/paths";
-import { writable, type Writable } from "svelte/store";
+    import { writable, type Writable } from "svelte/store";
+    import { page } from "$app/stores";
 
-
-    export let type: HintContent["type"];
+    export let type: string;
     export let name: string;
-    export let travel: string | undefined;
-    export let path: string;
+    export let travel: string | null = null;
 
     let currentID: number | null = null;
     let span: HTMLSpanElement;
@@ -40,16 +38,11 @@ import { writable, type Writable } from "svelte/store";
     function noop(){return}
 </script>
 
-<svelte:element href={travel === undefined ? undefined : `${base}${path}${travel}`} this={travel === undefined ? "span" : "a"} bind:this={span} class="hint" on:mouseover={handleMouseOver} on:mouseout={handleMouseOut} on:blur={noop} on:focus={noop}><slot/></svelte:element>
+<svelte:element href={travel === null ? undefined : `${base}${$page.data.base}${travel}`} this={travel === undefined ? "span" : "a"} bind:this={span} class="hint" on:mouseover={handleMouseOver} on:mouseout={handleMouseOut} on:blur={noop} on:focus={noop}><slot/></svelte:element>
 
 <style>
-    .hint :global(.token) {
-        text-decoration: underline dotted currentColor;
-
-    }
-
     .hint {
+        text-decoration: underline dotted currentColor;
         color: inherit;
-        text-decoration: none;
     }
 </style>

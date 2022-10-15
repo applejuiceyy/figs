@@ -6,25 +6,33 @@ import FieldDescribe from "$lib/content/mainpage/describer/FieldDescribe.svelte"
 import MethodDescribe from "$lib/content/mainpage/describer/MethodDescribe.svelte";
 
 import pool from "$lib/language/translator";
+import TextMarker from "$lib/intertween/TextMarker.svelte";
+import type { Property } from "$lib/intertween/Intertweener.svelte";
+import { generateRangesFromOcurrences } from "$lib/intertween/chunker";
 
-let classOrEnum = (h: string) => (keys: string[], values: any[]) => {
+
+function generateProperties(what: string, output: string): Property[] {
+    return [{component: TextMarker, ranges: generateRangesFromOcurrences(what.toLowerCase(), output.toLowerCase())}]
+}
+
+let classOrEnum = (h: string) => (keys: string[], values: any[], what: string, output: string) => {
     if (keys[0] === "types") {
-        return { classesShowContent: false, this: ClassDescribe, klass: values[1], highlight: [h] }
+        return { classesShowContent: false, this: ClassDescribe, klass: values[1], [h]: generateProperties(what, output)}
     } else {
-        return { this: EnumDescribe, enum_: values[1], highlight: [h] }
+        return { this: EnumDescribe, enum_: values[1], [h]: generateProperties(what, output) }
     }
 }
 
 const spots = [
     {
         position: ["*", "*", "name"],
-        resolve: classOrEnum("title"),
+        resolve: classOrEnum("titleProperties"),
         id: (keys: string[], values: any[]) => values[1].name
     },
 
     {
         position: ["*", "*", "description"],
-        resolve: classOrEnum("description"),
+        resolve: classOrEnum("descriptionProperties"),
         id: (keys: string[], values: any[]) => values[1].name,
         transform: (val: string) => pool.getPresentableValue(val)
     },
@@ -33,16 +41,16 @@ const spots = [
 
     {
         position: ["types", "*", "methods", "*", "name"],
-        resolve: (keys: string[], values: any[]) => {
-            return {this: MethodDescribe, hostClass: values[1], method: values[3], highlight: ["title"]}
+        resolve: (keys: string[], values: any[], what: string, output: string) => {
+            return {this: MethodDescribe, hostClass: values[1], method: values[3], titleProperties: generateProperties(what, values[1].name + "." + output)}
         },
         id: (keys: string[], values: any[]) => `${values[1].name}.${values[3].name}`
     },
 
     {
         position: ["types", "*", "methods", "*", "description"],
-        resolve: (keys: string[], values: any[]) => {
-            return {this: MethodDescribe, hostClass: values[1], method: values[3], highlight: ["description"]}
+        resolve: (keys: string[], values: any[], what: string, output: string) => {
+            return {this: MethodDescribe, hostClass: values[1], method: values[3], descriptionProperties: generateProperties(what, output)}
         },
         id: (keys: string[], values: any[]) => `${values[1].name}.${values[3].name}`,
         transform: (val: string) => pool.getPresentableValue(val)
@@ -52,16 +60,16 @@ const spots = [
 
     {
         position: ["types", "*", "fields", "*", "name"],
-        resolve: (keys: string[], values: any[]) => {
-            return {this: FieldDescribe, hostClass: values[1], field: values[3], inlineTypeDocs: values[1].name === "globals", highlight: ["title"]}
+        resolve: (keys: string[], values: any[], what: string, output: string) => {
+            return {this: FieldDescribe, hostClass: values[1], field: values[3], inlineTypeDocs: values[1].name === "globals", titleProperties: generateProperties(what, values[1].name === "globals"? output : values[1].name + "." + output)}
         },
         id: (keys: string[], values: any[]) => `${values[1].name}.${values[3].name}`
     },
 
     {
         position: ["types", "*", "fields", "*", "description"],
-        resolve: (keys: string[], values: any[]) => {
-            return {this: FieldDescribe, hostClass: values[1], field: values[3], inlineTypeDocs: values[1].name === "globals", highlight: ["description"]}
+        resolve: (keys: string[], values: any[], what: string, output: string) => {
+            return {this: FieldDescribe, hostClass: values[1], field: values[3], inlineTypeDocs: values[1].name === "globals", descriptionProperties: generateProperties(what, output)}
         },
         id: (keys: string[], values: any[]) => `${values[1].name}.${values[3].name}`,
         transform: (val: string) => pool.getPresentableValue(val)
@@ -240,7 +248,7 @@ export default class DocsInterface {
 
                     if ((!ids.has(id)) && typeof result.value === "string" && output.toLowerCase().includes(what.toLowerCase())) {
                         ids.add(id);
-                        yield spot.resolve(result.keys, result.values);
+                        yield spot.resolve(result.keys, result.values, what, output);
                     }
                 }
             }

@@ -24,7 +24,7 @@ export class ExampleExtractor {
         return filtered;
     }
 
-    injectExamples(docs: any, examples: ExampleExtractor["examples"]) {
+    injectExamples(docs: any, examples: ExampleExtractor["examples"], version: string) {
         let entries = Object.entries(examples);
 
         for (let i = 0; i < entries.length; i++) {
@@ -80,6 +80,7 @@ export class ExampleExtractor {
                 }
 
                 if (!found) {
+                    console.warn(`Example injection could not find ${qualifiedName} in ${version}`)
                     continue
                 }
             }
