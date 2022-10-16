@@ -1,0 +1,1 @@
+import{w as l}from"./index-49f2ceed.js";function o(){const{subscribe:u,set:c,update:t}=l([]);return{subscribe:u,request(r){t(e=>[...e,r]);let n=!0;return()=>{n&&(n=!1,t(e=>{let s=e.findIndex(i=>i===r);return e.filter((i,f)=>f!==s)}))}}}}const a=o();export{a as l};
