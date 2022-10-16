@@ -373,4 +373,7 @@ ClickAction.onLeftClick:
 
 
 Animation.play:
-    content: animations.bbmodelName.animationName.play()
+    content: animations.bbmodelName.animationName:play()
+
+SoundAPI.playSound:
+    content: sounds:playSound("entity.bat.ambient", player:getPos(),1,1,false)
