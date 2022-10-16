@@ -427,3 +427,232 @@ Animation.play:
 SoundAPI.playSound:
     content: sounds:playSound("entity.bat.ambient", player:getPos(),1,1,false)
     author: JimmyHelp
+
+PlayerAPI.getExperienceProgress:
+    content: if player:getExperienceProgress() > .5 then
+    author: JimmyHelp
+    
+PlayerAPI.getSaturation:
+    content: if player:getSaturation() == 20 then
+    author: JimmyHelp
+    
+PlayerAPI.getFood:
+    content: if player:getFood() == 0 then
+    author: JimmyHelp
+    
+PlayerAPI.getExperienceLevel:
+    content: if player:getExperienceLevel() == 30 then
+    author: JimmyHelp
+    
+PlayerAPI.isFlying:
+    content: if player:isFlying() then
+    author: JimmyHelp
+    
+PlayerAPI.getModelType:
+    content: if player:getModelType() == "DEFAULT" then
+    author: JimmyHelp
+    
+PlayerAPI.isSkinLayerVisible:
+    content: if player:isSkinLayerVisible("HAT") then
+    author: JimmyHelp
+    
+PlayerAPI.getGamemode:
+    content: if player:getGamemode() and player:getGamemode() == "SURVIVAL" then
+    author: JimmyHelp
+        
+PlayerAPI.getBodyYaw:
+    content: models:setRot(0,player:getBodyYaw())
+    author: JimmyHelp
+            
+PlayerAPI.getActiveItem:
+    content: if player:getActiveItem().id == "minecraft:bow" then
+    author: JimmyHelp
+            
+PlayerAPI.getHealth:
+    content: if player:getHealth() == 20 then
+    author: JimmyHelp
+            
+PlayerAPI.getHeldItem:
+    content: if player:getHeldItem(false).id == "minecraft:diamond_sword" then
+    author: JimmyHelp
+            
+PlayerAPI.isLeftHanded:
+    content: if player:isLeftHanded() then
+    author: JimmyHelp
+            
+PlayerAPI.getActiveHand:
+    content: if player:getActiveHand() == "MAIN_HAND" then
+    author: JimmyHelp
+            
+PlayerAPI.getArmor:
+    content: if player:getArmor() == 20 then
+    author: JimmyHelp
+            
+PlayerAPI.getArrowCount:
+    content: if player:getArrowCount() > 0 then
+    author: JimmyHelp
+    
+PlayerAPI.isClimbing:
+    content: if player:isClimbing() then
+    author: JimmyHelp
+            
+PlayerAPI.isUsingItem:
+    content: if player:isUsingItem() then
+    author: JimmyHelp
+                
+PlayerAPI.getDeathTime:
+    content: if player:getDeathTime() > 0 then
+    author: JimmyHelp
+                
+PlayerAPI.getStingerCount:
+    content: if player:getStingerCount() > 0 then
+    author: JimmyHelp
+                
+PlayerAPI.getMaxHealth:
+    content: if player:getMaxHealth() == 20 then
+    author: JimmyHelp
+                
+PlayerAPI.getStatusEffects:
+    content: |-
+        for i, effect in ipairs(player:getStatusEffects()) do
+            if effect.name == "effect.minecraft.night_vision" then
+                log("Night vision")
+            end
+        end
+    author: JimmyHelp
+                
+PlayerAPI.getName:
+    content: if player:getName() == "JimmyHelp" then
+    author: JimmyHelp
+                
+PlayerAPI.getType:
+    content: if player:getType() == "minecraft:player" then
+    author: JimmyHelp
+                
+PlayerAPI.isLoaded:
+    content: if player:isLoaded() then
+    author: JimmyHelp
+                
+PlayerAPI.getItem:
+    content: if player:getItem(5).id == "minecraft:elytra" then
+    author: JimmyHelp
+                
+PlayerAPI.getRot:
+    content: models:setRot(player:getRot())
+    author: JimmyHelp
+                
+PlayerAPI.getFireTicks:
+    content: if player:getFireTicks() == 1 then
+    author: JimmyHelp
+                
+PlayerAPI.getFrozenTicks:
+    content: if player:getFrozenTicks() == 140 then
+    author: JimmyHelp
+                
+PlayerAPI.getPos:
+    content: models:setPos(player:getPos())
+    author: JimmyHelp
+                
+PlayerAPI.getLookDir:
+    content: models:setRot(player:getLookDir())
+    author: JimmyHelp
+                
+PlayerAPI.getMaxAir:
+    content: if player:getMaxAir() == 300 then
+    author: JimmyHelp
+                
+PlayerAPI.isHamburger:
+    content: if player:isHamburger() then
+    author: JimmyHelp
+                
+PlayerAPI.getDimensionName:
+    content: if player:getDimensionName() == "minecraft:overworld" then
+    author: JimmyHelp
+                
+PlayerAPI.getAir:
+    content: if player:getAir() < 0 then
+    author: JimmyHelp
+                
+PlayerAPI.getVelocity:
+    content: if player:getVelocity():length() > 0 then
+    author: JimmyHelp
+                
+PlayerAPI.getUUID:
+    content: if player:getUUID() == "5003b2ce-7a8d-4c56-8b91-ec705985fe08" then
+    author: JimmyHelp
+                    
+PlayerAPI.hasAvatar:
+    content: if player:hasAvatar() then
+    author: JimmyHelp
+                    
+PlayerAPI.getBoundingBox:
+    content: log(player:getBoundingBox())
+    author: JimmyHelp
+                        
+PlayerAPI.isGlowing:
+    content: if player:isGlowing() then
+    author: JimmyHelp
+                        
+PlayerAPI.getEyeY:
+    content: models:setPos(0,player:getEyeY())
+    author: JimmyHelp
+                        
+PlayerAPI.getEyeHeight:
+    content: models:setPos(0,player:getEyeHeight())
+    author: JimmyHelp
+                        
+PlayerAPI.getVehicle:
+    content: if player:getVehicle() and player:getVehicle():getType() == "minecraft:pig" then
+    author: JimmyHelp
+                            
+PlayerAPI.isOnGround:
+    content: if player:isOnGround() then
+    author: JimmyHelp
+                            
+PlayerAPI.isInvisible:
+    content: if player:isInvisible() then
+    author: JimmyHelp
+                            
+PlayerAPI.getPose:
+    content: if player:getPose() == "CROUCHING" then
+    author: JimmyHelp
+                            
+PlayerAPI.isSprinting:
+    content: if player:isSprinting() then
+    author: JimmyHelp
+                            
+PlayerAPI.isSilent:
+    content: if player:isSilent() then
+    author: JimmyHelp
+                            
+PlayerAPI.isSneaking:
+    content: if player:isSneaking() then
+    author: JimmyHelp
+                            
+PlayerAPI.isInLava:
+    content: if player:isInLava() then
+    author: JimmyHelp
+                            
+PlayerAPI.isInWater:
+    content: if player:isInWater() then
+    author: JimmyHelp
+                            
+PlayerAPI.isUnderwater:
+    content: if player:isUnderwater() then
+    author: JimmyHelp
+                            
+PlayerAPI.isInRain:
+    content: if player:isInRain() then
+    author: JimmyHelp
+                            
+PlayerAPI.isWet:
+    content: if player:isWet() then
+    author: JimmyHelp
+                            
+PlayerAPI.isOnFire:
+    content: if player:isOnFire() then
+    author: JimmyHelp
+                            
+PlayerAPI.getTargetedBlock:
+    content: if player:getTargetedBlock(true,4.5).id == "minecraft:grass_block" then
+    author: JimmyHelp
