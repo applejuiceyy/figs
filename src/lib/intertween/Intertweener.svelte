@@ -12,6 +12,8 @@
 </script>
 
 <script type="ts">
+    import WordBreaker from "./WordBreaker.svelte";
+
     export let text: string;
     export let properties: Property[];
     export let window: [number, number] | null = null;
@@ -56,4 +58,4 @@
     }
 </script>
 
-{#if thisProperty === null}{text.substring(actualWindow[0], actualWindow[1])}{:else if thisRanges.length === 0}<svelte:self text={text} properties={passingProperties} window={[actualWindow[0], actualWindow[1]]}/>{:else}<svelte:self text={text} properties={passingProperties} window={[actualWindow[0], thisRanges[0].start]}/>{#each thisRanges as range, id (id)}{@const frontTextEnd = id === thisRanges.length - 1 ? actualWindow[1] : thisRanges[id + 1].start}<svelte:component this={thisProperty.component} {...range.props}><svelte:self text={text} properties={passingProperties} window={[range.start, range.stop]}/></svelte:component><svelte:self text={text} properties={passingProperties} window={[range.stop, frontTextEnd]}/>{/each}{/if}
+{#if thisProperty === null}<WordBreaker text={text.substring(actualWindow[0], actualWindow[1])}/>{:else if thisRanges.length === 0}<svelte:self text={text} properties={passingProperties} window={[actualWindow[0], actualWindow[1]]}/>{:else}<svelte:self text={text} properties={passingProperties} window={[actualWindow[0], thisRanges[0].start]}/>{#each thisRanges as range, id (id)}{@const frontTextEnd = id === thisRanges.length - 1 ? actualWindow[1] : thisRanges[id + 1].start}<svelte:component this={thisProperty.component} {...range.props}><svelte:self text={text} properties={passingProperties} window={[range.start, range.stop]}/></svelte:component><svelte:self text={text} properties={passingProperties} window={[range.stop, frontTextEnd]}/>{/each}{/if}

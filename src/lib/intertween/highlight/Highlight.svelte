@@ -1,12 +1,12 @@
 <script context="module" type="ts">
-    import { onDestroy } from "svelte";
+    import { getContext, hasContext, onDestroy } from "svelte";
 
     export const activePopups: Writable<({type: string, name: string, id: number, span: Element})[]> = writable([]);
 </script>
 
 <script type="ts">
     import {base} from "$app/paths";
-    import { writable, type Writable } from "svelte/store";
+    import { readable, writable, type Writable } from "svelte/store";
     import { page } from "$app/stores";
 
     export let type: string;
@@ -16,6 +16,7 @@
     let currentID: number | null = null;
     let span: HTMLSpanElement;
 
+    let popupDisabler: any = hasContext("highlight-popup")? getContext("highlight-popup") : readable(true);
 
     function handleMouseOver() {
         if (currentID !== null) {
@@ -38,7 +39,7 @@
     function noop(){return}
 </script>
 
-<svelte:element href={travel === null ? undefined : `${base}${$page.data.base}${travel}`} this={travel === undefined ? "span" : "a"} bind:this={span} class="hint" on:mouseover={handleMouseOver} on:mouseout={handleMouseOut} on:blur={noop} on:focus={noop}><slot/></svelte:element>
+<svelte:element href={travel === null ? undefined : `${base}${$page.data.base}${travel}`} this={travel === undefined ? "span" : "a"} bind:this={span} class="hint" on:mouseover={$popupDisabler ? undefined : handleMouseOver} on:mouseout={$popupDisabler ? undefined : handleMouseOut} on:blur={noop} on:focus={noop}><slot/></svelte:element>
 
 <style>
     .hint {

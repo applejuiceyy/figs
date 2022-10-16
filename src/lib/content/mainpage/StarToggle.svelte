@@ -5,15 +5,24 @@
     import write from "$lib/state/stores";
 
     import {starglint} from "$lib/actions/starglint"
-
-    export let forceSmall: boolean = false;
-    export let percentage: number = 0.5;
+    import { tick } from "svelte";
 
     export let favouriteId: string | null = null;
 
     let enabled: boolean = false;
+    let isShowing = true;
 
-    $: favouriteId !== null && (enabled = $write.favourites.includes(favouriteId));
+    $: {
+        if(favouriteId !== null) {
+            if($write.favourites.includes(favouriteId)) {
+                isShowing = true;
+                tick().then(() => enabled = true);
+            }
+            else {
+                enabled = false;
+            }
+        }
+    }
 
     function changeFavourite() {
         if (enabled) {
@@ -26,20 +35,26 @@
 
     let stop: boolean = false;
 
-    let isShowing = true;
+
 
     let timeoutId: ReturnType<typeof setTimeout> | null = null;
     $: {
-        if (import.meta.env.SSR) {
+        if (!import.meta.env.SSR) {
             if (timeoutId !== null) {
                 clearTimeout(timeoutId);
+                timeoutId = null;
             }
-            timeoutId = setTimeout(() => isShowing = enabled, enabled ? 0 : 500);
+            if (enabled) {
+                isShowing = true;
+            }
+            else {
+                timeoutId = setTimeout(() => isShowing = false, 500);
+            }
         }
     }
 </script>
 
-<button class="favourite-button" on:click={changeFavourite} class:force-small={forceSmall} style:--width={(1 - percentage) * 100 + "%"}>
+<button class="favourite-button" on:click={changeFavourite}>
     <div class="svg-wrapper" on:mouseenter={() => stop = true} on:mouseleave={() => stop = false}>
         <img src={unlit_star} aria-hidden="true" alt=""/>
 
@@ -98,12 +113,6 @@
 
         mask: url($lib/resource/star.svg);
         -webkit-mask: url($lib/resource/star.svg);
-    }
-
-    @media only screen and (min-width: 1000px) {
-        .favourite-button:not(.force-small) {
-            right: calc(10px + var(--width));
-        }
     }
 
     .enabled {

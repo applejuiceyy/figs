@@ -2,11 +2,13 @@
 
 log:
     content: log(60, "abc")
+    author: applejuice
 
 
 
 logJson:
     content: logJson('{"text":"meow ^^","color":"#a672ef"}')
+    author: ChloeSpacedOut
 
 
 
@@ -15,16 +17,19 @@ logTable:
       local table = {'string',{'tableception'}}
       
       logTable(table,2)
+    author: ChloeSpacedOut
 
 
 
 print:
     content: print(60, "abc")
+    author: ChloeSpacedOut
 
 
 
 printJson:
     content: printJson('{"text":"meow ^^","color":"#a672ef"}')
+    author: ChloeSpacedOut
 
 
 
@@ -33,6 +38,7 @@ printTable:
       local table = {'string',{'tableception'}}
       
       printTable(table,2)
+    author: ChloeSpacedOut
 
 
 
@@ -40,6 +46,7 @@ require:
     content: |- 
       local library = require("lib.parser") 
       -- this will import a file
+    author: ChloeSpacedOut
 
 
 
@@ -53,6 +60,7 @@ ActionWheelAPI.execute:
         action_wheel:execute(1,true)
       end)
       -- this will only run if the action wheel is open
+    author: ChloeSpacedOut
 
 
 
@@ -66,6 +74,7 @@ ActionWheelAPI.isEnabled:
           log("action wheel's is open!")
         end
       end)
+    author: ChloeSpacedOut
 
 
 
@@ -73,11 +82,13 @@ ActionWheelAPI.getPage:
     content: |-
       action_wheel:createPage('examplePage')
       log(action_wheel:getPage('examplePage'))
+    author: ChloeSpacedOut
 
 
 
 ActionWheelAPI.createPage:
     content: action_wheel:createPage('examplePage')
+    author: ChloeSpacedOut
 
 
 
@@ -93,6 +104,7 @@ ActionWheelAPI.getSelected:
         log(action_wheel:getSelected())
       end)
       -- returns even if the action wheel is closed
+    author: ChloeSpacedOut
 
 
 
@@ -100,6 +112,7 @@ ActionWheelAPI.setPage:
     content: |-
       examplePage = action_wheel:createPage()
       action_wheel:setPage(examplePage)
+    author: ChloeSpacedOut
 
 
 
@@ -111,6 +124,7 @@ ActionWheelAPI.leftClick:
       function action_wheel.leftClick()
         log('you just left clicked while in the action wheel!')
       end
+    author: ChloeSpacedOut
 
 
 
@@ -122,6 +136,7 @@ ActionWheelAPI.rightClick:
       function action_wheel.rightClick()
         log('you just left clicked while in the action wheel!')
       end
+    author: ChloeSpacedOut
 
 
 
@@ -133,11 +148,13 @@ ActionWheelAPI.scroll:
       function action_wheel.scroll(direction)
         log(direction)
       end
+    author: ChloeSpacedOut
 
 
 
 ClientAPI.getVersion:
     content: log(client.getVersion())
+    author: ChloeSpacedOut
 
 
 
@@ -146,11 +163,13 @@ ClientAPI.getParticleCount:
       events.TICK:register(function()
         log(client.getParticleCount())
       end)
+    author: ChloeSpacedOut
 
 
 
 ClientAPI.getJavaVersion:
     content: log(client.getJavaVersion())
+    author: ChloeSpacedOut
 
 
 
@@ -158,11 +177,13 @@ ClientAPI.getAllocatedMemory:
     content: |-
       log(client.getAllocatedMemory())
       -- returns memory in bytes
+    author: ChloeSpacedOut
 
 
 
 ClientAPI.getVersionType:
     content: log(client.getVersionType())
+    author: ChloeSpacedOut
 
 
 
@@ -171,6 +192,7 @@ ClientAPI.getCurrentEffect:
       events.TICK:register(function()
         log(client.getCurrentEffect())
       end)
+    author: ChloeSpacedOut
 
 
 
@@ -180,6 +202,7 @@ ClientAPI.getUsedMemory:
         log(client.getUsedMemory())
       end)
       -- returns memory in bytes
+    author: ChloeSpacedOut
 
 
 
@@ -188,6 +211,7 @@ ClientAPI.isPaused:
       events.TICK:register(function()
         log(client.isPaused())
       end)
+    author: ChloeSpacedOut
 
 
 
@@ -195,11 +219,13 @@ ClientAPI.getMaxMemory:
     content: |-
       log(client.getMaxMemory())
       -- returns memory in bytes
+    author: ChloeSpacedOut
 
 
 
 ClientAPI.getServerBrand:
     content: log(client.getServerBrand())
+    author: ChloeSpacedOut
 
 
 
@@ -208,6 +234,7 @@ ClientAPI.getEntityCount:
       events.TICK:register(function()
         log(client.getEntityCount())
       end)
+    author: ChloeSpacedOut
 
 
 
@@ -217,6 +244,7 @@ ClientAPI.getSoundStatistics:
         log(client.getSoundStatistics())
       end)
       -- sounds playing / sounds limit + ambient sounds playing / ambient sounds limit
+    author: ChloeSpacedOut
 
 
 
@@ -224,6 +252,7 @@ ClientAPI.getChunkStatistics:
     content: |-
       log(client.getChunkStatistics())
       -- Number of chunk sections rendered / the total number of chunk sections in the loaded area
+    author: ChloeSpacedOut
 
 
 
@@ -232,6 +261,7 @@ ClientAPI.getFPS:
       events.TICK:register(function()
         log(client.getFPS())
       end)
+    author: ChloeSpacedOut
 
 
 
@@ -240,11 +270,13 @@ ClientAPI.getFPSString:
       events.TICK:register(function()
         log(client.getFPSString())
       end)
+    author: ChloeSpacedOut
 
 
 
 ClientAPI.getTextHeight:
     content: log(client.getTextHeight('TEXT!'))
+    author: ChloeSpacedOut
 
 
 
@@ -253,11 +285,12 @@ ClientAPI.getSystemTime:
       events.TICK:register(function()
         log(client.getSystemTime())
       end)
-
+    author: ChloeSpacedOut
 
 
 ClientAPI.getActiveLang:
     content: log(client.getActiveLang())
+    author: ChloeSpacedOut
 
 
 
@@ -266,6 +299,7 @@ ClientAPI.isWindowFocused:
       events.TICK:register(function()
         log(client.isWindowFocused())
       end)
+    author: ChloeSpacedOut
 
 
 
@@ -274,6 +308,7 @@ ClientAPI.isHudEnabled:
       events.TICK:register(function()
         log(client.isHudEnabled())
       end)
+    author: ChloeSpacedOut
 
 
 
@@ -282,11 +317,13 @@ ClientAPI.getMousePos:
       events.TICK:register(function()
         log(client.getMousePos())
       end)
+    author: ChloeSpacedOut
 
 
 
 ClientAPI.getTextWidth:
     content: log(client.getTextWidth('TEXT!'))
+    author: ChloeSpacedOut
 
 
 
@@ -295,11 +332,13 @@ ClientAPI.getCameraPos:
       events.TICK:register(function()
         log(client.getCameraPos())
       end)
+    author: ChloeSpacedOut
 
 
 
 ClientAPI.getFOV:
     content: log(client.getFOV())
+    author: ChloeSpacedOut
 
 
 
@@ -308,6 +347,7 @@ ClientAPI.getWindowSize:
       events.TICK:register(function()
         log(client.getWindowSized())
       end)
+    author: ChloeSpacedOut
 
 
 
@@ -316,11 +356,13 @@ ClientAPI.getCameraRot:
       events.TICK:register(function()
         log(client.getCameraRot())
       end)
+    author: ChloeSpacedOut
 
 
 
 ClientAPI.getGuiScale:
     content: log(client.getGuiScale())
+    author: ChloeSpacedOut
 
 
 
@@ -328,6 +370,7 @@ ClientAPI.getEntityStatistics:
     content: |- 
       log(client.getEntityStatistics())
       -- Number of rendered entities / total entities, 0, simulation distance
+    author: ChloeSpacedOut
 
 
 
@@ -336,6 +379,7 @@ ClientAPI.isDebugOverlayEnabled:
       events.TICK:register(function()
         log(client.isDebugOverlayEnabled())
       end)
+    author: ChloeSpacedOut
 
 
 
@@ -344,12 +388,14 @@ ClientAPI.getScaledWindowSize:
       events.TICK:register(function()
         log(client.getScaledWindowSize())
       end)
+    author: ChloeSpacedOut
 
 
 
 
 Page.getAction:
     content: local action = myPage:getAction(1)
+    author: applejuice
 
 
 
@@ -360,6 +406,7 @@ ClickAction.onRightClick:
       myAction:onRightClick(function()
           log("Heheh I got Right Clicked!")
       end)
+    author: applejuice
 
 
 
@@ -370,10 +417,13 @@ ClickAction.onLeftClick:
       myAction:onLeftClick(function()
           log("Heheh I got Left Clicked!")
       end)
+    author: applejuice
 
 
 Animation.play:
     content: animations.bbmodelName.animationName:play()
+    author: JimmyHelp
 
 SoundAPI.playSound:
     content: sounds:playSound("entity.bat.ambient", player:getPos(),1,1,false)
+    author: JimmyHelp

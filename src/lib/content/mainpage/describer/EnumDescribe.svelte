@@ -51,4 +51,8 @@
         margin-left: 10px;
         display: grid;
     }
+
+    .entry {
+        margin-top: 5px;
+    }
 </style>

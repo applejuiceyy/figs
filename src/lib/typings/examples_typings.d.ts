@@ -3,5 +3,6 @@ export default interface Examples {
 }
 
 interface Example {
-    content: string
+    content: string,
+    author?: string
 }

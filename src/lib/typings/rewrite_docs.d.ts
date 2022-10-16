@@ -1,3 +1,5 @@
+import type { Example } from "./examples_typings";
+
 export interface Docs {
     types: {[item: string]: Class}
     lists: {[item: string]: Enum}
@@ -5,7 +7,7 @@ export interface Docs {
 }
 
 export interface WithExample {
-    example?: string
+    example?: Example
 }
 
 export interface Class extends WithExample {

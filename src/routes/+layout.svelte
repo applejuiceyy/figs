@@ -5,7 +5,7 @@
 <script type="ts">
     import {base} from "$app/paths";
     import { cheeseSvg } from "$lib/actions/cheese";
-    import { onDestroy, onMount, setContext } from "svelte";
+    import { onDestroy, onMount } from "svelte";
 
     import { page } from "$app/stores";
 
@@ -144,36 +144,32 @@
         <NavBarFloater>
             <div class="table-toggle" style:display={$page.data.forceShowTable ? "none" : ""}>
                 <NavBarButton on:click={()=>expanded = !expanded}>
-                    <SlottedTranslatableKey key={expanded? "hide-table" : "show-table"} let:value>
-                        {value}
-                    </SlottedTranslatableKey>
+                    <SlottedTranslatableKey key={expanded? "hide-table" : "show-table"}/>
                 </NavBarButton>
             </div>
 
             <NavBarExpandButton>
-                <SlottedTranslatableKey key="content" let:value>
-                    {value}
-                </SlottedTranslatableKey>
+                <SlottedTranslatableKey key="content"/>
             </NavBarExpandButton>
         </NavBarFloater>
 
         <svelte:fragment slot="expanded">
             <NavBarLink href="{base}{$page.data.base}fav">
-                <SlottedTranslatableKey key="favourites" let:value>
-                    {value}
-                </SlottedTranslatableKey>
+                <SlottedTranslatableKey key="favourites"/>
             </NavBarLink>
 
             <NavBarDropdown>
-                <SlottedTranslatableKey key="preferences" let:value>
-                    {value}
-                </SlottedTranslatableKey>
+                <SlottedTranslatableKey key="preferences"/>
 
                 <svelte:fragment slot="dropdown">
                     <NavBarButton on:click={()=>$stores.readerEnabled = !$stores.readerEnabled}>
-                        <SlottedTranslatableKey key={$stores.readerEnabled ? "disable-focus" : "enable-focus"} let:value>
-                            {value}
-                        </SlottedTranslatableKey>
+                        <SlottedTranslatableKey key={$stores.readerEnabled ? "disable-focus" : "enable-focus"}/>
+                    </NavBarButton>
+                    <NavBarButton on:click={()=>$stores.signaturePopupEnabled = !$stores.signaturePopupEnabled}>
+                        <SlottedTranslatableKey key={($stores.signaturePopupEnabled ? "disable" : "enable") + "-popup-in-signature" }/>
+                    </NavBarButton>
+                    <NavBarButton on:click={()=>$stores.examplePopupEnabled = !$stores.examplePopupEnabled}>
+                        <SlottedTranslatableKey key={($stores.examplePopupEnabled ? "disable" : "enable") + "-popup-in-examples" }/>
                     </NavBarButton>
                 </svelte:fragment>
             </NavBarDropdown>

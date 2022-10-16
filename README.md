@@ -1,9 +1,6 @@
 # figs
 
-cool website with figura docs
-
-these docs have been supercharged with multiple language support, and hand-curated typing widening, with a path indexing language homegrown for this specific purpose, not seen in any other figura docs resource
-
+cool website with figura docs yes
 
 
 *everything bellow is from the template*

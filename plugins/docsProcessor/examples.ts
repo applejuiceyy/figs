@@ -85,7 +85,7 @@ export class ExampleExtractor {
                 }
             }
 
-            subject.example = example.content;
+            subject.example = example;
         }
     }
 } 

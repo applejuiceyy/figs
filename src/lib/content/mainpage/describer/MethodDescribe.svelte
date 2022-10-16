@@ -16,6 +16,9 @@
     import { generateChunks } from "$lib/intertween/chunker";
     import Highlight from "$lib/intertween/highlight/Highlight.svelte";
     import { generateHighlightChunks } from "$lib/intertween/tokenize/highlight";
+    import PopupDisabler from "$lib/intertween/highlight/PopupDisabler.svelte";
+
+    import state from "$lib/state/stores";
 
     export let hostClass: Class;
     export let method: Method;
@@ -94,13 +97,14 @@
             <Intertweener text={value} properties={[generateChunks(value), ...descriptionProperties]}/>
         </SlottedTranslatableKey>
     </div>
-
-    <div class="code-example filled" style:margin-top="50px">
-        {#each method.parameters as overload, idx}
-        {@const processed = processOverload(overload, method.returns[idx])}
-            <Code><Intertweener text={processed[0]} properties={[generateHighlightChunks(processed[0]), processed[1]]}/></Code>
-        {/each}
-    </div>
+    <PopupDisabler enabled={!$state.signaturePopupEnabled}>
+        <div class="code-example filled" style:margin-top="50px">
+            {#each method.parameters as overload, idx}
+            {@const processed = processOverload(overload, method.returns[idx])}
+                <div style:margin-top="10px"><Code><svelte:fragment slot="title">overload {idx}:</svelte:fragment><Intertweener text={processed[0]} properties={[generateHighlightChunks(processed[0]), processed[1]]}/></Code></div>
+            {/each}
+        </div>
+    </PopupDisabler>
 </DescribeRoot>
 
 <style lang="less">

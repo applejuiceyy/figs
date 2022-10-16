@@ -19,7 +19,13 @@
     {#if warn}
         <span>Using a fallback language</span><br>
     {/if}
-    <slot value={$store.result}/>
+    <slot value={$store.result}>{$store.result}</slot>
 {:else}
-    <slot value={$store.result}/>
+    <slot value={$store.result}>{$store.result}</slot>
 {/if}
+
+<style>
+    span {
+        opacity: 0.6;
+    }
+</style>

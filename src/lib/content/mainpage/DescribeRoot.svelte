@@ -7,32 +7,34 @@
     import type DocsInterface from "$lib/docs/statistics";
     import Intertweener from "$lib/intertween/Intertweener.svelte";
     import { generateHighlightChunks } from "$lib/intertween/tokenize/highlight";
+    import PopupDisabler from "$lib/intertween/highlight/PopupDisabler.svelte";
 
+    import state from "$lib/state/stores";
+    import type { Example } from "$lib/typings/examples_typings";
 
     export let forceSmall: boolean;
 
     export let id: string | null = null;
-    export let highlightTitle: boolean = false;
     export let classi: DocsInterface;
-    export let example: string | null = null;
+    export let example: Example | null = null;
 </script>
 
-<Background forceFilled={forceSmall} percentage={0.7}>
-    <div class="method-root" class:force-small={forceSmall}>
-        <div class:highlight={highlightTitle}>
-            <slot name="title" />
-        </div>
+<Background>
+    <div class="method-root" class:force-small={example === null}>
+        <slot name="title" />
 
         {#if id !== null}
-            <StarToggle percentage={0.7} favouriteId={id} forceSmall={forceSmall}/>
+            <StarToggle favouriteId={id}/>
         {/if}
 
         {#if example !== null}
             <div tabindex="0" class="code-example" class:force-small={forceSmall}>
-                <div class="code-displace">
-                    <Code>
-                        <Intertweener text={example} properties={[generateHighlightChunks(example), generateHints(example, classi)]}/></Code>
-                </div>
+                <PopupDisabler enabled={!$state.examplePopupEnabled}>
+                    <Code style="height: 100%; box-sizing: border-box;">
+                        <svelte:fragment slot="title">Example{example.author ? ` by ${example.author}` : ""}:</svelte:fragment>
+                        <Intertweener text={example.content} properties={[generateHighlightChunks(example.content), generateHints(example.content, classi)]}/>
+                    </Code>
+                </PopupDisabler>
             </div>
         {:else}
             <div></div>
@@ -60,38 +62,4 @@
     }
 
     @import "src/app";
-
-    .highlight {
-        .highlig();
-    }
-
-    @media only screen and (min-width: 1000px) {
-        .method-root:not(.force-small) {
-            display: grid;
-            grid-template-columns: calc(70% - 5px) 30%;
-            padding-right: 0px;
-        }
-
-        .code-example:not(.force-small)  {
-            margin: 0px;
-            padding: 0px;
-            grid-row: 1 / 3;
-            grid-column: 2;
-
-            display: flex;
-            align-items: center;
-
-            position: relative;
-        }
-
-        .code-displace {
-            width: 100%;
-            
-            z-index: 1;
-        }
-
-        .code-example:focus-visible {
-            outline: 0;
-        }
-    }
 </style>

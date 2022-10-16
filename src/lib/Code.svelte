@@ -67,12 +67,19 @@
 </script>
 
 {#key gravityAction}
-    <code style={style} style:outline={gravityAction !== null && fell ? '1px solid black' : ''} style:margin={gravityAction !== null && fell ? '0' : ''} style:background-image={breaking === -1 ? "" : "url(" + breakStages["./resource/breaking/destroy_stage_" + breaking + ".png"] + ")"} use:conditionalAction={{action: gravityAction, params: {active: true, shadowElement: true}, condition: gravityAction !== null && fell}}>
-        
-        <slot/><button tabindex="-1" aria-hidden="true" on:mousedown={handleMouseDown} on:mouseup={handleMouseUp} on:mouseleave={handleMouseUp} class="hammer-button">
-            <svg style:color="white" style:touch-action="none" style:user-select="none" href={hammer} width="16" height="16"/>
-        </button>
-    </code>
+    <div>
+        {#if $$slots.title}
+            <div class="code-title">
+                <slot name="title"/>
+            </div>
+        {/if}
+
+        <code style={style} style:outline={gravityAction !== null && fell ? '1px solid black' : ''} style:margin={gravityAction !== null && fell ? '0' : ''} style:background-image={breaking === -1 ? "" : "url(" + breakStages["./resource/breaking/destroy_stage_" + breaking + ".png"] + ")"} use:conditionalAction={{action: gravityAction, params: {active: true, shadowElement: true}, condition: gravityAction !== null && fell}}>
+            <slot/><button tabindex="-1" aria-hidden="true" on:mousedown={handleMouseDown} on:mouseup={handleMouseUp} on:mouseleave={handleMouseUp} class="hammer-button">
+                <svg style:color="white" style:touch-action="none" style:user-select="none" href={hammer} width="16" height="16"/>
+            </button>
+        </code>
+    </div>
 {/key}
 
 <RandomisedPlayer bind:this={breakingAudioPlayer} sounds={Object.values(breakingSounds)} loop={digging} loopSize={300} volume={0.5}/>
@@ -84,7 +91,6 @@
 
         font-family: 'Lucida Console', monospace;
         padding: 5px;
-        margin: 5px;
 
         border-radius: 5px;
         background-color: #eeeeee;
@@ -123,10 +129,27 @@
         opacity: 1;
     }
 
+    .code-title {
+        width: max-content;
+        padding: 5px;
+        margin-left: 5px;
+
+        background-color: #eeeeee;
+        color: var(--color);
+
+        border-radius: 5px 5px 0 0;
+
+        user-select: none;
+    }
+
     @media (prefers-color-scheme: dark) {
         code {
             background-color: #111111;
             color: white;
+        }
+
+        .code-title {
+            background-color: #111111;
         }
     }
 

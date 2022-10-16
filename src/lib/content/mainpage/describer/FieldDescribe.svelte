@@ -21,7 +21,9 @@
     import type DocsInterface from "$lib/docs/statistics";
     import Highlight from "$lib/intertween/highlight/Highlight.svelte";
     import { generateHighlightChunks } from "$lib/intertween/tokenize/highlight";
+    import PopupDisabler from "$lib/intertween/highlight/PopupDisabler.svelte";
 
+    import state from "$lib/state/stores";
 
 
     export let forceSmall: boolean = false;
@@ -56,13 +58,16 @@
     </div>
 
     <div class="code-example filled" style:margin-top="50px">
-        <Code>
-            <Intertweener text={field.name + ": " + field.type} properties={[generateHighlightChunks(field.name + ": " + field.type), {component: Highlight, ranges: inlineTypeDocs ? [] : [...extractIdentifiers(classi, field.type, field.name.length + 2)]}]}/>
-        </Code>
+        <PopupDisabler enabled={!$state.signaturePopupEnabled}>
+            <Code>
+                <svelte:fragment slot="title">field signature:</svelte:fragment>
+                <Intertweener text={field.name + ": " + field.type} properties={[generateHighlightChunks(field.name + ": " + field.type), {component: Highlight, ranges: inlineTypeDocs ? [] : [...extractIdentifiers(classi, field.type, field.name.length + 2)]}]}/>
+            </Code>
+        </PopupDisabler>
 
         {#if inlineTypeDocs && field.type in classi.types}
             {@const v = classi.types[field.type]}
-            <div style:outline="2px #777777 solid" style:border-radius="5px" style:margin-right="5px">
+            <div style:outline="2px #777777 solid" style:padding="10px" style:border-radius="5px" style:margin-right="5px" style:margin-top="10px" style:background-color="var(--background)">
                 {#each Object.entries(v.methods) as [name, func]}
                     <MethodDescribe classi={classi} method={func} hostClass={v} forceSmall={true} path={path}/>
                 {/each}

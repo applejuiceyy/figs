@@ -15,5 +15,10 @@
     "show-everything": "Mostrar tudo",
     "show-not-everything": "Não mostrar tudo",
     "preferences": "Preferências",
-    "jump-to-top": "Saltar para o inicio"
+    "jump-to-top": "Saltar para o inicio",
+
+    "enable-popup-in-examples": "Mostrar popups em exemplos",
+    "enable-popup-in-signature": "Mostrar popups em signaturas",
+    "disable-popup-in-examples": "Esconder popups em exemplos",
+    "disable-popup-in-signature": "Esconder popups em signaturas"
 }
