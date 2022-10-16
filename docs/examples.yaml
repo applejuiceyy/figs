@@ -429,35 +429,59 @@ SoundAPI.playSound:
     author: JimmyHelp
 
 PlayerAPI.getExperienceProgress:
-    content: if player:getExperienceProgress() > .5 then
+    content: |-
+             if player:getExperienceProgress() > .5 then
+                log("You're over halfway to the next level")
+              end
     author: JimmyHelp
     
 PlayerAPI.getSaturation:
-    content: if player:getSaturation() == 20 then
+    content: |-
+              if player:getSaturation() == 20 then
+                log("Your saturation is 20")
+              end
     author: JimmyHelp
     
 PlayerAPI.getFood:
-    content: if player:getFood() == 0 then
+    content: |-
+              if player:getFood() == 0 then
+                log("You're starving")
+              end
     author: JimmyHelp
     
 PlayerAPI.getExperienceLevel:
-    content: if player:getExperienceLevel() == 30 then
+    content: |-
+              if player:getExperienceLevel() == 30 then
+                log("You have 30 levels")
+              end
     author: JimmyHelp
     
 PlayerAPI.isFlying:
-    content: if player:isFlying() then
+    content: |-
+              if player:isFlying() then
+                log("You're flying")
+              end
     author: JimmyHelp
     
 PlayerAPI.getModelType:
-    content: if player:getModelType() == "DEFAULT" then
+    content: |-
+              if player:getModelType() == "DEFAULT" then
+                log("You're Steve")
+              end
     author: JimmyHelp
     
 PlayerAPI.isSkinLayerVisible:
-    content: if player:isSkinLayerVisible("HAT") then
+    content: |-
+              if player:isSkinLayerVisible("HAT") then
+                log("Your hat's on")
+              end
     author: JimmyHelp
     
 PlayerAPI.getGamemode:
-    content: if player:getGamemode() and player:getGamemode() == "SURVIVAL" then
+    content: |-
+              if player:getGamemode() and player:getGamemode() == "SURVIVAL" then
+                log("You're in survival mode")
+              end
     author: JimmyHelp
         
 PlayerAPI.getBodyYaw:
@@ -465,51 +489,87 @@ PlayerAPI.getBodyYaw:
     author: JimmyHelp
             
 PlayerAPI.getActiveItem:
-    content: if player:getActiveItem().id == "minecraft:bow" then
+    content: |-
+              if player:getActiveItem().id == "minecraft:bow" then
+                log("You're drawing back a bow")
+              end
     author: JimmyHelp
             
 PlayerAPI.getHealth:
-    content: if player:getHealth() == 20 then
+    content: |-
+              if player:getHealth() == 20 then
+                log("You're at full health")
+              end
     author: JimmyHelp
             
 PlayerAPI.getHeldItem:
-    content: if player:getHeldItem(false).id == "minecraft:diamond_sword" then
+    content: |-
+              if player:getHeldItem(false).id == "minecraft:diamond_sword" then
+                log("You're holding a diamond sword")
+              end
     author: JimmyHelp
             
 PlayerAPI.isLeftHanded:
-    content: if player:isLeftHanded() then
+    content: |-
+              if player:isLeftHanded() then
+                log("You're left handed")
+              end
     author: JimmyHelp
             
 PlayerAPI.getActiveHand:
-    content: if player:getActiveHand() == "MAIN_HAND" then
+    content: |-
+              if player:getActiveHand() == "MAIN_HAND" then
+                log("You're using your main hand")
+              end
     author: JimmyHelp
             
 PlayerAPI.getArmor:
-    content: if player:getArmor() == 20 then
+    content: |-
+              if player:getArmor() == 20 then
+                log("You have max armor points")
+              end
     author: JimmyHelp
             
 PlayerAPI.getArrowCount:
-    content: if player:getArrowCount() > 0 then
+    content: |-
+              if player:getArrowCount() > 0 then
+                log("You've been shot")
+              end
     author: JimmyHelp
     
 PlayerAPI.isClimbing:
-    content: if player:isClimbing() then
+    content: |-
+              if player:isClimbing() then
+                log("You're climbing")
+              end
     author: JimmyHelp
             
 PlayerAPI.isUsingItem:
-    content: if player:isUsingItem() then
+    content: |-
+              if player:isUsingItem() then
+                log("You're using an item")
+              end
     author: JimmyHelp
                 
 PlayerAPI.getDeathTime:
-    content: if player:getDeathTime() > 0 then
+    content: |-
+              if player:getDeathTime() > 0 then
+                log("You're dead")
+              end
     author: JimmyHelp
                 
 PlayerAPI.getStingerCount:
-    content: if player:getStingerCount() > 0 then
+    content: |-
+              if player:getStingerCount() > 0 then
+                log("You've been stung")
+              end
     author: JimmyHelp
                 
 PlayerAPI.getMaxHealth:
-    content: if player:getMaxHealth() == 20 then
+    content: |-
+              if player:getMaxHealth() == 20 then
+                log("You're healthy")
+              end
     author: JimmyHelp
                 
 PlayerAPI.getStatusEffects:
@@ -522,19 +582,31 @@ PlayerAPI.getStatusEffects:
     author: JimmyHelp
                 
 PlayerAPI.getName:
-    content: if player:getName() == "JimmyHelp" then
+    content: |-
+              if player:getName() == "JimmyHelp" then
+                log("You're... me?")
+              end
     author: JimmyHelp
                 
 PlayerAPI.getType:
-    content: if player:getType() == "minecraft:player" then
+    content: |-
+              if player:getType() == "minecraft:player" then
+                log("You're a player")
+              end
     author: JimmyHelp
                 
 PlayerAPI.isLoaded:
-    content: if player:isLoaded() then
+    content: |-
+              if player:isLoaded() then
+                log("You're being loaded")
+              end
     author: JimmyHelp
                 
 PlayerAPI.getItem:
-    content: if player:getItem(5).id == "minecraft:elytra" then
+    content: |-
+              if player:getItem(5).id == "minecraft:elytra" then
+                log("You're wearing an elytra")
+              end
     author: JimmyHelp
                 
 PlayerAPI.getRot:
@@ -542,11 +614,17 @@ PlayerAPI.getRot:
     author: JimmyHelp
                 
 PlayerAPI.getFireTicks:
-    content: if player:getFireTicks() == 1 then
+    content: |-
+              if player:getFireTicks() == 1 then
+                log("You're in a fire (returns -20 if not in a fire, the description is misleading)")
+              end
     author: JimmyHelp
                 
 PlayerAPI.getFrozenTicks:
-    content: if player:getFrozenTicks() == 140 then
+    content: |-
+              if player:getFrozenTicks() == 140 then
+                log("You're being frozen solid")
+              end
     author: JimmyHelp
                 
 PlayerAPI.getPos:
@@ -558,31 +636,52 @@ PlayerAPI.getLookDir:
     author: JimmyHelp
                 
 PlayerAPI.getMaxAir:
-    content: if player:getMaxAir() == 300 then
+    content: |-
+              if player:getMaxAir() == 300 then
+                log("You've got healthy lungs")
+              end
     author: JimmyHelp
                 
 PlayerAPI.isHamburger:
-    content: if player:isHamburger() then
+    content: |-
+              if player:isHamburger() then
+                log("You're hamburger")
+              end
     author: JimmyHelp
                 
 PlayerAPI.getDimensionName:
-    content: if player:getDimensionName() == "minecraft:overworld" then
+    content: |-
+              if player:getDimensionName() == "minecraft:overworld" then
+                log("You're in the Overworld")
+              end
     author: JimmyHelp
                 
 PlayerAPI.getAir:
-    content: if player:getAir() < 0 then
+    content: |-
+              if player:getAir() < 0 then
+                log("You're drowning")
+              end
     author: JimmyHelp
                 
 PlayerAPI.getVelocity:
-    content: if player:getVelocity():length() > 0 then
+    content: |-
+              if player:getVelocity():length() > 0 then
+                log("You're moving in any direction")
+              end
     author: JimmyHelp
                 
 PlayerAPI.getUUID:
-    content: if player:getUUID() == "5003b2ce-7a8d-4c56-8b91-ec705985fe08" then
+    content: |-
+              if player:getUUID() == "5003b2ce-7a8d-4c56-8b91-ec705985fe08" then
+                log("You're... me?")
+              end
     author: JimmyHelp
                     
 PlayerAPI.hasAvatar:
-    content: if player:hasAvatar() then
+    content: |-
+              if player:hasAvatar() then
+                log("You have an avatar")
+              end
     author: JimmyHelp
                     
 PlayerAPI.getBoundingBox:
@@ -590,7 +689,10 @@ PlayerAPI.getBoundingBox:
     author: JimmyHelp
                         
 PlayerAPI.isGlowing:
-    content: if player:isGlowing() then
+    content: |-
+              if player:isGlowing() then
+                log("You're glowing")
+              end
     author: JimmyHelp
                         
 PlayerAPI.getEyeY:
@@ -602,57 +704,99 @@ PlayerAPI.getEyeHeight:
     author: JimmyHelp
                         
 PlayerAPI.getVehicle:
-    content: if player:getVehicle() and player:getVehicle():getType() == "minecraft:pig" then
+    content: |-
+              if player:getVehicle() and player:getVehicle():getType() == "minecraft:pig" then
+                log("You're riding a pig")
+              end
     author: JimmyHelp
                             
 PlayerAPI.isOnGround:
-    content: if player:isOnGround() then
+    content: |-
+              if player:isOnGround() then
+                log("You're on the ground")
+              end
     author: JimmyHelp
                             
 PlayerAPI.isInvisible:
-    content: if player:isInvisible() then
+    content: |-
+              if player:isInvisible() then
+                log("You're invisible")
+              end
     author: JimmyHelp
                             
 PlayerAPI.getPose:
-    content: if player:getPose() == "CROUCHING" then
+    content: |-
+              if player:getPose() == "CROUCHING" then
+                log("You're crouching")
+              end
     author: JimmyHelp
                             
 PlayerAPI.isSprinting:
-    content: if player:isSprinting() then
+    content: |-
+              if player:isSprinting() then
+                log("You're sprinting")
+              end
     author: JimmyHelp
                             
 PlayerAPI.isSilent:
-    content: if player:isSilent() then
+    content: |-
+              if player:isSilent() then
+                log("You're silent")
+              end
     author: JimmyHelp
                             
 PlayerAPI.isSneaking:
-    content: if player:isSneaking() then
+    content: |-
+              if player:isSneaking() then
+                log("You're sneaking")
+              end
     author: JimmyHelp
                             
 PlayerAPI.isInLava:
-    content: if player:isInLava() then
+    content: |-
+              if player:isInLava() then
+                log("You're in lava")
+              end
     author: JimmyHelp
                             
 PlayerAPI.isInWater:
-    content: if player:isInWater() then
+    content: |-
+              if player:isInWater() then
+                log("You're in water")
+              end
     author: JimmyHelp
                             
 PlayerAPI.isUnderwater:
-    content: if player:isUnderwater() then
+    content: |-
+              if player:isUnderwater() then
+                log("You're underwater")
+              end
     author: JimmyHelp
                             
 PlayerAPI.isInRain:
-    content: if player:isInRain() then
+    content: |-
+              if player:isInRain() then
+                log("You're in rain")
+              end
     author: JimmyHelp
                             
 PlayerAPI.isWet:
-    content: if player:isWet() then
+    content: |-
+              if player:isWet() then
+                log("You're touching water")
+              end
     author: JimmyHelp
                             
 PlayerAPI.isOnFire:
-    content: if player:isOnFire() then
+    content: |-
+              if player:isOnFire() then
+                log("You're on fire")
+              end
     author: JimmyHelp
                             
 PlayerAPI.getTargetedBlock:
-    content: if player:getTargetedBlock(true,4.5).id == "minecraft:grass_block" then
+    content: |-
+              if player:getTargetedBlock(true,4.5).id == "minecraft:grass_block" then
+                log("You're looking at grass")
+              end
     author: JimmyHelp
