@@ -30,7 +30,7 @@
         {#if example !== null}
             <div tabindex="0" class="code-example" class:force-small={forceSmall}>
                 <PopupDisabler enabled={!$state.examplePopupEnabled}>
-                    <Code style="height: 100%; box-sizing: border-box;">
+                    <Code style="box-sizing: border-box;">
                         <svelte:fragment slot="title">Example{example.author ? ` by ${example.author}` : ""}:</svelte:fragment>
                         <Intertweener text={example.content} properties={[generateHighlightChunks(example.content), generateHints(example.content, classi)]}/>
                     </Code>

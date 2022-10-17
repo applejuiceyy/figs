@@ -138,6 +138,9 @@
 <div class="root">
     <NavBar>
         <NavBarLink on:click={increaseStamina} inline href={base + "/"}><span style:font-size={(Math.max(stamina, 10) - 9) + "em"}>FIGS!!</span></NavBarLink>
+        <div class="big-display">
+            <NavBarLink inline external href="https://github.com/applejuiceyy/figs">Github</NavBarLink>
+        </div>
 
         <NavBarSearcher bind:this={searcher} destination="{base}{$page.data.base}search"/>
 
@@ -459,6 +462,10 @@
         background-color: var(--window-background);
     }
 
+    .big-display {
+        display: none;
+    }
+
     @media only screen and (min-width: 800.5px) {
         .category {
             width: 300px;
@@ -489,6 +496,10 @@
 
             height: 100vh;
             max-height: 100%;
+        }
+
+        .big-display {
+            display: contents;
         }
     }
 

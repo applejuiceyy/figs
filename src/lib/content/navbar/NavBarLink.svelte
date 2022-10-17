@@ -2,9 +2,10 @@
     export let href: string;
 
     export let inline: boolean = false;
+    export let external: boolean = false;
 </script>
 
-<a href={href} class:inline on:click>
+<a href={href} rel={external ? "external" : ""} class:inline on:click>
     <slot/>
 </a>
 
