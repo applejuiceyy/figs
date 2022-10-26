@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/figs/favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="manifest" crossorigin="use-credentials" href="/figs/manifest.json" />
+		<meta http-equiv="content-security-policy" content=""><title>deaugmented</title><meta name="robots" content="index,follow" data-svelte="svelte-1h7w4y4"><meta name="googlebot" content="index,follow" data-svelte="svelte-1h7w4y4"><meta name="description" content="Deaugments this matrix, removing a row and column." data-svelte="svelte-1h7w4y4">
+	<link href="/figs/_app/immutable/assets/+layout-fe814368.css" rel="stylesheet">
+	<link href="/figs/_app/immutable/assets/statistics-26283d0d.css" rel="stylesheet">
+	<link href="/figs/_app/immutable/assets/SlottedTranslatableKey-2331979f.css" rel="stylesheet">
+	<link rel="modulepreload" href="/figs/_app/immutable/start-bbbd306e.js">
+	<link rel="modulepreload" href="/figs/_app/immutable/chunks/index-86b4465e.js">
+	<link rel="modulepreload" href="/figs/_app/immutable/chunks/index-49f2ceed.js">
+	<link rel="modulepreload" href="/figs/_app/immutable/chunks/paths-6cd3a76e.js">
+	<link rel="modulepreload" href="/figs/_app/immutable/chunks/index-d6fabef0.js">
+	<link rel="modulepreload" href="/figs/_app/immutable/chunks/preload-helper-aa6bc0ce.js">
+	<link rel="modulepreload" href="/figs/_app/immutable/chunks/singletons-e5e57fbd.js">
+	<link rel="modulepreload" href="/figs/_app/immutable/components/pages/_layout.svelte-87aec882.js">
+	<link rel="modulepreload" href="/figs/_app/immutable/chunks/_docs_all-206dc845.js">
+	<link rel="modulepreload" href="/figs/_app/immutable/chunks/statistics-aaaaab26.js">
+	<link rel="modulepreload" href="/figs/_app/immutable/chunks/translator-f51527cf.js">
+	<link rel="modulepreload" href="/figs/_app/immutable/chunks/loading-1c936e04.js">
+	<link rel="modulepreload" href="/figs/_app/immutable/chunks/stores-e1609bdc.js">
+	<link rel="modulepreload" href="/figs/_app/immutable/chunks/SlottedTranslatableKey-e68e9d6c.js">
+	<link rel="modulepreload" href="/figs/_app/immutable/chunks/DescribeAny-a3e435e2.js">
+	<link rel="modulepreload" href="/figs/_app/immutable/modules/pages/_layout.ts-e4942748.js">
+	<link rel="modulepreload" href="/figs/_app/immutable/chunks/_layout-72e71bd2.js">
+	<link rel="modulepreload" href="/figs/_app/immutable/components/pages/_version_/_layout.svelte-984f579d.js">
+	<link rel="modulepreload" href="/figs/_app/immutable/modules/pages/_version_/_layout.ts-ce1433c4.js">
+	<link rel="modulepreload" href="/figs/_app/immutable/chunks/_layout-768e0036.js">
+	<link rel="modulepreload" href="/figs/_app/immutable/components/pages/_version_/_location_/_page.svelte-04e1c3c9.js">
+	<link rel="modulepreload" href="/figs/_app/immutable/chunks/MetaTags-1ffbf9fb.js">
+	<link rel="modulepreload" href="/figs/_app/immutable/modules/pages/_version_/_location_/_page.ts-04e7d6fb.js">
+	<link rel="modulepreload" href="/figs/_app/immutable/chunks/_page-9f83e619.js">
+			<script>
+		if ('serviceWorker' in navigator) {
+			addEventListener('load', function () {
+				navigator.serviceWorker.register('/figs/service-worker.js');
+			});
+		}
+	</script>
+	</head>
+	<body>
+		<div>
+
+
+<div class="root svelte-cxlej3"><nav class="svelte-cvjxcp"><div class="desizer svelte-cvjxcp"><div class="nav-stick svelte-cvjxcp"><a href="/figs/" rel="" class="svelte-si639d inline"><span style="font-size: 1em;">FIGS!!</span>
+</a>
+        <div class="big-display svelte-cxlej3"><a href="https://github.com/applejuiceyy/figs" rel="external" class="svelte-si639d inline">Github
+</a></div>
+
+        <div class="search-root svelte-18dbo91" style="flex-grow: 1;"><form class="sizer svelte-18dbo91" action="/figs/rc-10/search" method="get"><input required name="q" style="min-width: 0; flex-grow: 1; flex-shrink: 1;">
+        <input type="submit" value="search"></form>
+</div>
+
+        <div class="nav-floater svelte-uiiv5m"><div class="table-toggle svelte-cxlej3"><button class="svelte-cyzf2a">Show Table
+</button></div>
+
+            <div class="expand-button svelte-10xlele"><button class="svelte-cyzf2a">Content
+</button>
+</div>
+</div></div>
+
+        <div class="nav-expanded svelte-cvjxcp"><a href="/figs/rc-10/fav" rel="" class="svelte-si639d">Favourites
+</a>
+
+            <div class="nav-dropdown svelte-vsjcqn"><button class="svelte-cyzf2a">Preferences
+</button>
+
+    </div>
+
+
+
+            <div class="nav-dropdown svelte-vsjcqn"><button class="svelte-cyzf2a">RC-10
+</button>
+
+    </div>
+
+
+
+            <div class="nav-dropdown svelte-vsjcqn"><button class="svelte-cyzf2a">EN_US
+</button>
+
+    </div>
+
+
+        </div></div>
+</nav>
+
+    <div class="category svelte-cxlej3"><div class="category-flyover svelte-cxlej3"><div class="category-sticker svelte-cxlej3"><div class="sidebar-viewer svelte-1njuenp"><div class="fields-container svelte-1njuenp"><a id="" href="/figs/rc-10/all" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        Show everything
+</a></div>
+
+    <article><h1 class="tab svelte-1njuenp">Global Objects</h1>
+
+        <a id="" href="/figs/rc-10/listFiles" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        listFiles
+</a><a id="" href="/figs/rc-10/log" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        log
+</a><a id="" href="/figs/rc-10/logJson" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        logJson
+</a><a id="" href="/figs/rc-10/logTable" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        logTable
+</a><a id="" href="/figs/rc-10/print" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        print
+</a><a id="" href="/figs/rc-10/printJson" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        printJson
+</a><a id="" href="/figs/rc-10/printTable" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        printTable
+</a><a id="" href="/figs/rc-10/require" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        require
+</a>
+        <a id="" href="/figs/rc-10/action_wheel" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        action_wheel
+</a><a id="" href="/figs/rc-10/animations" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        animations
+</a><a id="" href="/figs/rc-10/avatar" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        avatar
+</a><a id="" href="/figs/rc-10/client" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        client
+</a><a id="" href="/figs/rc-10/events" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        events
+</a><a id="" href="/figs/rc-10/figuraMetatables" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        figuraMetatables
+</a><a id="" href="/figs/rc-10/host" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        host
+</a><a id="" href="/figs/rc-10/keybind" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        keybind
+</a><a id="" href="/figs/rc-10/matrices" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        matrices
+</a><a id="" href="/figs/rc-10/models" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        models
+</a><a id="" href="/figs/rc-10/nameplate" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        nameplate
+</a><a id="" href="/figs/rc-10/particles" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        particles
+</a><a id="" href="/figs/rc-10/pings" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        pings
+</a><a id="" href="/figs/rc-10/player" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        player
+</a><a id="" href="/figs/rc-10/renderer" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        renderer
+</a><a id="" href="/figs/rc-10/sounds" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        sounds
+</a><a id="" href="/figs/rc-10/textures" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        textures
+</a><a id="" href="/figs/rc-10/type" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        type
+</a><a id="" href="/figs/rc-10/user" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        user
+</a><a id="" href="/figs/rc-10/vanilla_model" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        vanilla_model
+</a><a id="" href="/figs/rc-10/vec" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        vec
+</a><a id="" href="/figs/rc-10/vectors" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        vectors
+</a><a id="" href="/figs/rc-10/world" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/field-8fb526b4.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        world
+</a></article>
+
+    <article><h1 class="tab svelte-1njuenp">Miscellaneous Types</h1>
+        <section class="category svelte-5z5jep"><button class="svelte-5z5jep"><h1 class="tab svelte-5z5jep">Miscelanous</h1></button>
+
+    <div class="category-items svelte-5z5jep"><a id="" href="/figs/rc-10/math" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        math
+</a></div>
+</section><section class="category svelte-5z5jep"><button class="svelte-5z5jep"><h1 class="tab svelte-5z5jep">action_wheel</h1></button>
+
+    <div class="category-items svelte-5z5jep"><a id="" href="/figs/rc-10/Action" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        Action
+</a><a id="" href="/figs/rc-10/Page" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        Page
+</a></div>
+</section><section class="category svelte-5z5jep"><button class="svelte-5z5jep"><h1 class="tab svelte-5z5jep">animations</h1></button>
+
+    <div class="category-items svelte-5z5jep"><a id="" href="/figs/rc-10/Animation" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        Animation
+</a></div>
+</section><section class="category svelte-5z5jep"><button class="svelte-5z5jep"><h1 class="tab svelte-5z5jep">nameplate</h1></button>
+
+    <div class="category-items svelte-5z5jep"><a id="" href="/figs/rc-10/EntityNameplateCustomization" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        EntityNameplateCustomization
+</a><a id="" href="/figs/rc-10/NameplateCustomization" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        NameplateCustomization
+</a><a id="" href="/figs/rc-10/NameplateCustomizationGroup" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        NameplateCustomizationGroup
+</a></div>
+</section><section class="category svelte-5z5jep"><button class="svelte-5z5jep"><h1 class="tab svelte-5z5jep">world</h1></button>
+
+    <div class="category-items svelte-5z5jep"><a id="" href="/figs/rc-10/Biome" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        Biome
+</a><a id="" href="/figs/rc-10/BlockState" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        BlockState
+</a><a id="" href="/figs/rc-10/ItemStack" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        ItemStack
+</a></div>
+</section><section class="category svelte-5z5jep"><button class="svelte-5z5jep"><h1 class="tab svelte-5z5jep">vanilla_model</h1></button>
+
+    <div class="category-items svelte-5z5jep"><a id="" href="/figs/rc-10/VanillaModelGroup" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        VanillaModelGroup
+</a><a id="" href="/figs/rc-10/VanillaModelPart" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        VanillaModelPart
+</a></div>
+</section><section class="category svelte-5z5jep"><button class="svelte-5z5jep"><h1 class="tab svelte-5z5jep">models</h1></button>
+
+    <div class="category-items svelte-5z5jep"><a id="" href="/figs/rc-10/BlockTask" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        BlockTask
+</a><a id="" href="/figs/rc-10/ItemTask" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        ItemTask
+</a><a id="" href="/figs/rc-10/RenderTask" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        RenderTask
+</a><a id="" href="/figs/rc-10/TextTask" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        TextTask
+</a></div>
+</section><section class="category svelte-5z5jep"><button class="svelte-5z5jep"><h1 class="tab svelte-5z5jep">player</h1></button>
+
+    <div class="category-items svelte-5z5jep"><a id="" href="/figs/rc-10/LivingEntityAPI" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        LivingEntityAPI
+</a></div>
+</section><section class="category svelte-5z5jep"><button class="svelte-5z5jep"><h1 class="tab svelte-5z5jep">events</h1></button>
+
+    <div class="category-items svelte-5z5jep"><a id="" href="/figs/rc-10/Event" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        Event
+</a></div>
+</section><section class="category svelte-5z5jep"><button class="svelte-5z5jep"><h1 class="tab svelte-5z5jep">keybind</h1></button>
+
+    <div class="category-items svelte-5z5jep"><a id="" href="/figs/rc-10/Keybind" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        Keybind
+</a></div>
+</section><section class="category svelte-5z5jep"><button class="svelte-5z5jep"><h1 class="tab svelte-5z5jep">vectors</h1></button>
+
+    <div class="category-items svelte-5z5jep"><a id="" href="/figs/rc-10/Vector2" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        Vector2
+</a><a id="" href="/figs/rc-10/Vector3" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        Vector3
+</a><a id="" href="/figs/rc-10/Vector4" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        Vector4
+</a><a id="" href="/figs/rc-10/Vector5" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        Vector5
+</a><a id="" href="/figs/rc-10/Vector6" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        Vector6
+</a></div>
+</section><section class="category svelte-5z5jep"><button class="svelte-5z5jep"><h1 class="tab svelte-5z5jep">matrices</h1></button>
+
+    <div class="category-items svelte-5z5jep"><a id="" href="/figs/rc-10/Matrix2" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        Matrix2
+</a><a id="" href="/figs/rc-10/Matrix3" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        Matrix3
+</a><a id="" href="/figs/rc-10/Matrix4" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        Matrix4
+</a></div>
+</section><section class="category svelte-5z5jep"><button class="svelte-5z5jep"><h1 class="tab svelte-5z5jep">particles</h1></button>
+
+    <div class="category-items svelte-5z5jep"><a id="" href="/figs/rc-10/Particle" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        Particle
+</a></div>
+</section><section class="category svelte-5z5jep"><button class="svelte-5z5jep"><h1 class="tab svelte-5z5jep">sounds</h1></button>
+
+    <div class="category-items svelte-5z5jep"><a id="" href="/figs/rc-10/Sound" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        Sound
+</a></div>
+</section><section class="category svelte-5z5jep"><button class="svelte-5z5jep"><h1 class="tab svelte-5z5jep">pings</h1></button>
+
+    <div class="category-items svelte-5z5jep"><a id="" href="/figs/rc-10/PingFunction" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        PingFunction
+</a></div>
+</section><section class="category svelte-5z5jep"><button class="svelte-5z5jep"><h1 class="tab svelte-5z5jep">textures</h1></button>
+
+    <div class="category-items svelte-5z5jep"><a id="" href="/figs/rc-10/Texture" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        Texture
+</a></div>
+</section></article>
+
+    <article><h1 class="tab svelte-1njuenp">Miscellaneous Enums</h1>
+        <a id="" href="/figs/rc-10/Colors" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        Colors
+</a><a id="" href="/figs/rc-10/EntityPoses" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        EntityPoses
+</a><a id="" href="/figs/rc-10/ItemRenderTypes" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        ItemRenderTypes
+</a><a id="" href="/figs/rc-10/KeyIDs" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        KeyIDs
+</a><a id="" href="/figs/rc-10/Keybinds" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        Keybinds
+</a><a id="" href="/figs/rc-10/LoopModes" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        LoopModes
+</a><a id="" href="/figs/rc-10/ParentTypes" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        ParentTypes
+</a><a id="" href="/figs/rc-10/PlayStates" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        PlayStates
+</a><a id="" href="/figs/rc-10/PlayerModelParts" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        PlayerModelParts
+</a><a id="" href="/figs/rc-10/PostEffects" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        PostEffects
+</a><a id="" href="/figs/rc-10/RenderModes" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        RenderModes
+</a><a id="" href="/figs/rc-10/RenderTypes" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        RenderTypes
+</a><a id="" href="/figs/rc-10/TextureTypes" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        TextureTypes
+</a><a id="" href="/figs/rc-10/UseActions" class="svelte-yl6yu4 flex dark"><img src="/figs/_app/immutable/assets/class-9795478b.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">
+        UseActions
+</a></article>
+</div>
+
+
+                <footer class="svelte-cxlej3">Made by applejuice</footer></div></div></div>
+
+    <div class="content svelte-cxlej3">
+
+
+<div class="partial-background svelte-18l318u"><div class="method-root svelte-tmiwxy force-small"><a id="" href="/figs/rc-10/Matrix3.deaugmented" class="svelte-yl6yu4  dark"><h1 class="flex svelte-yl6yu4" style=""><img src="/figs/_app/immutable/assets/method-e780cc87.webp" aria-hidden="true" alt="" class="svelte-yl6yu4" style="object-fit: contain; height: 1em; width: auto;">Matrix3.deaugmented</h1>
+</a>
+        
+    
+
+        <button class="favourite-button svelte-g151lh"><div class="svg-wrapper svelte-g151lh"><img src="/figs/_app/immutable/assets/unlit_star-44b7d610.svg" aria-hidden="true" alt="">
+
+        <img class="posrel svelte-g151lh" src="/figs/_app/immutable/assets/star-150d3691.svg" aria-hidden="true" alt="">
+            <svg class="posrel svelte-g151lh" width="100%" height="100%"></svg></div>
+</button>
+
+        <div></div>
+
+        <div style="margin: 5px;"><div><span class="svelte-1ifvv27">Deaugments this matrix, removing a row and column.</span></div>
+    <div class="code-example filled svelte-zsl1fe" style="margin-top: 50px;">
+                <div style="margin-top: 10px;"><div><div class="code-title svelte-1gtrerd">overload 0:</div>
+
+        <code class="svelte-1gtrerd">Matrix3<span class="token punctuation svelte-sbfse9">:</span><span class="token function svelte-sbfse9">deaugmented</span><span class="token punctuation svelte-sbfse9">(</span><span class="token punctuation svelte-sbfse9">)</span><span class="token punctuation svelte-sbfse9">:</span> <a href="/figs/rc-10/Matrix2" class="hint svelte-mb18b2">Matrix2</a><button tabindex="-1" aria-hidden="true" class="hammer-button svelte-1gtrerd"><svg href="/figs/_app/immutable/assets/hammer-ccd8d2cd.svg" width="16" height="16" style="color: white; touch-action: none; user-select: none;"></svg></button></code></div>
+
+
+</div></div></div></div>
+</div>
+
+
+<a href="/figs/rc-10/search" style="display: none;">dummy</a>
+
+        <svg class="cheese-svg svelte-cxlej3" width="100%" height="100%" aria-hidden="true" style="pointer-events: none; touch-action: none;"></svg></div></div>
+
+<svg id="root-glasspane" class="glasspane svelte-cxlej3" width="100%" height="100%" style="z-index: 99999;"></svg>
+
+
+<div class="hint-overlay svelte-f5r8s3"></div>
+
+
+
+<div class="corner-flyer svelte-cxlej3"><button class="flyer-section svelte-cxlej3">Jump to top</button>
+    <noscript class="flyer-section svelte-cxlej3">Warning: most things in this website won&#39;t work without javascript</noscript>
+
+    <div class="load-div flyer-section svelte-cxlej3"><div style="width: 20px; height: 20px; margin-right: 10px; position: relative;"><div class="loader svelte-cxlej3" style="--l: 0px; --b: #ffffff; --v: 10;"><div class="loader-lit svelte-cxlej3"></div>
+                <div class="loader-lit svelte-cxlej3"></div>
+                <div class="loader-lit svelte-cxlej3"></div>
+                <div class="loader-lit svelte-cxlej3"></div>
+                <div class="loader-lit svelte-cxlej3" style="--b: #000000;"></div>
+                <div class="loader-lit svelte-cxlej3"></div>
+                <div class="loader-lit svelte-cxlej3"></div>
+                <div class="loader-lit svelte-cxlej3"></div>
+                <div class="loader-lit svelte-cxlej3"></div></div>
+        
+            <div class="loader svelte-cxlej3" style="--l: 5px; --b: #7700ff; --v: 9;"><div class="loader-lit svelte-cxlej3"></div>
+                <div class="loader-lit svelte-cxlej3"></div>
+                <div class="loader-lit svelte-cxlej3"></div>
+                <div class="loader-lit svelte-cxlej3"></div>
+                <div></div>
+                <div class="loader-lit svelte-cxlej3"></div>
+                <div class="loader-lit svelte-cxlej3"></div>
+                <div class="loader-lit svelte-cxlej3"></div>
+                <div class="loader-lit svelte-cxlej3"></div></div></div>
+
+        <div style="display: flex; flex-direction: column;"></div></div></div>
+
+
+
+
+		<script type="module" data-sveltekit-hydrate="1tgxfuc">
+		import { set_public_env, start } from "/figs/_app/immutable/start-bbbd306e.js";
+
+		set_public_env({});
+
+		start({
+			target: document.querySelector('[data-sveltekit-hydrate="1tgxfuc"]').parentNode,
+			paths: {"base":"/figs","assets":"/figs"},
+			route: true,
+			spa: false,
+			trailing_slash: "always",
+			hydrate: {
+				status: 200,
+				error: null,
+				node_ids: [0, 2, 5],
+				params: {version:"rc-10",location:"Matrix3.deaugmented"},
+				routeId: "[version]/[location]"
+			}
+		});
+	</script>
+	</div>
+	</body>
+</html>
