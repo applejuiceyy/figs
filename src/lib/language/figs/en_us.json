@@ -20,5 +20,16 @@
     "enable-popup-in-examples": "Show popups in examples",
     "enable-popup-in-signature": "Show popups in signatures",
     "disable-popup-in-examples": "Hide popups in examples",
-    "disable-popup-in-signature": "Hide popups in signatures"
+    "disable-popup-in-signature": "Hide popups in signatures",
+
+    "experienced-user-skill": "Experienced person",
+    "new-user-skill": "New person",
+
+    "experienced-user-skill-switch": "I'm an experienced person",
+    "new-user-skill-switch": "I'm a new person",
+
+    "preferences-indicator": "You can change your option at anytime in preferences!",
+    "skill-level-prompt": "Select your skill level",
+
+    "submit-skill-check": "Submit my skill"
 }

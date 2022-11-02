@@ -10,6 +10,7 @@
     import { page } from "$app/stores";
 
     import stores from "$lib/state/stores";
+    import landmark from "$lib/state/landmark";
     import SidebarView from "$lib/content/sidebar/SidebarView.svelte";
 
     import HintOverlay from "$lib/intertween/highlight/HintOverlay.svelte";
@@ -133,6 +134,7 @@
             }
         }
     }
+    console.log($landmark);
 </script>
 
 <div class="root">
@@ -151,7 +153,7 @@
                 </NavBarButton>
             </div>
 
-            <NavBarExpandButton>
+            <NavBarExpandButton bind:button={$landmark.contentButton}>
                 <SlottedTranslatableKey key="content"/>
             </NavBarExpandButton>
         </NavBarFloater>
@@ -161,7 +163,7 @@
                 <SlottedTranslatableKey key="favourites"/>
             </NavBarLink>
 
-            <NavBarDropdown>
+            <NavBarDropdown bind:button={$landmark.preferencesButton}>
                 <SlottedTranslatableKey key="preferences"/>
 
                 <svelte:fragment slot="dropdown">
@@ -173,6 +175,9 @@
                     </NavBarButton>
                     <NavBarButton on:click={()=>$stores.examplePopupEnabled = !$stores.examplePopupEnabled}>
                         <SlottedTranslatableKey key={($stores.examplePopupEnabled ? "disable" : "enable") + "-popup-in-examples" }/>
+                    </NavBarButton>
+                    <NavBarButton on:click={()=>$stores.skilled = !$stores.skilled}>
+                        <SlottedTranslatableKey key={($stores.skilled ? "experienced" : "new") + "-user-skill-switch" }/>
                     </NavBarButton>
                 </svelte:fragment>
             </NavBarDropdown>

@@ -1,4 +1,8 @@
-<button on:click|stopPropagation>
+<script type="ts">
+    export let button: HTMLButtonElement | null = null;
+</script>
+
+<button on:click|stopPropagation bind:this={button}>
     <slot/>
 </button>
 

@@ -5,6 +5,8 @@ let locale = "en_us";
 let signaturePopupEnabled = true;
 let examplePopupEnabled = true;
 let readerEnabled = false;
+let hasAnsweredSkillCheck = true;
+let skilled = false;
 
 if (!import.meta.env.SSR) {
     let fav = localStorage.getItem("favourites");
@@ -17,6 +19,8 @@ if (!import.meta.env.SSR) {
     signaturePopupEnabled = localStorage.getItem("figs-spe") === null;
     examplePopupEnabled = localStorage.getItem("figs-epe") === null;
     readerEnabled = localStorage.getItem("figs-re") !== null;
+    hasAnsweredSkillCheck = localStorage.getItem("figs-hasc") !== null;
+    skilled = localStorage.getItem("figs-s") !== null;
 }
 
 let write = writable({
@@ -24,7 +28,9 @@ let write = writable({
     favourites: favourites,
     language: locale,
     signaturePopupEnabled,
-    examplePopupEnabled
+    examplePopupEnabled,
+    hasAnsweredSkillCheck,
+    skilled
 })
 
 
@@ -50,6 +56,18 @@ if (!import.meta.env.SSR) {
             localStorage.setItem("figs-re", "");
         } else {
             localStorage.removeItem("figs-re");
+        }
+
+        if (val.hasAnsweredSkillCheck) {
+            localStorage.setItem("figs-hasc", "");
+        } else {
+            localStorage.removeItem("figs-hasc");
+        }
+
+        if (val.skilled) {
+            localStorage.setItem("figs-s", "");
+        } else {
+            localStorage.removeItem("figs-s");
         }
     })
 }

@@ -1,8 +1,10 @@
-<script>
+<script type="ts">
     import NavBarButton from "./NavBarButton.svelte";
     import { getContext } from "svelte";
 
-    let state = getContext("navbar");
+    export let button: HTMLButtonElement | null = null;
+
+    let state = getContext("navbar") as any;
 
     function handleClick() {
         $state.expanded = !$state.expanded;
@@ -10,7 +12,7 @@
 </script>
 
 <div class="expand-button">
-    <NavBarButton on:click={handleClick}>
+    <NavBarButton bind:button={button} on:click={handleClick}>
         <slot/>
     </NavBarButton>
 </div>

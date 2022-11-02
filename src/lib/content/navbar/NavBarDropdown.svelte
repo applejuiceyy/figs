@@ -3,9 +3,10 @@
 </script>
 
 <script type="ts">
-import NavBarButton from "./NavBarButton.svelte";
+    import NavBarButton from "./NavBarButton.svelte";
 
     export let checked = false;
+    export let button: HTMLButtonElement | null = null;
 
     function handleClick() {
         let state = checked;
@@ -23,7 +24,7 @@ import NavBarButton from "./NavBarButton.svelte";
 </script>
 
 <div class="nav-dropdown">
-    <NavBarButton on:click={handleClick}>
+    <NavBarButton on:click={handleClick} bind:button={button}>
         <slot/>
     </NavBarButton>
 

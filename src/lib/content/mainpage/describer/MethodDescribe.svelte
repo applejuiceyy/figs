@@ -19,6 +19,7 @@
     import PopupDisabler from "$lib/intertween/highlight/PopupDisabler.svelte";
 
     import state from "$lib/state/stores";
+    import UserDeselector from "$lib/intertween/UserDeselector.svelte";
 
     export let hostClass: Class;
     export let method: Method;
@@ -34,9 +35,10 @@
     $: shouldShowClass = hostClass.name !== "globals";
     $: qualifiedName = (shouldShowClass? hostClass.name + "." : "") + method.name;
 
-    function processOverload(overload: Parameter[], returns: string): [string, Property] {
+    function processOverload(overload: Parameter[], returns: string): [string, Property[]] {
         let ret = "";
         let hints: Range[] = [];
+        let deselector: Range[] = [];
 
         let shouldUseColon = !method.static;
 
@@ -49,10 +51,18 @@
 
         for (let i = 0; i < overload.length; i++) {
             ret += overload[i].name;
+            let start = ret.length;
+
             ret += ": ";
-            overload[i].type
+
             hints = hints.concat(extractIdentifiers(classi, overload[i].type, ret.length))
             ret += overload[i].type;
+
+            deselector.push({
+                start: start,
+                stop: ret.length,
+                props: {}
+            });
 
             if (i !== overload.length - 1) {
                 ret += ", ";
@@ -61,11 +71,19 @@
 
         ret += "): "
 
+        let start = ret.length - 2;
+
         hints = hints.concat(extractIdentifiers(classi, returns, ret.length))
 
         ret += returns;
 
-        return [ret, {component:Highlight, ranges: hints}];
+        deselector.push({
+            start: start,
+            stop: ret.length,
+            props: {}
+        })
+
+        return [ret, [{component:UserDeselector, ranges: deselector}, {component:Highlight, ranges: hints}]];
     }
 
     let superclass: string | null;
@@ -101,7 +119,7 @@
         <div class="code-example filled" style:margin-top="50px">
             {#each method.parameters as overload, idx}
             {@const processed = processOverload(overload, method.returns[idx])}
-                <div style:margin-top="10px"><Code><svelte:fragment slot="title">overload {idx}:</svelte:fragment><Intertweener text={processed[0]} properties={[generateHighlightChunks(processed[0]), processed[1]]}/></Code></div>
+                <div style:margin-top="10px"><Code><svelte:fragment slot="title">overload {idx + 1}:</svelte:fragment><span style="user-select: all;"><Intertweener text={processed[0]} properties={[generateHighlightChunks(processed[0]), ...processed[1]]}/></span></Code></div>
             {/each}
         </div>
     </PopupDisabler>
