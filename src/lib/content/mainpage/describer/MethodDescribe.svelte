@@ -110,7 +110,7 @@
         </StyledItem>
         {#if superclass !== null}
             <p style:margin-left="5px" style:padding-bottom="5px" style:margin-top="0" style:margin-bottom="25px">
-                Inherited from <Intertweener text={superclass} properties={[{component: Highlight, ranges: [{start: 0, stop: superclass.length, props:{type: "docs", name: superclass, travel: superclass}}]}]}/>
+                Inherited from <Intertweener text={superclass} properties={[{component: Highlight, ranges: [{start: 0, stop: superclass.length, props:{type: "docs", name: superclass, travel: classi.findFromQualifiedName(superclass) !== null ? superclass : undefined}}]}]}/>
             </p>
         {/if}
     </svelte:fragment>
