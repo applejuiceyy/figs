@@ -20,6 +20,7 @@
 
     import state from "$lib/state/stores";
     import UserDeselector from "$lib/intertween/UserDeselector.svelte";
+    import ParametersDescriber from "$lib/docs/ParametersDescriber.svelte";
 
     export let hostClass: Class;
     export let method: Method;
@@ -35,7 +36,7 @@
     $: shouldShowClass = hostClass.name !== "globals";
     $: qualifiedName = (shouldShowClass? hostClass.name + "." : "") + method.name;
 
-    function processOverload(overload: Parameter[], returns: string): [string, Property[]] {
+    function processOverload(overload: Parameter[], returns: string, inlineTypes: boolean): [string, Property[]] {
         let ret = "";
         let hints: Range[] = [];
         let deselector: Range[] = [];
@@ -52,36 +53,42 @@
         for (let i = 0; i < overload.length; i++) {
             ret += overload[i].name;
             let start = ret.length;
+            if (inlineTypes) {
+                ret += ": ";
 
-            ret += ": ";
+                hints = hints.concat(extractIdentifiers(classi, overload[i].type, ret.length))
+                ret += overload[i].type;
 
-            hints = hints.concat(extractIdentifiers(classi, overload[i].type, ret.length))
-            ret += overload[i].type;
-
-            deselector.push({
-                start: start,
-                stop: ret.length,
-                props: {}
-            });
+                deselector.push({
+                    start: start,
+                    stop: ret.length,
+                    props: {}
+                });
+            }
 
             if (i !== overload.length - 1) {
                 ret += ", ";
             }
         }
 
-        ret += "): "
+        ret += ")"
 
-        let start = ret.length - 2;
+        if (inlineTypes) {
+            ret += ": ";
 
-        hints = hints.concat(extractIdentifiers(classi, returns, ret.length))
+            let start = ret.length - 2;
 
-        ret += returns;
+            hints = hints.concat(extractIdentifiers(classi, returns, ret.length))
 
-        deselector.push({
-            start: start,
-            stop: ret.length,
-            props: {}
-        })
+            ret += returns;
+
+            deselector.push({
+                start: start,
+                stop: ret.length,
+                props: {}
+            })
+        }
+
 
         return [ret, [{component:UserDeselector, ranges: deselector}, {component:Highlight, ranges: hints}]];
     }
@@ -103,9 +110,7 @@
         </StyledItem>
         {#if superclass !== null}
             <p style:margin-left="5px" style:padding-bottom="5px" style:margin-top="0" style:margin-bottom="25px">
-                Inherited from <Code style="display: inline;">
-                    <Intertweener text={superclass} properties={[{component: Highlight, ranges: [{start: 0, stop: superclass.length, props:{type: "docs", name: superclass}}]}]}/>
-                </Code>
+                Inherited from <Intertweener text={superclass} properties={[{component: Highlight, ranges: [{start: 0, stop: superclass.length, props:{type: "docs", name: superclass, travel: superclass}}]}]}/>
             </p>
         {/if}
     </svelte:fragment>
@@ -118,8 +123,21 @@
     <PopupDisabler enabled={!$state.signaturePopupEnabled}>
         <div class="code-example filled" style:margin-top="50px">
             {#each method.parameters as overload, idx}
-            {@const processed = processOverload(overload, method.returns[idx])}
-                <div style:margin-top="10px"><Code><svelte:fragment slot="title">overload {idx + 1}:</svelte:fragment><span style="user-select: all;"><Intertweener text={processed[0]} properties={[generateHighlightChunks(processed[0]), ...processed[1]]}/></span></Code></div>
+            {@const processed = processOverload(overload, method.returns[idx], $state.skilled)}
+                <div style:margin-top="10px">
+                    <Code showAddendum={!$state.skilled}>
+                        <svelte:fragment slot="title">
+                            overload {idx + 1}:
+                        </svelte:fragment>
+                        <span style="user-select: all;">
+                            <Intertweener text={processed[0]} properties={[generateHighlightChunks(processed[0]), ...processed[1]]}/>
+                        </span>
+
+                        <svelte:fragment slot="addendum">
+                            <ParametersDescriber classi={classi} overload={overload} returns={method.returns[idx]}/>
+                        </svelte:fragment>
+                    </Code>
+                </div>
             {/each}
         </div>
     </PopupDisabler>

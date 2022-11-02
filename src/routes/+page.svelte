@@ -6,6 +6,7 @@
 
     import versions from "docs:all";
     import latest from "docs:latest";
+    import { onDestroy } from "svelte";
 
     let overrideShowPrompt = false;
     let skillPromptElement: null | HTMLDivElement = null;
@@ -18,7 +19,6 @@
     }
 
     function handleSubmit(ev: SubmitEvent) {
-        console.log(ev);
         let data = new FormData(ev.target as HTMLFormElement);
         let v = data.get("skill");
         
@@ -46,13 +46,18 @@
                     if (preferencesButton === undefined) {
                         overrideShowPrompt = false;
                     }
+
                     skillPromptElement.style.transition = "transform 1s";
                     let rect = preferencesButton.getBoundingClientRect();
                     let elrect = skillPromptElement.getBoundingClientRect();
 
                     scaleFactor = [(1 / elrect.width * rect.width), (1 / elrect.height * rect.height)];
                     skillPromptElement.style.transform = "translate(" + rect.left + "px, " + (rect.bottom + 10) + "px) scale(" + (1 / elrect.width * rect.width) + ", " + (1 / elrect.height * rect.height) + ")";
-                
+                    
+                    if (preferencesIndicator !== null) {
+                        document.body.append(preferencesIndicator);
+                    }
+
                     setTimeout(() => {
                         if (preferencesIndicator !== null && skillPromptElement !== null) {
                             let rect = skillPromptElement.getBoundingClientRect();
@@ -89,6 +94,12 @@
             overrideShowPrompt = false;
         }
     }
+
+    onDestroy(() => {
+        overrideShowPrompt = false;
+        skillPromptElement?.remove();
+        preferencesIndicator?.remove();
+    })
 </script>
 
 <div class="version-picker">
@@ -142,6 +153,8 @@
 
         transition: opacity 1s;
         opacity: 0;
+
+        z-index: 999999;
     }
 
     .version-picker {

@@ -7,7 +7,7 @@
     }
 
     @media (prefers-color-scheme: light) {
-            span {
+        span {
             color: #cc0000;
         }
     }

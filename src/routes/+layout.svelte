@@ -134,7 +134,6 @@
             }
         }
     }
-    console.log($landmark);
 </script>
 
 <div class="root">
@@ -177,7 +176,7 @@
                         <SlottedTranslatableKey key={($stores.examplePopupEnabled ? "disable" : "enable") + "-popup-in-examples" }/>
                     </NavBarButton>
                     <NavBarButton on:click={()=>$stores.skilled = !$stores.skilled}>
-                        <SlottedTranslatableKey key={($stores.skilled ? "experienced" : "new") + "-user-skill-switch" }/>
+                        <SlottedTranslatableKey key={($stores.skilled ? "new" : "experienced") + "-user-skill-switch" }/>
                     </NavBarButton>
                 </svelte:fragment>
             </NavBarDropdown>

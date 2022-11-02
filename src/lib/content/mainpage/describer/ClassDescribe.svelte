@@ -40,9 +40,7 @@
             </StyledItem>
             {#if klass.parent !== undefined}
                 <p style:padding-bottom="5px" style:margin-top="0" style:margin-bottom="25px">
-                    subclasses<Code style="display: inline;">
-                        <Intertweener text={klass.parent} properties={[{component: Highlight, ranges: [{start: 0, stop: klass.parent.length, props: {type: "docs", name: klass.parent}}]}]}/>
-                    </Code>
+                    subclasses <Intertweener text={klass.parent} properties={[{component: Highlight, ranges: [{start: 0, stop: klass.parent.length, props: {type: "docs", name: klass.parent, travel: klass.parent}}]}]}/>
                 </p>
             {/if}
         </svelte:fragment>
