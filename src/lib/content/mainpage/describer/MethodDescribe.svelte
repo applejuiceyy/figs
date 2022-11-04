@@ -21,6 +21,7 @@
     import state from "$lib/state/stores";
     import UserDeselector from "$lib/intertween/UserDeselector.svelte";
     import ParametersDescriber from "$lib/docs/ParametersDescriber.svelte";
+    import GhostText from "$lib/intertween/GhostText.svelte";
 
     export let hostClass: Class;
     export let method: Method;
@@ -36,15 +37,40 @@
     $: shouldShowClass = hostClass.name !== "globals";
     $: qualifiedName = (shouldShowClass? hostClass.name + "." : "") + method.name;
 
-    function processOverload(overload: Parameter[], returns: string, inlineTypes: boolean): [string, Property[]] {
+    function processOverload(overload: Parameter[], returns: string, easyInfo: boolean): [string, Property[]] {
         let ret = "";
         let hints: Range[] = [];
         let deselector: Range[] = [];
+        let ghost: Range[] = [];
 
         let shouldUseColon = !method.static;
 
+
         if (shouldShowClass) {
-            ret += hostClass.name + (shouldUseColon ? ":" : ".");
+                    
+            let accessor = hostClass.name;
+            let shouldGhost = false;
+
+            if (easyInfo) {
+                console.log()
+                for (let i = 0; i < classi.globalVariables.length; i++) {
+                    console.log(classi.globalVariables[i].type, hostClass.name)
+                    if (classi.globalVariables[i].type === hostClass.name) {
+                        accessor = classi.globalVariables[i].name;
+                        shouldGhost = true;
+                        break;
+                    }
+                }
+            }
+            if (shouldGhost) {
+                ghost.push({
+                    start: 0,
+                    stop: accessor.length,
+                    props: {}
+                })
+            }
+
+            ret += accessor + (shouldUseColon ? ":" : ".");
         }
 
         ret += method.name;
@@ -53,7 +79,7 @@
         for (let i = 0; i < overload.length; i++) {
             ret += overload[i].name;
             let start = ret.length;
-            if (inlineTypes) {
+            if (!easyInfo) {
                 ret += ": ";
 
                 hints = hints.concat(extractIdentifiers(classi, overload[i].type, ret.length))
@@ -73,7 +99,7 @@
 
         ret += ")"
 
-        if (inlineTypes) {
+        if (!easyInfo) {
             ret += ": ";
 
             let start = ret.length - 2;
@@ -90,7 +116,7 @@
         }
 
 
-        return [ret, [{component:UserDeselector, ranges: deselector}, {component:Highlight, ranges: hints}]];
+        return [ret, [{component:UserDeselector, ranges: deselector}, {component:Highlight, ranges: hints}, {component: GhostText, ranges: ghost}]];
     }
 
     let superclass: string | null;
@@ -123,7 +149,7 @@
     <PopupDisabler enabled={!$state.signaturePopupEnabled}>
         <div class="code-example filled" style:margin-top="50px">
             {#each method.parameters as overload, idx}
-            {@const processed = processOverload(overload, method.returns[idx], $state.skilled)}
+            {@const processed = processOverload(overload, method.returns[idx], !$state.skilled)}
                 <div style:margin-top="10px">
                     <Code showAddendum={!$state.skilled}>
                         <svelte:fragment slot="title">

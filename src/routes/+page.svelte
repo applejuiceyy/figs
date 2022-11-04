@@ -11,6 +11,7 @@
     let overrideShowPrompt = false;
     let skillPromptElement: null | HTMLDivElement = null;
     let preferencesIndicator: null | HTMLDivElement = null;
+    let versionPickerElement: null | HTMLElement = null;
 
     let scaleFactor: [number, number] = [0, 0];
 
@@ -28,6 +29,7 @@
 
         if (skillPromptElement !== null) {
             let rect = skillPromptElement.getBoundingClientRect();
+            let originalVersionPickerRect = versionPickerElement?.getBoundingClientRect();
 
             skillPromptElement.style.transform = "translate(" + rect.left + "px, " + rect.top + "px)";
             skillPromptElement.style.position = "fixed";
@@ -45,6 +47,33 @@
                 if (skillPromptElement !== null) {
                     if (preferencesButton === undefined) {
                         overrideShowPrompt = false;
+                    }
+
+                    if (versionPickerElement !== null && originalVersionPickerRect !== undefined) {
+                        let newVersionPickerRect = versionPickerElement.getBoundingClientRect();
+
+                        versionPickerElement.style.position = "fixed";
+                        versionPickerElement.style.top = "0px";
+                        versionPickerElement.style.left = "0px";
+                        versionPickerElement.style.transform = "translate(" + originalVersionPickerRect.left + "px, " + originalVersionPickerRect.top + "px)";
+
+
+                        requestAnimationFrame(() => {
+                            if (versionPickerElement !== null) {
+                                versionPickerElement.style.transition = "transform 1s";
+                                versionPickerElement.style.transform = "translate(" + newVersionPickerRect.left + "px, " + newVersionPickerRect.top + "px)";
+                                
+                                setTimeout(() => {
+                                    if (versionPickerElement !== null) {
+                                        versionPickerElement.style.top = "";
+                                        versionPickerElement.style.left = "";
+                                        versionPickerElement.style.position = "";
+                                        versionPickerElement.style.transition = "";
+                                        versionPickerElement.style.transform = "";
+                                    }
+                                }, 1000)
+                            }
+                        });
                     }
 
                     skillPromptElement.style.transition = "transform 1s";
@@ -103,7 +132,7 @@
 </script>
 
 <div class="version-picker">
-    <nav class="version-picker-content">
+    <nav class="version-picker-content" bind:this={versionPickerElement}>
         <h1 class="version-picker-title">
             <SlottedTranslatableKey key="pick-a-version" let:value>
                 {value}
