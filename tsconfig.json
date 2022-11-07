@@ -9,6 +9,7 @@
 		"skipLibCheck": true,
 		"sourceMap": true,
 		"strict": true,
+        "lib": ["ES2021.String"],
 
 		"types": [
             "./src/lib/typings/docs"

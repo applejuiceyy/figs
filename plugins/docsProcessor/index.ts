@@ -3,7 +3,6 @@ import path from "node:path";
 import { ExampleExtractor } from "./examples.js";
 import yaml from "yaml";
 import executeFile from "./overrider/interpreter.js";
-import util from "node:util"
 
 const docsPath = "./docs";
 
@@ -52,19 +51,21 @@ export default async function docsProcessor() {
             if (id.startsWith("\0" + moduleNamespace)) {
                 let relevant = id.substring(moduleNamespace.length + 1);
 
-                const folders = await readDir(path.join(docsPath, "versions"));
+                const folders = (await readFile(path.join(docsPath, "order.txt"))).replace(new RegExp("\r", "g"), "").split("\n");
 
                 if (relevant === "all") {
                     let versions = folders;
-
+                    console.log(versions);
                     let entries = versions.map(element => {
-                        return `"${element}": async () => (await import("docs:v-${element}")).default`
+                        return `"${element}": (async () => (await import("docs:v-${element}")).default)`
                     });
-
+                    
+                    console.log(`export default {${entries.join(",")}}`);
                     return `export default {${entries.join(",")}}`
                 }
                 else if(relevant === "latest") {
-                    return `export default "${(await readFile(path.join(docsPath, "latest.txt"))).replace("\\", "\\\\").replace("\"", "\\\"")}"`
+                    let vers = (await readFile(path.join(docsPath, "order.txt"))).split("\n");
+                    return `export default "${vers[vers.length - 1].replace("\\", "\\\\").replace("\"", "\\\"")}"`
                 }
                 else if(relevant.startsWith("v-")){
                     let relevantId = relevant.substring(2);
