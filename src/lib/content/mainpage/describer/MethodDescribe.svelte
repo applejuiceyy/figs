@@ -54,7 +54,6 @@
             if (easyInfo) {
                 console.log()
                 for (let i = 0; i < classi.globalVariables.length; i++) {
-                    console.log(classi.globalVariables[i].type, hostClass.name)
                     if (classi.globalVariables[i].type === hostClass.name) {
                         accessor = classi.globalVariables[i].name;
                         shouldGhost = true;

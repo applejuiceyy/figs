@@ -2,14 +2,77 @@
 index "types".*>{"name":"ActionWheelAPI"}."methods".*>{"name":"getCurrentPage" | "getPage"}
 modify "returns"."0" ~ "Page | nil"
 
+
+
+
 ---
 index "types".*>{"name":"WorldAPI"}."methods".*>{"name":"getEntity"}
 modify "returns"."0" ~ "EntityAPI | nil"
+
+
+
 
 ---
 index "types".*>{"name":"ModelPart"}."methods".*>{"name":"getParent"}
 modify "returns"."0" ~ "ModelPart | nil"
 
 ---
+index "types".*>{"name":"ModelPart"}."methods".*>{"name":"getVisible"}
+modify "returns"."0" ~ "Boolean | nil"
+
+---
+index "types".*>{"name":"ModelPart"}."methods".*>{"name":"getPrimaryRenderType" | "getSecondaryRenderType"}
+modify "returns"."0" ~ "RenderTypes | nil"
+
+
+
+
+---
 index "types".*>{"name":"RendererAPI"}."methods".*>{"name":"getCameraPos"}
 modify "returns"."0" ~ "Vector3 | nil"
+
+
+
+
+---
+index "types".*>{"name":"BlockState"}."methods".*>{"name":"asItem"}
+modify "returns"."0" ~ "ItemStack | nil"
+
+
+
+
+---
+index "types".*>{"name":"EntityAPI"}."methods".*>{"name":"getItem"}
+modify "returns"."0" ~ "ItemStack | nil"
+
+---
+index "types".*>{"name":"EntityAPI"}."methods".*>{"name":"getVehicle"}
+modify "returns"."0" ~ "EntityAPI | nil"
+
+
+
+
+---
+index "types".*>{"name":"PlayerAPI"}."methods".*>{"name":"getGamemode"}
+modify "returns"."0" ~ "String | nil"
+
+
+
+
+---
+index "types".*>{"name":"ClientAPI"}."methods".*>{"name":"getCurrentEffect"}
+modify "returns"."0" ~ "String | nil"
+
+
+
+
+---
+index "types".*>{"name":"HostAPI"}."methods".*>{"name":"getScreen"}
+modify "returns"."0" ~ "String | nil"
+
+
+
+
+---
+index "types".*>{"name":"TextureAPI"}."methods".*>{"name":"get"}
+modify "returns"."0" ~ "Texture | nil"

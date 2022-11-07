@@ -9,3 +9,7 @@ modify "returns"."0" ~ "ModelPart[]"
 ---
 index "types".*>{"name":"ModelPart"}."methods".*>{"name":"getTask"}
 modify "returns"."0" ~ "Table<String, RenderTask>"
+
+---
+index "types".*>{"name":"globals"}."methods".*>{"name":"listFiles"}
+modify "returns".* ~ "String[]"

@@ -399,6 +399,13 @@ Page.getAction:
 
 
 
+
+
+# ######################################################
+# ######################################################
+# ######################################################
+# examples differ between the rc-9 to rc-10 transition!
+# previous
 ClickAction.onRightClick:
     content: |-
       local myAction = myPage:newAction()
@@ -407,6 +414,8 @@ ClickAction.onRightClick:
           log("Heheh I got Right Clicked!")
       end)
     author: applejuice
+    versions:
+      - <rc-10
 
 
 
@@ -418,6 +427,41 @@ ClickAction.onLeftClick:
           log("Heheh I got Left Clicked!")
       end)
     author: applejuice
+    versions:
+      - <rc-10
+
+
+# after
+Action.onRightClick:
+    content: |-
+      local myAction = myPage:newAction()
+
+      myAction:onRightClick(function()
+          log("Heheh I got Right Clicked!")
+      end)
+    author: applejuice
+    versions:
+      - =rc-10
+
+
+
+Action.onLeftClick:
+    content: |-
+      local myAction = myPage:newAction()
+
+      myAction:onLeftClick(function()
+          log("Heheh I got Left Clicked!")
+      end)
+    author: applejuice
+    versions:
+      - =rc-10
+
+# ######################################################
+# ######################################################
+# ######################################################
+
+
+
 
 
 Animation.play:

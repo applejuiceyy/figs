@@ -55,12 +55,10 @@ export default async function docsProcessor() {
 
                 if (relevant === "all") {
                     let versions = folders;
-                    console.log(versions);
                     let entries = versions.map(element => {
                         return `"${element}": (async () => (await import("docs:v-${element}")).default)`
                     });
                     
-                    console.log(`export default {${entries.join(",")}}`);
                     return `export default {${entries.join(",")}}`
                 }
                 else if(relevant === "latest") {
