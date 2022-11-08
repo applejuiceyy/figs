@@ -10,12 +10,15 @@ export default function parse(str: string, lang: any): HumanizerBuilder {
     if (str in cache) {
         return cache[str];
     }
-
-    let tokens = tokenise(str, tokensS);
-    let lex = new Lex(tokens);
+    
     let builder = new HumanizerBuilder(lang);
-    if (str !== "[D") {
+    try {
+        let tokens = tokenise(str, tokensS);
+        let lex = new Lex(tokens);
         builder.humanize(lex.parse(), {multiple: false});
+    }
+    catch (e) {
+        console.warn("Cannot parse " + str);
     }
     cache[str] = builder;
     return builder;

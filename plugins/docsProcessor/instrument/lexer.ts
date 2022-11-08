@@ -40,7 +40,7 @@ abstract class AbstractQuerier<V extends string> {
     }
 
     reject(): never {
-        throw `Expected ${this.expects.join(", ")}, got ${this.currentToken.type}`
+        throw new Error(`Expected ${this.expects.join(", ")}, got ${this.currentToken.type}`);
     }
 }
 

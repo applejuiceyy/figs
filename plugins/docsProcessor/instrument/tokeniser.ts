@@ -48,7 +48,7 @@ export default function tokenise<T>(text: string, tokens: [RegExp | string, T | 
         }
 
         if (!done) {
-            throw "Unknown token"
+            throw new Error("Unknown token at position " + pos + " on text " + text);
         }
     }
 
