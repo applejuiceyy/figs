@@ -19,9 +19,9 @@
     {#if warn}
         <span>Using a fallback language</span><br>
     {/if}
-    <slot value={$store.result}>{$store.result}</slot>
+    <slot value={$store.result} type={"FALLBACK"}>{$store.result}</slot>
 {:else}
-    <slot value={$store.result}>{$store.result}</slot>
+    <slot value={$store.result} type={"RESULT"}>{$store.result}</slot>
 {/if}
 
 <style>

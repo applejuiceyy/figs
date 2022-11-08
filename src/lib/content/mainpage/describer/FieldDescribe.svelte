@@ -25,6 +25,8 @@
 
     import state from "$lib/state/stores";
 
+    import ParametersDescriber from "$lib/docs/ParametersDescriber.svelte";
+
 
     export let forceSmall: boolean = false;
     export let setId: boolean = true;
@@ -59,9 +61,12 @@
 
     <div class="code-example filled" style:margin-top="50px">
         <PopupDisabler enabled={!$state.signaturePopupEnabled}>
-            <Code>
+            <Code showAddendum={!$state.skilled}>
                 <svelte:fragment slot="title">field signature:</svelte:fragment>
-                <Intertweener text={field.name + ": " + field.type} properties={[generateHighlightChunks(field.name + ": " + field.type), {component: Highlight, ranges: inlineTypeDocs ? [] : [...extractIdentifiers(classi, field.type, field.name.length + 2)]}]}/>
+                <Intertweener text={field.name + (!$state.skilled ? "" : ": " + field.type)} properties={$state.skilled ? [generateHighlightChunks(field.name + ": " + field.type), {component: Highlight, ranges: inlineTypeDocs ? [] : [...extractIdentifiers(classi, field.type, field.name.length + 2)]}] : []}/>
+                <svelte:fragment slot="addendum">
+                    <ParametersDescriber classi={classi} describer={[{name: "Field Type", type: field.type}]}/>
+                </svelte:fragment>
             </Code>
         </PopupDisabler>
 

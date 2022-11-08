@@ -8,7 +8,7 @@ export default class Path {
     }
 
     get(obj: any) {
-        return this.getWithHistory([{track: [], current: obj}]).map(val => val[val.current]);
+        return this.getWithHistory([{track: [], current: obj}]).map(val => val.current);
     }
 
     getSingle(obj: any) {

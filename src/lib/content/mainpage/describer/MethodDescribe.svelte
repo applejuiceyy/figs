@@ -159,7 +159,7 @@
                         </span>
 
                         <svelte:fragment slot="addendum">
-                            <ParametersDescriber classi={classi} overload={overload} returns={method.returns[idx]}/>
+                            <ParametersDescriber classi={classi} describer={[...overload.map(val => ({name: val.name + " accepts", type: val.type})), {name: "Return Value", type: method.returns[idx]}]}/>
                         </svelte:fragment>
                     </Code>
                 </div>

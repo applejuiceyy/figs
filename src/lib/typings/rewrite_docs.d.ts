@@ -53,5 +53,5 @@ export interface LanguageData {
 }
 
 export interface Language {
-    [item: string]: string
+    [item: string]: any
 }

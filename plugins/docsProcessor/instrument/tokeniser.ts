@@ -1,39 +1,10 @@
-let tokens: [string | RegExp, string | null][] = [
-    ["{", "OPEN_BRACKETS"],
-    ["}", "CLOSE_BRACKETS"],
-    ["[", "OPEN_SQUARE_BRACKETS"],
-    ["]", "CLOSE_SQUARE_BRACKETS"],
-    ["(", "OPEN_PARENTHESIS"],
-    [")", "CLOSE_PARENTHESIS"],
-    [/^"(.+?)"/, "STRING"],
-    [":", "COLON"],
-    [/^([0-9]+(\.[0-9]+)?)/, "NUMBER"],
-    [/^(true|false)/, "BOOLEAN"],
-    [",", "COMMA"],
-    ["!", "EXCLAMATION"],
-    ["&", "AMPERSTAND"],
-    ["|", "PIPE"],
-    
 
-    [".", "DOT"],
-    [/^(\w+)/, "IDENTIFIER"],
-    [">", "LESS_THAN"],
-    ["<", "GREATER_THAN"],
-    ["*", "WILDCARD"],
-    ["$", "DOLLAR"],
-    [/^\s/, null]
-]
+export type Token<T> = {value: string | null, type: T, start: number, stop: number }
 
-export type Token = {value: string | null, type: string}
 
-/**
- * 
- * @param {string} text 
- * @returns {{type: string, value: string | null}[]}
- */
-export default function tokenise(text) {
+export default function tokenise<T>(text: string, tokens: [RegExp | string, T | null][]): Token<T>[] {
     let pos = 0;
-    let ret: Token[] = [];
+    let ret: Token<T>[] = [];
     let i = 0;
 
     while (pos < text.length && i++ < 100) {
@@ -42,12 +13,16 @@ export default function tokenise(text) {
         for (let i = 0; i < tokens.length; i++) {
             let token = tokens[i];
             let res;
+            let start;
+            let stop;
 
             if (typeof token[0] === "string") {
                 res = text.startsWith(token[0], pos) ? null : undefined;
 
                 if (res !== undefined) {
+                    start = pos;
                     pos += token[0].length;
+                    stop = pos;
                 }
             } else {
                 // javascript regexes are cringe
@@ -56,13 +31,15 @@ export default function tokenise(text) {
 
                 if (result) {
                     res = result[1] ?? null;
+                    start = pos;
                     pos += result[0].length;
+                    stop = pos;
                 }
             }
 
             if (res !== undefined) {
                 if (token[1] !== null) {
-                    ret.push({value: res, type: token[1]});
+                    ret.push({value: res, type: token[1], start, stop});
                 }
 
                 done = true;
