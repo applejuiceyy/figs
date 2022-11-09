@@ -7,6 +7,7 @@ let examplePopupEnabled = true;
 let readerEnabled = false;
 let hasAnsweredSkillCheck = true;
 let skilled = false;
+let visits: number = 2;
 
 if (!import.meta.env.SSR) {
     let fav = localStorage.getItem("favourites");
@@ -21,6 +22,7 @@ if (!import.meta.env.SSR) {
     readerEnabled = localStorage.getItem("figs-re") !== null;
     hasAnsweredSkillCheck = localStorage.getItem("figs-hasc") !== null;
     skilled = localStorage.getItem("figs-s") !== null;
+    visits = (Number(localStorage.getItem("figs-visits") ?? "1") ?? 1) + 0.1;
 }
 
 let write = writable({
@@ -30,7 +32,8 @@ let write = writable({
     signaturePopupEnabled,
     examplePopupEnabled,
     hasAnsweredSkillCheck,
-    skilled
+    skilled,
+    visits
 })
 
 
@@ -38,6 +41,7 @@ if (!import.meta.env.SSR) {
     write.subscribe(val => {
         localStorage.setItem("favourites", val.favourites.join(";"));
         localStorage.setItem("locale", val.language);
+        localStorage.setItem("figs-visits", String(val.visits));
 
         if (!val.examplePopupEnabled) {
             localStorage.setItem("figs-epe", "");

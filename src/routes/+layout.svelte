@@ -138,7 +138,7 @@
 
 <div class="root">
     <NavBar>
-        <NavBarLink on:click={increaseStamina} inline href={base + "/"}><span style:font-size={(Math.max(stamina, 10) - 9) + "em"}>FIGS!!</span></NavBarLink>
+        <NavBarLink on:click={increaseStamina} inline href={base + "/"}><span style:font-size={(Math.max(stamina, 10) - 9) + "em"}>FIGS{"!".repeat(Math.min(10, Math.floor($state.visits)))}</span></NavBarLink>
         <div class="big-display">
             <NavBarLink inline external href="https://github.com/applejuiceyy/figs">Github</NavBarLink>
         </div>
