@@ -5,9 +5,8 @@ export type Token<T> = {value: string | null, type: T, start: number, stop: numb
 export default function tokenise<T>(text: string, tokens: [RegExp | string, T | null][]): Token<T>[] {
     let pos = 0;
     let ret: Token<T>[] = [];
-    let i = 0;
-
-    while (pos < text.length && i++ < 100) {
+    
+    while (pos < text.length) {
         let done = false;
 
         for (let i = 0; i < tokens.length; i++) {

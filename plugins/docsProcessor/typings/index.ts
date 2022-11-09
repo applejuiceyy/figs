@@ -18,7 +18,7 @@ export default function parse(str: string, lang: any): HumanizerBuilder {
         builder.humanize(lex.parse(), {multiple: false});
     }
     catch (e) {
-        console.warn("Cannot parse " + str);
+        console.warn("Cannot parse " + str + ": " + e);
     }
     cache[str] = builder;
     return builder;

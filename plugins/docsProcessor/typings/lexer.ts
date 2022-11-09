@@ -1,5 +1,5 @@
 import { tokensNames } from "./tokens";
-import { Pipe, Expression, Reference, ExpArray, OptionalToken, OptionalTokenArray } from "./expressions";
+import { Pipe, Expression, Reference, ExpArray, OptionalToken, OptionalTokenArray, TupleArray } from "./expressions";
 import SimpleLex from "../instrument/lexer";
 
 export default class Lex extends SimpleLex<tokensNames> {
@@ -54,7 +54,37 @@ export default class Lex extends SimpleLex<tokensNames> {
             ref.genericCloseToken = genericClose;
             ref.genericCommasToken = genericCommas;
         }
-        else {
+        else if (this.expectA("OPEN_SQUARE_BRACKETS")) {
+            let openTuple = this.accept();
+            let tupleComma: OptionalTokenArray = [];
+            let closeTuple: OptionalToken = null;
+
+            let generics: Expression[] = [];
+
+            while (!this.expectA("CLOSE_SQUARE_BRACKETS")) {
+                let exp = this.parseExpression();
+
+                if (!this.expectA("COMMA") && !this.expectA("CLOSE_SQUARE_BRACKETS")) {
+                    this.reject();
+                }
+
+                if (this.expectA("COMMA")) {
+                    tupleComma.push(this.accept());
+                }
+
+                generics.push(exp);
+            }
+
+            closeTuple = this.accept();
+
+            let ref = new TupleArray(generics);
+            expr = ref;
+
+            ref.openArrayToken = openTuple;
+            ref.closeArrayToken = closeTuple;
+            ref.commasToken = tupleComma;
+        }
+        else{
             this.reject();
         }
 

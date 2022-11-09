@@ -10,9 +10,7 @@
 
 <span class:highlighted={$binding.includes(id)}
 on:mouseenter={() => {$binding = [...$binding, id]}}
-on:mouseleave={() => {$binding = $binding.filter(v => v !== id)}}>
-    <slot/>
-</span>
+on:mouseleave={() => {$binding = $binding.filter(v => v !== id)}}><slot/></span>
 
 <style>
     span.highlighted {

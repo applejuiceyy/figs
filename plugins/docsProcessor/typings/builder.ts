@@ -17,22 +17,26 @@ export default class HumanizerBuilder {
         this.lang = lang;
     }
 
-    append(str: string, bindId: number | null, name: string | null) {
-        if (bindId !== null && bindId !== undefined) {
+    append(str: string, options: {id?: number, name?: number, nospace?: boolean}) {
+        if (!options.nospace && this.humanizedString.length > 0) {
+            this.humanizedString += " ";
+        }
+
+        if (options.id !== undefined) {
             this.humanizedMapping.push({
                 start: this.humanizedString.length,
                 stop: this.humanizedString.length + str.length,
-                props: {id: bindId}
+                props: {id: options.id}
             })
         }
-        if (name !== null && name !== undefined) {
+        if (options.name !== undefined) {
             this.hints.push({
                 start: this.humanizedString.length,
                 stop: this.humanizedString.length + str.length,
-                name: name
+                name: options.name
             })
         }
-        this.humanizedString += str + " ";
+        this.humanizedString += str;
     }
 
     addMappedBinding(start: number, stop: number, bindingId: number) {

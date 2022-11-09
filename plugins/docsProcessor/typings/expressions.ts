@@ -46,6 +46,24 @@ export class ExpArray extends Expression {
     }
 }
 
+export class TupleArray extends Expression {
+    exprs: Expression[];
+
+    openArrayToken: OptionalToken = null;
+    closeArrayToken: OptionalToken = null;
+    
+    commasToken: OptionalTokenArray = null;
+
+    getIndex(): string[] {
+        return ["Tuple"];
+    }
+
+    constructor(expr: Expression[]) {
+        super();
+        this.exprs = expr;
+    }
+}
+
 export class Pipe extends Expression {
     exprs: Expression[];
 

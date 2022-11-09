@@ -1,0 +1,67 @@
+---
+index "types".*>{"name":"globals"}."fields".*>{"name": "type"}
+modify "type" ~ "Function<[AnyType], Boolean>"
+
+---
+index "types".*>{"name":"globals"}."fields".*>{"name": "vec"}
+modify "type" ~ "Function<[Number, Number], Vector2> | Function<[Number, Number, Number], Vector3> | Function<[Number, Number, Number, Number], Vector4> | Function<[Number, Number, Number, Number, Number], Vector5> | Function<[Number, Number, Number, Number, Number, Number], Vector6>"
+
+---
+index "types".*>{"name":"ActionWheelAPI"}."fields".*>{"name": "scroll"}
+modify "type" ~ "Function<[Number], AnyType>"
+
+---
+index "types".*>{"name":"ActionWheelAPI"}."fields".*>{"name": "leftClick" | "rightClick"}
+modify "type" ~ "Function<[], AnyType>"
+
+
+
+
+
+
+---
+index "types".*>{"name":"Action"}."methods".*>{"name": "onToggle" | "onUntoggle"}."parameters".*.*
+modify "type" ~ "Function<[Boolean, Action], AnyType>"
+
+---
+index "types".*>{"name":"Action"}."methods".*>{"name": "onScroll"}."parameters".*.*
+modify "type" ~ "Function<[Number, Action], AnyType>"
+
+---
+index "types".*>{"name":"Action"}."methods".*>{"name": "onLeftClick" | "onRightClick"}."parameters".*.*
+modify "type" ~ "Function<[Action], AnyType>"
+
+
+
+---
+index "types".*>{"name":"Action"}."fields".*>{"name": "toggle" | "untoggle"}
+modify "type" ~ "Function<[Boolean, Action], AnyType>"
+
+---
+index "types".*>{"name":"Action"}."fields".*>{"name": "scroll"}
+modify "type" ~ "Function<[Number, Action], AnyType>"
+
+---
+index "types".*>{"name":"Action"}."fields".*>{"name": "leftClick" | "rightClick"}
+modify "type" ~ "Function<[Action], AnyType>"
+
+
+---
+index "types".*>{"name":"Keybind"}."fields".*>{"name": "onPress" | "onRelease"}
+modify "type" ~ "Function<[Keybind], AnyType>"
+
+
+---
+index "types".*>{"name":"Texture"}."methods".*>{"name": "applyFunc"}."parameters".*."4"
+modify "type" ~ "Function<[Vector4, Number, Number], Vector4 | nil>"
+
+
+
+
+---
+index "types".*>{"name":"Vector2"}."methods".*>{"name": "applyFunc"}."parameters".*."0"
+modify "type" ~ "Function<[Number, Integer], Number>"
+
+---
+index "types".*>{"name":"Vector2" | "Vector3" | "Vector4" | "Vector5" | "Vector6"}."methods".*>{"name": "applyFunc"}."parameters".*."0"
+modify "type" ~ "Function<[Number, Integer], Number>"

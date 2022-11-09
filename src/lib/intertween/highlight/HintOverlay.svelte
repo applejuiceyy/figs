@@ -63,10 +63,10 @@
         left = Math.min(window.innerWidth - 300, left);
         left = Math.max(10, left);
 
-        root.style.top = bottom + scrollY + offsetY + "px";
-        root.style.left = left + "px";
-        root.style.height = window.innerHeight - bottom - 10 + "px";
+        root.style.height = window.innerHeight - bottom - 30 + "px";
         root.style.width = window.innerWidth - left - 40 + "px";
+        root.style.top = bottom + offsetY + "px";
+        root.style.left = left + "px";
     }
 
     let updateTimeout: ReturnType<typeof setTimeout> | null = null;
@@ -114,7 +114,7 @@
 
 <style>
     .hint-overlay {
-        position: absolute;
+        position: fixed;
 
         display: flex;
         flex-direction: column;
