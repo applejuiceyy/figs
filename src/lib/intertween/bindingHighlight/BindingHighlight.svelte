@@ -16,5 +16,12 @@ on:mouseleave={() => {$binding = $binding.filter(v => v !== id)}}><slot/></span>
     span.highlighted {
         background-color: rgb(95, 0, 142);
         color: white;
+        outline: black solid 1px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        span.highlighted {
+            outline: white solid 1px;
+        }
     }
 </style>

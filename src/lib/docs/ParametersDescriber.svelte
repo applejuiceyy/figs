@@ -8,6 +8,7 @@
     import SlottedTranslatableKey from "$lib/language/SlottedTranslatableKey.svelte";
     import BindingHighlight from "$lib/intertween/bindingHighlight/BindingHighlight.svelte";
     import BindingContext from "$lib/intertween/bindingHighlight/BindingContext.svelte";
+    import { generateHighlightChunks } from "$lib/intertween/tokenize/highlight";
 
 
     export let describer: {name: string, type: string}[];
@@ -79,6 +80,8 @@
                                         component: BindingHighlight,
                                         ranges: value.ogmap,
                                     },
+                                    generateHighlightChunks(entry.type),
+                                    {component: Highlight, ranges: [...extractIdentifiers(classi, entry.type, 0)]}
                                 ]}
                             /></Code
                         >

@@ -46,8 +46,14 @@ index "types".*>{"name":"Action"}."fields".*>{"name": "leftClick" | "rightClick"
 modify "type" ~ "Function<[Action], AnyType>"
 
 
+
 ---
 index "types".*>{"name":"Keybind"}."fields".*>{"name": "onPress" | "onRelease"}
+version =rc-10
+modify "type" ~ "Function<[Keybind], Boolean | nil>"
+---
+index "types".*>{"name":"Keybind"}."fields".*>{"name": "onPress" | "onRelease"}
+version <rc-10
 modify "type" ~ "Function<[Keybind], AnyType>"
 
 

@@ -65,8 +65,8 @@ export default {
                     builder.append(name + "s", {id, name: ref.name});
                 }
                 else {
-                    builder.append("a" + (["a", "e", "i", "o", "u"].includes(name.at(0).toLowerCase()) ? "n" : ""), {id});
-                    builder.append(name, {id, name: ref.name});
+                    builder.append("a" + (["a", "e", "i", "o", "u"].includes(name.at(0).toLowerCase()) ? "n " : " "), {id});
+                    builder.append(name, {id, name: ref.name, nospace: true});
                 }
                 
                 builder.addMappedBinding(ref.identifierToken.start, ref.identifierToken.stop, id);

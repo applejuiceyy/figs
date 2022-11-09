@@ -23,18 +23,40 @@ export default class HumanizerBuilder {
         }
 
         if (options.id !== undefined) {
-            this.humanizedMapping.push({
-                start: this.humanizedString.length,
-                stop: this.humanizedString.length + str.length,
-                props: {id: options.id}
-            })
+            e: {
+                if (this.humanizedMapping.length > 0) {
+                    let last = this.humanizedMapping[this.humanizedMapping.length - 1];
+        
+                    if (last.stop === this.humanizedString.length && options.id === last.props.id) {
+                        last.stop = this.humanizedString.length + str.length;
+                        break e;
+                    }
+                }
+
+                this.humanizedMapping.push({
+                    start: this.humanizedString.length,
+                    stop: this.humanizedString.length + str.length,
+                    props: {id: options.id}
+                })
+            }
         }
         if (options.name !== undefined) {
-            this.hints.push({
-                start: this.humanizedString.length,
-                stop: this.humanizedString.length + str.length,
-                name: options.name
-            })
+            e: {
+                if (this.hints.length > 0) {
+                    let last = this.hints[this.hints.length - 1];
+        
+                    if (last.stop === this.humanizedString.length && options.name === last.name) {
+                        last.stop = this.humanizedString.length + str.length;
+                        break e;
+                    }
+                }
+    
+                this.hints.push({
+                    start: this.humanizedString.length,
+                    stop: this.humanizedString.length + str.length,
+                    name: options.name
+                })
+            }
         }
         this.humanizedString += str;
     }
