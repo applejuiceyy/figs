@@ -3,7 +3,6 @@
 </script>
 
 <script type="ts">
-    import hammer from "$lib/resource/hammer.svg";
     import RandomisedPlayer from "./RandomisedPlayer.svelte";
 
     let breakStages = import.meta.glob("./resource/breaking/*.png", {eager: true, import: "default"}) as {[item: string]: string};
@@ -80,7 +79,9 @@
                 <slot/>
             </code>
             <button tabindex="-1" aria-hidden="true" on:mousedown={handleMouseDown} on:mouseup={handleMouseUp} on:mouseleave={handleMouseUp} class="hammer-button">
-                <svg style:color="white" style:touch-action="none" style:user-select="none" href={hammer} width="16" height="16"/>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hammer" viewBox="0 0 16 16">
+                    <path d="M9.972 2.508a.5.5 0 0 0-.16-.556l-.178-.129a5.009 5.009 0 0 0-2.076-.783C6.215.862 4.504 1.229 2.84 3.133H1.786a.5.5 0 0 0-.354.147L.146 4.567a.5.5 0 0 0 0 .706l2.571 2.579a.5.5 0 0 0 .708 0l1.286-1.29a.5.5 0 0 0 .146-.353V5.57l8.387 8.873A.5.5 0 0 0 14 14.5l1.5-1.5a.5.5 0 0 0 .017-.689l-9.129-8.63c.747-.456 1.772-.839 3.112-.839a.5.5 0 0 0 .472-.334z"/>
+                </svg>
             </button>
         </div>
 
@@ -139,6 +140,9 @@
         position: absolute;
         top: 0;
         left: 100%;
+
+        background-color: #ffffff55;
+        border-radius: 5px;
     }
 
     .hammer-button:hover {

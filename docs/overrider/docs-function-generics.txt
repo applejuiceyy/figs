@@ -1,18 +1,18 @@
 ---
 index "types".*>{"name":"globals"}."fields".*>{"name": "type"}
-modify "type" ~ "Function<[AnyType], Boolean>"
+modify "type" ~ "(AnyType) -> String"
 
 ---
 index "types".*>{"name":"globals"}."fields".*>{"name": "vec"}
-modify "type" ~ "Function<[Number, Number], Vector2> | Function<[Number, Number, Number], Vector3> | Function<[Number, Number, Number, Number], Vector4> | Function<[Number, Number, Number, Number, Number], Vector5> | Function<[Number, Number, Number, Number, Number, Number], Vector6>"
+modify "type" ~ "(Number, Number, Number | nil, Number | nil, Number | nil, Number | nil) -> AnyType where (Number, Number) -> Vector2 and (Number, Number, Number) -> Vector3 and (Number, Number, Number, Number) -> Vector4 and (Number, Number, Number, Number, Number) -> Vector5 and (Number, Number, Number, Number, Number, Number) -> Vector6"
 
 ---
 index "types".*>{"name":"ActionWheelAPI"}."fields".*>{"name": "scroll"}
-modify "type" ~ "Function<[Number], AnyType>"
+modify "type" ~ "(Number) -> AnyType"
 
 ---
 index "types".*>{"name":"ActionWheelAPI"}."fields".*>{"name": "leftClick" | "rightClick"}
-modify "type" ~ "Function<[], AnyType>"
+modify "type" ~ "() -> AnyType"
 
 
 
@@ -21,53 +21,53 @@ modify "type" ~ "Function<[], AnyType>"
 
 ---
 index "types".*>{"name":"Action"}."methods".*>{"name": "onToggle" | "onUntoggle"}."parameters".*.*
-modify "type" ~ "Function<[Boolean, Action], AnyType>"
+modify "type" ~ "(Boolean, Action) -> AnyType"
 
 ---
 index "types".*>{"name":"Action"}."methods".*>{"name": "onScroll"}."parameters".*.*
-modify "type" ~ "Function<[Number, Action], AnyType>"
+modify "type" ~ "(Number, Action) -> AnyType"
 
 ---
 index "types".*>{"name":"Action"}."methods".*>{"name": "onLeftClick" | "onRightClick"}."parameters".*.*
-modify "type" ~ "Function<[Action], AnyType>"
+modify "type" ~ "(Action) -> AnyType"
 
 
 
 ---
 index "types".*>{"name":"Action"}."fields".*>{"name": "toggle" | "untoggle"}
-modify "type" ~ "Function<[Boolean, Action], AnyType>"
+modify "type" ~ "(Boolean, Action) -> AnyType"
 
 ---
 index "types".*>{"name":"Action"}."fields".*>{"name": "scroll"}
-modify "type" ~ "Function<[Number, Action], AnyType>"
+modify "type" ~ "(Number, Action) -> AnyType"
 
 ---
 index "types".*>{"name":"Action"}."fields".*>{"name": "leftClick" | "rightClick"}
-modify "type" ~ "Function<[Action], AnyType>"
+modify "type" ~ "(Action) -> AnyType"
 
 
 
 ---
 index "types".*>{"name":"Keybind"}."fields".*>{"name": "onPress" | "onRelease"}
 version =rc-10
-modify "type" ~ "Function<[Keybind], Boolean | nil>"
+modify "type" ~ "(Keybind) -> Boolean | nil"
 ---
 index "types".*>{"name":"Keybind"}."fields".*>{"name": "onPress" | "onRelease"}
 version <rc-10
-modify "type" ~ "Function<[Keybind], AnyType>"
+modify "type" ~ "(Keybind) -> AnyType"
 
 
 ---
 index "types".*>{"name":"Texture"}."methods".*>{"name": "applyFunc"}."parameters".*."4"
-modify "type" ~ "Function<[Vector4, Number, Number], Vector4 | nil>"
+modify "type" ~ "(Vector4, Number, Number) -> Vector4 | nil"
 
 
 
 
 ---
 index "types".*>{"name":"Vector2"}."methods".*>{"name": "applyFunc"}."parameters".*."0"
-modify "type" ~ "Function<[Number, Integer], Number>"
+modify "type" ~ "(Number, Integer) -> Number"
 
 ---
 index "types".*>{"name":"Vector2" | "Vector3" | "Vector4" | "Vector5" | "Vector6"}."methods".*>{"name": "applyFunc"}."parameters".*."0"
-modify "type" ~ "Function<[Number, Integer], Number>"
+modify "type" ~ "(Number, Integer) -> Number"

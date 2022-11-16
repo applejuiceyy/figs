@@ -1,5 +1,5 @@
 import { tokensNames } from "./tokens";
-import { Pipe, Expression, Reference, ExpArray, OptionalToken, OptionalTokenArray, TupleArray } from "./expressions";
+import { Pipe, Expression, Reference, ExpArray, OptionalToken, OptionalTokenArray, TupleArray, FunctionExpression } from "./expressions";
 import SimpleLex from "../instrument/lexer";
 
 export default class Lex extends SimpleLex<tokensNames> {
@@ -12,6 +12,41 @@ export default class Lex extends SimpleLex<tokensNames> {
         this.expect("EOF");
 
         return exp;
+    }
+
+    parseFunction(): FunctionExpression {
+        let openParams = this.accept();
+        let closeParams;
+        let argCommas: OptionalTokenArray = [];
+
+        let params: Expression[] = [];
+
+        while (!this.expectA("CLOSE_PARENTHESIS")) {
+            let exp = this.parseExpression();
+
+            if (!this.expectA("COMMA") && !this.expectA("CLOSE_PARENTHESIS")) {
+                this.reject();
+            }
+
+            if (this.expectA("COMMA")) {
+                argCommas.push(this.accept());
+            }
+
+            params.push(exp);
+        }
+        closeParams = this.accept();
+        let arrow = this.assert("ARROW");
+
+        let returnType = this.parseExpression();
+
+        let ref = new FunctionExpression(params, returnType, []);
+        
+        ref.arrowToken = arrow;
+        ref.openArgsToken = openParams;
+        ref.closeArgsToken = closeParams;
+        ref.commasToken = argCommas;
+
+        return ref;
     }
 
     parseExpression(): Expression {
@@ -83,6 +118,33 @@ export default class Lex extends SimpleLex<tokensNames> {
             ref.openArrayToken = openTuple;
             ref.closeArrayToken = closeTuple;
             ref.commasToken = tupleComma;
+        }
+        else if (this.expectA("OPEN_PARENTHESIS")) {
+            let ref = this.parseFunction();
+
+            expr = ref;
+
+            let contracts: FunctionExpression[] = [];
+            
+            let whereToken: OptionalToken = null;
+            let andTokens: OptionalTokenArray = [];
+
+            if (this.expectA("WHERE")) {
+                whereToken = this.accept();
+                do {
+                    let exp = this.parseFunction();
+                    contracts.push(exp);
+
+                    if (this.expectA("AND")) {
+                        andTokens.push(this.currentToken);
+                    }
+                } while (this.expect("AND"))
+            }
+
+            ref.contracts = contracts;
+
+            ref.whereToken = whereToken;
+            ref.andsToken = andTokens;
         }
         else{
             this.reject();

@@ -80,3 +80,29 @@ export class Pipe extends Expression {
         this.exprs = exprs;
     }
 }
+
+export class FunctionExpression extends Expression {
+    args: Expression[];
+    ret: Expression;
+    contracts: Expression[];
+
+    arrowToken: OptionalToken = null;
+    openArgsToken: OptionalToken = null;
+    closeArgsToken: OptionalToken = null;
+    commasToken: OptionalTokenArray = null;
+
+    whereToken: OptionalToken = null;
+    andsToken: OptionalTokenArray = null;
+
+
+    getIndex(): string[] {
+        return ["Function"]
+     }
+ 
+    constructor(exprs: Expression[], returns: Expression, contracts: Expression[]) {
+        super();
+        this.args = exprs;
+        this.ret = returns;
+        this.contracts = contracts;
+    }
+}
