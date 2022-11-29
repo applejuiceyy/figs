@@ -3,5 +3,11 @@ index "types".*>{"name":"KeybindAPI"}."methods".*>{"name":"getVanillaKey"}."para
 modify "type" ~ "KeyIDs"
 
 ---
+version <rc-12
 index "types".*>{"name":"KeybindAPI"}."methods".*>{"name":"create"}."parameters".*."1"
+modify "type" ~ "Keybinds"
+
+---
+version >=rc-12
+index "types".*>{"name":"KeybindAPI"}."methods".*>{"name":"newKeybind"}."parameters".*."1"
 modify "type" ~ "Keybinds"

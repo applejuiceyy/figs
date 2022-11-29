@@ -85,10 +85,28 @@ ActionWheelAPI.getPage:
     author: ChloeSpacedOut
 
 
-
+# ######################################################
+# ######################################################
+# ######################################################
+# examples differ between the rc-11 to rc-12 transition!
+# previous
 ActionWheelAPI.createPage:
     content: action_wheel:createPage('examplePage')
     author: ChloeSpacedOut
+    versions:
+      - "<rc-12"
+
+
+# after
+ActionWheelAPI.newPage:
+    content: action_wheel:newPage('examplePage')
+    author: ChloeSpacedOut
+    versions:
+      - ">=rc-12"
+
+# ######################################################
+# ######################################################
+# ######################################################
 
 
 
@@ -441,7 +459,7 @@ Action.onRightClick:
       end)
     author: applejuice
     versions:
-      - =rc-10
+      - ">=rc-10"
 
 
 
@@ -454,7 +472,7 @@ Action.onLeftClick:
       end)
     author: applejuice
     versions:
-      - =rc-10
+      - ">=rc-10"
 
 # ######################################################
 # ######################################################
