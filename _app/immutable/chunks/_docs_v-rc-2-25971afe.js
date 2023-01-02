@@ -179,7 +179,7 @@ end)`,author:"ChloeSpacedOut"}},{name:"getActiveLang",description:"figura.docs.c
 end)`,author:"ChloeSpacedOut"}},{name:"getGuiScale",description:"figura.docs.client.get_gui_scale",parameters:[[]],returns:["Number"],static:!0,example:{content:"log(client.getGuiScale())",author:"ChloeSpacedOut"}},{name:"isHudEnabled",description:"figura.docs.client.is_hud_enabled",parameters:[[]],returns:["Boolean"],static:!0,example:{content:`events.TICK:register(function()
   log(client.isHudEnabled())
 end)`,author:"ChloeSpacedOut"}},{name:"getWindowSize",description:"figura.docs.client.get_window_size",parameters:[[]],returns:["Vector2"],static:!0,example:{content:`events.TICK:register(function()
-  log(client.getWindowSized())
+  log(client.getWindowSize())
 end)`,author:"ChloeSpacedOut"}},{name:"getTextWidth",description:"figura.docs.client.get_text_width",parameters:[[{name:"text",type:"String"}]],returns:["Integer"],static:!0,example:{content:"log(client.getTextWidth('TEXT!'))",author:"ChloeSpacedOut"}},{name:"getFOV",description:"figura.docs.client.get_fov",parameters:[[]],returns:["Number"],static:!0,example:{content:"log(client.getFOV())",author:"ChloeSpacedOut"}},{name:"getCameraRot",description:"figura.docs.client.get_camera_rot",parameters:[[]],returns:["Vector3"],static:!0,example:{content:`events.TICK:register(function()
   log(client.getCameraRot())
 end)`,author:"ChloeSpacedOut"}},{name:"getScreen",description:"figura.docs.client.get_screen",parameters:[[]],returns:["String"],static:!0},{name:"isDebugOverlayEnabled",description:"figura.docs.client.is_debug_overlay_enabled",parameters:[[]],returns:["Boolean"],static:!0,example:{content:`events.TICK:register(function()

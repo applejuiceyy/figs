@@ -75,7 +75,7 @@ end)`,author:"ChloeSpacedOut"}},{name:"getMousePos",description:"docs.clientapi.
 end)`,author:"ChloeSpacedOut"}},{name:"getTextWidth",description:"docs.clientapi.gettextwidth",parameters:[[{name:"text",type:"String"}]],returns:["Integer"],static:!0,example:{content:"log(client.getTextWidth('TEXT!'))",author:"ChloeSpacedOut"}},{name:"getCameraPos",description:"docs.clientapi.getcamerapos",parameters:[[]],returns:["Vector3"],static:!0,example:{content:`events.TICK:register(function()
   log(client.getCameraPos())
 end)`,author:"ChloeSpacedOut"}},{name:"getFOV",description:"docs.clientapi.getfov",parameters:[[]],returns:["Number"],static:!0,example:{content:"log(client.getFOV())",author:"ChloeSpacedOut"}},{name:"getWindowSize",description:"docs.clientapi.getwindowsize",parameters:[[]],returns:["Vector2"],static:!0,example:{content:`events.TICK:register(function()
-  log(client.getWindowSized())
+  log(client.getWindowSize())
 end)`,author:"ChloeSpacedOut"}},{name:"getScreen",description:"docs.clientapi.getscreen",parameters:[[]],returns:["String"],static:!0},{name:"getCameraRot",description:"docs.clientapi.getcamerarot",parameters:[[]],returns:["Vector3"],static:!0,example:{content:`events.TICK:register(function()
   log(client.getCameraRot())
 end)`,author:"ChloeSpacedOut"}},{name:"getGuiScale",description:"docs.clientapi.getguiscale",parameters:[[]],returns:["Number"],static:!0,example:{content:"log(client.getGuiScale())",author:"ChloeSpacedOut"}},{name:"getEntityStatistics",description:"docs.clientapi.getentitystatistics",parameters:[[]],returns:["String"],static:!0,example:{content:`log(client.getEntityStatistics())

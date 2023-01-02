@@ -168,7 +168,7 @@ end)`,author:"ChloeSpacedOut"}},{name:"getFiguraVersion",description:"figura.doc
 end)`,author:"ChloeSpacedOut"}},{name:"getFOV",description:"figura.docs.client.get_fov",parameters:[[]],returns:["Number"],static:!0,example:{content:"log(client.getFOV())",author:"ChloeSpacedOut"}},{name:"getSystemTime",description:"figura.docs.client.get_system_time",parameters:[[]],returns:["Integer"],static:!0,example:{content:`events.TICK:register(function()
   log(client.getSystemTime())
 end)`,author:"ChloeSpacedOut"}},{name:"getGuiScale",description:"figura.docs.client.get_gui_scale",parameters:[[]],returns:["Number"],static:!0,example:{content:"log(client.getGuiScale())",author:"ChloeSpacedOut"}},{name:"getWindowSize",description:"figura.docs.client.get_window_size",parameters:[[]],returns:["Vector2"],static:!0,example:{content:`events.TICK:register(function()
-  log(client.getWindowSized())
+  log(client.getWindowSize())
 end)`,author:"ChloeSpacedOut"}},{name:"getTextWidth",description:"figura.docs.client.get_text_width",parameters:[[{name:"text",type:"String"}]],returns:["Integer"],static:!0,example:{content:"log(client.getTextWidth('TEXT!'))",author:"ChloeSpacedOut"}},{name:"isWindowFocused",description:"figura.docs.client.is_window_focused",parameters:[[]],returns:["Boolean"],static:!0,example:{content:`events.TICK:register(function()
   log(client.isWindowFocused())
 end)`,author:"ChloeSpacedOut"}},{name:"hasIrisShader",description:"figura.docs.client.has_iris_shader",parameters:[[]],returns:["Boolean"],static:!0},{name:"getFPS",description:"figura.docs.client.get_fps",parameters:[[]],returns:["Integer"],static:!0,example:{content:`events.TICK:register(function()

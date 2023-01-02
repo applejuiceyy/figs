@@ -182,7 +182,7 @@ end)`,author:"ChloeSpacedOut"}},{name:"getCameraRot",description:"figura.docs.cl
 end)`,author:"ChloeSpacedOut"}},{name:"isHudEnabled",description:"figura.docs.client.is_hud_enabled",parameters:[[]],returns:["Boolean"],static:!0,example:{content:`events.TICK:register(function()
   log(client.isHudEnabled())
 end)`,author:"ChloeSpacedOut"}},{name:"getFOV",description:"figura.docs.client.get_fov",parameters:[[]],returns:["Number"],static:!0,example:{content:"log(client.getFOV())",author:"ChloeSpacedOut"}},{name:"getWindowSize",description:"figura.docs.client.get_window_size",parameters:[[]],returns:["Vector2"],static:!0,example:{content:`events.TICK:register(function()
-  log(client.getWindowSized())
+  log(client.getWindowSize())
 end)`,author:"ChloeSpacedOut"}},{name:"isWindowFocused",description:"figura.docs.client.is_window_focused",parameters:[[]],returns:["Boolean"],static:!0,example:{content:`events.TICK:register(function()
   log(client.isWindowFocused())
 end)`,author:"ChloeSpacedOut"}},{name:"getGuiScale",description:"figura.docs.client.get_gui_scale",parameters:[[]],returns:["Number"],static:!0,example:{content:"log(client.getGuiScale())",author:"ChloeSpacedOut"}},{name:"getMousePos",description:"figura.docs.client.get_mouse_pos",parameters:[[]],returns:["Vector2"],static:!0,example:{content:`events.TICK:register(function()

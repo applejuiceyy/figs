@@ -168,7 +168,7 @@ end)`,author:"ChloeSpacedOut"}},{name:"getSystemTime",description:"figura.docs.c
 end)`,author:"ChloeSpacedOut"}},{name:"getEntityCount",description:"figura.docs.client.get_entity_count",parameters:[[]],returns:["Integer"],static:!0,example:{content:`events.TICK:register(function()
   log(client.getEntityCount())
 end)`,author:"ChloeSpacedOut"}},{name:"getWindowSize",description:"figura.docs.client.get_window_size",parameters:[[]],returns:["Vector2"],static:!0,example:{content:`events.TICK:register(function()
-  log(client.getWindowSized())
+  log(client.getWindowSize())
 end)`,author:"ChloeSpacedOut"}},{name:"isHudEnabled",description:"figura.docs.client.is_hud_enabled",parameters:[[]],returns:["Boolean"],static:!0,example:{content:`events.TICK:register(function()
   log(client.isHudEnabled())
 end)`,author:"ChloeSpacedOut"}},{name:"getUsedMemory",description:"figura.docs.client.get_used_memory",parameters:[[]],returns:["Integer"],static:!0,example:{content:`events.TICK:register(function()

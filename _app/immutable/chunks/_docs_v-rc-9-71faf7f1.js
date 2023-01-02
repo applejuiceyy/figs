@@ -162,7 +162,7 @@ end)`,author:"ChloeSpacedOut"}},{name:"getChunkStatistics",description:"figura.d
 end)`,author:"ChloeSpacedOut"}},{name:"getCurrentEffect",description:"figura.docs.client.get_current_effect",parameters:[[]],returns:["String | nil"],static:!0,example:{content:`events.TICK:register(function()
   log(client.getCurrentEffect())
 end)`,author:"ChloeSpacedOut"}},{name:"getJavaVersion",description:"figura.docs.client.get_java_version",parameters:[[]],returns:["String"],static:!0,example:{content:"log(client.getJavaVersion())",author:"ChloeSpacedOut"}},{name:"getVersionType",description:"figura.docs.client.get_version_type",parameters:[[]],returns:["String"],static:!0,example:{content:"log(client.getVersionType())",author:"ChloeSpacedOut"}},{name:"getWindowSize",description:"figura.docs.client.get_window_size",parameters:[[]],returns:["Vector2"],static:!0,example:{content:`events.TICK:register(function()
-  log(client.getWindowSized())
+  log(client.getWindowSize())
 end)`,author:"ChloeSpacedOut"}},{name:"getFOV",description:"figura.docs.client.get_fov",parameters:[[]],returns:["Number"],static:!0,example:{content:"log(client.getFOV())",author:"ChloeSpacedOut"}},{name:"getEntityCount",description:"figura.docs.client.get_entity_count",parameters:[[]],returns:["Integer"],static:!0,example:{content:`events.TICK:register(function()
   log(client.getEntityCount())
 end)`,author:"ChloeSpacedOut"}},{name:"getMaxMemory",description:"figura.docs.client.get_max_memory",parameters:[[]],returns:["Integer"],static:!0,example:{content:`log(client.getMaxMemory())

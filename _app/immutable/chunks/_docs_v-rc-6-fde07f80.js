@@ -183,7 +183,7 @@ end)`,author:"ChloeSpacedOut"}},{name:"getSystemTime",description:"figura.docs.c
 end)`,author:"ChloeSpacedOut"}},{name:"getCameraRot",description:"figura.docs.client.get_camera_rot",parameters:[[]],returns:["Vector3"],static:!0,example:{content:`events.TICK:register(function()
   log(client.getCameraRot())
 end)`,author:"ChloeSpacedOut"}},{name:"getWindowSize",description:"figura.docs.client.get_window_size",parameters:[[]],returns:["Vector2"],static:!0,example:{content:`events.TICK:register(function()
-  log(client.getWindowSized())
+  log(client.getWindowSize())
 end)`,author:"ChloeSpacedOut"}},{name:"isWindowFocused",description:"figura.docs.client.is_window_focused",parameters:[[]],returns:["Boolean"],static:!0,example:{content:`events.TICK:register(function()
   log(client.isWindowFocused())
 end)`,author:"ChloeSpacedOut"}},{name:"getFOV",description:"figura.docs.client.get_fov",parameters:[[]],returns:["Number"],static:!0,example:{content:"log(client.getFOV())",author:"ChloeSpacedOut"}},{name:"getAllocatedMemory",description:"figura.docs.client.get_allocated_memory",parameters:[[]],returns:["Integer"],static:!0,example:{content:`log(client.getAllocatedMemory())

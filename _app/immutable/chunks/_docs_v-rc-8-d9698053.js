@@ -177,7 +177,7 @@ end)`,author:"ChloeSpacedOut"}},{name:"getAllocatedMemory",description:"figura.d
 -- returns memory in bytes`,author:"ChloeSpacedOut"}},{name:"isHudEnabled",description:"figura.docs.client.is_hud_enabled",parameters:[[]],returns:["Boolean"],static:!0,example:{content:`events.TICK:register(function()
   log(client.isHudEnabled())
 end)`,author:"ChloeSpacedOut"}},{name:"getWindowSize",description:"figura.docs.client.get_window_size",parameters:[[]],returns:["Vector2"],static:!0,example:{content:`events.TICK:register(function()
-  log(client.getWindowSized())
+  log(client.getWindowSize())
 end)`,author:"ChloeSpacedOut"}},{name:"getCurrentEffect",description:"figura.docs.client.get_current_effect",parameters:[[]],returns:["String | nil"],static:!0,example:{content:`events.TICK:register(function()
   log(client.getCurrentEffect())
 end)`,author:"ChloeSpacedOut"}},{name:"getServerBrand",description:"figura.docs.client.get_server_brand",parameters:[[]],returns:["String"],static:!0,example:{content:"log(client.getServerBrand())",author:"ChloeSpacedOut"}},{name:"getUsedMemory",description:"figura.docs.client.get_used_memory",parameters:[[]],returns:["Integer"],static:!0,example:{content:`events.TICK:register(function()

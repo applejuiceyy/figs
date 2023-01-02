@@ -175,7 +175,7 @@ end)`,author:"ChloeSpacedOut"}},{name:"getEntityCount",description:"figura.docs.
 end)`,author:"ChloeSpacedOut"}},{name:"getFOV",description:"figura.docs.client.get_fov",parameters:[[]],returns:["Number"],static:!0,example:{content:"log(client.getFOV())",author:"ChloeSpacedOut"}},{name:"getVersionType",description:"figura.docs.client.get_version_type",parameters:[[]],returns:["String"],static:!0,example:{content:"log(client.getVersionType())",author:"ChloeSpacedOut"}},{name:"isWindowFocused",description:"figura.docs.client.is_window_focused",parameters:[[]],returns:["Boolean"],static:!0,example:{content:`events.TICK:register(function()
   log(client.isWindowFocused())
 end)`,author:"ChloeSpacedOut"}},{name:"getWindowSize",description:"figura.docs.client.get_window_size",parameters:[[]],returns:["Vector2"],static:!0,example:{content:`events.TICK:register(function()
-  log(client.getWindowSized())
+  log(client.getWindowSize())
 end)`,author:"ChloeSpacedOut"}},{name:"getSoundStatistics",description:"figura.docs.client.get_sound_statistics",parameters:[[]],returns:["String"],static:!0,example:{content:`events.TICK:register(function()
   log(client.getSoundStatistics())
 end)
