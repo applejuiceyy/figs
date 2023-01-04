@@ -642,6 +642,8 @@ PlayerAPI.getStatusEffects:
             end
         end
     author: JimmyHelp
+    versions:
+      - "<rc-13"
                 
 PlayerAPI.getName:
     content: |-

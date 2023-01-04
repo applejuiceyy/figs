@@ -46,14 +46,17 @@ index "types".*>{"name":"Action"}."fields".*>{"name": "leftClick" | "rightClick"
 modify "type" ~ "(Action) -> AnyType"
 
 
-
 ---
-index "types".*>{"name":"Keybind"}."fields".*>{"name": "onPress" | "onRelease"}
-version =rc-10
+version >=rc-13
+index "types".*>{"name":"Keybind"}."fields".*>{"name": "press" | "release"}
 modify "type" ~ "(Keybind) -> Boolean | nil"
 ---
+version =rc-10, =rc-11, =rc-12
 index "types".*>{"name":"Keybind"}."fields".*>{"name": "onPress" | "onRelease"}
+modify "type" ~ "(Keybind) -> Boolean | nil"
+---
 version <rc-10
+index "types".*>{"name":"Keybind"}."fields".*>{"name": "onPress" | "onRelease"}
 modify "type" ~ "(Keybind) -> AnyType"
 
 
