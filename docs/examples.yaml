@@ -363,7 +363,7 @@ ClientAPI.getFOV:
 ClientAPI.getWindowSize:
     content: |-
       events.TICK:register(function()
-        log(client.getWindowSized())
+        log(client.getWindowSize())
       end)
     author: ChloeSpacedOut
 
