@@ -11,6 +11,17 @@ function removeChildrenTags(thing) {
     });
 }
 
+function deduplicate(thingCollection) {
+    let seen = new Set();
+    for (let i = thingCollection.length - 1; i >= 0; i--) {
+        if (seen.has(thingCollection[i].name)) {
+            thingCollection.splice(i, 1);
+        } else {
+            seen.add(thingCollection[i].name);
+        }
+    }
+}
+
 export async function transform(json, folder) {
     let result = {
         types: {},
@@ -33,8 +44,13 @@ export async function transform(json, folder) {
             element.category = field.name
 
             removeChildrenTags(element);
+            deduplicate(element.fields);
+            deduplicate(element.methods);
         });
     });
+    
+    deduplicate(globals.fields);
+    deduplicate(globals.methods);
 
     removeChildrenTags(globals);
     removeChildrenTags(json.math);
