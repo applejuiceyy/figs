@@ -55,6 +55,22 @@ export async function transform(json, folder) {
     removeChildrenTags(globals);
     removeChildrenTags(json.math);
 
+    Object.values(result.types).forEach(val => {
+        for (let i = 0; i < val.methods.length; i++) {
+            let meth = val.methods[i];
+
+            if ("aliases" in meth) {
+                meth.aliases.forEach(name => {
+                    let cpy = JSON.parse(JSON.stringify(meth));
+                    delete cpy.aliases;
+                    cpy.name = name;
+                    val.methods.push(cpy);
+                })
+                delete meth.aliases;
+            }
+        }
+    })
+
     let files = await fs.readdir(path.join(folder, "languages"));
 
     return {
