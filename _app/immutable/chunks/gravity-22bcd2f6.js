@@ -1,4 +1,4 @@
-import{c as ie,n as re}from"./statistics-7e6907e0.js";import"./index-602fb34f.js";import"./paths-6cd3a76e.js";import"./preload-helper-aa6bc0ce.js";import"./translator-e0270602.js";import"./index-e832455d.js";import"./loading-f7d78dd6.js";import"./stores-cd6bc0e5.js";import"./SlottedTranslatableKey-3886aee5.js";var V={exports:{}};/*!
+import{e as ie,n as re}from"./statistics-74b7329d.js";import"./index-602fb34f.js";import"./paths-6cd3a76e.js";import"./preload-helper-aa6bc0ce.js";import"./translator-e0270602.js";import"./index-e832455d.js";import"./loading-f7d78dd6.js";import"./stores-cd6bc0e5.js";import"./SlottedTranslatableKey-3886aee5.js";var V={exports:{}};/*!
  * matter-js 0.18.0 by @liabru
  * http://brm.io/matter-js/
  * License MIT
