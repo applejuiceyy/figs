@@ -1,0 +1,76 @@
+<script>
+    import Code from "$lib/Code.svelte";
+    import AutonomousCode from "./AutonomousCode.svelte";
+
+    let c = "function pings.example()\n\nend\n\n--or\n\npings.example = function()\n\nend"
+    let d = "pings.example()"
+    let e = `local page = action_wheel:newPage()
+
+local action = page:newAction()
+
+action:setTitle("Transform")
+function action.leftClick()
+    print("Transforming!!")
+end`
+    let f = `function pings.transform()
+    print("Transforming!!")
+end
+
+local page = action_wheel:newPage()
+
+local action = page:newAction()
+
+action:setTitle("Transform")
+function action.leftClick()
+    pings.transform()
+end`
+</script>
+
+# Networking, the unavoidable pain
+And that is also true for figura, there is things happening with the avatar in your machine that your avatar in other people's machines do not know. ~~And no, this isn't a way to communicate between avatars~~
+
+~ *What do you mean?*
+
+Let me explain:
+
+Your avatar is not run *globally* for everyone that is seeing it, in fact, every machine seeing your avatar is running your avatar on their machine separately from the avatar running on your machine, and they're not aware of the properties that only your avatar can access on your machine
+
+You need to manually tell these avatars running on other people's machines when something happened/a value that only the host has
+
+## Introducing pings
+When you execute a ping, a notification is sent to the backend, and by extension, to all instances of your avatar currently being run. You can use these pings to notify the other instances of your avatar that something has happened/a value that you would like them to know that only the avatar in your machine can access.
+
+This is mostly used in conjunction with the action wheel, or keybinds, since they're only executed on the host-side ("host" in here means your avatar in your machine), since they're only executed on the host-side, it's up to the avatar's job to let the other instances to know and react to this event. This is just another tool, and like another tool, you can use it when it's necessary even when you're not using action wheels or keybinds
+
+~ *How do I use these pings?*
+
+In order to use pings, you first have to register them. You simply register them by assigning them to <Code inline>pings</Code>.
+
+<AutonomousCode value={c}/>
+
+And in order to call these pings you just have to call them like ordinary functions
+
+<AutonomousCode value={d}/>
+
+## In-field example
+As explained before, action wheels are only executed in the host, and need to be communicated to the other machines that an action has been performed
+
+<AutonomousCode value={e}/>
+
+Do you see what the problem is here? This example doesn't make use of pings! And other machines will *never* know when the user wants to actually transform.
+
+How do we fix this?
+
+Well, we can extract the function that is executed when the action is clicked, turn it into a ping, and when the action is clicked, we call the ping
+
+<AutonomousCode value={f}/>
+
+This way, when the user clicks an action, a notification is sent to the other instances of your avatar, and these avatars also execute the ping, which used to be called when the action is clicked.
+
+## Limitations
+
+Pings are cool, but they have some potholes, specially if you're more advanced in the field of programming, namely:
+* They do not forward the result of the function
+* They're not executed immediately after calling the function for the host
+* They support passing in arguments, but these arguments must be a vector, matrix, or another lua primitive. They get silently converted to nil if they are not able to be passed
+

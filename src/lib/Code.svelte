@@ -74,7 +74,7 @@
                 <slot name="title"/>
             </div>
         {/if}
-        <div class="code-wrapper" style:width={inline ? "fit-content" : ""}>
+        <div class="code-wrapper" class:inline-code={inline} style:width={inline ? "fit-content" : ""}>
             <code class:inline-code={inline} style={style} style:outline={gravityAction !== null && fell ? '1px solid black' : ''} style:margin={gravityAction !== null && fell ? '0' : ''} style:background-image={breaking === -1 ? "" : "url(" + breakStages["./resource/breaking/destroy_stage_" + breaking + ".png"] + ")"} use:conditionalAction={{action: gravityAction, params: {active: true, shadowElement: true}, condition: gravityAction !== null && fell}}>
                 <slot/>
             </code>
