@@ -11,7 +11,8 @@ let load: LayoutLoad = async function () {
         showingEverything: false,
         everythingSwitcher: `/latest/all`,
         version: "latest",
-        forceShowTable: false
+        forceShowTable: false,
+        hideTable: false
     };
 }
 

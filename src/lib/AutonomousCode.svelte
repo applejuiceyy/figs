@@ -21,8 +21,6 @@
             classi = new DocsInterface(docs);
         }
     }
-
-    console.log(value);
 </script>
 
 <PopupDisabler enabled={!$state.examplePopupEnabled}>

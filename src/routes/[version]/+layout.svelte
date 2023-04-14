@@ -9,20 +9,6 @@
     import { onDestroy } from "svelte";
 
     export let data: import('./$types').LayoutData;
-
-    let unsub: (() => void) | null = null;
-    $: {
-        if (unsub !== null) {
-            unsub();
-        }
-
-        unsub = pool.addProvider(data.docs.languages, data.version);
-    };
-
-    onDestroy(() => {
-        if (unsub !== null) unsub();
-    })
-
 </script>
 
 <slot/>

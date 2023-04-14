@@ -1,31 +1,3 @@
-<script>
-    import Code from "$lib/Code.svelte";
-    import AutonomousCode from "./AutonomousCode.svelte";
-
-    let c = "function pings.example()\n\nend\n\n--or\n\npings.example = function()\n\nend"
-    let d = "pings.example()"
-    let e = `local page = action_wheel:newPage()
-
-local action = page:newAction()
-
-action:setTitle("Transform")
-function action.leftClick()
-    print("Transforming!!")
-end`
-    let f = `function pings.transform()
-    print("Transforming!!")
-end
-
-local page = action_wheel:newPage()
-
-local action = page:newAction()
-
-action:setTitle("Transform")
-function action.leftClick()
-    pings.transform()
-end`
-</script>
-
 # Networking, the unavoidable pain
 And that is also true for figura, there is things happening with the avatar in your machine that your avatar in other people's machines do not know. ~~And no, this isn't a way to communicate between avatars~~
 
@@ -44,18 +16,39 @@ This is mostly used in conjunction with the action wheel, or keybinds, since the
 
 ~ *How do I use these pings?*
 
-In order to use pings, you first have to register them. You simply register them by assigning them to <Code inline>pings</Code>.
+In order to use pings, you first have to register them. You simply register them by assigning them to `pings`.
 
-<AutonomousCode value={c}/>
+```
+function pings.example()
+
+end
+
+--or
+
+pings.example = function()
+
+end
+```
 
 And in order to call these pings you just have to call them like ordinary functions
 
-<AutonomousCode value={d}/>
+```
+pings.example()
+```
 
 ## In-field example
 As explained before, action wheels are only executed in the host, and need to be communicated to the other machines that an action has been performed
 
-<AutonomousCode value={e}/>
+```
+local page = action_wheel:newPage()
+
+local action = page:newAction()
+
+action:setTitle("Transform")
+function action.leftClick()
+    print("Transforming!!")
+end
+```
 
 Do you see what the problem is here? This example doesn't make use of pings! And other machines will *never* know when the user wants to actually transform.
 
@@ -63,7 +56,20 @@ How do we fix this?
 
 Well, we can extract the function that is executed when the action is clicked, turn it into a ping, and when the action is clicked, we call the ping
 
-<AutonomousCode value={f}/>
+```
+function pings.transform()
+    print("Transforming!!")
+end
+
+local page = action_wheel:newPage()
+
+local action = page:newAction()
+
+action:setTitle("Transform")
+function action.leftClick()
+    pings.transform()
+end
+```
 
 This way, when the user clicks an action, a notification is sent to the other instances of your avatar, and these avatars also execute the ping, which used to be called when the action is clicked.
 

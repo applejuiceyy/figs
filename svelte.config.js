@@ -1,7 +1,13 @@
 import adapter from "@sveltejs/adapter-static";
 import { mdsvex } from "mdsvex";
 import preprocess from "svelte-preprocess";
+import hydrateMdsvexRemark from "./plugins/mdsvex/hydrateMdsvexRemark.js"
+import hydrateMdsvexRehype from "./plugins/mdsvex/hydrateMdsvexRehype.js"
 
+
+function highlight(code, lang) {
+    return `<Chunk><AutonomousCode value={\`${code}\`}/></Chunk>`;
+}
 
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -14,7 +20,14 @@ const config = {
             }
         }),
         mdsvex({
-            extensions: ['.svx']
+            extensions: ['.svx'],
+
+            remarkPlugins: [hydrateMdsvexRemark],
+            rehypePlugins: [hydrateMdsvexRehype],
+
+            highlight: {
+                highlighter: highlight
+            }
         })
     ],
 

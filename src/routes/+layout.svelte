@@ -134,6 +134,22 @@
             }
         }
     }
+
+    export let data: import('./$types').LayoutData;
+
+    let unsub: (() => void) | null = null;
+    $: {
+        if (unsub !== null) {
+            unsub();
+        }
+
+        unsub = pool.addProvider(data.docs.languages, data.version);
+    };
+
+    onDestroy(() => {
+        if (unsub !== null) unsub();
+    })
+
 </script>
 
 <div class="root">
@@ -214,28 +230,30 @@
         </svelte:fragment>
     </NavBar>
 
-    <div class="category" class:expanded={expanded || $page.data.forceShowTable}>
-        <div class="category-flyover">
-            <div class="category-sticker">
-                {#if classi === null}
-                    <span style:padding="10px">
-                        <SlottedTranslatableKey key="version-not-selected" let:value>
+    {#if !$page.data.hideTable}
+        <div class="category" class:expanded={expanded || $page.data.forceShowTable}>
+            <div class="category-flyover">
+                <div class="category-sticker">
+                    {#if classi === null}
+                        <span style:padding="10px">
+                            <SlottedTranslatableKey key="version-not-selected" let:value>
+                                {value}
+                            </SlottedTranslatableKey>
+                        </span>
+                    {:else}
+                        <SidebarView classi={classi} everythingSwitch={$page.data.everythingSwitcher} everything={!!$page.data.showingEverything} path={$page.data.base ?? "/"} on:select={() => expanded = false}/>
+                    {/if}
+
+
+                    <footer>
+                        <SlottedTranslatableKey key="made-by-applejuice" let:value>
                             {value}
                         </SlottedTranslatableKey>
-                    </span>
-                {:else}
-                    <SidebarView classi={classi} everythingSwitch={$page.data.everythingSwitcher} everything={!!$page.data.showingEverything} path={$page.data.base ?? "/"} on:select={() => expanded = false}/>
-                {/if}
-
-
-                <footer>
-                    <SlottedTranslatableKey key="made-by-applejuice" let:value>
-                        {value}
-                    </SlottedTranslatableKey>
-                </footer>
+                    </footer>
+                </div>
             </div>
         </div>
-    </div>
+    {/if}
 
     <div class:expanded class="content">
         <slot />
