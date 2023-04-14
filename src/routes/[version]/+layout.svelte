@@ -4,9 +4,8 @@
     // export let data;
     // $: ({ docs, version, base } = data);
 
-    import pool from "$lib/language/translator";
+
     import {base as b} from "$app/paths";
-    import { onDestroy } from "svelte";
 
     export let data: import('./$types').LayoutData;
 </script>

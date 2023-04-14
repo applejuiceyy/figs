@@ -27,7 +27,9 @@ const config = {
 
             highlight: {
                 highlighter: highlight
-            }
+            },
+
+            layout: "src/lib/mdsvex/MdsvexBoostrap.svelte"
         })
     ],
 
@@ -41,11 +43,8 @@ const config = {
         },
 
         prerender: {
-            default: true,
             crawl: true,
-        },
-
-        trailingSlash: "always",
+        }
     },
 };
 

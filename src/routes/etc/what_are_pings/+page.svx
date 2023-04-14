@@ -1,3 +1,8 @@
+---
+title: How to pings
+description: A complete guide on the black-magic behind pings
+author: Applejuice
+---
 # Networking, the unavoidable pain
 And that is also true for figura, there is things happening with the avatar in your machine that your avatar in other people's machines do not know. ~~And no, this isn't a way to communicate between avatars~~
 
@@ -12,7 +17,7 @@ You need to manually tell these avatars running on other people's machines when 
 ## Introducing pings
 When you execute a ping, a notification is sent to the backend, and by extension, to all instances of your avatar currently being run. You can use these pings to notify the other instances of your avatar that something has happened/a value that you would like them to know that only the avatar in your machine can access.
 
-This is mostly used in conjunction with the action wheel, or keybinds, since they're only executed on the host-side ("host" in here means your avatar in your machine), since they're only executed on the host-side, it's up to the avatar's job to let the other instances to know and react to this event. This is just another tool, and like another tool, you can use it when it's necessary even when you're not using action wheels or keybinds
+This is mostly used in conjunction with the action wheel, or keybinds, since they're only executed on the host-side ("host" in here means your avatar in your machine), and since they're only executed on the host-side, it's up to the avatar's job to let the other instances to know and react to this event. This is just another tool, and like another tool, you can use it when it's necessary even when you're not using action wheels or keybinds
 
 ~ *How do I use these pings?*
 
@@ -36,7 +41,7 @@ And in order to call these pings you just have to call them like ordinary functi
 pings.example()
 ```
 
-## In-field example
+## In-field example with action wheel
 As explained before, action wheels are only executed in the host, and need to be communicated to the other machines that an action has been performed
 
 ```
@@ -46,7 +51,7 @@ local action = page:newAction()
 
 action:setTitle("Transform")
 function action.leftClick()
-    print("Transforming!!")
+    print("Transforming!!")  -- imagine that this actually does something useful
 end
 ```
 
@@ -58,7 +63,7 @@ Well, we can extract the function that is executed when the action is clicked, t
 
 ```
 function pings.transform()
-    print("Transforming!!")
+    print("Transforming!!")  -- imagine that this actually does something useful
 end
 
 local page = action_wheel:newPage()
@@ -73,10 +78,81 @@ end
 
 This way, when the user clicks an action, a notification is sent to the other instances of your avatar, and these avatars also execute the ping, which used to be called when the action is clicked.
 
+## In-field example using keybinds
+Imagine this piece of code
+
+```
+local keybind = keybinds:newKeybind("Dance", "key.keyboard.u")
+
+keybind:onPress(function()
+    print("I'm dancing!")  -- imagine that this actually does something useful
+end)
+```
+
+Do you see what is wrong with this code? The keybind isn't synced to the other instances of the avatar because there's no pings to communicate that this keybind has been clicked! And if the other instances of the avatar don't know when the keybind has been clicked on the host, they will never do the thing the user is expecting the avatar to do
+
+How do we fix this?
+
+The same way as before, we extract the function, turn it into a ping, and when the keybind is clicked we call the ping
+
+```
+function pings.dancing()
+    print("I'm dancing!")  -- imagine that this actually does something useful
+end
+
+
+local keybind = keybinds:newKeybind("Dance", "key.keyboard.u")
+
+keybind:onPress(function()
+    pings.dancing()
+end)
+```
+
+Now when the keybind is clicked, a ping is sent and makes the other instances do something!
+
+## In-field example without keybinds nor action wheel
+
+Ok, but I did tell that pings are just a tool and like another tool, I can use it without keybinds nor action wheel, but how would you actually use it?
+
+Let's imagine that something in your avatar is tied up to `math.random`, this function is not synced between the other instances of your avatar, in fact they have a different seed, and if this functionality is important enough for your avatar to act at the same time between all instances, you need to use pings to properly.
+
+Take a look at this code
+
+```
+events.TICK:register(function()
+    if math.random() > 0.99 then
+        animation.human.eyes_blink:play()
+    end
+end)
+```
+
+Since I told you that `math.random` shouldn't be expected to give the same values in other instances of your avatar, these other instances will play the animation on their own without any coordination with the host avatar, and depending on what you want to do with your avatar, you may find an issue
+
+How would we fix this?
+
+Once again, we can create a ping that plays this animation, and on the tick callback, we call this ping instead of directly playing the animation
+
+```
+function pings.blink()
+    animation.human.eyes_blink:play()
+end
+
+events.TICK:register(function()
+    if host:isHost() and math.random() > 0.99 then
+        pings.blink()
+    end
+end)
+```
+
+But why is there a `host:isHost()`?
+
+You see, this function returns true if the avatar is host, and false otherwise, since the host is now controlling this feature entirely, there's no reason for the other instances to fumble on `math.random`, since this is synced by the pings from the host anyways. And it also leads to a cleaner separation of responsibilities.
+
+
 ## Limitations
 
 Pings are cool, but they have some potholes, specially if you're more advanced in the field of programming, namely:
 * They do not forward the result of the function
 * They're not executed immediately after calling the function for the host
 * They support passing in arguments, but these arguments must be a vector, matrix, or another lua primitive. They get silently converted to nil if they are not able to be passed
-
+* Stateful pings (pings that end up changing the state of the avatar in some way like setting a variable) will not work for players that just joined since their instance of your avatar will be loaded anew without the current state, therefore you need to periodically ping any state for these new platers

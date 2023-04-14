@@ -6,7 +6,6 @@ function plug() {
         visit(tree, (node, pos, parent) => {
 
             if (node.type === "inlineCode" && pos !== null) {
-                console.log(node, parent);
                 parent.children[pos] = {
                     type: "html",
                     value: `<Chunk><Code inline>${node.value.replaceAll("<", "&lt;").replaceAll(">", "&gt;")}</Code></Chunk>`
