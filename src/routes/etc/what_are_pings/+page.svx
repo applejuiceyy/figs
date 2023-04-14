@@ -134,7 +134,7 @@ Once again, we can create a ping that plays this animation, and on the tick call
 
 ```
 function pings.blink()
-    animation.human.eyes_blink:play()
+    animations.human.eyes_blink:play()
 end
 
 events.TICK:register(function()

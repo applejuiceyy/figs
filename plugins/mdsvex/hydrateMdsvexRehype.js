@@ -64,6 +64,29 @@ function plug() {
             })
         }
 
+        tree.children.push({
+            type: "raw",
+            value: `
+            <style>
+                h2, h3, h4, h5, h6 {
+                    margin-top: 100px;
+                    position: relative;
+                }
+
+                h2::before, h3::before, h4::before, h5::before, h6::before {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    top: 100%;
+                    height: 10px;
+                    background-color: purple;
+                    border-radius: 1000px;
+                }
+            </style>`
+        })
+
         visit(tree, 'element', (node) => {
             if (['p'].includes(node.tagName)) {
                 node.tagName = "div"
