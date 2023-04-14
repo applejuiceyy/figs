@@ -6,36 +6,40 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="manifest" crossorigin="use-credentials" href="/figs/manifest.json" />
 		<meta http-equiv="content-security-policy" content="">
-	<link rel="modulepreload" href="/figs/_app/immutable/start-0343f22e.js">
-	<link rel="modulepreload" href="/figs/_app/immutable/chunks/index-602fb34f.js">
-	<link rel="modulepreload" href="/figs/_app/immutable/chunks/index-e832455d.js">
-	<link rel="modulepreload" href="/figs/_app/immutable/chunks/paths-6cd3a76e.js">
-	<link rel="modulepreload" href="/figs/_app/immutable/chunks/index-d6fabef0.js">
-	<link rel="modulepreload" href="/figs/_app/immutable/chunks/preload-helper-aa6bc0ce.js">
-	<link rel="modulepreload" href="/figs/_app/immutable/chunks/singletons-e5e57fbd.js">
-			<script>
-		if ('serviceWorker' in navigator) {
-			addEventListener('load', function () {
-				navigator.serviceWorker.register('/figs/service-worker.js');
-			});
-		}
-	</script>
+		<link rel="modulepreload" href="/figs/_app/immutable/entry/start.e37d5e55.js">
+		<link rel="modulepreload" href="/figs/_app/immutable/chunks/index.efdf84df.js">
+		<link rel="modulepreload" href="/figs/_app/immutable/chunks/singletons.972792f4.js">
+		<link rel="modulepreload" href="/figs/_app/immutable/chunks/index.89ff297d.js">
+		<link rel="modulepreload" href="/figs/_app/immutable/chunks/paths.10f0989b.js">
+		<link rel="modulepreload" href="/figs/_app/immutable/chunks/control.e7f5239e.js">
+		<link rel="modulepreload" href="/figs/_app/immutable/entry/app.02eb83b0.js">
+		<link rel="modulepreload" href="/figs/_app/immutable/chunks/preload-helper.41c905a7.js">
 	</head>
 	<body>
 		<div>
-		<script type="module" data-sveltekit-hydrate="45h">
-		import { set_public_env, start } from "/figs/_app/immutable/start-0343f22e.js";
+			<script>
+				{
+					__sveltekit_54gjcr = {
+						env: {},
+						assets: "/figs",
+						base: "/figs",
+						element: document.currentScript.parentElement
+					};
 
-		set_public_env({});
+					Promise.all([
+						import("/figs/_app/immutable/entry/start.e37d5e55.js"),
+						import("/figs/_app/immutable/entry/app.02eb83b0.js")
+					]).then(([kit, app]) => {
+						kit.start(app, __sveltekit_54gjcr.element);
+					});
 
-		start({
-			target: document.querySelector('[data-sveltekit-hydrate="45h"]').parentNode,
-			paths: {"base":"/figs","assets":"/figs"},
-			route: true,
-			spa: true,
-			trailing_slash: "always",
-			hydrate: null
-		});
-	</script></div>
+					if ('serviceWorker' in navigator) {
+						addEventListener('load', function () {
+							navigator.serviceWorker.register('/figs/service-worker.js');
+						});
+					}
+				}
+			</script>
+		</div>
 	</body>
 </html>
