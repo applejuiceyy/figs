@@ -1,9 +1,9 @@
 import type { PageLoad } from "./$types";
-import { prerendering } from '$app/env';
+import { building } from '$app/environment';
 
 let load: PageLoad = async function ({url}) {
     return {
-        query: prerendering ? null : url.searchParams.get("q"),
+        query: building ? null : url.searchParams.get("q"),
     };
 };
 
