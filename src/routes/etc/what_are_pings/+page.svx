@@ -3,6 +3,11 @@ title: How to pings
 description: A complete guide on the black-magic behind pings
 author: Applejuice
 ---
+
+<script>
+    import Background from "$lib/content/mainpage/Background.svelte";
+</script>
+
 # Networking, the unavoidable pain
 And that is also true for figura, there is things happening with the avatar in your machine that your avatar in other people's machines do not know. ~~And no, this isn't a way to communicate between avatars~~
 
@@ -40,6 +45,11 @@ And in order to call these pings you just have to call them like ordinary functi
 ```
 pings.example()
 ```
+
+<div style="height: 200px"></div>
+<Background>
+<span style="font-size: 1.5em">This covers everything about pings on itself, the rest of the sub-sections are examples and limitations</span>
+</Background>
 
 ## In-field example with action wheel
 As explained before, action wheels are only executed in the host, and need to be communicated to the other machines that an action has been performed

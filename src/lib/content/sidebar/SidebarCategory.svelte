@@ -51,7 +51,6 @@
     }
 
     button {
-        .resetButton();
         width: 100%;
 
         &:focus-visible {
