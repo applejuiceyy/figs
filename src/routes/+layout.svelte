@@ -162,7 +162,7 @@
         <NavBarSearcher bind:this={searcher} destination="{base}{$page.data.base}search"/>
 
         <NavBarFloater>
-            <div class="table-toggle" style:display={$page.data.forceShowTable ? "none" : ""}>
+            <div class="table-toggle" class:always-show-toggle={$page.data.hideTable} style:display={$page.data.forceShowTable ? "none" : ""}>
                 <NavBarButton on:click={()=>expanded = !expanded}>
                     <SlottedTranslatableKey key={expanded? "hide-table" : "show-table"}/>
                 </NavBarButton>
@@ -230,30 +230,28 @@
         </svelte:fragment>
     </NavBar>
 
-    {#if !$page.data.hideTable}
-        <div class="category" class:expanded={expanded || $page.data.forceShowTable}>
-            <div class="category-flyover">
-                <div class="category-sticker">
-                    {#if classi === null}
-                        <span style:padding="10px">
-                            <SlottedTranslatableKey key="version-not-selected" let:value>
-                                {value}
-                            </SlottedTranslatableKey>
-                        </span>
-                    {:else}
-                        <SidebarView classi={classi} everythingSwitch={$page.data.everythingSwitcher} everything={!!$page.data.showingEverything} path={$page.data.base ?? "/"} on:select={() => expanded = false}/>
-                    {/if}
-
-
-                    <footer>
-                        <SlottedTranslatableKey key="made-by-applejuice" let:value>
+    <div class="category" class:quiet-category={$page.data.hideTable} class:expanded={expanded || $page.data.forceShowTable}>
+        <div class="category-flyover">
+            <div class="category-sticker">
+                {#if classi === null}
+                    <span style:padding="10px">
+                        <SlottedTranslatableKey key="version-not-selected" let:value>
                             {value}
                         </SlottedTranslatableKey>
-                    </footer>
-                </div>
+                    </span>
+                {:else}
+                    <SidebarView classi={classi} everythingSwitch={$page.data.everythingSwitcher} everything={!!$page.data.showingEverything} path={$page.data.base ?? "/"} on:select={() => expanded = false}/>
+                {/if}
+
+
+                <footer>
+                    <SlottedTranslatableKey key="made-by-applejuice" let:value>
+                        {value}
+                    </SlottedTranslatableKey>
+                </footer>
             </div>
         </div>
-    {/if}
+    </div>
 
     <div class:expanded class="content">
         <slot />
@@ -499,6 +497,10 @@
             border-radius: 5px;
         }
 
+        .category.quiet-category:not(.expanded) {
+            display: none;
+        }
+
         .category-flyover {
             position: absolute;
             inset: 0;
@@ -527,6 +529,9 @@
 
     .table-toggle {
         display: none;
+    }
+    .table-toggle.always-show-toggle {
+        display: contents;
     }
 
     @media only screen and (max-width: 800px) {

@@ -34,6 +34,10 @@
         background-image: linear-gradient(#333333, #222222);
 
         color: white;
+
+        word-break:break-all;
+
+        font-size: 0.9em;
     }
 
     .desizer {

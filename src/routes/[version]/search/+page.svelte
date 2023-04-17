@@ -17,14 +17,12 @@
     let visibility: HTMLDivElement;
 
     $: {
-        if (lang !== $state.language) {
-            searcher = null;
-            entries = [];
-            lang = $state.language;
+        searcher = null;
+        entries = [];
+        lang = $state.language;
 
-            if (data.query !== null) {
-                searcher = s.search(data.query);
-            }
+        if (data.query !== null) {
+            searcher = s.search(data.query);
         }
     }
 
@@ -70,6 +68,8 @@
 
 {#if searcher !== null}
     <div bind:this={visibility} class="visibility-notifier"></div>
+{:else if entries.length == 0}
+    <h1>Nothing here</h1>
 {/if}
 
 <style></style>
