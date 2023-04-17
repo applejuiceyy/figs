@@ -253,7 +253,7 @@
         </div>
     </div>
 
-    <div class:expanded class="content">
+    <div class:expanded={expanded || $page.data.forceShowTable} class="content">
         <slot />
 
         <svg class="cheese-svg" width="100%" height="100%" use:cheeseSvg={cheeseFalling} aria-hidden="true" style:pointer-events="none" style:touch-action="none">
