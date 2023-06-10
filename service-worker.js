@@ -1,27 +1,27 @@
 const a = /* @__PURE__ */ location.pathname.split("/").slice(0, -1).join("/"), u = [
-  a + "/_app/immutable/entry/app.f98235ff.js",
-  a + "/_app/immutable/chunks/0.7d0fc133.js",
-  a + "/_app/immutable/chunks/1.a0a60387.js",
-  a + "/_app/immutable/chunks/10.7c7b5345.js",
-  a + "/_app/immutable/chunks/2.1ea29831.js",
+  a + "/_app/immutable/entry/app.8c7aceca.js",
+  a + "/_app/immutable/chunks/0.a023c4fd.js",
+  a + "/_app/immutable/chunks/1.fe5c6081.js",
+  a + "/_app/immutable/chunks/10.d1f06cb8.js",
+  a + "/_app/immutable/chunks/2.914d9ab1.js",
   a + "/_app/immutable/chunks/3.518d61ed.js",
-  a + "/_app/immutable/chunks/4.13bc6f67.js",
+  a + "/_app/immutable/chunks/4.0b993b82.js",
   a + "/_app/immutable/chunks/5.e0f413d3.js",
-  a + "/_app/immutable/chunks/6.804c4aa7.js",
-  a + "/_app/immutable/chunks/7.90233aeb.js",
-  a + "/_app/immutable/chunks/8.686219e9.js",
-  a + "/_app/immutable/chunks/9.3117831c.js",
+  a + "/_app/immutable/chunks/6.ebd6522a.js",
+  a + "/_app/immutable/chunks/7.9e28aff1.js",
+  a + "/_app/immutable/chunks/8.ba900fa5.js",
+  a + "/_app/immutable/chunks/9.d33c0bd5.js",
   a + "/_app/immutable/assets/SlottedTranslatableKey.2331979f.css",
-  a + "/_app/immutable/chunks/DescribeAny.f241ac35.js",
+  a + "/_app/immutable/chunks/DescribeAny.c90d1acd.js",
   a + "/_app/immutable/chunks/MetaTags.1177d526.js",
   a + "/_app/immutable/chunks/SlottedTranslatableKey.d14ed7d0.js",
-  a + "/_app/immutable/chunks/_docs_all.935a8bd2.js",
-  a + "/_app/immutable/chunks/_layout.20f8d1e9.js",
-  a + "/_app/immutable/chunks/_layout.acc824bf.js",
+  a + "/_app/immutable/chunks/_docs_all.d0daeeef.js",
+  a + "/_app/immutable/chunks/_layout.57a035c6.js",
+  a + "/_app/immutable/chunks/_layout.cc592e44.js",
   a + "/_app/immutable/chunks/_layout.ed5c238c.js",
   a + "/_app/immutable/chunks/_page.3add10ad.js",
-  a + "/_app/immutable/chunks/_page.4171e634.js",
   a + "/_app/immutable/chunks/_page.625d00c9.js",
+  a + "/_app/immutable/chunks/_page.e015ddbc.js",
   a + "/_app/immutable/chunks/_page.e7aa1d55.js",
   a + "/_app/immutable/chunks/control.e7f5239e.js",
   a + "/_app/immutable/chunks/index.2defaa64.js",
@@ -29,10 +29,10 @@ const a = /* @__PURE__ */ location.pathname.split("/").slice(0, -1).join("/"), u
   a + "/_app/immutable/chunks/index.efdf84df.js",
   a + "/_app/immutable/chunks/landmark.b7ef530e.js",
   a + "/_app/immutable/chunks/loading.a7424ab9.js",
-  a + "/_app/immutable/chunks/paths.be78f3b6.js",
+  a + "/_app/immutable/chunks/paths.bf7369ba.js",
   a + "/_app/immutable/chunks/preload-helper.41c905a7.js",
-  a + "/_app/immutable/chunks/singletons.7ed1b018.js",
-  a + "/_app/immutable/chunks/statistics.f6c1b619.js",
+  a + "/_app/immutable/chunks/singletons.5e70796e.js",
+  a + "/_app/immutable/chunks/statistics.76263148.js",
   a + "/_app/immutable/assets/statistics.d2ad473c.css",
   a + "/_app/immutable/assets/class.9795478b.webp",
   a + "/_app/immutable/assets/method.e780cc87.webp",
@@ -59,7 +59,9 @@ const a = /* @__PURE__ */ location.pathname.split("/").slice(0, -1).join("/"), u
   a + "/_app/immutable/assets/unlit_star.44b7d610.svg",
   a + "/_app/immutable/assets/star.150d3691.svg",
   a + "/_app/immutable/assets/field.8fb526b4.webp",
-  a + "/_app/immutable/chunks/stores.2a91bbac.js",
+  a + "/_app/immutable/chunks/stores.02fc9d9a.js",
+  a + "/_app/immutable/chunks/_docs_v-0.1.3aa69257.js",
+  a + "/_app/immutable/chunks/_docs_v-0.1.36c5afe0.js",
   a + "/_app/immutable/chunks/_docs_v-pre-5.837f3a70.js",
   a + "/_app/immutable/chunks/_docs_v-pre-5_en_uwu.254d77d2.js",
   a + "/_app/immutable/chunks/_docs_v-pre-6.c5c9ad42.js",
@@ -103,9 +105,9 @@ const a = /* @__PURE__ */ location.pathname.split("/").slice(0, -1).join("/"), u
   a + "/_app/immutable/chunks/_docs_v-rc-9.d98cf3cd.js",
   a + "/_app/immutable/chunks/_docs_v-rc-9_en_uwu.ca8acb93.js",
   a + "/_app/immutable/chunks/_docs_v-rc-9_ru_ru.a68e3cb7.js",
-  a + "/_app/immutable/entry/start.dffbccd5.js",
-  a + "/_app/immutable/entry/error.svelte.28244604.js",
-  a + "/_app/immutable/chunks/gravity.1e73462e.js",
+  a + "/_app/immutable/entry/start.3f7fceea.js",
+  a + "/_app/immutable/entry/error.svelte.4f4b72fb.js",
+  a + "/_app/immutable/chunks/gravity.fe0a5429.js",
   a + "/_app/immutable/chunks/pt_pt.cfc632b1.js",
   a + "/_app/immutable/assets/dirt.fb045025.png",
   a + "/_app/immutable/assets/grass_block.dedaa017.png",
@@ -116,35 +118,35 @@ const a = /* @__PURE__ */ location.pathname.split("/").slice(0, -1).join("/"), u
   a + "/_app/immutable/assets/eh.6b23cd84.png",
   a + "/_app/immutable/assets/ok.56d3dd37.png",
   a + "/_app/immutable/assets/_layout.e69fdddb.css",
-  a + "/_app/immutable/entry/_layout.svelte.9958ad69.js",
-  a + "/_app/immutable/entry/_layout.ts.84f7d787.js",
+  a + "/_app/immutable/entry/_layout.svelte.6552c02b.js",
+  a + "/_app/immutable/entry/_layout.ts.9db90549.js",
   a + "/_app/immutable/assets/_page.b186cf5c.css",
-  a + "/_app/immutable/entry/_page.svelte.02bfcd6a.js",
-  a + "/_app/immutable/entry/_version_-layout.svelte.0a92c135.js",
-  a + "/_app/immutable/entry/_version_-layout.ts.186f439d.js",
+  a + "/_app/immutable/entry/_page.svelte.cd6b9aaa.js",
+  a + "/_app/immutable/entry/_version_-layout.svelte.ca69547c.js",
+  a + "/_app/immutable/entry/_version_-layout.ts.ab2b702f.js",
   a + "/_app/immutable/entry/_version_-page.svelte.b72466e0.js",
   a + "/_app/immutable/entry/_version_-page.ts.1fa92697.js",
-  a + "/_app/immutable/entry/_version_-_location_-page.svelte.8963bd4c.js",
-  a + "/_app/immutable/entry/_version_-_location_-page.ts.5779fc5a.js",
+  a + "/_app/immutable/entry/_version_-_location_-page.svelte.a48f6ab6.js",
+  a + "/_app/immutable/entry/_version_-_location_-page.ts.aba59f31.js",
   a + "/_app/immutable/assets/_page.7408eda2.css",
-  a + "/_app/immutable/entry/_version_-all-page.svelte.2e3c8c11.js",
+  a + "/_app/immutable/entry/_version_-all-page.svelte.c0107976.js",
   a + "/_app/immutable/entry/_version_-all-page.ts.3eac1f9a.js",
-  a + "/_app/immutable/entry/_version_-fav-page.svelte.8ffc3a97.js",
-  a + "/_app/immutable/entry/_version_-search-page.svelte.ca04355f.js",
+  a + "/_app/immutable/entry/_version_-fav-page.svelte.a390a113.js",
+  a + "/_app/immutable/entry/_version_-search-page.svelte.5a4ffbb6.js",
   a + "/_app/immutable/entry/_version_-search-page.ts.b5f93f46.js",
   a + "/_app/immutable/assets/_layout.88f12fff.css",
   a + "/_app/immutable/entry/etc-layout.svelte.9f036296.js",
   a + "/_app/immutable/entry/etc-layout.ts.ef9dea09.js",
   a + "/_app/immutable/assets/_page.32459e00.css",
-  a + "/_app/immutable/entry/etc-what_are_pings-page.svx.089635b7.js"
+  a + "/_app/immutable/entry/etc-what_are_pings-page.svx.8ff2d132.js"
 ], m = [
   a + "/favicon.png",
   a + "/manifest.json"
-], l = "1681774159518", _ = self, p = `A;static-cache-${l}`, c = u.concat(m);
+], l = "1686433209179", _ = self, t = `A;static-cache-${l}`, c = u.concat(m);
 console.log(c);
 _.addEventListener("install", (s) => {
   console.log("[ServiceWorker] Install"), s.waitUntil(
-    caches.open(p).then((e) => (console.log("[ServiceWorker] Pre-caching offline page"), e.addAll(c).then(() => {
+    caches.open(t).then((e) => (console.log("[ServiceWorker] Pre-caching offline page"), e.addAll(c).then(() => {
       _.skipWaiting();
     })))
   );
@@ -153,9 +155,9 @@ _.addEventListener("activate", (s) => {
   console.log("[ServiceWorker] Activate"), console.log(s), s.waitUntil(
     caches.keys().then(
       async (e) => Promise.all(
-        e.map((t) => {
-          if (t !== p)
-            return console.log("[ServiceWorker] Removing old cache", t), caches.delete(t);
+        e.map((p) => {
+          if (p !== t)
+            return console.log("[ServiceWorker] Removing old cache", p), caches.delete(p);
         })
       )
     )
@@ -163,6 +165,6 @@ _.addEventListener("activate", (s) => {
 });
 self.addEventListener("fetch", (s) => {
   console.log("[ServiceWorker] Fetch", s.request.url), s.respondWith(
-    fetch(s.request).catch(() => caches.open(p).then((e) => (console.log(s.request), e.match(s.request.url))))
+    fetch(s.request).catch(() => caches.open(t).then((e) => (console.log(s.request), e.match(s.request.url))))
   );
 });
