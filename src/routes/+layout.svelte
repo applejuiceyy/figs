@@ -9,6 +9,8 @@
 
     import { page } from "$app/stores";
 
+    import STNotice from "$lib/STNotice.svelte";
+
     import stores from "$lib/state/stores";
     import landmark from "$lib/state/landmark";
     import SidebarView from "$lib/content/sidebar/SidebarView.svelte";
@@ -151,6 +153,10 @@
     })
 
 </script>
+
+{#if !$stores.ST_aware}
+    <STNotice on:submit={()=>{console.log("e");$stores.ST_aware = true}}/>
+{/if}
 
 <div class="root">
     <NavBar>
