@@ -15,67 +15,6 @@ function generateProperties(what: string, output: string): Property[] {
     return [{component: TextMarker, ranges: generateRangesFromOcurrences(what.toLowerCase(), output.toLowerCase())}]
 }
 
-let classOrEnum = (h: string) => (keys: string[], values: any[], what: string, output: string) => {
-    if (keys[0] === "types") {
-        return { classesShowContent: false, this: ClassDescribe, klass: values[1], [h]: generateProperties(what, output)}
-    } else {
-        return { this: EnumDescribe, enum_: values[1], [h]: generateProperties(what, output) }
-    }
-}
-
-const spots = [
-    {
-        position: ["*", "*", "name"],
-        resolve: classOrEnum("titleProperties"),
-        id: (keys: string[], values: any[]) => values[1].name
-    },
-
-    {
-        position: ["*", "*", "description"],
-        resolve: classOrEnum("descriptionProperties"),
-        id: (keys: string[], values: any[]) => values[1].name,
-        transform: (val: string) => pool.getPresentableValue(val)
-    },
-
-
-
-    {
-        position: ["types", "*", "methods", "*", "name"],
-        resolve: (keys: string[], values: any[], what: string, output: string) => {
-            return {this: MethodDescribe, hostClass: values[1], method: values[3], titleProperties: generateProperties(what, values[1].name + "." + output)}
-        },
-        id: (keys: string[], values: any[]) => `${values[1].name}.${values[3].name}`
-    },
-
-    {
-        position: ["types", "*", "methods", "*", "description"],
-        resolve: (keys: string[], values: any[], what: string, output: string) => {
-            return {this: MethodDescribe, hostClass: values[1], method: values[3], descriptionProperties: generateProperties(what, output)}
-        },
-        id: (keys: string[], values: any[]) => `${values[1].name}.${values[3].name}`,
-        transform: (val: string) => pool.getPresentableValue(val)
-    },
-
-
-
-    {
-        position: ["types", "*", "fields", "*", "name"],
-        resolve: (keys: string[], values: any[], what: string, output: string) => {
-            return {this: FieldDescribe, hostClass: values[1], field: values[3], inlineTypeDocs: values[1].name === "globals", titleProperties: generateProperties(what, values[1].name === "globals"? output : values[1].name + "." + output)}
-        },
-        id: (keys: string[], values: any[]) => `${values[1].name}.${values[3].name}`
-    },
-
-    {
-        position: ["types", "*", "fields", "*", "description"],
-        resolve: (keys: string[], values: any[], what: string, output: string) => {
-            return {this: FieldDescribe, hostClass: values[1], field: values[3], inlineTypeDocs: values[1].name === "globals", descriptionProperties: generateProperties(what, output)}
-        },
-        id: (keys: string[], values: any[]) => `${values[1].name}.${values[3].name}`,
-        transform: (val: string) => pool.getPresentableValue(val)
-    },
-]
-
 export default class DocsInterface {
     docs: Docs;
 
@@ -156,11 +95,9 @@ export default class DocsInterface {
             let res = this.searchInClass(this.globalType, name);
     
             if (res !== null) {
-                
+                //@ts-ignore
                 return {
-                    // @ts-ignore
                     value: res.value,
-                    // @ts-ignore
                     type: res.type,
                     klass: this.globalType
                 }
@@ -184,10 +121,9 @@ export default class DocsInterface {
             let res = this.searchInClass(this.types[name.split(".")[0]], name.split(".")[1]);
     
             if (res !== null) {
+                //@ts-ignore
                 return {
-                    // @ts-ignore
                     value: res.value,
-                    // @ts-ignore
                     type: res.type,
                     klass: this.types[name.split(".")[0]]
                 }
@@ -228,59 +164,64 @@ export default class DocsInterface {
         return 0;
     }
 
-    *search(what: any) {
-        let ids = new Set();
+    *search(what: string) {
+        what = what.toLowerCase();
 
-        for (let i = 0; i < spots.length; i++) {
-            let spot = spots[i];
+        for (const t of Object.values(this.types)) {
+            if(t.name === "globals") continue;
 
-            let generator = travel(this.docs, spot.position, [], []);
-            let r;
+            let transformedDescription = pool.getPresentableValue(t.description);
 
-            while(!(r = generator.next()).done) {
-                let result = r.value;
+            if(t.name.toLowerCase().includes(what) || transformedDescription.toLowerCase().includes(what)) {
+                yield {
+                    this: ClassDescribe,
+                    classesShowContent: false,
+                    klass: t,
+                    titleProperties: generateProperties(what, t.name.toLowerCase()),
+                    descriptionProperties: generateProperties(what, transformedDescription.toLowerCase())
+                }
+            }
 
-                if (typeof result.value === "string") {
+            for (const method of t.methods) {
+                let transformedDescription = pool.getPresentableValue(method.description);
+                let fullName =  t.name + "." + method.name;
 
-                    let output = (spot.transform !== undefined ? spot.transform : (val: string) => val)(result.value);
-                    
-                    let id = spot.id(result.keys, result.values);
+                if(fullName.toLowerCase().includes(what) || transformedDescription.toLowerCase().includes(what)) {
+                    yield {
+                        this: MethodDescribe,
+                        hostClass: t,
+                        method: method,
+                        titleProperties: generateProperties(what, fullName.toLowerCase()),
+                        descriptionProperties: generateProperties(what, transformedDescription.toLowerCase())
+                    }
+                }
+            }
 
-                    if ((!ids.has(id)) && typeof result.value === "string" && output.toLowerCase().includes(what.toLowerCase())) {
-                        ids.add(id);
-                        yield spot.resolve(result.keys, result.values, what, output);
+            for (const field of t.fields) {
+                let transformedDescription = pool.getPresentableValue(field.description);
+                let fullName = t.name + "." + field.name;
+
+                if(fullName.toLowerCase().includes(what) || transformedDescription.toLowerCase().includes(what)) {
+                    yield {
+                        this: FieldDescribe,
+                        hostClass: t,
+                        field: field,
+                        titleProperties: generateProperties(what, fullName.toLowerCase()),
+                        descriptionProperties: generateProperties(what, transformedDescription.toLowerCase())
                     }
                 }
             }
         }
-    }
-}
 
-function *travel(current: any, remaining: string[], keys: string[], values: any[]): Generator<{value: any, keys: string[], values: any[]}> {
-    let cpy = [...remaining];
-    let currentKey = cpy.shift() as string;
-
-    if (currentKey === "*") {
-        let entries = Object.entries(current);
-
-        for (let i = 0; i < entries.length; i++) {
-            let entry = entries[i];
-
-            if (cpy.length === 0) {
-                yield {value: entry[1], keys: [...keys, entry[0]], values: [...values, entry[1]]}
-            }
-            else {
-                yield* travel(entry[1], cpy, [...keys, entry[0]], [...values, entry[1]]);
-            }
-        }
-    }
-    else {
-        if (Object.keys(current).includes(currentKey)) {
-            if (cpy.length === 0) {
-                yield {value: current[currentKey], keys: [...keys, currentKey], values: [...values, current[currentKey]]}
-            }
-            else {
-                yield* travel(current[currentKey], cpy, [...keys, currentKey], [...values, current[currentKey]]);
+        for (const t of Object.values(this.enums)) {
+            let transformedDescription = pool.getPresentableValue(t.description);
+            if(t.name.toLowerCase().includes(what) || transformedDescription.toLowerCase().includes(what)) {
+                yield {
+                    this: EnumDescribe,
+                    enum_: t,
+                    titleProperties: generateProperties(what, t.name.toLowerCase()),
+                    descriptionProperties: generateProperties(what, transformedDescription.toLowerCase())
+                }
             }
         }
     }

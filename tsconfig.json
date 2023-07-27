@@ -9,10 +9,14 @@
 		"skipLibCheck": true,
 		"sourceMap": true,
 		"strict": true,
-        "lib": ["DOM", "ESNext"],
 
 		"types": [
             "./src/lib/typings/docs"
 		],
-	}
+	},
+
+	"exclude": [
+			"./plugins/**/*.ts",
+			"./plugins/**/*.js"
+	]
 }

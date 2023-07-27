@@ -4,8 +4,8 @@
     // https://github.com/pngwn/MDsveX/issues/485
     import { MetaTags } from "svelte-meta-tags";
 
-    /** @type {string | null} */
-    export let title = null;
+    /** @type {string | undefined} */
+    export let title = undefined;
     /** @type {string | null} */
     export let description = null;
     /** @type {string | null} */

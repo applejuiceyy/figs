@@ -50,7 +50,7 @@ import Sign from "./Sign.svelte";
                 <div></div>
             {:else}
                 <div class="block">
-                    <img alt="" src={blocks[block]} style:width="100%" preload="true"/>
+                    <img alt="" src={blocks[block]} style:width="100%"/>
                 </div>
             {/if}
         {/each}
