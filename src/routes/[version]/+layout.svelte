@@ -13,4 +13,5 @@
 <slot/>
 
 <!-- required for the prerenderer crawler -->
-<a href="{b}{data.base}search" style:display="none">dummy</a>
+<a href="{b}{data.base}search" style:display="none">a</a>
+<a href="{b}{data.base}meta/docs.json" style:display="none">a</a>
