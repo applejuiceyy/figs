@@ -5,32 +5,33 @@
 		<link rel="icon" href="/figs/favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="manifest" crossorigin="use-credentials" href="/figs/manifest.json" />
-		<meta http-equiv="content-security-policy" content="">
-		<link rel="modulepreload" href="/figs/_app/immutable/entry/start.e89fa64f.js">
-		<link rel="modulepreload" href="/figs/_app/immutable/chunks/index.bfbdfae3.js">
-		<link rel="modulepreload" href="/figs/_app/immutable/chunks/singletons.b1aa8b51.js">
-		<link rel="modulepreload" href="/figs/_app/immutable/chunks/index.ede3e54f.js">
-		<link rel="modulepreload" href="/figs/_app/immutable/chunks/paths.ccbfbb4b.js">
-		<link rel="modulepreload" href="/figs/_app/immutable/chunks/control.e7f5239e.js">
-		<link rel="modulepreload" href="/figs/_app/immutable/entry/app.555d5c9e.js">
-		<link rel="modulepreload" href="/figs/_app/immutable/chunks/preload-helper.41c905a7.js">
+		
+		<link rel="modulepreload" href="/figs/_app/immutable/entry/start.d3f37b62.js">
+		<link rel="modulepreload" href="/figs/_app/immutable/chunks/scheduler.a6a8292b.js">
+		<link rel="modulepreload" href="/figs/_app/immutable/chunks/singletons.49c7f581.js">
+		<link rel="modulepreload" href="/figs/_app/immutable/chunks/paths.a8cdcc5b.js">
+		<link rel="modulepreload" href="/figs/_app/immutable/chunks/control.f5b05b5f.js">
+		<link rel="modulepreload" href="/figs/_app/immutable/entry/app.220cc2bf.js">
+		<link rel="modulepreload" href="/figs/_app/immutable/chunks/preload-helper.080c2815.js">
+		<link rel="modulepreload" href="/figs/_app/immutable/chunks/index.9cbc43f6.js">
 	</head>
 	<body>
 		<div>
 			<script>
 				{
-					__sveltekit_1kmqvq4 = {
-						env: {},
+					__sveltekit_1joa6rh = {
 						assets: "/figs",
 						base: "/figs",
-						element: document.currentScript.parentElement
+						env: {}
 					};
 
+					const element = document.currentScript.parentElement;
+
 					Promise.all([
-						import("/figs/_app/immutable/entry/start.e89fa64f.js"),
-						import("/figs/_app/immutable/entry/app.555d5c9e.js")
+						import("/figs/_app/immutable/entry/start.d3f37b62.js"),
+						import("/figs/_app/immutable/entry/app.220cc2bf.js")
 					]).then(([kit, app]) => {
-						kit.start(app, __sveltekit_1kmqvq4.element);
+						kit.start(app, element);
 					});
 
 					if ('serviceWorker' in navigator) {
