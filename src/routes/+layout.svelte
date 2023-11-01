@@ -6,8 +6,6 @@
 
     import { page } from "$app/stores";
 
-    import STNotice from "$lib/STNotice.svelte";
-
     import stores from "$lib/state/stores";
     import SidebarView from "$lib/content/sidebar/SidebarView.svelte";
 
@@ -90,10 +88,6 @@
     })
 
 </script>
-
-{#if !$stores.ST_aware}
-    <STNotice on:submit={()=> $stores.ST_aware = true}/>
-{/if}
 
 <div class="root">
     <LayoutNavBar bind:expanded bind:cheeseFalling />

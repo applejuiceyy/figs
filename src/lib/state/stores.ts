@@ -8,7 +8,6 @@ let readerEnabled = false;
 let hasAnsweredSkillCheck = true;
 let skilled = false;
 let visits: number = 2;
-let ST_aware = true;
 
 if (!import.meta.env.SSR) {
     let fav = localStorage.getItem("favourites");
@@ -24,7 +23,6 @@ if (!import.meta.env.SSR) {
     hasAnsweredSkillCheck = localStorage.getItem("figs-hasc") !== null;
     skilled = localStorage.getItem("figs-s") !== null;
     visits = (Number(localStorage.getItem("figs-visits") ?? "1") ?? 1) + 0.1;
-    ST_aware = localStorage.getItem("figs-STA") !== null;
 }
 
 let write = writable({
@@ -35,8 +33,7 @@ let write = writable({
     examplePopupEnabled,
     hasAnsweredSkillCheck,
     skilled,
-    visits,
-    ST_aware
+    visits
 })
 
 
@@ -75,12 +72,6 @@ if (!import.meta.env.SSR) {
             localStorage.setItem("figs-s", "");
         } else {
             localStorage.removeItem("figs-s");
-        }
-
-        if (val.ST_aware) {
-            localStorage.setItem("figs-STA", "");
-        } else {
-            localStorage.removeItem("figs-STA");
         }
     })
 }
