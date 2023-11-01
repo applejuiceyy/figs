@@ -1,0 +1,1 @@
+import{w as l}from"./paths.dd3a3e15.js";function o(){const{subscribe:u,set:c,update:t}=l([]);return{subscribe:u,request(r){t(e=>[...e,r]);let n=!0;return()=>{n&&(n=!1,t(e=>{let s=e.findIndex(i=>i===r);return e.filter((i,f)=>f!==s)}))}}}}const a=o();export{a as l};
