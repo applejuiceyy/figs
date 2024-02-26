@@ -3,8 +3,7 @@ import includes from "./version";
 export class ExampleExtractor {
     examples: {[item: string]: {versions: string[], content: string}}
 
-    constructor (examples) {
-
+    constructor (examples: {[item: string]: {versions: string[], content: string}}) {
         this.examples = examples;
     }
 
@@ -12,8 +11,8 @@ export class ExampleExtractor {
      * 
      * @param {string} requestedVersion 
      */
-    getExamples(requestedVersion) {
-        let filtered = {};
+    getExamples(requestedVersion: string) {
+        let filtered: {[i: string]: {versions: string[], content: string}} = {};
         let entries = Object.entries(this.examples);
         for (let entryIdx = 0; entryIdx < entries.length; entryIdx++) {
             if (includes(entries[entryIdx][1].versions, requestedVersion)) {
