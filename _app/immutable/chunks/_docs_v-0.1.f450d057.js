@@ -1,0 +1,1 @@
+const t={"figura.docs.text.function":"Funktsioon","figura.docs.text.description":"Kirjeldus","figura.docs.text.not_editable":"Mitte Muudetav","figura.docs.text.editable":"Muudetav"};export{t as default};
