@@ -33,7 +33,7 @@ async function getTransformedDocs(docsPath, version) {
     let docsContent = await readFile(path.join(folder, "docs.json"));
     let docsVersion = await readFile(path.join(folder, "version.txt"));
 
-    let transformer = await import(path.join(import.meta.url, "..", "version", `${docsVersion}.js`));
+    let transformer = await import(`./plugins/docsProcessor/version/${docsVersion}.js`);
     let docsJson = JSON.parse(docsContent);
 
     let transformed = await maybePromise(transformer.transform(docsJson, folder));
@@ -66,14 +66,21 @@ async function getTransformedDocs(docsPath, version) {
 
         let transformedLang = await maybePromise(transformer.language(JSON.parse(docsContent), language, folder));
 
-        let files = await readDir(path.join(".", "plugins", "docsProcessor", "typings", "lang"));
+        let files = await readDir(path.join());
 
-        if (files.includes(language + ".js")) {
-            let genr = findAndParseTypings(transformed.result, (await import(path.join(import.meta.url, "..", "typings", "lang", language + ".js"))).default);
-            let m;
-            while (!(m = await genr.next()).done) {
-                transformedLang["typings." + m.value.key] = m.value.value;
-            }
+        let module;
+        try {
+            module = await import(`./plugins/docsProcessor/typings/lang/${language}.js`);
+        }
+        catch(e) {
+            return transformedLang;
+        }
+
+
+        let genr = findAndParseTypings(transformed.result, module.default);
+        let m;
+        while (!(m = await genr.next()).done) {
+            transformedLang["typings." + m.value.key] = m.value.value;
         }
 
         return transformedLang
