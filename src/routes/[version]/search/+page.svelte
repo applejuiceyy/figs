@@ -1,30 +1,31 @@
-<script type="ts">
+<script lang="ts">
     import stats from "$lib/docs/statistics";
     import { onDestroy, onMount } from "svelte";
     import pool from "$lib/language/translator";
-    import state from "$lib/state/stores";
+    import _state from "$lib/state/stores";
 
-    export let data: import('./$types').PageData;
+    let {data}: {data: import('./$types').PageData} = $props();
 
     let s = new stats(data.docs);
-    let searcher: ReturnType<stats["search"]> | null = null;
+    
     let interval: ReturnType<typeof setInterval> | null = null;
     
-    let entries: any = [];
-    let waitingFetch: boolean = false;
+    let entries: any = $state([]);
+    let waitingFetch: boolean = $state(false);
 
     let lang = "";
-    let visibility: HTMLDivElement;
+    // the ruuunes
+    let visibility: HTMLDivElement = $state(undefined) as any;
 
-    $: {
-        searcher = null;
+    let searcher: ReturnType<stats["search"]> | null = $derived.by(() => {
         entries = [];
-        lang = $state.language;
+        lang = $_state.language;
 
         if (data.query !== null) {
-            searcher = s.search(data.query);
+            return s.search(data.query);
         }
-    }
+        return null;
+    });
 
     function stepSearcher() {
         if (searcher !== null) {
@@ -63,7 +64,7 @@
     Waiting for the pool to finish fetching languages
 {/if}
 {#each entries as entry}
-    <svelte:component this={entry.this} {...entry} classi={s} setId={false} path={data.base}></svelte:component>
+    <entry.this {...entry} classi={s} setId={false} path={data.base}/>
 {/each}
 
 {#if searcher !== null}

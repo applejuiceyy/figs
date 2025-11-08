@@ -1,9 +1,16 @@
-<script type="ts">
-    export let button: HTMLButtonElement | null = null;
+<script lang="ts">
+    import type { Snippet } from "svelte";
+    import type { HTMLButtonAttributes } from "svelte/elements";
+
+    let {button = $bindable(), onclick, children} : {
+        button?: HTMLButtonElement,
+        onclick: HTMLButtonAttributes["onclick"],
+        children: Snippet
+    } = $props();
 </script>
 
-<button on:click|stopPropagation bind:this={button}>
-    <slot/>
+<button onclick={ev => {ev.stopPropagation(); onclick?.(ev)}} bind:this={button}>
+    {@render children()}
 </button>
 
 <style lang="less">

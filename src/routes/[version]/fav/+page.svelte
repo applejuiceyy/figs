@@ -1,12 +1,12 @@
 
-<script type="ts">
+<script lang="ts">
     import DescribeAny from "$lib/content/mainpage/DescribeAny.svelte";
 
     import write from "$lib/state/stores";
 
     import stats from "$lib/docs/statistics";
 
-    export let data: import("./$types").PageData;
+    let {data}: {data: import("./$types").PageData} = $props();
 
     let s = new stats(data.docs);
 </script>

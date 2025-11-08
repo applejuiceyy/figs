@@ -1,4 +1,4 @@
-<script type="ts">
+<script lang="ts">
     import { base } from "$app/paths";
     import Code from "$lib/Code.svelte";
 
@@ -14,26 +14,33 @@
     import Intertweener, { type Property } from "$lib/intertween/Intertweener.svelte";
     import { generateChunks } from "$lib/intertween/chunker";
 
-    export let enum_: Enum;
-    export let forceSmall: boolean = false;
-    export let setId: boolean = true;
+    let {enum_, forceSmall = false, setId = true, classi, path, titleProperties = [], descriptionProperties = []}: {
+        enum_: Enum,
+        forceSmall?: boolean,
+        setId?: boolean,
 
-    export let classi: DocsInterface;
+        classi: DocsInterface,
 
-    export let path: string;
+        path: string,
 
-    export let titleProperties: Property[] = [];
-    export let descriptionProperties: Property[] = [];
+        titleProperties?: Property<any>[],
+        descriptionProperties?: Property<any>[]
+    } = $props();
 </script>
 
-<DescribeRoot example={enum_.example ?? null} classi={classi} forceSmall={forceSmall} id={enum_.name}>
-    <StyledItem slot="title" src={klass_src} href={base + path + enum_.name} wrap="h1" color="dark" id={setId ? enum_.name : null}>
-        <Intertweener text={enum_.name} properties={titleProperties}/>
-    </StyledItem>
+<DescribeRoot example={enum_.example} classi={classi} forceSmall={forceSmall} id={enum_.name}>
+    {#snippet title()}
+        <StyledItem src={klass_src} href={base + path + enum_.name} wrap="h1" color="dark" id={setId ? enum_.name : undefined}>
+            <Intertweener text={enum_.name} properties={titleProperties}/>
+        </StyledItem>
+    {/snippet}
+
 
     <div>
-        <SlottedTranslatableKey key={enum_.description} warn let:value={value}>
-            <Intertweener text={value} properties={[generateChunks(value), ...descriptionProperties]}/>
+        <SlottedTranslatableKey key={enum_.description} warn>
+            {#snippet children(value)}
+                <Intertweener text={value} properties={[generateChunks(value), ...descriptionProperties]}/>
+            {/snippet}
         </SlottedTranslatableKey>
     </div>
 

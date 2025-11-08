@@ -1,23 +1,26 @@
-<script type="ts">
-    export let href: string;
+<script lang="ts">
+    import type { Snippet } from "svelte";
+    import type { HTMLAnchorAttributes } from "svelte/elements";
 
-    export let src: string;
-
-    export let wrap: string | null = null;
-    export let id: string | null = null;
-
-    export let color: "light" | "dark" = "dark";
-
-    export let style = "";
+    let {href, src, wrap, id, color = "dark", style = "", onclick, children}: {
+        href: string,
+        src: string,
+        wrap?: string,
+        id?: string,
+        color?: "light" | "dark",
+        style?: string,
+        onclick?: HTMLAnchorAttributes["onclick"],
+        children: Snippet
+    } = $props();
 </script>
 
-<a id={id ?? ""} class:flex={wrap === null} href={href} class:dark={color === "dark"} on:click>
-    {#if wrap === null}
+<a id={id ?? ""} class:flex={wrap === undefined} href={href} class:dark={color === "dark"} onclick={onclick}>
+    {#if wrap === undefined}
         <img src={src} style:object-fit="contain" style:height="1em" style:width="auto" aria-hidden="true" alt=""/>
-        <slot/>
+        {@render children()}
     {:else}
         <svelte:element this={wrap} class="flex" style={style}>
-            <img src={src} style:object-fit="contain" style:height="1em" style:width="auto" aria-hidden="true" alt=""/><slot/>
+            <img src={src} style:object-fit="contain" style:height="1em" style:width="auto" aria-hidden="true" alt=""/>{@render children()}
         </svelte:element>
     {/if}
 </a>

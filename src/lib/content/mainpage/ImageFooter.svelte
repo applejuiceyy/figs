@@ -1,4 +1,4 @@
-<script type="ts">
+<script lang="ts">
     import dirt from "$lib/resource/blocks/dirt.png";
     import grass from "$lib/resource/blocks/grass_block.png";
     import stone from "$lib/resource/blocks/stone.png";
@@ -17,19 +17,20 @@ import Sign from "./Sign.svelte";
 
     const blocks = [null, grass, dirt, stone];
 
-    let scrollY: number;
-    let sunPos: number;
-    let visible: boolean = false;
+    let scrollY: number = $state(0);
+    let sunPos: number = $state(0);
+    let visible: boolean = $state(false);
 
     let root: HTMLDivElement | null = null;
 
-    $: {
-        if(!import.meta.env.SSR) {
+    if(!import.meta.env.SSR) {
+        $effect(() => {
             visible = root === null ? false : isInViewport(root);
 
-            if(visible)
-            sunPos = document.body.offsetHeight - scrollY - window.innerHeight;
-        }
+            if(visible) {
+                sunPos = document.body.offsetHeight - scrollY - window.innerHeight;
+            }
+        });
     }
 
     function isInViewport(element: Element) {

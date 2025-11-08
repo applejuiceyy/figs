@@ -1,16 +1,16 @@
-<script type="ts">
-    import { getContext } from "svelte";
+<script lang="ts">
+    import { getContext, type Snippet } from "svelte";
     import { writable, type Writable } from "svelte/store";
 
 
-    export let id: number;
+    let {id, children}: {id: number, children: Snippet} = $props();
 
     let binding: Writable<number[]> = getContext("__binding") ?? writable([]);
 </script>
 
 <span class:highlighted={$binding.includes(id)}
-on:mouseenter={() => {$binding = [...$binding, id]}}
-on:mouseleave={() => {$binding = $binding.filter(v => v !== id)}}><slot/></span>
+onmouseenter={() => {$binding = [...$binding, id]}}
+onmouseleave={() => {$binding = $binding.filter(v => v !== id)}} role="none">{@render children()}</span>
 
 <style>
     span.highlighted {

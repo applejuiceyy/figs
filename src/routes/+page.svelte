@@ -1,30 +1,31 @@
-<script type="ts">
+<script lang="ts">
     import { base } from "$app/paths";
     import SlottedTranslatableKey from "$lib/language/SlottedTranslatableKey.svelte";
-    import state from "$lib/state/stores";
+    import _state from "$lib/state/stores";
     import landmark from "$lib/state/landmark";
 
     import versions from "docs:all";
     import latest from "docs:latest";
     import { onDestroy } from "svelte";
 
-    let overrideShowPrompt = false;
-    let skillPromptElement: null | HTMLDivElement = null;
-    let preferencesIndicator: null | HTMLDivElement = null;
-    let versionPickerElement: null | HTMLElement = null;
+    let overrideShowPrompt = $state(false);
+    let skillPromptElement: null | HTMLDivElement = $state(null);
+    let preferencesIndicator: null | HTMLDivElement = $state(null);
+    let versionPickerElement: null | HTMLElement = $state(null);
 
-    let scaleFactor: [number, number] = [0, 0];
+    let scaleFactor: [number, number] = $state([0, 0]);
 
     function isVisible(e: HTMLElement) {
         return !!(e.offsetWidth || e.offsetHeight || e.getClientRects().length);
     }
 
     function handleSubmit(ev: SubmitEvent) {
+        ev.preventDefault();
         let data = new FormData(ev.target as HTMLFormElement);
         let v = data.get("skill");
         
-        $state.skilled = v == "experienced";
-        $state.hasAnsweredSkillCheck = true;
+        $_state.skilled = v == "experienced";
+        $_state.hasAnsweredSkillCheck = true;
         overrideShowPrompt = true;
 
         if (skillPromptElement !== null) {
@@ -134,8 +135,10 @@
 <div class="version-picker">
     <nav class="version-picker-content" bind:this={versionPickerElement}>
         <h1 class="version-picker-title">
-            <SlottedTranslatableKey key="pick-a-version" let:value>
-                {value}
+            <SlottedTranslatableKey key="pick-a-version">
+                {#snippet children(value: string)}
+                    {value}
+                {/snippet}
             </SlottedTranslatableKey>
         </h1>
         <div class="version-picker-list">
@@ -145,9 +148,9 @@
             {/each}
         </div>
     </nav>
-    {#if !$state.hasAnsweredSkillCheck || overrideShowPrompt}
+    {#if !$_state.hasAnsweredSkillCheck || overrideShowPrompt}
         <div class="skill-prompt" bind:this={skillPromptElement}>
-            <form on:submit|preventDefault={handleSubmit}>
+            <form onsubmit={handleSubmit}>
                 <h1 class="skill-prompt-title">
                     <SlottedTranslatableKey key="skill-level-prompt"/>
                 </h1>
@@ -163,7 +166,7 @@
 
         <div class="preferences-indicator" bind:this={preferencesIndicator}>
             <SlottedTranslatableKey key="preferences-indicator"/>
-            <button on:click={dismissPrompt}>ok</button>
+            <button onclick={dismissPrompt}>ok</button>
         </div>
     {/if}
 </div>

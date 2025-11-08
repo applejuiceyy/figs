@@ -1,20 +1,17 @@
-<script type="ts">
+<script lang="ts">
     import {page} from "$app/stores";
     import DescribeAny from "$lib/content/mainpage/DescribeAny.svelte";
     import type DocsInterface from "$lib/docs/statistics";
 
 
-    export let name: string;
-    export let classi: DocsInterface | null;
+    let {name, classi}: {
+        name: string,
+        classi: DocsInterface | null
+    } = $props();
 
-    let indexedDoc: ReturnType<DocsInterface["findFromQualifiedName"]> | undefined;
-
-    $: {
-        indexedDoc = classi?.findFromQualifiedName(name);
-    }
-    let base: string;
-
-    $: base = $page.data.base;
+    let indexedDoc = $derived(classi?.findFromQualifiedName(name));
+    
+    let base = $derived($page.data.base);
 </script>
 
 {#if classi === null}

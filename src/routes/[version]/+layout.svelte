@@ -1,4 +1,4 @@
-<script type="ts">
+<script lang="ts">
     // Suggestion (check code before using, and possibly convert to data.X access later):
     // /** @type {import('./$types').LayoutData} */
     // export let data;
@@ -6,11 +6,12 @@
 
 
     import {base as b} from "$app/paths";
+    import type { Snippet } from "svelte";
 
-    export let data: import('./$types').LayoutData;
+    let {data, children}: {data: import('./$types').LayoutData, children: Snippet} = $props();
 </script>
 
-<slot/>
+{@render children()}
 
 <!-- required for the prerenderer crawler -->
 <a href="{b}{data.base}search" style:display="none">a</a>

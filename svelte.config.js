@@ -33,6 +33,10 @@ const config = {
         })
     ],
 
+    compilerOptions: {
+        runes: true
+    },
+
     kit: {
         adapter: adapter({
             fallback: "404.html"

@@ -1,9 +1,11 @@
-<script type="ts">
+<script lang="ts">
     import type DocsInterface from "$lib/docs/statistics";
 
     import { activePopups } from "./Highlight.svelte";
 
-    export let classi: DocsInterface | null;
+    let {classi}: {
+        classi: DocsInterface | null
+    } = $props();
 
     let brutePopupComponents = import.meta.glob("./popups/*.svelte", {eager: true, import: "default"});
 
@@ -17,9 +19,9 @@
     let root: HTMLDivElement;
     let active = true;
 
-    let scrollY: number;
+    let scrollY: number = $state(0);
 
-    let popups = $activePopups;
+    let popups = $state($activePopups);
 
     function doStuff() {
         if (root === null) {
@@ -69,14 +71,10 @@
         root.style.left = left + "px";
     }
 
-    let updateTimeout: ReturnType<typeof setTimeout> | null = null;
 
-    $: {
-        if (!import.meta.env.SSR) {
-            if (updateTimeout !== null) {
-                clearTimeout(updateTimeout);
-            }
-
+    if (!import.meta.env.SSR) {
+        $effect(() => {
+            let updateTimeout: ReturnType<typeof setTimeout> | null = null;
             updateTimeout = setTimeout(() => {
                 $activePopups;
 
@@ -88,19 +86,20 @@
                     active = active || getPopups().length == 0;
                 }
             }, $activePopups.length === 0 ? 100 : 1);
-        }
+
+            return () => clearTimeout(updateTimeout);
+        });
     }
 
-    $: {
-        if (!import.meta.env.SSR) {
+    if (!import.meta.env.SSR) {
+        $effect(() => {
             scrollY;
             reposition();
-        }
+        });
     }
 </script>
 
-<!-- svelte-ignore a11y-mouse-events-have-key-events -->
-<div bind:this={root} class="hint-overlay" on:mouseover={() => active = false} on:mouseout={() => active = true}>
+<div bind:this={root} class="hint-overlay" onmouseover={() => active = false} onmouseout={() => active = true}>
     {#each popups as popup (popup.id)}
         <div class="popup">
             <div class="popup-content">

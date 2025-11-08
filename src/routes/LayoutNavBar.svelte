@@ -1,8 +1,8 @@
-<script context="module" type="ts">
+<script lang="ts" module>
     import latest from "docs:latest";
 </script>
 
-<script type="ts">
+<script lang="ts">
     import {base} from "$app/paths";
     import { onDestroy, onMount } from "svelte";
 
@@ -11,7 +11,7 @@
     import stores from "$lib/state/stores";
     import landmark from "$lib/state/landmark";
 
-    import state from "$lib/state/stores";
+    import _state from "$lib/state/stores";
 
     import versions from "docs:all";
 
@@ -28,12 +28,10 @@
     import eh from "$lib/resource/status/eh.png";
     import ok from "$lib/resource/status/ok.png";
 
+    let {cheeseFalling = $bindable(), expanded: isExpanded = $bindable()}: {cheeseFalling: boolean, expanded: boolean} = $props();
 
-    export let cheeseFalling = false;
-    export let expanded: boolean = false;
-
-    let interv: any = null;
-    let holdingCtrl: boolean = false;
+    let interv: number | null = null;
+    let holdingCtrl: boolean = $state(false);
 
     onMount(()=> {
         let v = ()=>{
@@ -59,8 +57,8 @@
         }
     }
 
-    let stamina: number = 0;
-    let staminaMomentum: number = 0;
+    let stamina: number = $state(0);
+    let staminaMomentum: number = $state(0);
 
     let searcher: NavBarSearcher;
 
@@ -80,7 +78,7 @@
 <svelte:body on:keydown={handleKeyDown} on:keyup={handleKeyUp}/>
 
     <NavBar>
-        <NavBarLink on:click={increaseStamina} inline href={base + "/"}><span style:font-size={(Math.max(stamina, 10) - 9) + "em"}>FIGS{"!".repeat(Math.min(10, Math.floor($state.visits)))}</span></NavBarLink>
+        <NavBarLink onclick={increaseStamina} inline href={base + "/"}><span style:font-size={(Math.max(stamina, 10) - 9) + "em"}>FIGS{"!".repeat(Math.min(10, Math.floor($_state.visits)))}</span></NavBarLink>
         <div class="big-display">
             <NavBarLink inline external href="https://github.com/applejuiceyy/figs">Github</NavBarLink>
         </div>
@@ -89,8 +87,8 @@
 
         <NavBarFloater>
             <div class="table-toggle" class:always-show-toggle={$page.data.hideTable} style:display={$page.data.forceShowTable ? "none" : ""}>
-                <NavBarButton on:click={()=>expanded = !expanded}>
-                    <SlottedTranslatableKey key={expanded? "hide-table" : "show-table"}/>
+                <NavBarButton onclick={()=>isExpanded = !isExpanded}>
+                    <SlottedTranslatableKey key={isExpanded? "hide-table" : "show-table"}/>
                 </NavBarButton>
             </div>
 
@@ -99,7 +97,7 @@
             </NavBarExpandButton>
         </NavBarFloater>
 
-        <svelte:fragment slot="expanded">
+        {#snippet expanded()}
             <NavBarLink href="{base}{$page.data.base}fav">
                 <SlottedTranslatableKey key="favourites"/>
             </NavBarLink>
@@ -107,53 +105,53 @@
             <NavBarDropdown bind:button={$landmark.preferencesButton}>
                 <SlottedTranslatableKey key="preferences"/>
 
-                <svelte:fragment slot="dropdown">
-                    <NavBarButton on:click={()=>$stores.readerEnabled = !$stores.readerEnabled}>
+                {#snippet dropdown()}
+                    <NavBarButton onclick={()=>$stores.readerEnabled = !$stores.readerEnabled}>
                         <SlottedTranslatableKey key={$stores.readerEnabled ? "disable-focus" : "enable-focus"}/>
                     </NavBarButton>
-                    <NavBarButton on:click={()=>$stores.signaturePopupEnabled = !$stores.signaturePopupEnabled}>
+                    <NavBarButton onclick={()=>$stores.signaturePopupEnabled = !$stores.signaturePopupEnabled}>
                         <SlottedTranslatableKey key={($stores.signaturePopupEnabled ? "disable" : "enable") + "-popup-in-signature" }/>
                     </NavBarButton>
-                    <NavBarButton on:click={()=>$stores.examplePopupEnabled = !$stores.examplePopupEnabled}>
+                    <NavBarButton onclick={()=>$stores.examplePopupEnabled = !$stores.examplePopupEnabled}>
                         <SlottedTranslatableKey key={($stores.examplePopupEnabled ? "disable" : "enable") + "-popup-in-examples" }/>
                     </NavBarButton>
-                    <NavBarButton on:click={()=>$stores.skilled = !$stores.skilled}>
+                    <NavBarButton onclick={()=>$stores.skilled = !$stores.skilled}>
                         <SlottedTranslatableKey key={($stores.skilled ? "new" : "experienced") + "-user-skill-switch" }/>
                     </NavBarButton>
-                </svelte:fragment>
+                {/snippet}
             </NavBarDropdown>
 
             <NavBarDropdown>
                 {($page.data.version ?? "Version").toUpperCase()}
 
-                <svelte:fragment slot="dropdown">
+                {#snippet dropdown()}
                     <NavBarLink href="{base}/latest">LATEST ({latest})</NavBarLink>
                     {#each Object.keys(versions) as version}
                         <NavBarLink href="{base}/{version}">
                             {version.toUpperCase()}
                         </NavBarLink>
                     {/each}
-                </svelte:fragment>
+                {/snippet}
             </NavBarDropdown>
 
             <NavBarDropdown>
-                {$state.language.toUpperCase()}
+                {$_state.language.toUpperCase()}
 
-                <svelte:fragment slot="dropdown">
+                {#snippet dropdown()}
                     {@const stat = pool.getProviderStatistics()}
                     {#each Object.entries(stat.languages) as lang}
                         {#if holdingCtrl || lang[0] !== "en_uwu"}
                             <div class="button-wrapper" style:width="100%" title={lang[1].length < stat.providers.length ? `There is ${stat.providers.length} language providers registered (${stat.providers.join(", ")}) however only ${lang[1].length} of them (${lang[1].join(", ")}) can provide keys for the ${lang[0]} language` : ""}>
-                                <NavBarButton on:click={() => $state.language = lang[0]}>
+                                <NavBarButton onclick={() => $_state.language = lang[0]}>
                                     {lang[0].toUpperCase()}
                                     <img style:position="absolute" style:right="10px" style:top="50%" style:transform="translate(0%, -50%)" src={lang[1].length < stat.providers.length ? eh : ok} alt="">
                                 </NavBarButton>
                             </div>
                         {/if}
                     {/each}
-                </svelte:fragment>
+                {/snippet}
             </NavBarDropdown>
-        </svelte:fragment>
+        {/snippet}
     </NavBar>
 
 <style lang="less">

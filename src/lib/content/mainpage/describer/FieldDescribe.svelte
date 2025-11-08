@@ -1,4 +1,4 @@
-<script type="ts">
+<script lang="ts">
     import type { Class, Field } from "$lib/typings/rewrite_docs";
 
     import StyledItem from "$lib/content/sidebar/StyledItem.svelte";
@@ -27,46 +27,55 @@
 
     import ParametersDescriber from "$lib/docs/ParametersDescriber.svelte";
 
+    import FieldDescribe from "./FieldDescribe.svelte";
 
-    export let forceSmall: boolean = false;
-    export let setId: boolean = true;
+    let {forceSmall = false, setId = true, hostClass, field, inlineTypeDocs = false, path, classi, titleProperties = [], descriptionProperties = []}: {
+        forceSmall?: boolean,
+        setId?: boolean,
 
-    export let hostClass: Class;
-    export let field: Field;
-    export let inlineTypeDocs: boolean = false;
+        hostClass: Class,
+        field: Field,
+        inlineTypeDocs?: boolean,
 
-    let shouldShowClass: boolean;
-    let qualifiedName: string;
+        path: string,
+        classi: DocsInterface,
 
-    $: shouldShowClass = hostClass.name !== "globals";
-    $: qualifiedName = (shouldShowClass? hostClass.name + "." : "") + field.name;
+        titleProperties?: Property<any>[],
+        descriptionProperties?: Property<any>[]
+    } = $props();
 
-    export let path: string;
-    export let classi: DocsInterface;
 
-    export let titleProperties: Property[] = [];
-    export let descriptionProperties: Property[] = [];
+    let shouldShowClass = $derived(hostClass.name !== "globals");
+    let qualifiedName = $derived((shouldShowClass? hostClass.name + "." : "") + field.name);
+
+
 </script>
 
-<DescribeRoot example={field.example ?? null} classi={classi} forceSmall={forceSmall}>
-    <StyledItem slot="title" src={field_src} href={base + path + qualifiedName} wrap="h1" color="dark" id={setId ? qualifiedName : null}>
-        <Intertweener text={qualifiedName} properties={titleProperties}/>
-    </StyledItem>
+<DescribeRoot example={field.example} classi={classi} forceSmall={forceSmall}>
+    {#snippet title()}
+        <StyledItem src={field_src} href={base + path + qualifiedName} wrap="h1" color="dark" id={setId ? qualifiedName : undefined}>
+            <Intertweener text={qualifiedName} properties={titleProperties}/>
+        </StyledItem>
+    {/snippet}
 
     <div>
-        <SlottedTranslatableKey key={field.description} warn let:value={value}>
-            <Intertweener text={value} properties={[generateChunks(value), ...descriptionProperties]}/>
+        <SlottedTranslatableKey key={field.description} warn>
+            {#snippet children(value)}
+                <Intertweener text={value} properties={[generateChunks(value), ...descriptionProperties]}/>
+            {/snippet}
         </SlottedTranslatableKey>
     </div>
 
     <div class="code-example filled" style:margin-top="50px">
+        {#snippet addendum()}
+            <ParametersDescriber classi={classi} describer={[{name: "Field Type", type: field.type}]}/>
+        {/snippet}
         <PopupDisabler enabled={!$state.signaturePopupEnabled}>
-            <Code showAddendum={!$state.skilled}>
-                <svelte:fragment slot="title">field signature:</svelte:fragment>
+            <Code addendum={$state.skilled ? undefined : addendum}>
+                {#snippet title()}
+                    field signature:
+                {/snippet}
                 <Intertweener text={field.name + (!$state.skilled ? "" : ": " + field.type)} properties={$state.skilled ? [generateHighlightChunks(field.name + ": " + field.type), {component: Highlight, ranges: inlineTypeDocs ? [] : [...extractIdentifiers(classi, field.type, field.name.length + 2)]}] : []}/>
-                <svelte:fragment slot="addendum">
-                    <ParametersDescriber classi={classi} describer={[{name: "Field Type", type: field.type}]}/>
-                </svelte:fragment>
             </Code>
         </PopupDisabler>
 
@@ -78,7 +87,7 @@
                 {/each}
                 
                 {#each Object.entries(v.fields) as [name, var_]}
-                    <svelte:self classi={classi} field={var_} hostClass={v} forceSmall={true} path={path}/>
+                    <FieldDescribe classi={classi} field={var_} hostClass={v} forceSmall={true} path={path}/>
                 {/each}
             </div>
         {/if}

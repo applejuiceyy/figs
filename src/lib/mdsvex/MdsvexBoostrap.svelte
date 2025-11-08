@@ -1,20 +1,14 @@
 <script>
-
     // do not convert to ts
     // https://github.com/pngwn/MDsveX/issues/485
     import { MetaTags } from "svelte-meta-tags";
 
-    /** @type {string | undefined} */
-    export let title = undefined;
-    /** @type {string | null} */
-    export let description = null;
-    /** @type {string | null} */
-    export let author = null;
+    /** @type {{title?: string | undefined, description?: string | null, author?: string | null, children: import("svelte").Snippet}} */
+    let {title = undefined, description = null, author = null, children} = $props();
 
-    //@ts-ignore
-    $: complete = author === null ? (description === null ? undefined : description) : (description === null ? "" : description + "\n\n") + "Written by " + author
+    let complete = $derived(author === null ? (description === null ? undefined : description) : (description === null ? "" : description + "\n\n") + "Written by " + author);
 </script>
 
-<slot/>
+{@render children()}
 
 <MetaTags title={title} description={complete}/>

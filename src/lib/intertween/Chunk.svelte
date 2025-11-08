@@ -1,8 +1,12 @@
-<script type="ts">
+<script lang="ts">
     import stores from "$lib/state/stores";
+
+    import type { Snippet } from "svelte";
+
+    let {children}: {children: Snippet} = $props();
 </script>
 
-<span class:enabled={$stores.readerEnabled}><slot/></span>
+<span class:enabled={$stores.readerEnabled}>{@render children()}</span>
 
 <style>
     .enabled {

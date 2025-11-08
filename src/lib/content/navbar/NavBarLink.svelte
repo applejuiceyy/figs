@@ -1,12 +1,18 @@
-<script type="ts">
-    export let href: string;
+<script lang="ts">
+    import type { Snippet } from "svelte";
+    import type { HTMLAnchorAttributes } from "svelte/elements";
 
-    export let inline: boolean = false;
-    export let external: boolean = false;
+    let {href, inline = false, external = false, onclick, children}: {
+        href: string,
+        inline?: boolean,
+        external?: boolean,
+        onclick?: HTMLAnchorAttributes["onclick"],
+        children: Snippet
+    } = $props();
 </script>
 
-<a href={href} rel={external ? "external" : ""} class:inline on:click>
-    <slot/>
+<a href={href} rel={external ? "external" : ""} class:inline onclick={onclick}>
+    {@render children()}
 </a>
 
 <style lang="less">

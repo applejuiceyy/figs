@@ -182,6 +182,9 @@ export class TranslatorPool {
         let cid = cacheId(id, "en_us");
         this.cachedTranslations[cid] = provider.en_us;
         this.reloadQueue();
+        if(this.currentLanguage === "en_us") {
+            this.updateStores();
+        }
         return () => this.removeProvider(id)
     }
 

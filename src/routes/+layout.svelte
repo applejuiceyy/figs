@@ -1,12 +1,11 @@
-<script type="ts">
+<script lang="ts">
     import LayoutNavBar from './LayoutNavBar.svelte';
 
     import { cheeseSvg } from "$lib/actions/cheese";
-    import { onDestroy } from "svelte";
+    import { onDestroy, type Snippet } from "svelte";
 
-    import { page } from "$app/stores";
+    import { page } from "$app/state";
 
-    import stores from "$lib/state/stores";
     import SidebarView from "$lib/content/sidebar/SidebarView.svelte";
 
     import HintOverlay from "$lib/intertween/highlight/HintOverlay.svelte";
@@ -22,21 +21,18 @@
 
     import {beforeNavigate, afterNavigate} from "$app/navigation";
 
-    let cheeseFalling = false;
+    let cheeseFalling: boolean = $state(false);
+    let expanded: boolean = $state(false);
 
-    let expanded: boolean = false;
-
-    let classi: DocsInterface | null;
-
-    $: {
-        let docs = $page.data.docs;
+    let classi: DocsInterface | null = $derived.by(() => {
+        let docs = page.data.docs;
         if (docs === undefined) {
-            classi = null;
+            return null;
         }
         else {
-            classi = new stats(docs);
+            return new stats(docs);
         }
-    }
+    });
 
     // loader indicator
     let finishLoad = () => {}
@@ -49,10 +45,10 @@
 
     onDestroy(() => finishLoad())
 
-    let showStatus = false;
+    let showStatus = $state(false);
     let showStatusTimer: ReturnType<typeof setTimeout> | null = null;
 
-    $: {
+    $effect(() => {
         if ($load.length > 0) {
             if (showStatusTimer === null && !showStatus) {
                 showStatusTimer = setTimeout(() => {
@@ -70,53 +66,46 @@
                 showStatusTimer = null;
             }
         }
+    });
+
+    let {data, children}: {data: import('./$types').LayoutData, children: Snippet} = $props();
+
+    if(import.meta.env.SSR) {
+         pool.addProvider(data.docs.languages, data.version);
     }
-
-    export let data: import('./$types').LayoutData;
-
-    let unsub: (() => void) | null = null;
-    $: {
-        if (unsub !== null) {
-            unsub();
-        }
-
-        unsub = pool.addProvider(data.docs.languages, data.version);
-    };
-
-    onDestroy(() => {
-        if (unsub !== null) unsub();
-    })
-
+    else {
+        $effect(() => {
+            return pool.addProvider(data.docs.languages, data.version);
+        });
+    }
 </script>
 
 <div class="root">
     <LayoutNavBar bind:expanded bind:cheeseFalling />
 
-    <div class="category" class:quiet-category={$page.data.hideTable} class:expanded={expanded || $page.data.forceShowTable}>
+    <div class="category" class:quiet-category={page.data.hideTable} class:expanded={expanded || page.data.forceShowTable}>
         <div class="category-flyover">
             <div class="category-sticker">
                 {#if classi === null}
                     <span style:padding="10px">
-                        <SlottedTranslatableKey key="version-not-selected" let:value>
-                            {value}
+                        <SlottedTranslatableKey key="version-not-selected">
                         </SlottedTranslatableKey>
                     </span>
                 {:else}
-                    <SidebarView classi={classi} everythingSwitch={$page.data.everythingSwitcher} everything={!!$page.data.showingEverything} path={$page.data.base ?? "/"} on:select={() => expanded = false}/>
+                    <SidebarView classi={classi} everythingSwitch={page.data.everythingSwitcher} everything={!!page.data.showingEverything} path={page.data.base ?? "/"} onselect={() => expanded = false}/>
                 {/if}
 
 
                 <footer>
-                    <SlottedTranslatableKey key="made-by-applejuice" let:value>
-                        {value}
+                    <SlottedTranslatableKey key="made-by-applejuice">
                     </SlottedTranslatableKey>
                 </footer>
             </div>
         </div>
     </div>
 
-    <div class:expanded={expanded || $page.data.forceShowTable} class="content">
-        <slot />
+    <div class:expanded={expanded || page.data.forceShowTable} class="content">
+        {@render children()}
 
         <svg class="cheese-svg" width="100%" height="100%" use:cheeseSvg={cheeseFalling} aria-hidden="true" style:pointer-events="none" style:touch-action="none">
 
@@ -129,9 +118,8 @@
 <HintOverlay classi={classi}/>
 
 <div class="corner-flyer">
-    <button class="flyer-section" on:click={() => window.scrollTo(0, 0)}>
-        <SlottedTranslatableKey key="jump-to-top" let:value>
-            {value}
+    <button class="flyer-section" onclick={() => window.scrollTo(0, 0)}>
+        <SlottedTranslatableKey key="jump-to-top">
         </SlottedTranslatableKey>
     </button>
     <noscript class="flyer-section">Warning: most things in this website won't work without javascript</noscript>
@@ -139,27 +127,27 @@
     <div class="load-div flyer-section" class:active={showStatus}>
         <div style:width="20px" style:height="20px" style:margin-right="10px" style:position="relative">
             <div class="loader" style:--l="0px" style:--b="#ffffff" style:--v="10">
-                <div class="loader-lit" />
-                <div class="loader-lit" />
-                <div class="loader-lit" />
-                <div class="loader-lit" />
-                <div class="loader-lit" style:--b="#000000"/>
-                <div class="loader-lit" />
-                <div class="loader-lit" />
-                <div class="loader-lit" />
-                <div class="loader-lit" />
+                <div class="loader-lit"></div>
+                <div class="loader-lit"></div>
+                <div class="loader-lit"></div>
+                <div class="loader-lit"></div>
+                <div class="loader-lit"style:--b="#000000"></div>
+                <div class="loader-lit"></div>
+                <div class="loader-lit"></div>
+                <div class="loader-lit"></div>
+                <div class="loader-lit"></div>
             </div>
         
             <div class="loader" style:--l="5px" style:--b="#7700ff" style:--v="9">
-                <div class="loader-lit" />
-                <div class="loader-lit" />
-                <div class="loader-lit" />
-                <div class="loader-lit" />
-                <div />
-                <div class="loader-lit" />
-                <div class="loader-lit" />
-                <div class="loader-lit" />
-                <div class="loader-lit" />
+                <div class="loader-lit"></div>
+                <div class="loader-lit"></div>
+                <div class="loader-lit"></div>
+                <div class="loader-lit"></div>
+                <div></div>
+                <div class="loader-lit"></div>
+                <div class="loader-lit"></div>
+                <div class="loader-lit"></div>
+                <div class="loader-lit"></div>
             </div>
         </div>
 

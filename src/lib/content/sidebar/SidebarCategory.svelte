@@ -1,4 +1,4 @@
-<script type="ts">
+<script lang="ts">
     import type { Class } from "$lib/typings/rewrite_docs";
     import { createEventDispatcher } from "svelte";
 
@@ -7,23 +7,26 @@
     import StyledItem from "./StyledItem.svelte";
     
     import klass_src from "$lib/resource/class.webp";
+    import type { HTMLAnchorAttributes } from "svelte/elements";
 
 
-    export let name: string;
-    export let clss: Class[];
-    export let path: string;
+    let {name, clss, path, onclick}: {
+        name: string,
+        clss: Class[],
+        path: string,
+        onclick?: HTMLAnchorAttributes["onclick"]
+    } = $props();
 
-    let dispatcher = createEventDispatcher();
 
-    let show = false;
+    let show = $state(false);
 </script>
 
 <section class="category">
-    <button style:margin-bottom={show ? "5px" : ""} on:click={() => show = !show}><h1 class="tab">{name}</h1></button>
+    <button style:margin-bottom={show ? "5px" : ""} onclick={() => show = !show}><h1 class="tab">{name}</h1></button>
 
     <div class="category-items" class:active={show}>
         {#each clss as cls}
-            <StyledItem on:click={() => dispatcher("select")} href="{base}{path}{cls.name}" src={klass_src}>{cls.name}</StyledItem>
+            <StyledItem onclick={onclick} href="{base}{path}{cls.name}" src={klass_src}>{cls.name}</StyledItem>
         {/each}
     </div>
 </section>

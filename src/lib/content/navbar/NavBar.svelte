@@ -1,21 +1,26 @@
-<script type="ts">
+<script lang="ts">
     import { writable } from "svelte/store";
 
-    import { setContext } from "svelte";
+    import { setContext, type Snippet } from "svelte";
 
-    let expanded = false;
+    let {children, expanded}: {
+        children: Snippet,
+        expanded: Snippet
+    } = $props();
+
+    let isExpanded = false;
 
     let state = setContext("navbar", writable({expanded: false}))
 </script>
 
-<nav class:expanded>
+<nav class:isExpanded>
     <div class="desizer">
         <div class="nav-stick">
-            <slot/>
+            {@render children()}
         </div>
 
         <div class="nav-expanded" class:expanded={$state.expanded}>
-            <slot name="expanded"/>
+            {@render expanded()}
         </div>
     </div>
 </nav>

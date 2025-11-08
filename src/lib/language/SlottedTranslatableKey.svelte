@@ -1,15 +1,20 @@
-<script type="ts">
-    import value from "docs:all";
+<script lang="ts">
     import pool from "./translator";
+    import type { Snippet } from "svelte";
 
-    export let key: string;
-    export let warn: boolean = false;
+    let {key, warn = false, children}: {
+        key: string,
+        warn?: boolean,
+        children?: Snippet<[string, "FALLBACK" | "RESULT"]>
+    } = $props();
 
-    let store: ReturnType<typeof pool["createStore"]>;
-
-    $: store = pool.createStore(key);
+    let store = $derived(pool.createStore(key));
 </script>
 
+
+{#snippet fallback(value: string)}
+    {value}
+{/snippet}
 
 {#if $store.type === "PROCESSING"}
     Loading...
@@ -19,9 +24,9 @@
     {#if warn}
         <span>Using a fallback language</span><br>
     {/if}
-    <slot value={$store.result} type={"FALLBACK"}>{$store.result}</slot>
+    {@render (children ?? fallback)($store.result, "FALLBACK")}
 {:else}
-    <slot value={$store.result} type={"RESULT"}>{$store.result}</slot>
+    {@render (children ?? fallback)($store.result, "RESULT")}
 {/if}
 
 <style>

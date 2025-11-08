@@ -1,10 +1,12 @@
-<script type="ts">
-    export let sounds: string[];
-    export let loop: boolean = false;
-    export let volume: number = 1;
-    export let loopSize: number | null = null;
+<script lang="ts">
+    let {sounds, loop = false, volume = 1, loopSize = null}: {
+        sounds: string[],
+        loop?: boolean,
+        volume?: number,
+        loopSize?: number | null
+    } = $props();
 
-    let timeout: ReturnType<typeof setTimeout> | null = null;
+    let timeout: number | null = null;
 
     export function play() {
         let player = document.createElement("audio");
@@ -21,9 +23,9 @@
         }
     }
 
-    $: {
+    $effect(() => {
         if (!loop && timeout !== null) {
             clearTimeout(timeout);
         }
-    }
+    });
 </script>

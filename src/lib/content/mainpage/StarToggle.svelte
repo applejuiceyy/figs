@@ -1,4 +1,4 @@
-<script type="ts">
+<script lang="ts">
     import unlit_star from "$lib/resource/unlit_star.svg";
     import star from "$lib/resource/star.svg";
 
@@ -7,13 +7,15 @@
     import {starglint} from "$lib/actions/starglint"
     import { tick } from "svelte";
 
-    export let favouriteId: string | null = null;
+    let {favouriteId}: {
+        favouriteId?: string
+    } = $props();
 
-    let enabled: boolean = false;
-    let isShowing = true;
+    let enabled: boolean = $state(false);
+    let isShowing = $state(true);
 
-    $: {
-        if(favouriteId !== null) {
+    $effect(() => {
+        if(favouriteId !== undefined) {
             if($write.favourites.includes(favouriteId)) {
                 isShowing = true;
                 tick().then(() => enabled = true);
@@ -22,7 +24,7 @@
                 enabled = false;
             }
         }
-    }
+    });
 
     function changeFavourite() {
         if (enabled) {
@@ -33,29 +35,26 @@
         }
     }
 
-    let stop: boolean = false;
+    let stop: boolean = $state(false);
 
 
 
-    let timeoutId: ReturnType<typeof setTimeout> | null = null;
-    $: {
-        if (!import.meta.env.SSR) {
-            if (timeoutId !== null) {
-                clearTimeout(timeoutId);
-                timeoutId = null;
-            }
+
+    if (!import.meta.env.SSR) {
+        $effect(() => {
             if (enabled) {
                 isShowing = true;
             }
             else {
-                timeoutId = setTimeout(() => isShowing = false, 500);
+                let timeoutId = setTimeout(() => isShowing = false, 500);
+                return () => clearTimeout(timeoutId);
             }
-        }
+        });
     }
 </script>
 
-<button class="favourite-button" on:click={changeFavourite}>
-    <div class="svg-wrapper" on:mouseenter={() => stop = true} on:mouseleave={() => stop = false}>
+<button class="favourite-button" onclick={changeFavourite}>
+    <div class="svg-wrapper" onmouseenter={() => stop = true} onmouseleave={() => stop = false} role="none">
         <img src={unlit_star} aria-hidden="true" alt=""/>
 
         {#if isShowing}

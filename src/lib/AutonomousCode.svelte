@@ -1,4 +1,4 @@
-<script type="ts">
+<script lang="ts">
     import PopupDisabler from "$lib/intertween/highlight/PopupDisabler.svelte";
     import state from "$lib/state/stores";
     import Code from "$lib/Code.svelte";

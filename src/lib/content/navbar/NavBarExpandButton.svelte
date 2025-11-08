@@ -1,8 +1,11 @@
-<script type="ts">
+<script lang="ts">
     import NavBarButton from "./NavBarButton.svelte";
-    import { getContext } from "svelte";
+    import { getContext, type Snippet } from "svelte";
 
-    export let button: HTMLButtonElement | null = null;
+    let {button = $bindable(), children}: {
+        button?: HTMLButtonElement;
+        children: Snippet
+    } = $props();
 
     let state = getContext("navbar") as any;
 
@@ -12,8 +15,7 @@
 </script>
 
 <div class="expand-button">
-    <NavBarButton bind:button={button} on:click={handleClick}>
-        <slot/>
+    <NavBarButton bind:button={button} onclick={handleClick} children={children}>
     </NavBarButton>
 </div>
 

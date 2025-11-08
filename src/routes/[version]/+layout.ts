@@ -27,7 +27,7 @@ let load: LayoutLoad = async function ({ params }) {
         };
     }
 
-    throw error(404, "Version not found");
+    error(404, "Version not found");
 }
 
 export {load}

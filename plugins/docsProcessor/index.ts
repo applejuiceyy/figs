@@ -33,7 +33,7 @@ async function getTransformedDocs(docsPath, version) {
     let docsContent = await readFile(path.join(folder, "docs.json"));
     let docsVersion = await readFile(path.join(folder, "version.txt"));
 
-    let transformer = await import(`./plugins/docsProcessor/version/${docsVersion}.js`);
+    let transformer = await import(`./version/${docsVersion}.js`);
     let docsJson = JSON.parse(docsContent);
 
     let transformed = await maybePromise(transformer.transform(docsJson, folder));
@@ -70,7 +70,7 @@ async function getTransformedDocs(docsPath, version) {
 
         let module;
         try {
-            module = await import(`./plugins/docsProcessor/typings/lang/${language}.js`);
+            module = await import(`./typings/lang/${language}.js`);
         }
         catch(e) {
             return transformedLang;

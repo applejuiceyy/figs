@@ -1,7 +1,9 @@
-<script type="ts">
-    export let type: string;
+<script lang="ts">
+    import type { Snippet } from "svelte";
+
+    let {children, type}: {type: string, children: Snippet} = $props();
 </script>
-<span class="token {type}"><slot/></span>
+<span class="token {type}">{@render children()}</span>
 
 <style>
     /* These rules were taken from prismjs's sources except modified to fit dark and white themes */

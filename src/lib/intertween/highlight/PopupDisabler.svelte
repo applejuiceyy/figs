@@ -1,14 +1,14 @@
-<script type="ts">
-    import { setContext } from "svelte";
+<script lang="ts">
+    import { setContext, type Snippet } from "svelte";
     import { writable } from "svelte/store";
 
 
-    export let enabled: boolean;
+    let {enabled, children}: {children: Snippet, enabled: boolean} = $props();
 
     let store = writable(enabled);
-    $: $store = enabled;
+    $effect(() => {$store = enabled});
 
     setContext("highlight-popup", store);
 </script>
 
-<slot/>
+{@render children()}

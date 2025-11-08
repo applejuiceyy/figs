@@ -1,5 +1,11 @@
+<script lang="ts">
+    import type { Snippet } from "svelte";
+
+    let {children}: {children: Snippet} = $props();
+</script>
+
 <span>
-    <slot/>
+    {@render children()}
 </span>
 
 <style>

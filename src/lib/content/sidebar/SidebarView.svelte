@@ -1,4 +1,4 @@
-<script type="ts">
+<script lang="ts">
     import {base} from "$app/paths";
 
     import type DocsInterface from "$lib/docs/statistics";
@@ -8,27 +8,27 @@
     import method_src from "$lib/resource/method.webp";
     import field_src from "$lib/resource/field.webp";
 
-    import type { Class, Enum, Field, Method } from "$lib/typings/rewrite_docs";
+    import type { Class } from "$lib/typings/rewrite_docs";
 
-    import { createEventDispatcher } from "svelte";
     import SlottedTranslatableKey from "$lib/language/SlottedTranslatableKey.svelte";
-import SidebarCategory from "./SidebarCategory.svelte";
-    export let classi: DocsInterface;
+    import SidebarCategory from "./SidebarCategory.svelte";
 
-    let sortedEnums: Enum[];
+    let {classi, path, everything, everythingSwitch, onselect}: {
+        classi: DocsInterface,
+        path: string;
+        everything: boolean;
+        everythingSwitch: string;
+        onselect?: () => void
+    } = $props();
 
-    let sortedMethods: Method[];
-    let sortedFields: Field[];
 
-    let groupedClasses: [string, Class[]][] = [];
+    let [sortedEnums, sortedMethods, sortedFields, groupedClasses] = $derived.by(() => {
+        let sortedEnums = Object.values(classi.enums).sort(classi.comparer);
 
-    $: {
-        sortedEnums = Object.values(classi.enums).sort(classi.comparer);
+        let sortedMethods = Object.values(classi.globalType.methods).sort(classi.comparer);
+        let sortedFields = Object.values(classi.globalType.fields).sort(classi.comparer);
 
-        sortedMethods = Object.values(classi.globalType.methods).sort(classi.comparer);
-        sortedFields = Object.values(classi.globalType.fields).sort(classi.comparer);
-
-        groupedClasses = [];
+        let groupedClasses: [string, Class[]][] = [];
 
         Object.values(classi.nonSingletonClasses).forEach(cls => {
             const category = cls.category ?? "Miscelanous";
@@ -43,59 +43,63 @@ import SidebarCategory from "./SidebarCategory.svelte";
             }
         });
 
-        groupedClasses.forEach((v) => v[1] = v[1].sort(classi.comparer))
-    }
+        groupedClasses.forEach((v) => v[1] = v[1].sort(classi.comparer));
 
-    export let path: string;
-    export let everything: boolean;
-    export let everythingSwitch: string;
-
-    let dispatcher = createEventDispatcher();
+        return [sortedEnums, sortedMethods, sortedFields, groupedClasses];
+    });
 </script>
 
 <div class="sidebar-viewer">
     <div class="fields-container">
-        <StyledItem on:click={() => dispatcher("select")} href="{base}{everythingSwitch}" src={klass_src}>
-            <SlottedTranslatableKey key="show-{everything ? "not-" : ""}everything" let:value>
-                {value}
+        <StyledItem onclick={onselect} href="{base}{everythingSwitch}" src={klass_src}>
+            <SlottedTranslatableKey key="show-{everything ? "not-" : ""}everything">
+                {#snippet children(value)}
+                    {value}
+                {/snippet}
             </SlottedTranslatableKey>
         </StyledItem>
     </div>
 
     <article>
         <h1 class="tab">
-            <SlottedTranslatableKey key="global-objects" let:value>
-                {value}
+            <SlottedTranslatableKey key="global-objects">
+                {#snippet children(value)}
+                    {value}
+                {/snippet}
             </SlottedTranslatableKey>
         </h1>
 
         {#each sortedMethods as method}
-            <StyledItem on:click={() => dispatcher("select")} href="{base}{path}{method.name}" src={method_src}>{method.name}</StyledItem>
+            <StyledItem onclick={onselect} href="{base}{path}{method.name}" src={method_src}>{method.name}</StyledItem>
         {/each}
         {#each sortedFields as field}
-            <StyledItem on:click={() => dispatcher("select")} href="{base}{path}{field.name}" src={field_src}>{field.name}</StyledItem>
+            <StyledItem onclick={onselect} href="{base}{path}{field.name}" src={field_src}>{field.name}</StyledItem>
         {/each}
     </article>
 
     <article>
         <h1 class="tab">
-            <SlottedTranslatableKey key="misc-types" let:value>
-                {value}
+            <SlottedTranslatableKey key="misc-types">
+                {#snippet children(value)}
+                    {value}
+                {/snippet}
             </SlottedTranslatableKey>
         </h1>
         {#each groupedClasses as [name, clss]}
-            <SidebarCategory on:select={() => dispatcher("select")} name={name} clss={clss} path={path}/>
+            <SidebarCategory onclick={onselect} name={name} clss={clss} path={path}/>
         {/each}
     </article>
 
     <article>
         <h1 class="tab">
-            <SlottedTranslatableKey key="misc-enums" let:value>
-                {value}
+            <SlottedTranslatableKey key="misc-enums">
+                {#snippet children(value)}
+                    {value}
+                {/snippet}
             </SlottedTranslatableKey>
         </h1>
         {#each sortedEnums as en}
-            <StyledItem on:click={() => dispatcher("select")} href="{base}{path}{en.name}" src={klass_src}>{en.name}</StyledItem>
+            <StyledItem onclick={onselect} href="{base}{path}{en.name}" src={klass_src}>{en.name}</StyledItem>
         {/each}
     </article>
 </div>

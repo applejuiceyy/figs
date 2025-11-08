@@ -1,8 +1,8 @@
-<script type="ts">
+<script lang="ts">
     // @ts-ignore: no typings for this one :pensive:
     import {markdown} from "markdown";
 
-    export let name: string;
+    let {name}: {name: string} = $props();
 </script>
 
 {@html markdown.toHTML(name)}

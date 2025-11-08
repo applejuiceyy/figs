@@ -1,4 +1,4 @@
-<script type="ts">
+<script lang="ts">
     import { base } from "$app/paths";
 
     import type { Class } from "$lib/typings/rewrite_docs"
@@ -17,25 +17,26 @@
     import { generateChunks } from "$lib/intertween/chunker";
     import Highlight from "$lib/intertween/highlight/Highlight.svelte";
 
+    let {klass, forceSmall = false, setId = true, path, classi, titleProperties = [], descriptionProperties = [], classesShowContent = true}: {
+        klass: Class,
 
-    export let klass: Class;
+        forceSmall?: boolean,
+        setId?: boolean,
 
-    export let forceSmall: boolean = false;
-    export let setId: boolean = true;
+        path: string,
+        classi: DocsInterface,
 
-    export let path: string;
-    export let classi: DocsInterface;
-
-    export let titleProperties: Property[] = [];
-    export let descriptionProperties: Property[] = [];
- 
-    export let classesShowContent: boolean = true;
+        titleProperties?: Property<any>[],
+        descriptionProperties?: Property<any>[],
+    
+        classesShowContent?: boolean
+    } = $props();
 </script>
 
 <div class="joiner">
-    <DescribeRoot example={klass.example ?? null} classi={classi} forceSmall={forceSmall} id={klass.name}>
-        <svelte:fragment slot="title">
-            <StyledItem src={klass_src} href={base + path + klass.name} wrap="h1" color="dark" id={setId ? klass.name : null} style={klass.parent === undefined ? "" : "margin-bottom: 0px;"}>
+    <DescribeRoot example={klass.example} classi={classi} forceSmall={forceSmall} id={klass.name}>
+        {#snippet title()}
+            <StyledItem src={klass_src} href={base + path + klass.name} wrap="h1" color="dark" id={setId ? klass.name : undefined} style={klass.parent === undefined ? "" : "margin-bottom: 0px;"}>
                 <Intertweener text={klass.name} properties={titleProperties}/>
             </StyledItem>
             {#if klass.parent !== undefined}
@@ -43,39 +44,43 @@
                     subclasses <Intertweener text={klass.parent} properties={[{component: Highlight, ranges: [{start: 0, stop: klass.parent.length, props: {type: "docs", name: klass.parent, travel: classi.findFromQualifiedName(klass.parent) !== null ? klass.parent : undefined}}]}]}/>
                 </p>
             {/if}
-        </svelte:fragment>
+        {/snippet}
         
         <div>
-            <SlottedTranslatableKey key={klass.description} warn let:value={value}>
-                <Intertweener text={value} properties={[generateChunks(value), ...descriptionProperties]}/>
+            <SlottedTranslatableKey key={klass.description} warn>
+                {#snippet children(value)}
+                    <Intertweener text={value} properties={[generateChunks(value), ...descriptionProperties]}/>
+                {/snippet}
             </SlottedTranslatableKey>
         </div>
 
         {#if Object.values(klass.metatable).length > 0}
             <div style:display="flex" style:justify-content="center" style:margin-top="30px" style:margin-bottom="10px">
                 <table class="metatable-describe">
-                    <tr>
-                        <th>Meta name</th>
-                        <th>Allowed <i>other</i> parameters</th>
-                        <th>Meta execution method</th>
-                    </tr>
-                    {#each Object.entries(klass.metatable) as entry}
+                    <tbody>
                         <tr>
-                            <td><Code>{entry[0]}</Code></td>
-                            <td style:background-color={entry[1].length > 0 ? "" : "#ffffff55"}>
-                                {#if entry[1].length > 0}
-                                    <ul>
-                                        {#each entry[1] as k}
-                                            <li>{k}</li>
-                                        {/each}
-                                    </ul>
-                                {/if}
-                            </td>
-                            <td>
-                                <Code>{metainfo[entry[0]].format}</Code>
-                            </td>
+                            <th>Meta name</th>
+                            <th>Allowed <i>other</i> parameters</th>
+                            <th>Meta execution method</th>
                         </tr>
-                    {/each}
+                        {#each Object.entries(klass.metatable) as entry}
+                            <tr>
+                                <td><Code>{entry[0]}</Code></td>
+                                <td style:background-color={entry[1].length > 0 ? "" : "#ffffff55"}>
+                                    {#if entry[1].length > 0}
+                                        <ul>
+                                            {#each entry[1] as k}
+                                                <li>{k}</li>
+                                            {/each}
+                                        </ul>
+                                    {/if}
+                                </td>
+                                <td>
+                                    <Code>{metainfo[entry[0]].format}</Code>
+                                </td>
+                            </tr>
+                        {/each}
+                    </tbody>
                 </table>
             </div>
         {/if}

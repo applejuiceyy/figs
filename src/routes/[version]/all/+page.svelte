@@ -1,4 +1,4 @@
-<script type="ts">
+<script lang="ts">
 
     import { MetaTags } from 'svelte-meta-tags';
     import ClassDescribe from '$lib/content/mainpage/describer/ClassDescribe.svelte';
@@ -7,23 +7,17 @@
     import EnumDescribe from '$lib/content/mainpage/describer/EnumDescribe.svelte';
 
     import ImageFooter from '$lib/content/mainpage/ImageFooter.svelte';
-    import type { Class, Enum, Field, Method } from '$lib/typings/rewrite_docs';
 
     import stats from "$lib/docs/statistics";
 
-    export let data: import('./$types').PageData;
+    let {data}: {data: import('./$types').PageData} = $props();
 
     let s = new stats(data.docs);
 
-    let sortedMethods: Method[];
-    let sortedFields: Field[];
-    let sortedClasses: Class[];
-    let sortedEnums: Enum[];
-
-    $: sortedMethods = s.globalFunctions.sort(s.comparer);
-    $: sortedFields = s.globalVariables.sort(s.comparer);
-    $: sortedClasses = Object.values(s.nonSingletonClasses).sort(s.comparer);
-    $: sortedEnums = Object.values(s.enums).sort(s.comparer);
+    let sortedMethods = $derived(s.globalFunctions.sort(s.comparer));
+    let sortedFields = $derived(s.globalVariables.sort(s.comparer));
+    let sortedClasses = $derived(Object.values(s.nonSingletonClasses).sort(s.comparer));
+    let sortedEnums = $derived(Object.values(s.enums).sort(s.comparer));
 </script>
 
 <MetaTags title="FIGS!!!" description="The thingy applejuice made because they're bored!\n(Now Rewritten :flushed:)"/>

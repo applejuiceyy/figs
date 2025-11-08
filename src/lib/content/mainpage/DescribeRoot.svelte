@@ -1,4 +1,4 @@
-<script type="ts">
+<script lang="ts">
     import Code from "$lib/Code.svelte";
 
     import Background from "./Background.svelte";
@@ -11,27 +11,31 @@
 
     import state from "$lib/state/stores";
     import type { Example } from "$lib/typings/examples_typings";
+    import type { Snippet } from "svelte";
 
-    export let forceSmall: boolean;
-
-    export let id: string | null = null;
-    export let classi: DocsInterface;
-    export let example: Example | null = null;
+    let {forceSmall, id, classi, example, title, children}: {
+        forceSmall: boolean,
+        id?:string,
+        classi: DocsInterface,
+        example?: Example,
+        title: Snippet,
+        children: Snippet
+    } = $props();
 </script>
 
 <Background>
     <div class="method-root" class:force-small={example === null}>
-        <slot name="title" />
+        {@render title()}
 
         {#if id !== null}
             <StarToggle favouriteId={id}/>
         {/if}
 
-        {#if example !== null}
-            <div tabindex="0" class="code-example" class:force-small={forceSmall}>
+        {#if example !== undefined}
+            <div class="code-example" class:force-small={forceSmall}>
                 <PopupDisabler enabled={!$state.examplePopupEnabled}>
                     <Code style="box-sizing: border-box;">
-                        <svelte:fragment slot="title">Example{example.author ? ` by ${example.author}` : ""}:</svelte:fragment>
+                        {#snippet title()}Example{example.author ? ` by ${example.author}` : ""}:{/snippet}
                         <Intertweener text={example.content} properties={[generateHighlightChunks(example.content), generateHints(example.content, classi)]}/>
                     </Code>
                 </PopupDisabler>
@@ -41,7 +45,7 @@
         {/if}
 
         <div style:margin="5px">
-            <slot />
+            {@render children()}
         </div>
     </div>
 </Background>

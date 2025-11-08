@@ -1,12 +1,18 @@
-<script context="module" type="ts">
+<script lang="ts" module>
     let reset = () => {};
 </script>
 
-<script type="ts">
+<script lang="ts">
+    import type { Snippet } from "svelte";
+
     import NavBarButton from "./NavBarButton.svelte";
 
-    export let checked = false;
-    export let button: HTMLButtonElement | null = null;
+    let {checked = false, button = $bindable(), dropdown, children}: {
+        checked?: boolean,
+        button?: HTMLButtonElement,
+        dropdown: Snippet,
+        children: Snippet
+    } = $props();
 
     function handleClick() {
         let state = checked;
@@ -24,13 +30,13 @@
 </script>
 
 <div class="nav-dropdown">
-    <NavBarButton on:click={handleClick} bind:button={button}>
-        <slot/>
+    <NavBarButton onclick={handleClick} bind:button={button}>
+        {@render children()}
     </NavBarButton>
 
     {#if checked}
         <div class="nav-dropdown-window">
-            <slot name="dropdown"/>
+            {@render dropdown()}
         </div>
     {/if}
 </div>

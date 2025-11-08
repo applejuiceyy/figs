@@ -1,4 +1,4 @@
-<script type="ts">
+<script lang="ts">
     import type { Class, Method, Parameter } from "$lib/typings/rewrite_docs";
 
     import method_src from "$lib/resource/method.webp?url";
@@ -23,28 +23,33 @@
     import ParametersDescriber from "$lib/docs/ParametersDescriber.svelte";
     import GhostText from "$lib/intertween/GhostText.svelte";
 
-    export let hostClass: Class;
-    export let method: Method;
+    let {hostClass, method, classi, forceSmall = false, setId = true, path, titleProperties = [], descriptionProperties = []}: {
+        hostClass: Class,
+        method: Method,
 
-    export let classi: DocsInterface;
+        classi: DocsInterface,
 
-    export let forceSmall: boolean = false;
-    export let setId: boolean = true;
+        forceSmall?: boolean,
+        setId?: boolean,
 
-    let shouldShowClass: boolean;
-    let qualifiedName: string;
+        path: string,
 
-    $: shouldShowClass = hostClass.name !== "globals";
-    $: qualifiedName = (shouldShowClass? hostClass.name + "." : "") + method.name;
+        titleProperties?: Property<any>[];
+        descriptionProperties?: Property<any>[];
+    } = $props();
 
-    function processOverload(overload: Parameter[], returns: string, easyInfo: boolean): [string, Property[]] {
+
+
+    let shouldShowClass = $derived(hostClass.name !== "globals");
+    let qualifiedName = $derived((shouldShowClass ? hostClass.name + "." : "") + method.name);
+
+    function processOverload(overload: Parameter[], returns: string, easyInfo: boolean): [string, Property<any>[]] {
         let ret = "";
-        let hints: Range[] = [];
-        let deselector: Range[] = [];
-        let ghost: Range[] = [];
+        let hints: Range<any>[] = [];
+        let deselector: Range<any>[] = [];
+        let ghost: Range<any>[] = [];
 
         let shouldUseColon = !method.static;
-
 
         if (shouldShowClass) {
                     
@@ -118,19 +123,13 @@
         return [ret, [{component:UserDeselector, ranges: deselector}, {component:Highlight, ranges: hints}, {component: GhostText, ranges: ghost}]];
     }
 
-    let superclass: string | null;
 
-    $: superclass = classi.isFromSuperClass(hostClass, method);
-    
-    export let path: string;
-
-    export let titleProperties: Property[] = [];
-    export let descriptionProperties: Property[] = [];
+    let superclass = $derived(classi.isFromSuperClass(hostClass, method));
 </script>
 
-<DescribeRoot example={method.example ?? null} classi={classi} forceSmall={forceSmall} id={qualifiedName}>
-    <svelte:fragment slot="title">
-        <StyledItem src={method_src} href={base + path + qualifiedName} wrap="h1" color="dark" id={setId ? qualifiedName : null} style={superclass === null ? "" : "margin-bottom: 0px;"}>
+<DescribeRoot example={method.example} classi={classi} forceSmall={forceSmall} id={qualifiedName}>
+    {#snippet title()}
+        <StyledItem src={method_src} href={base + path + qualifiedName} wrap="h1" color="dark" id={setId ? qualifiedName : undefined} style={superclass === null ? "" : "margin-bottom: 0px;"}>
             <Intertweener text={qualifiedName} properties={titleProperties}/>
         </StyledItem>
         {#if superclass !== null}
@@ -138,29 +137,32 @@
                 Inherited from <Intertweener text={superclass} properties={[{component: Highlight, ranges: [{start: 0, stop: superclass.length, props:{type: "docs", name: superclass, travel: classi.findFromQualifiedName(superclass) !== null ? superclass : undefined}}]}]}/>
             </p>
         {/if}
-    </svelte:fragment>
+    {/snippet}
 
     <div>
-        <SlottedTranslatableKey key={method.description} warn let:value={value}>
-            <Intertweener text={value} properties={[generateChunks(value), ...descriptionProperties]}/>
+        <SlottedTranslatableKey key={method.description} warn>
+            {#snippet children(value)}
+                <Intertweener text={value} properties={[generateChunks(value), ...descriptionProperties]}/>
+            {/snippet}
         </SlottedTranslatableKey>
     </div>
     <PopupDisabler enabled={!$state.signaturePopupEnabled}>
         <div class="code-example filled" style:margin-top="50px">
             {#each method.parameters as overload, idx}
             {@const processed = processOverload(overload, method.returns[idx], !$state.skilled)}
+                {#snippet addendum()}
+                    <ParametersDescriber classi={classi} describer={[...overload.map(val => ({name: val.name + " accepts", type: val.type})), {name: "Return Value", type: method.returns[idx]}]}/>
+                {/snippet}
+
+
                 <div style:margin-top="10px">
-                    <Code showAddendum={!$state.skilled}>
-                        <svelte:fragment slot="title">
+                    <Code addendum={$state.skilled ? undefined : addendum}>
+                        {#snippet title()}
                             overload {idx + 1}:
-                        </svelte:fragment>
+                        {/snippet}
                         <span style="user-select: all;">
                             <Intertweener text={processed[0]} properties={[generateHighlightChunks(processed[0]), ...processed[1]]}/>
                         </span>
-
-                        <svelte:fragment slot="addendum">
-                            <ParametersDescriber classi={classi} describer={[...overload.map(val => ({name: val.name + " accepts", type: val.type})), {name: "Return Value", type: method.returns[idx]}]}/>
-                        </svelte:fragment>
                     </Code>
                 </div>
             {/each}
